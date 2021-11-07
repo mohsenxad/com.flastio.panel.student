@@ -1,0 +1,24 @@
+<form
+    (ngSubmit)="onSubmit()"
+    #form="ngForm"
+>
+    <legend>
+        Add Skill
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label for="txtSkillTitle">
+                    Skill Title
+                </label>
+                <input
+                    type="text"
+                    name="txtSkillTitle"
+                    id="txtSkillTitle"
+                    [(ngModel)] = 'skill.name'
+                >
+            </li>
+        </ul>
+        <input type="submit" value="Save">
+    </fieldset>
+</form>

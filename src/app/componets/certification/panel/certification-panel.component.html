@@ -1,0 +1,41 @@
+<section>
+    <h2>
+        Certifications
+    </h2>
+    <ul
+        *ngIf="assignedCertificationList && assignedCertificationList.length > 0"
+    >
+        <li
+            *ngFor = 'let assignedCertification of assignedCertificationList'
+        >
+            <dl>
+                <dt>
+                    Name
+                </dt>
+                <dd>
+                    {{assignedCertification.certification.name}}
+                </dd>
+
+                <dt>
+                    Issued Date Year
+                </dt>
+                <dd>
+                    {{assignedCertification.issuedDateYear}}
+                </dd>
+
+                <dt>
+                    Issued Date Month
+                </dt>
+                <dd>
+                    {{assignedCertification.issuedDateMonth}}
+                </dd>
+            </dl>
+            
+        </li>
+        <hr>
+    </ul>
+    <empty-certification
+        *ngIf="!assignedCertificationList || assignedCertificationList.length == 0"
+    ></empty-certification>
+    <assign-certifiction></assign-certifiction>
+</section>

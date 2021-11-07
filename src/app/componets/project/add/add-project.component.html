@@ -1,0 +1,179 @@
+<form
+    *ngIf = "pageTitle == 'General'"
+    #form="ngForm"
+>
+    <legend>
+        Project
+    </legend>
+    <details>
+        <summary>
+            How to add a project?
+        </summary>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis suscipit leo, id pretium lacus blandit at. Nam finibus varius nunc, cursus semper elit porttitor suscipit. Nunc tincidunt purus quis finibus accumsan. Proin ornare, augue at faucibus pretium, tellus odio consectetur enim.
+        </p>
+    </details>
+    <fieldset>
+        <ul>
+            <li>
+                <label for="slctProjectType">
+                    Project Type
+                </label>
+                <select-type-project
+                    id = 'slctProjectType'
+                    (onProjectTypeSelected) = 'setProjecType($event)'
+                ></select-type-project>
+            </li>
+            <li>
+                <label for="txtProjectName">
+                    Project’s name
+                </label>
+                <input
+                    type = "text"
+                    name = "txtProjectName"
+                    id = "txtProjectName"
+                    [(ngModel)] = 'project.name'
+                    placeholder = "Enter name of project"
+                >
+            </li>
+            <li
+                *ngIf = "!project.course"
+            >
+                <label
+                    for = "divSelectCourse"
+                >
+                    Related course
+                </label>
+                <div
+                    id = 'divSelectCourse'
+                >
+                    <add-course
+                        [major]="student.major"                    
+                        (onCourseSelected)="setCoursse($event)"
+                    >
+                    </add-course>
+                    <search-course
+                        [major]="student.major"
+                        (onCourseSelected)="setCoursse($event)"
+                    ></search-course>
+                </div>
+            </li>
+            <li
+                *ngIf = "project.course"
+            >
+                <label
+                    for = "divSelectedCourse"
+                >
+                    Related course
+                </label>
+                <div
+                    id = 'divSelectedCourse'
+                >
+                    {{project.course.name}}
+                </div>
+            </li>
+            <li>
+                
+                <label for="txtDescription">
+                    Description
+                </label>
+                <textarea
+                    name="txtDescription"
+                    id="txtDescription"
+                    rows = "5"
+                    [(ngModel)] = 'project.description'
+                    placeholder = "Brief description is recommended for projects"
+                ></textarea>
+            </li>
+            <li>
+                
+                <label for="divSkill">
+                    Add Project Topics
+                </label>
+                <div
+                    id = 'divSkill'
+                >
+                    <add-skill
+                        (onSkillSelected) = 'addSkill($event)'
+                    ></add-skill>
+                    <search-skill
+                        (onSkillSelected) = 'addSkill($event)'
+                    ></search-skill>
+                </div>
+            </li>
+            <li>
+                <label for="divAssignedSkill">
+                    Project Assigned Skill List
+                </label>
+                <div
+                    id = 'divAssignedSkill'
+                >
+                    <ul
+                        *ngIf="project && project.skillList && project.skillList.length > 0" 
+                    >
+                        <li
+                            *ngFor = 'let skill of project.skillList'
+                        >
+                            {{skill.name}}
+                            <button
+                                (click)="removeSkillFromProject(skill)"
+                            >
+                                Remove
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                
+                <label for="slctYearCompleted">
+                    Year Completed
+                </label>
+                <year-select
+                    id = 'slctYearCompleted'
+                    (onYearSelected) = 'setYearCompleted($event)'
+                ></year-select>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+<form
+*ngIf = "pageTitle == 'Attachment'"
+>
+    <legend>
+        Add Supporting Files
+    </legend>
+    <fieldset>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis suscipit leo, id pretium lacus blandit at. Nam finibus varius nunc, cursus semper elit porttitor suscipit. Nunc tincidunt purus quis finibus accumsan. Proin ornare, augue at faucibus pretium, tellus odio consectetur enim, non pharetra nulla nibh vitae lectus. 
+        </p>
+        <ul>
+            <li>
+                <label for="filAttachment">
+                    Project’s Attachment
+                </label>
+                <input
+                    type = "file"
+                    name = "filAttachment"
+                    id = "filAttachment"
+                    [(ngModel)] = 'attachmentFile'
+                    placeholder = "Add Attachment"
+                >
+            </li>
+        </ul>
+    </fieldset>
+</form>
+<add-paging-project
+    (onPageTitleSelected) = 'changePage($event)'
+></add-paging-project>
+
+<button
+    (click)="draft()"
+>
+    Save draft
+</button>
+<button
+    (click)="publish()"
+>
+    Publish
+</button>

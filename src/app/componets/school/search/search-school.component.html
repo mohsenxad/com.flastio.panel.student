@@ -1,0 +1,32 @@
+
+<form>
+    <legend>
+        Search School
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label for="txtSchoolKeyWord">
+                    Type To Search in School:
+                </label>
+                <input
+                    type = "text"
+                    name = "txtSchoolKeyWord"
+                    id = "txtSchoolKeyWord"
+                    [(ngModel)] = 'schoolKeyWord'
+                    (keyup) = "onKeyup($event)"
+                >
+            </li>
+        </ul>
+    </fieldset>
+    <ul
+        *ngIf="schoolList && schoolList.length > 0"
+    >
+        <li
+            *ngFor = 'let school of schoolList'
+            (click) = 'selected(school)'
+        >
+            {{school.name}}
+        </li>
+    </ul>
+</form>

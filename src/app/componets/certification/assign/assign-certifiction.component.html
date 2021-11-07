@@ -1,0 +1,50 @@
+
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <legend>
+        Add Certification
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label for="divCertification">
+                    Certification name
+                </label>
+                <div
+                    id= 'divCertification'
+                    name = 'divCertification'
+                >
+                    <search-certification
+                        (onCertificationSelected) = 'onCertificationSet($event)'
+                    ></search-certification>
+                    <add-certification
+                        (onCertificationSelected) = 'onCertificationSet($event)'
+                    ></add-certification>
+                </div>
+            </li>
+            <li>
+                <label for="divDateIssued">
+                    Date issued
+                </label>
+                <div
+                    id= 'divDateIssued'
+                    name = 'divDateIssued'
+                >
+                <input
+                    type="tel"
+                    name="txtGraduationMonth"
+                    id="txtGraduationMonth"
+                    [(ngModel)] = 'assignedCertification.issuedDateMonth'
+                >
+                <input
+                    type="tel"
+                    name="txtGraduationYear"
+                    id="txtGraduationYear"
+                    [(ngModel)] = 'assignedCertification.issuedDateYear'
+                >
+                </div>
+            </li>
+        </ul>
+        <input type="submit" value="Save">
+    </fieldset>
+</form>

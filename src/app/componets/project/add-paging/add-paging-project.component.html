@@ -1,0 +1,23 @@
+<nav>
+    <ul>
+        <li
+            *ngFor = 'let pageTitle of pageTitleList'
+        >
+            
+            <label
+                [attr.for] = "pageTitle"
+            >
+                {{pageTitle}}
+            </label>
+            <input
+                type="radio"
+                name = 'pageTitle'
+                [attr.id]="pageTitle"
+                value="{{pageTitle}}"
+                [(ngModel)]="selectedPageTitle"
+                (change)="changePageTitle(pageTitle)"
+            >
+        </li>
+    </ul>
+</nav>
+

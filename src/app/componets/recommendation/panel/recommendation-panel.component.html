@@ -1,0 +1,37 @@
+<section>
+    <h2>
+        Recommendations
+    </h2>
+    <ul
+        *ngIf="recommendationList && recommendationList.length > 0"
+    >
+        <li
+            *ngFor = 'let recommendation of recommendationList'
+        >
+            <dl>
+                <dt>
+                    Name
+                </dt>
+                <dt>
+                    {{recommendation.recommenderName}}
+                </dt>
+
+                <dt>
+                    Position
+                </dt>
+                <dt>
+                    {{recommendation.recommenderPosition}}
+                </dt>
+
+            </dl>
+            <hr>
+        </li>
+    </ul>
+    <button>
+        Ask for a recommendation
+    </button>
+    <empty-recommendation
+        *ngIf="!recommendationList || recommendationList.length == 0"
+    ></empty-recommendation>
+    <request-recommendation></request-recommendation>
+</section>

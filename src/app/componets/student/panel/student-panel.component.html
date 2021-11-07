@@ -1,0 +1,99 @@
+
+<section
+    id='secStudentInfo'
+    *ngIf = "student"
+>
+<dl>
+    <dt>
+        picture
+    </dt>
+    <dd>
+
+    </dd>
+    <dt>
+        FistName
+    </dt>
+    <dd>
+        {{student.firstName}}
+    </dd>
+    <dt>
+        LastName
+    </dt>
+    <dd>
+        {{student.lastName}}
+    </dd>
+    <dt>
+        Major
+    </dt>
+    <dd>
+        {{student.major.name}}
+    </dd>
+    <dt>
+        Graduation Year
+    </dt>
+    <dd>
+        {{student.graduationYear}}
+    </dd>
+    <dt>
+        Graduation Month
+    </dt>
+    <dd>
+        {{student.graduationMonth}}
+    </dd>
+    <dt>
+        School
+    </dt>
+    <dd>
+        {{student.school.name}}
+    </dd>
+</dl>
+<nav>
+    <ul>
+        <li>
+            Share
+        </li>
+        <li>
+            Public View
+        </li>
+        <li>
+            Add Project
+        </li>
+    </ul>
+</nav>
+</section>
+
+<skill-panel
+    *ngIf = "student"
+    [skillList]="student.skillList"
+></skill-panel>
+<section
+    id='secResumeAndTranscript'
+>
+    <h2>
+        Resume & Transcript
+    </h2>
+</section>
+
+<project-panel
+    *ngIf = "student"
+    [projectList] = 'student.projectList'
+></project-panel>
+
+<certification-panel
+    *ngIf = "student"
+    [assignedCertificationList] = 'student.assignedCertificationList'
+></certification-panel>
+
+
+<recommendation-panel
+    *ngIf = "student"
+    [recommendationList] = 'student.recommendationList'
+></recommendation-panel>
+
+<section
+    id = 'secWork Style'
+>
+    <h2>
+        Work Style
+    </h2>
+</section>

@@ -1,0 +1,24 @@
+<form
+    (ngSubmit)="onSubmit()"
+    #form="ngForm"
+>
+    <legend>
+        Add School
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label for="txtSchoolName">
+                    School Name
+                </label>
+                <input
+                    type="text"
+                    name="txtSchoolName"
+                    id="txtSchoolName"
+                    [(ngModel)] = 'school.name'
+                >
+            </li>
+        </ul>
+        <input type="submit" value="Save">
+    </fieldset>
+</form>

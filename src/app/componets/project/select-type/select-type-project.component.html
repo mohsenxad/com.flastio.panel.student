@@ -1,0 +1,23 @@
+
+<ul>
+    <li
+        *ngFor = 'let projectType of projectTypeList'
+    >
+        
+        <label
+            [attr.for] = "projectType"
+        >
+            {{projectType}}
+        </label>
+        <input
+            type="radio"
+            name = 'projectType'
+            [attr.id]="projectType"
+            value="{{projectType}}"
+            [(ngModel)]="selectedProjectType"
+            (change)="changeProjectType(projectType)"
+        >
+    </li>
+</ul>
+
+

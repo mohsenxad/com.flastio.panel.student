@@ -1,0 +1,91 @@
+
+<form
+    (ngSubmit)="onSubmit()"
+    #form="ngForm"
+>
+    <legend>
+        Tell about yourself
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label for="flProfilePicture">
+                    Profile Picture
+                </label>
+                <input
+                    type="file"
+                    name="flProfilePicture"
+                    id="flProfilePicture"
+                    (change)="onProfileImageChanged(profilePicture.file)"
+                >
+            </li>
+            <li>
+                <label for="txtCountryRegion">
+                    Country/Region
+                </label>
+                <input
+                    type="text"
+                    name="txtCountryRegion"
+                    id="txtCountryRegion"
+                    [(ngModel)] = 'student.countryRegion'
+                >
+            </li>
+            <li>
+                
+                <label for="txtPostalCode">
+                    Postal code
+                </label>
+                <input
+                    type="tel"
+                    name="txtPostalCode"
+                    id="txtPostalCode"
+                    [(ngModel)] = 'student.postalCode'
+                >
+            </li>
+            <li>
+                <label for="slcGender">
+                    Gender
+                </label>
+                <gender-select
+                    id = 'slcGender'
+                ></gender-select>
+            </li>
+
+            <li>
+                <label for="slcEthnicity">
+                    Ethnicity
+                </label>
+                <ethnicity-select
+                    id= 'slcEthnicity'
+                ></ethnicity-select>
+            </li>
+
+            <li>
+                
+                <label for="chkShareGender">
+                    Share my gender with employers
+                </label>
+                <input
+                    type="checkbox"
+                    name="chkShareGender"
+                    id="chkShareGender"
+                    [(ngModel)] = 'student.isGenderSharable'
+                >
+            </li>
+
+            <li>
+                
+                <label for="chkShareEthnicity">
+                    Share my ethnicity with employers
+                </label>
+                <input
+                    type="checkbox"
+                    name="chkShareEthnicity"
+                    id="chkShareEthnicity"
+                    [(ngModel)] = 'student.isEthnicitySharable'
+                >
+            </li>
+        </ul>
+        <input type="submit" value="Continue">
+    </fieldset>
+</form>

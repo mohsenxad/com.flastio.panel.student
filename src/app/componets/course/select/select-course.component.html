@@ -1,0 +1,22 @@
+<form
+    #form="ngForm"
+>
+    <legend>
+        Add Course
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label for="txtCourseName">
+                    Course Name Keyword
+                </label>
+                <input
+                    type="text"
+                    name="txtCourseName"
+                    id="txtCourseName"
+                    [(ngModel)] = 'courseNameKeyword'
+                >
+            </li>
+        </ul>
+    </fieldset>
+</form>

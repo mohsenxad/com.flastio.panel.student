@@ -1,0 +1,24 @@
+<form
+    (ngSubmit)="onSubmit()"
+    #form="ngForm"
+>
+    <legend>
+        Add Major
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label for="txtMajorName">
+                    Major Name
+                </label>
+                <input
+                    type="text"
+                    name="txtMajorName"
+                    id="txtMajorName"
+                    [(ngModel)] = 'major.name'
+                >
+            </li>
+        </ul>
+        <input type="submit" value="Save">
+    </fieldset>
+</form>
