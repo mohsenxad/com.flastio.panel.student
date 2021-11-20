@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
 
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
 
-  email: string = 'mohsenxad@gmail.com';
-  password: string = '1245780';
+  email: string;
+  password: string;
 
   constructor(
     private localStorageService: LocalStorageService
