@@ -1,0 +1,32 @@
+
+<form
+    #form="ngForm"
+>
+    <legend>
+        Add Supporting Links
+    </legend>
+    <fieldset>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis suscipit leo, id pretium lacus blandit at. Nam finibus varius nunc, cursus semper elit porttitor suscipit. Nunc tincidunt purus quis finibus accumsan. Proin ornare, augue at faucibus pretium, tellus odio consectetur enim, non pharetra nulla nibh vitae lectus. 
+        </p>
+        <ul>
+            <li>
+                <label for="txtLink">
+                    Insert Link
+                </label>
+                <input
+                    type = "url"
+                    name = "txtLink"
+                    id = "txtLink"
+                    [(ngModel)] = 'linkUrl'
+                    placeholder = "Enter link here …"
+                >
+            </li>
+        </ul>
+        <button
+            (click)="processLink()"
+        >
+            Add
+        </button>
+    </fieldset>
+</form>

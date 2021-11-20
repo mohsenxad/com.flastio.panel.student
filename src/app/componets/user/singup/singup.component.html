@@ -6,10 +6,26 @@
     <fieldset>
         <ul>
             <li>
-                Email
+                <label for="txtEmail">
+                    Email:
+                </label>
+                <input
+                    type="email"
+                    name="txtEmail"
+                    id="txtEmail"
+                    [(ngModel)] = 'email'
+                >
             </li>
             <li>
-                password
+                <label for="txtPassword">
+                    Password:
+                </label>
+                <input
+                    type="text"
+                    name="txtPassword"
+                    id="txtPassword"
+                    [(ngModel)] = 'password'
+                >
             </li>
         </ul>
         <input type="submit" value="Signup" />

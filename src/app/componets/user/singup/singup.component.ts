@@ -8,8 +8,8 @@ import * as Realm from "realm-web";
 })
 export class SingupComponent implements OnInit {
 
-  email: string = 'mohsenxad@gmail.com';
-  password: string = '1245780';
+  email: string;
+  password: string;
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
 
 

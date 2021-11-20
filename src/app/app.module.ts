@@ -39,6 +39,7 @@ import { PostalCodeInputComponent } from './componets/share/postal-code-input/po
 import { GenderSelectComponent } from './componets/share/gender-select/gender-select.component';
 import { EthnicitySelectComponent } from './componets/share/ethnicity-select/ethnicity-select.component';
 import { AddDetailStudentComponent } from './componets/student/add-detail/add-detail-student.component';
+import { AssignLinkProjectComponent } from './componets/project/assign-link/assign-link-project.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { AddDetailStudentComponent } from './componets/student/add-detail/add-de
     GenderSelectComponent,
     EthnicitySelectComponent,
     AddDetailStudentComponent,
+    AssignLinkProjectComponent,
   ],
   imports: [
     BrowserModule,

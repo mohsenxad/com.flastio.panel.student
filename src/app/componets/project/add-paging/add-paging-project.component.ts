@@ -13,6 +13,7 @@ export class AddPagingProjectComponent implements OnInit {
     'General',
     'Attachment',
     'Links',
+    'Certification',
     'Team',
   ];
 
