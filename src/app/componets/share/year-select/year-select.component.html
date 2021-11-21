@@ -1,23 +1,15 @@
-
 <ul>
-    <li
-        *ngFor = 'let year of yearList'
-    >
-        
-        <label
-            [attr.for] = "year"
-        >
-            {{year}}
-        </label>
-        <input
-            type="radio"
-            name = 'year'
-            [attr.id]="year"
-            value="{{year}}"
-            [(ngModel)]="selectedYear"
-            (change)="changeYear(year)"
-        >
-    </li>
+  <li *ngFor="let year of yearList">
+    <input
+      type="radio"
+      name="year"
+      [attr.id]="year"
+      value="{{ year }}"
+      [(ngModel)]="selectedYear"
+      (change)="changeYear(year)"
+    />
+    <label [attr.for]="year">
+      {{ year }}
+    </label>
+  </li>
 </ul>
-
-

@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "studentPanel"
+    }
+  },
+  "defaultProject": "studentPanel",
+  "cli": {
+    "analytics": false
+  }
 }
