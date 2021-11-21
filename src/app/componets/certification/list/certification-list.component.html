@@ -1,0 +1,11 @@
+<ul>
+    <li
+        *ngFor = 'let assignedCertification of assignedCertificationList'
+    >
+        <certification-list-item
+            [assignedCertification] = 'assignedCertification'
+        ></certification-list-item>
+        
+    </li>
+    <hr>
+</ul>

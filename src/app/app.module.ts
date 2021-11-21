@@ -40,6 +40,16 @@ import { GenderSelectComponent } from './componets/share/gender-select/gender-se
 import { EthnicitySelectComponent } from './componets/share/ethnicity-select/ethnicity-select.component';
 import { AddDetailStudentComponent } from './componets/student/add-detail/add-detail-student.component';
 import { AssignLinkProjectComponent } from './componets/project/assign-link/assign-link-project.component';
+import { ProjectListComponent } from './componets/project/list/project-list.component';
+import { ProjectListItemComponent } from './componets/project/list-item/project-list-item.component';
+import { CertificationListComponent } from './componets/certification/list/certification-list.component';
+import { CertificationListItemComponent } from './componets/certification/list-item/certification-list-item.component';
+import { RecommendationListItemComponent } from './componets/recommendation/list-item/recommendation-list-item.component';
+import { RecommendationListComponent } from './componets/recommendation/list/recommendation-list.component';
+import { SkillListComponent } from './componets/skill/list/skill-list.component';
+import { SkillListItemComponent } from './componets/skill/list-item/skill-list-item.component';
+
+
 
 @NgModule({
   declarations: [
@@ -80,6 +90,14 @@ import { AssignLinkProjectComponent } from './componets/project/assign-link/assi
     EthnicitySelectComponent,
     AddDetailStudentComponent,
     AssignLinkProjectComponent,
+    ProjectListComponent,
+    ProjectListItemComponent,
+    CertificationListComponent,
+    CertificationListItemComponent,
+    RecommendationListItemComponent,
+    RecommendationListComponent,
+    SkillListComponent,
+    SkillListItemComponent,
   ],
   imports: [
     BrowserModule,

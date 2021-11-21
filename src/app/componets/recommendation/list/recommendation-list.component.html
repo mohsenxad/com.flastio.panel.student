@@ -1,0 +1,10 @@
+<ul>
+    <li
+        *ngFor = 'let recommendation of recommendationList'
+    >
+        <recommendation-list-item
+            [recommendation] = 'recommendation'
+        ></recommendation-list-item>
+        <hr>
+    </li>
+</ul>

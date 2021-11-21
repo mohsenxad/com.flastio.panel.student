@@ -1,0 +1,12 @@
+<ul
+        *ngIf="projectList && projectList.length > 0"
+    >
+        <li
+            *ngFor = 'let project of projectList'
+        >
+            <project-list-item
+                [project] = 'project'
+            ></project-list-item>
+        </li>
+        <hr>
+    </ul>

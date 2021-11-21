@@ -2,70 +2,12 @@
     <h2>
         Projects
     </h2>
-    <ul
+    <project-list
         *ngIf="projectList && projectList.length > 0"
-    >
-        <li
-            *ngFor = 'let project of projectList'
-        >
-            <dl>
-                <dt>
-                    Publish Status
-                </dt>
-                <dd>
-                    {{project.isPublished}}
-                </dd>
+        [projectList] = "projectList"
+    ></project-list>
 
-                <dt>
-                    Name
-                </dt>
-                <dd>
-                    {{project.name}}
-                </dd>
-
-                <dt>
-                    Year Completed
-                </dt>
-                <dd>
-                    {{project.yearCompleted}}
-                </dd>
-
-                <dt>
-                    Course
-                </dt>
-                <dd>
-                    {{project.course.name}}
-                </dd>
-
-                <dt>
-                    Description
-                </dt>
-                <dd>
-                    {{project.description}}
-                </dd>
-                <dt
-                    *ngIf = "project.skillList && project.skillList.length > 0"
-                >
-                    Skills
-                </dt>
-                <dd
-                    *ngIf = "project.skillList && project.skillList.length > 0"
-                >
-                   <ul>
-                       <li
-                        *ngFor = 'let skill of project.skillList'
-                       >
-                           {{skill.name}}
-                       </li>
-                   </ul>
-                    
-                </dd>
-
-            </dl>
-            
-        </li>
-        <hr>
-    </ul>
+    
     <empty-project
         *ngIf="!projectList || projectList.length == 0"
     ></empty-project>

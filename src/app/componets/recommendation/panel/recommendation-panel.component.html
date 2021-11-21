@@ -2,31 +2,11 @@
     <h2>
         Recommendations
     </h2>
-    <ul
-        *ngIf="recommendationList && recommendationList.length > 0"
-    >
-        <li
-            *ngFor = 'let recommendation of recommendationList'
-        >
-            <dl>
-                <dt>
-                    Name
-                </dt>
-                <dt>
-                    {{recommendation.recommenderName}}
-                </dt>
-
-                <dt>
-                    Position
-                </dt>
-                <dt>
-                    {{recommendation.recommenderPosition}}
-                </dt>
-
-            </dl>
-            <hr>
-        </li>
-    </ul>
+    <recommendation-list
+        *ngIf = "recommendationList && recommendationList.length > 0"
+        [recommendationList] = 'recommendationList'
+    ></recommendation-list>
+    
     <button>
         Ask for a recommendation
     </button>
