@@ -50,6 +50,9 @@ import { SkillListComponent } from './componets/skill/list/skill-list.component'
 import { SkillListItemComponent } from './componets/skill/list-item/skill-list-item.component';
 import { ProjectActionPanelComponent } from './componets/project/action-panel/project-action-panel.component';
 import { StudentInfoComponent } from './componets/student/info/student-info.component';
+import { LinkUrlPanelComponent } from './componets/urlLink/panel/link-url-panel.component';
+import { LinkUrlListComponent } from './componets/urlLink/list/link-url-list.component';
+import { LinkUrlListItemComponent } from './componets/urlLink/list-item/link-url-list-item.component';
 
 
 
@@ -103,6 +106,9 @@ import { StudentInfoComponent } from './componets/student/info/student-info.comp
     SkillListItemComponent,
     ProjectActionPanelComponent,
     StudentInfoComponent,
+    LinkUrlPanelComponent,
+    LinkUrlListComponent,
+    LinkUrlListItemComponent,
   ],
   imports: [
     BrowserModule,

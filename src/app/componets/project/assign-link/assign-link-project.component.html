@@ -30,3 +30,37 @@
         </button>
     </fieldset>
 </form>
+
+<ul
+    *ngIf="linkUrlList && linkUrlList.length > 0"
+>
+    <li
+        *ngFor = 'let linkUrl of linkUrlList'
+    >
+        <dl>
+            <dt>
+                Title
+            </dt>
+            <dd>
+                {{linkUrl.title}}
+            </dd>
+
+            <dt>
+                Host
+            </dt>
+            <dd>
+                {{linkUrl.host}}
+            </dd>
+
+            <dt>
+                Delete
+            </dt>
+            <dd>
+                <button>
+                    Delete
+                </button>
+            </dd>
+        </dl>
+    </li>
+    <hr>
+</ul>

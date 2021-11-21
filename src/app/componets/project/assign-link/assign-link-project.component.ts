@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LinkUrl } from '../../model/linkUrl';
 
 @Component({
   selector: 'assign-link-project',
@@ -8,13 +9,25 @@ import { Component, OnInit } from '@angular/core';
 export class AssignLinkProjectComponent implements OnInit {
 
   linkUrl:String;
+  linkUrlList: LinkUrl[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  processLink(){
+  getLinkInfo(url: String){
+    let newLinkUrl : LinkUrl = {
+      title:'New Link From Url',
+      host: 'Youtube',
+      url: this.linkUrl
+    };
+    return newLinkUrl;
+  }
 
+  processLink(){
+    let newLinkUrl = this.getLinkInfo(this.linkUrl);
+    this.linkUrlList.push(newLinkUrl);
   }
 
 
