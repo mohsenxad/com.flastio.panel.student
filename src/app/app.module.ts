@@ -49,6 +49,8 @@ import { RecommendationListComponent } from './componets/recommendation/list/rec
 import { SkillListComponent } from './componets/skill/list/skill-list.component';
 import { SkillListItemComponent } from './componets/skill/list-item/skill-list-item.component';
 import { ProjectActionPanelComponent } from './componets/project/action-panel/project-action-panel.component';
+import { StudentInfoComponent } from './componets/student/info/student-info.component';
+
 
 
 
@@ -100,6 +102,7 @@ import { ProjectActionPanelComponent } from './componets/project/action-panel/pr
     SkillListComponent,
     SkillListItemComponent,
     ProjectActionPanelComponent,
+    StudentInfoComponent,
   ],
   imports: [
     BrowserModule,
