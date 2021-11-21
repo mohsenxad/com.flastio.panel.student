@@ -84,6 +84,7 @@ export class AddProjectComponent implements OnInit {
       this.project.projectType,
       this.project.name,
       this.project.course,
+      this.project.description,
       this.project.skillList,
       this.project.yearCompleted,
       this.project.isPublished,

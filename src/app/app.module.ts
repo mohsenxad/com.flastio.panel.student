@@ -48,6 +48,7 @@ import { RecommendationListItemComponent } from './componets/recommendation/list
 import { RecommendationListComponent } from './componets/recommendation/list/recommendation-list.component';
 import { SkillListComponent } from './componets/skill/list/skill-list.component';
 import { SkillListItemComponent } from './componets/skill/list-item/skill-list-item.component';
+import { ProjectActionPanelComponent } from './componets/project/action-panel/project-action-panel.component';
 
 
 
@@ -98,6 +99,7 @@ import { SkillListItemComponent } from './componets/skill/list-item/skill-list-i
     RecommendationListComponent,
     SkillListComponent,
     SkillListItemComponent,
+    ProjectActionPanelComponent,
   ],
   imports: [
     BrowserModule,
