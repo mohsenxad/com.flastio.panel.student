@@ -1,30 +1,42 @@
-<form (ngSubmit)="onSubmit()" #form="ngForm">
+<section>
+  <div>
+    <a href="#">Flastio</a>
+    <h1>Use Flastio and land your dream job</h1>
+    <img
+      src="/assets/images/clip-busy-day-at-the-office@3x.webp"
+      alt="images"
+    />
+  </div>
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
     <legend>Login</legend>
     <fieldset>
-        <ul>
-            <li>
-                <label for="txtEmail">
-                    Email:
-                </label>
-                <input
-                    type="email"
-                    name="txtEmail"
-                    id="txtEmail"
-                    [(ngModel)] = 'email'
-                >
-            </li>
-            <li>
-                <label for="txtPassword">
-                    Password:
-                </label>
-                <input
-                    type="text"
-                    name="txtPassword"
-                    id="txtPassword"
-                    [(ngModel)] = 'password'
-                >
-            </li>
-        </ul>
-        <input type="submit" value="Login">
+      <ul>
+        <li>
+          <label for="txtEmail"> Email Address </label>
+          <input
+            type="email"
+            name="txtEmail"
+            id="txtEmail"
+            placeholder="Enter your .edu email address"
+            [(ngModel)]="email"
+          />
+        </li>
+        <li>
+          <label for="txtPassword"> Password: </label>
+          <input
+            type="text"
+            name="txtPassword"
+            id="txtPassword"
+            [(ngModel)]="password"
+            placeholder="Enter your password"
+          />
+        </li>
+      </ul>
+      <button>Sign up</button>
+      <p>
+        By signing up, I agree to the Flastio <span>Privacy Policy</span> and
+        <span>Terms of Service.</span>
+      </p>
     </fieldset>
-</form>
+  </form>
+</section>

@@ -1,0 +1,12 @@
+<svg fill="#fff" stroke="#FFF" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter color-interpolation-filters="auto" id="a">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.573954 0 0 0 0 0.573954 0 0 0 0 0.616225 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g transform="translate(-785 -2771)">
+        <g stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="m798.07 2780.86-6.07 6.07 6.07 6.07M809 2786.93h-16.83"/>
+        </g>
+    </g>
+</svg>
