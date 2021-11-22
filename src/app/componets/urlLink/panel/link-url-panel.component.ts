@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { LinkUrl } from '../../model/linkUrl';
 
 @Component({
-  selector: 'app-link-url-panel',
+  selector: 'link-url-panel',
   templateUrl: './link-url-panel.component.html',
   styleUrls: ['./link-url-panel.component.scss']
 })
 export class LinkUrlPanelComponent implements OnInit {
-
+  @Input() linkUrlList: LinkUrl[];
   constructor() { }
 
   ngOnInit(): void {

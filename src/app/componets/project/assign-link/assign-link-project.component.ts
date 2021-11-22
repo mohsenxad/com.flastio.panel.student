@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LinkUrl } from '../../model/linkUrl';
 
 @Component({
@@ -9,7 +9,8 @@ import { LinkUrl } from '../../model/linkUrl';
 export class AssignLinkProjectComponent implements OnInit {
 
   linkUrl:String;
-  linkUrlList: LinkUrl[] = [];
+  @Input() linkUrlList: LinkUrl[] = [];
+  @Output() onLinkUrlListUpdated = new EventEmitter<LinkUrl[]>();
 
   constructor() { }
 
@@ -28,6 +29,7 @@ export class AssignLinkProjectComponent implements OnInit {
   processLink(){
     let newLinkUrl = this.getLinkInfo(this.linkUrl);
     this.linkUrlList.push(newLinkUrl);
+    this.onLinkUrlListUpdated.emit(this.linkUrlList);
   }
 
 

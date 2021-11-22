@@ -1,4 +1,5 @@
 import { Course } from "./course";
+import { LinkUrl } from "./linkUrl";
 import { Skill } from "./skill";
 
 export interface Project {
@@ -12,4 +13,5 @@ export interface Project {
     yearCompleted?: Number,
     course?: Course,
     isPublished?:Boolean,
+    linkUrlList?: LinkUrl[],
 }

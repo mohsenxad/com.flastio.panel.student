@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { LinkUrl } from '../../model/linkUrl';
 
 @Component({
-  selector: 'app-link-url-list-item',
+  selector: 'link-url-list-item',
   templateUrl: './link-url-list-item.component.html',
   styleUrls: ['./link-url-list-item.component.scss']
 })
 export class LinkUrlListItemComponent implements OnInit {
+
+  @Input() linkUrl: LinkUrl;
 
   constructor() { }
 

@@ -1,1 +1,9 @@
-<p>link-url-panel works!</p>
+<section>
+    <h2>
+        Project supporting files/links
+    </h2>
+    <linkUrlList-list
+        *ngIf="linkUrlList && linkUrlList.length > 0"
+        [linkUrlList] = "linkUrlList"
+    ></linkUrlList-list>
+</section>
