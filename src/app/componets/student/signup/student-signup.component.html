@@ -1,105 +1,81 @@
-
-<form (ngSubmit)="onSubmit()" #form="ngForm">
-    <legend>
-        Signup
-    </legend>
+<section>
+  <div>
+    <a href="#">Flastio</a>
+    <h1>Use Flastio and land your dream job</h1>
+    <img
+      src="/assets/images/clip-busy-day-at-the-office@3x.webp"
+      alt="images"
+    />
+  </div>
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <legend>Signup</legend>
     <fieldset>
-        <ul>
-            <li>
-                <label for="txtFirstName">
-                    First Name
-                </label>
-                <input
-                    type="text"
-                    name="txtFirstName"
-                    id="txtFirstName"
-                    [(ngModel)] = 'student.firstName'
-                >
-            </li>
-            <li>
-                <label for="txtLastName">
-                    Last Name
-                </label>
-                <input
-                    type="text"
-                    name="txtLastName"
-                    id="txtLastName"
-                    [(ngModel)] = 'student.lastName'
-                >
-            </li>
-            <li>
-                
-                <label for="txtMobileNumber">
-                    Mobile Number
-                </label>
-                <input
-                    type="tel"
-                    name="txtCountryMobileNumberCode"
-                    id="txtCountryMobileNumberCode"
-                    [(ngModel)] = 'student.countryMobileNumberCode'
-                >
-                <input
-                    type="tel"
-                    name="txtMobileNumber"
-                    id="txtMobileNumber"
-                    [(ngModel)] = 'student.mobileNumber'
-                >
-            </li>
-            <li>
-                
-                <label for="divSchool">
-                    Your School
-                </label>
-                <div
-                    name="divSchool"
-                    id="divSchool"
-                >
-                    <add-school
-                        (onSchoolSelected) = 'onSchoolSet($event)'
-                    ></add-school>
+      <ul>
+        <li>
+          <label for="txtFirstName"> First Name </label>
+          <input
+            type="text"
+            name="txtFirstName"
+            id="txtFirstName"
+            [(ngModel)]="student.firstName"
+          />
+        </li>
+        <li>
+          <label for="txtLastName"> Last Name </label>
+          <input
+            type="text"
+            name="txtLastName"
+            id="txtLastName"
+            [(ngModel)]="student.lastName"
+          />
+        </li>
+        <li>
+          <label for="txtMobileNumber"> Mobile Number </label>
+          <input
+            type="tel"
+            name="txtCountryMobileNumberCode"
+            id="txtCountryMobileNumberCode"
+            [(ngModel)]="student.countryMobileNumberCode"
+          />
+          <input
+            type="tel"
+            name="txtMobileNumber"
+            id="txtMobileNumber"
+            [(ngModel)]="student.mobileNumber"
+          />
+        </li>
+        <li>
+          <div name="divSchool" id="divSchool">
+            <add-school (onSchoolSelected)="onSchoolSet($event)"></add-school>
 
-                    <search-school
-                        (onSchoolSelected) = 'onSchoolSet($event)'
-                    ></search-school>
-                </div>
-            </li>
-            <li>
-                
-                <label for="divMajor">
-                    Major
-                </label>
-                <div
-                    name="divMajor"
-                    id="divMajor"
-                >
-                    <add-major
-                        (onMajorSelected) = 'onMajorSet($event)'
-                    ></add-major>
-                    <search-major
-                        (onMajorSelected) = 'onMajorSet($event)'
-                    ></search-major>
-                </div>
-                
-            </li>
-            <li>
-                
-                <label for="txtGraduationMonth">
-                    Anticipated graduation date
-                </label>
-                <input
-                    type="tel"
-                    name="txtGraduationMonth"
-                    id="txtGraduationMonth"
-                    [(ngModel)] = 'student.graduationMonth'
-                >
-                <input
-                    type="tel"
-                    name="txtGraduationYear"
-                    id="txtGraduationYear"
-                    [(ngModel)] = 'student.graduationYear'
-                >
-            </li>
-        </ul>
-        <input type="submit" value="Continue">
+            <search-school
+              (onSchoolSelected)="onSchoolSet($event)"
+            ></search-school>
+          </div>
+        </li>
+        <li>
+          <div name="divMajor" id="divMajor">
+            <add-major (onMajorSelected)="onMajorSet($event)"></add-major>
+            <search-major (onMajorSelected)="onMajorSet($event)"></search-major>
+          </div>
+        </li>
+        <li>
+          <label for="txtGraduationMonth"> Anticipated graduation date </label>
+          <input
+            type="tel"
+            name="txtGraduationMonth"
+            id="txtGraduationMonth"
+            [(ngModel)]="student.graduationMonth"
+          />
+          <input
+            type="tel"
+            name="txtGraduationYear"
+            id="txtGraduationYear"
+            [(ngModel)]="student.graduationYear"
+          />
+        </li>
+      </ul>
+      <button>Continue</button>
     </fieldset>
-</form>
+  </form>
+</section>

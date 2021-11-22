@@ -19,6 +19,8 @@
             id="txtEmail"
             placeholder="Enter your .edu email address"
             [(ngModel)]="email"
+            maxlength="200"
+            minlength="3"
           />
         </li>
         <li>
@@ -29,6 +31,8 @@
             id="txtPassword"
             [(ngModel)]="password"
             placeholder="Enter your password"
+            maxlength="200"
+            minlength="3"
           />
         </li>
       </ul>

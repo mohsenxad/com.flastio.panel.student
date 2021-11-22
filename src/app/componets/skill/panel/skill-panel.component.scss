@@ -1,0 +1,21 @@
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0a1629;
+  display: flex;
+  align-items: center;
+  margin: 0 9px;
+  &::before{
+      content: url(/assets/images/top-skills.svg);
+      margin-right: 9px;
+  }
+  &::after{
+      content: url(/assets/images/icn-general-hint-dark.svg);
+      margin-left: 9px;
+      cursor: pointer;
+  }
+}

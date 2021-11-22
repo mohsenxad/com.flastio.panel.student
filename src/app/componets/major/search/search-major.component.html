@@ -1,32 +1,22 @@
-
 <form>
-    <legend>
-        Search Major
-    </legend>
-    <fieldset>
-        <ul>
-            <li>
-                <label for="txtMajorKeyWord">
-                    Type To Search in Major:
-                </label>
-                <input
-                    type = "text"
-                    name = "txtMajorKeyWord"
-                    id = "txtMajorKeyWord"
-                    [(ngModel)] = 'majorKeyWord'
-                    (keyup) = "onKeyup($event)"
-                >
-            </li>
-        </ul>
-    </fieldset>
-    <ul
-        *ngIf="majorList && majorList.length > 0"
-    >
-        <li
-            *ngFor = 'let major of majorList'
-            (click) = 'selected(major)'
-        >
-            {{major.name}}
-        </li>
+  <legend>Search Major</legend>
+  <fieldset>
+    <ul>
+      <li>
+        <label for="txtMajorKeyWord"> Type To Search in Major: </label>
+        <input
+          type="text"
+          name="txtMajorKeyWord"
+          id="txtMajorKeyWord"
+          [(ngModel)]="majorKeyWord"
+          (keyup)="onKeyup($event)"
+        />
+      </li>
     </ul>
+  </fieldset>
+  <ul *ngIf="majorList && majorList.length > 0">
+    <li *ngFor="let major of majorList" (click)="selected(major)">
+      {{ major.name }}
+    </li>
+  </ul>
 </form>
