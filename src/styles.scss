@@ -1,9 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 
 @font-face {
-    font-family: NunitoSans;
-    src: url("assets/fonts/NunitoSans-Regular.ttf");
+  font-family: NunitoSans;
+  src: url("assets/fonts/NunitoSans-Regular.ttf");
 }
-body{
-    font-family: NunitoSans;
+body {
+  font-family: NunitoSans;
+  margin: 0;
+}
+
+@font-face {
+  font-family: NunitoSans;
+  font-style: normal;
+  font-weight: bold;
+  src: url("assets/fonts/NunitoSans-Bold.ttf");
+}
+@font-face {
+  font-family: NunitoSans;
+  font-style: normal;
+  font-weight: 500;
+  src: url("assets/fonts/NunitoSans-Regular.ttf");
+}
+@font-face {
+  font-family: IRANSans-web;
+  font-style: normal;
+  font-weight: 300;
+  src: url("assets/fonts/NunitoSans-Light.ttf");
+}
+@font-face {
+  font-family: IRANSans-web;
+  font-style: normal;
+  font-weight: 200;
+  src: url("assets/fonts/NunitoSans-ExtraLight.ttf");
+}
+
+html,
+body {
+  font-family: IRANSans-web, serif;
 }
