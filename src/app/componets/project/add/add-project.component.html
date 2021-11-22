@@ -164,6 +164,8 @@
     </fieldset>
 </form>
 <assign-link-project
+    [linkUrlList] = "project.linkUrlList"
+    (onLinkUrlListUpdated) = 'updateLinkUrlList($event)'
 >
 <!-- *ngIf = "pageTitle == 'Links'" -->
 

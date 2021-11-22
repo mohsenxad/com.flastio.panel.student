@@ -1,1 +1,12 @@
-<p>link-url-list works!</p>
+<ul
+    *ngIf="linkUrlList && linkUrlList.length > 0"
+>
+    <li
+        *ngFor = 'let linkUrl of linkUrlList'
+    >
+        <link-url-list-item
+            [linkUrl] = 'linkUrl'
+        ></link-url-list-item>
+    </li>
+    <hr>
+</ul>

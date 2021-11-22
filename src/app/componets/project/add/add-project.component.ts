@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Realm from "realm-web";
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { Course } from '../../model/course';
+import { LinkUrl } from '../../model/linkUrl';
 import { Project } from '../../model/project';
 import { Skill } from '../../model/skill';
 import { Student } from '../../model/student';
@@ -15,6 +16,7 @@ export class AddProjectComponent implements OnInit {
 
   project :Project = {
     skillList:[],
+    linkUrlList:[],
     isPublished:false,
   };
   student: Student;
@@ -55,6 +57,10 @@ export class AddProjectComponent implements OnInit {
     console.log(this.project);
   }
 
+  updateLinkUrlList(linkUrlList: LinkUrl[]){
+    this.project.linkUrlList = linkUrlList
+  }
+
   removeSkillFromProject(skill:Skill){
     this.project.skillList = this.project.skillList.filter((currentSkill)=>{
       if(currentSkill._id.toString() != skill._id.toString()){
@@ -88,6 +94,7 @@ export class AddProjectComponent implements OnInit {
       this.project.skillList,
       this.project.yearCompleted,
       this.project.isPublished,
+      this.project.linkUrlList,
     );
     console.log(result);
   }
