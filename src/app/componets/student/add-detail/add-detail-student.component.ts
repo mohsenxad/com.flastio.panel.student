@@ -28,6 +28,24 @@ export class AddDetailStudentComponent implements OnInit {
 
   }
 
+  setGender(gender:String){
+    this.student.gender = gender;
+  }
+
+  setEthnicity(ethnicity:String){
+    this.student.ethnicity = ethnicity;
+  }
+
+  setCountryRegion(countryRegion:String){
+    this.student.countryRegion = countryRegion;
+    console.log(this.student.countryRegion);
+    
+  }
+
+  setCollegeStatus(collegeStatus: String){
+    this.student.collegeStatus = collegeStatus;
+  }
+
   async onSubmit(){
     const user: Realm.User = this.app.currentUser;
     let result: any  = await user.functions
@@ -35,8 +53,11 @@ export class AddDetailStudentComponent implements OnInit {
         this.student._id,
         this.student.countryRegion,
         this.student.postalCode,
+        this.student.gender,
         this.student.isGenderSharable,
+        this.student.ethnicity,
         this.student.isEthnicitySharable,
+        this.student.collegeStatus,
       )
     this.student = result;
     this.localStorageService.setStudent(this.student);

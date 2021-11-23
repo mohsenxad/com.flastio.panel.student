@@ -25,5 +25,6 @@ export interface Student {
     isGenderSharable?: Boolean,
     ethnicity?: String,
     isEthnicitySharable?: Boolean,
+    collegeStatus? : String,
 
 }

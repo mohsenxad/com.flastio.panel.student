@@ -1,0 +1,15 @@
+<ul>
+    <li *ngFor="let collegeStatus of collegeStatusList">
+        <input
+        type="radio"
+        name="collegeStatus"
+        [attr.id]="collegeStatus"
+        value="{{ collegeStatus }}"
+        [(ngModel)]="selectedCollegeStatus"
+        (change)="changeCollegeStatus(collegeStatus)"
+        />
+        <label [attr.for]="collegeStatus">
+        {{ collegeStatus }}
+        </label>
+    </li>
+</ul>

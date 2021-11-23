@@ -1,1 +1,15 @@
-<p>ethnicity-select works!</p>
+<ul>
+    <li *ngFor="let ethnicity of ethnicityList">
+        <input
+        type="radio"
+        name="ethnicity"
+        [attr.id]="ethnicity"
+        value="{{ ethnicity }}"
+        [(ngModel)]="selectedEthnicity"
+        (change)="changeEthnicity(ethnicity)"
+        />
+        <label [attr.for]="ethnicity">
+        {{ ethnicity }}
+        </label>
+    </li>
+</ul>

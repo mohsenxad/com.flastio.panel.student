@@ -53,6 +53,8 @@ import { StudentInfoComponent } from './componets/student/info/student-info.comp
 import { LinkUrlPanelComponent } from './componets/urlLink/panel/link-url-panel.component';
 import { LinkUrlListComponent } from './componets/urlLink/list/link-url-list.component';
 import { LinkUrlListItemComponent } from './componets/urlLink/list-item/link-url-list-item.component';
+import { CountryRegionSelectComponent } from './componets/share/country-region-select/country-region-select.component';
+import { CollegeStatusSelectComponent } from './componets/share/college-status-select/college-status-select.component';
 
 
 
@@ -109,6 +111,8 @@ import { LinkUrlListItemComponent } from './componets/urlLink/list-item/link-url
     LinkUrlPanelComponent,
     LinkUrlListComponent,
     LinkUrlListItemComponent,
+    CountryRegionSelectComponent,
+    CollegeStatusSelectComponent,
   ],
   imports: [
     BrowserModule,

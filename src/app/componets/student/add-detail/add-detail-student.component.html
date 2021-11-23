@@ -23,13 +23,12 @@
                 <label for="txtCountryRegion">
                     Country/Region
                 </label>
-                <input
-                    type="text"
-                    name="txtCountryRegion"
+                <country-region-select
                     id="txtCountryRegion"
-                    [(ngModel)] = 'student.countryRegion'
-                >
-            </li>
+                    [selectedCountryRegion] = "student.countryRegion"
+                    (onCountryRegionSelected)="setCountryRegion($event)"
+                ></country-region-select>
+             </li>
             <li>
                 
                 <label for="txtPostalCode">
@@ -48,6 +47,8 @@
                 </label>
                 <gender-select
                     id = 'slcGender'
+                    [selectedGender]="student.gender"
+                    (onGenderSelected)="setGender($event)"
                 ></gender-select>
             </li>
 
@@ -57,6 +58,8 @@
                 </label>
                 <ethnicity-select
                     id= 'slcEthnicity'
+                    [selectedEthnicity]="student.ethnicity"
+                    (onEthnicitySelected)="setEthnicity($event)"
                 ></ethnicity-select>
             </li>
 
@@ -85,6 +88,18 @@
                     [(ngModel)] = 'student.isEthnicitySharable'
                 >
             </li>
+            <li>
+                
+                <label for="slcCollegeStatus">
+                    Which Year of College Are You in?
+                </label>
+                <college-status-select
+                    id = 'slcCollegeStatus'
+                    [selectedCollegeStatus]="student.collegeStatus"
+                    (onCollegeStatusSelected)="setCollegeStatus($event)"
+                ></college-status-select>
+            </li>
+            
         </ul>
         <input type="submit" value="Continue">
     </fieldset>
