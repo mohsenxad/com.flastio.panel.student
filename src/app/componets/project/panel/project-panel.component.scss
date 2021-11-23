@@ -1,0 +1,13 @@
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0a1629;
+  &::before {
+    content: url(/assets/images/project.svg);
+    margin-right: 16px;
+  }
+}
