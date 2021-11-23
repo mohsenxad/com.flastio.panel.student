@@ -1,0 +1,75 @@
+dt {
+  display: none;
+}
+dd {
+  margin: 0;
+  padding: 0;
+}
+dl {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  position: relative;
+  dd {
+    &:nth-child(2) {
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #0a1629;
+    }
+    &:nth-child(4) {
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #91929e;
+    }
+    &:last-child{
+      margin-left: auto;
+    }
+    button {
+       opacity: 0;
+      transition: 0.5s;
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #91929e;
+      padding: 11px 23px 10px 24px;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      cursor: pointer;
+    }
+  }
+  &::before {
+    content: url(/assets/images/icn-general-attach.svg);
+    padding: 8px 10px 3px 10px;
+    border-radius: 14px;
+    background-color: rgba(109, 93, 211, 0.1);
+    margin-right: 16px;
+  }
+  transition: 0.5s;
+
+  &:hover {
+    border-radius: 8px;
+    background-color: #f4f9fd;
+    transition: 0.5s;
+
+    dd {
+      button {
+        transition: 0.5s;
+        opacity: 1;
+
+      }
+    }
+  }
+}
