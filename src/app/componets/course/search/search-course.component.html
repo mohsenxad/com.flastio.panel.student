@@ -19,6 +19,12 @@
             </li>
         </ul>
     </fieldset>
+    <button
+        (click) = "addCrurse()"
+    >
+
+        add {{courseKeyWord}} to {{major.name}}
+    </button>
     <ul
         *ngIf="courseList && courseList.length > 0"
     >

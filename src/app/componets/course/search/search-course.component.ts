@@ -21,6 +21,12 @@ export class SearchCourseComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  async addCrurse(){
+    const user: Realm.User = this.app.currentUser;
+    let newCurse:Course  = await user.functions.addCourse(this.major._id,this.courseKeyWord);
+    this.onCourseSelected.emit(newCurse);
+  }
+
   onKeyup(event) {
     console.log(event);
     if(this.courseKeyWord.length >=3){
@@ -45,8 +51,8 @@ export class SearchCourseComponent implements OnInit {
     }
   }
 
-  selected(major:Major){
-    this.onCourseSelected.emit(major);
+  selected(course:Course){
+    this.onCourseSelected.emit(course);
   }
 
 }
