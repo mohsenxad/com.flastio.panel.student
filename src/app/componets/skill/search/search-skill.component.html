@@ -19,6 +19,12 @@
             </li>
         </ul>
     </fieldset>
+    <button
+        (click) = "addSkill()"
+    >
+
+        add {{skillKeyWord}} to Skills
+    </button>
     <ul
         *ngIf="skillList && skillList.length > 0"
     >

@@ -35,6 +35,13 @@ export class SearchSkillComponent implements OnInit {
     this.skillList = result;
   }
 
+  async addSkill(){
+    const user: Realm.User = this.app.currentUser;
+    let newSkill:Skill  = await user.functions.addSkill(this.skillKeyWord);
+    this.onSkillSelected.emit(newSkill);
+    this.skillKeyWord = '';
+  }
+
   selected(skill:Skill){
     this.onSkillSelected.emit(skill);
   }
