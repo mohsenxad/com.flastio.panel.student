@@ -1,38 +1,24 @@
-
 <form>
-    <legend>
-        Search Course
-    </legend>
-    <fieldset>
-        <ul>
-            <li>
-                <label for="txtCourseKeyWord">
-                    Type To Search in Course:
-                </label>
-                <input
-                    type = "text"
-                    name = "txtCourseKeyWord"
-                    id = "txtCourseKeyWord"
-                    [(ngModel)] = 'courseKeyWord'
-                    (keyup) = "onKeyup($event)"
-                >
-            </li>
-        </ul>
-    </fieldset>
-    <button
-        (click) = "addCrurse()"
-    >
-
-        add {{courseKeyWord}} to {{major.name}}
-    </button>
-    <ul
-        *ngIf="courseList && courseList.length > 0"
-    >
-        <li
-            *ngFor = 'let course of courseList'
-            (click) = 'selected(course)'
-        >
-            {{course.name}}
-        </li>
+  <fieldset>
+    <ul>
+      <li>
+        <label for="txtCourseKeyWord"> Type To Search in Course: </label>
+        <input
+          type="text"
+          name="txtCourseKeyWord"
+          id="txtCourseKeyWord"
+          [(ngModel)]="courseKeyWord"
+          (keyup)="onKeyup($event)"
+        />
+      </li>
     </ul>
+  </fieldset>
+  <button (click)="addCrurse()">
+    add {{ courseKeyWord }} to {{ major.name }}
+  </button>
+  <ul *ngIf="courseList && courseList.length > 0">
+    <li *ngFor="let course of courseList" (click)="selected(course)">
+      {{ course.name }}
+    </li>
+  </ul>
 </form>

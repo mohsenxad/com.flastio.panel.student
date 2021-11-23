@@ -1,0 +1,110 @@
+form {
+  width: 80%;
+  margin: auto;
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #0a1629;
+      display: block;
+      margin-left: 12px;
+    }
+    input {
+      border-radius: 14px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      padding: 13px 18px 14px 18px;
+      display: block;
+      width: 100%;
+      margin: 7px 0 27px 0;
+      &::placeholder {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #0a1629;
+      }
+    }
+  }
+}
+
+dt {
+  display: none;
+}
+ul {
+  list-style: none;
+}
+dl {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+
+  &::before {
+    content: url(/assets/images/icn-general-addlink.svg);
+    padding: 10px 10px 6px 10px;
+    border-radius: 14px;
+    background-color: rgba(21, 192, 230, 0.1);
+    margin-right: 16px;
+  }
+  dd {
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    &:nth-child(2) {
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #0a1629;
+    }
+    &:nth-child(4) {
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #91929e;
+    }
+    &:nth-child(5) {
+      background-color: red;
+    }
+    button {
+      content: url(/assets/images/delete.svg);
+      text-indent: -9000px;
+      display: flex;
+      padding: 3px 5px;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      cursor: pointer;
+    }
+  }
+  transition: 0.5s;
+
+  &:hover{
+    border-radius: 8px;
+    background-color: #f4f9fd;
+    transition: 0.5s;
+  }
+}
