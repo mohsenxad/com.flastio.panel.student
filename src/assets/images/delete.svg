@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter color-interpolation-filters="auto" id="a">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.573954 0 0 0 0 0.573954 0 0 0 0 0.616225 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g transform="translate(-739 -2771)" filter="url(#a)" fill="none" fill-rule="evenodd">
+        <g stroke="#0A1629" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M764 2779.98c-3.33-.33-6.68-.5-10.02-.5-1.98 0-3.96.1-5.94.3l-2.04.2M751.5 2778.97l.22-1.31c.16-.95.28-1.66 1.97-1.66h2.62c1.69 0 1.82.75 1.97 1.67l.22 1.3M761.85 2783.14l-.65 10.07c-.11 1.57-.2 2.79-2.99 2.79h-6.42c-2.79 0-2.88-1.22-2.99-2.79l-.65-10.07M753.33 2790.5h3.33M752.5 2786.5h5"/>
+        </g>
+    </g>
+</svg>
