@@ -19,6 +19,12 @@
             </li>
         </ul>
     </fieldset>
+    <button
+        (click) = "addCertification()"
+    >
+
+        Add {{certificationKeyWord}}
+    </button>
     <ul
         *ngIf="certificationList && certificationList.length > 0"
     >

@@ -1,1 +1,15 @@
-<p>gender-select works!</p>
+<ul>
+    <li *ngFor="let gender of genderList">
+        <input
+        type="radio"
+        name="gender"
+        [attr.id]="gender"
+        value="{{ gender }}"
+        [(ngModel)]="selectedGender"
+        (change)="changeGender(gender)"
+        />
+        <label [attr.for]="gender">
+        {{ gender }}
+        </label>
+    </li>
+</ul>

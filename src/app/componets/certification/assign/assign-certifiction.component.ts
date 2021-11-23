@@ -28,8 +28,11 @@ export class AssignCertifictionComponent implements OnInit {
   }
 
   onCertificationSet(certification: Certification):void{
-    console.log(certification);
     this.assignedCertification.certification = certification;
+  }
+
+  removeCertification(){
+    this.assignedCertification.certification = undefined;
   }
 
   async onSubmit(){

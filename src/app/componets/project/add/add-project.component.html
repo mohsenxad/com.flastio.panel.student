@@ -47,11 +47,6 @@
                 <div
                     id = 'divSelectCourse'
                 >
-                    <add-course
-                        [major]="student.major"                    
-                        (onCourseSelected)="setCoursse($event)"
-                    >
-                    </add-course>
                     <search-course
                         [major]="student.major"
                         (onCourseSelected)="setCoursse($event)"
@@ -70,6 +65,11 @@
                     id = 'divSelectedCourse'
                 >
                     {{project.course.name}}
+                    <button
+                        (click) = "removeCoursse()"
+                    >
+                        Remove
+                    </button>
                 </div>
             </li>
             <li>
@@ -93,9 +93,6 @@
                 <div
                     id = 'divSkill'
                 >
-                    <add-skill
-                        (onSkillSelected) = 'addSkill($event)'
-                    ></add-skill>
                     <search-skill
                         (onSkillSelected) = 'addSkill($event)'
                     ></search-skill>

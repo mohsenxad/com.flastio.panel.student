@@ -48,8 +48,10 @@ export class AddProjectComponent implements OnInit {
 
   setCoursse(course:Course){
     this.project.course = course;
-    console.log(this.project);
-    
+  }
+
+  removeCoursse(){
+    this.project.course = undefined;
   }
 
   addSkill(skill:Skill){

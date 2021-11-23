@@ -48,4 +48,11 @@ export class SearchCertificationComponent implements OnInit {
     this.onCertificationSelected.emit(certification);
   }
 
+  async addCertification(){
+    const user: Realm.User = this.app.currentUser;
+    let newCertification:Certification  = await user.functions.addCertification(this.certificationKeyWord);
+    this.onCertificationSelected.emit(newCertification);
+    this.certificationKeyWord = '';
+  }
+
 }
