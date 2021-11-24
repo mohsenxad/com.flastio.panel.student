@@ -13,6 +13,7 @@ export class SearchSkillComponent implements OnInit {
   skillKeyWord: String;
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   skillList: Skill[];
+  isLoading:Boolean = false;
 
   constructor(){}
 
@@ -29,17 +30,20 @@ export class SearchSkillComponent implements OnInit {
   }
 
   async search(keyword):Promise<void>{
-    console.log(`Searching for ${keyword}`);
+    this.isLoading = true;
     const user: Realm.User = this.app.currentUser;
     let result: any  = await user.functions.searchSkill(keyword);
     this.skillList = result;
+    this.isLoading = false;
   }
 
   async addSkill(){
+    this.isLoading = true;
     const user: Realm.User = this.app.currentUser;
     let newSkill:Skill  = await user.functions.addSkill(this.skillKeyWord);
     this.onSkillSelected.emit(newSkill);
     this.skillKeyWord = '';
+    this.isLoading = false;
   }
 
   selected(skill:Skill){

@@ -10,11 +10,13 @@ import * as Realm from "realm-web";
 })
 export class SearchCourseComponent implements OnInit {
   @Input() major:Major;
+  @Input() selectedCourse:Course;
   @Output() onCourseSelected = new EventEmitter<Course>();
 
   courseKeyWord: String;
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   courseList: Course[];
+  isLoading:Boolean = false;
 
   constructor(){}
 
@@ -22,9 +24,12 @@ export class SearchCourseComponent implements OnInit {
   }
 
   async addCrurse(){
+    this.isLoading = true;
     const user: Realm.User = this.app.currentUser;
     let newCurse:Course  = await user.functions.addCourse(this.major._id,this.courseKeyWord);
+    this.selectedCourse = newCurse;
     this.onCourseSelected.emit(newCurse);
+    this.isLoading = false;
   }
 
   onKeyup(event) {
@@ -37,7 +42,7 @@ export class SearchCourseComponent implements OnInit {
   }
 
   async search(keyword):Promise<void>{
-    console.log(`Searching for ${keyword}`);
+    this.isLoading = true;
     const user: Realm.User = this.app.currentUser;
     let result: any  = await user.functions.searchCourse(this.major._id,keyword);
     if(
@@ -49,10 +54,17 @@ export class SearchCourseComponent implements OnInit {
     }else{
       this.courseList = [];
     }
+    this.isLoading = false;
   }
 
   selected(course:Course){
+    this.selectedCourse = course;
     this.onCourseSelected.emit(course);
+  }
+
+  remove(){
+    this.selectedCourse = undefined;
+    this.onCourseSelected.emit(undefined);
   }
 
 }

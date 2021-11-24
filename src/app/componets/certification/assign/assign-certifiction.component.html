@@ -2,19 +2,12 @@
   <legend>Add Certification</legend>
   <fieldset>
     <ul>
-      <li *ngIf="!this.assignedCertification.certification">
+      <li>
         <label for="divCertification"> Certification name </label>
         <div id="divCertification" name="divCertification">
           <search-certification
             (onCertificationSelected)="onCertificationSet($event)"
           ></search-certification>
-        </div>
-      </li>
-      <li *ngIf="this.assignedCertification.certification">
-        <label for="divCertification"> Certification name </label>
-        <div id="divCertification" name="divCertification">
-          {{ this.assignedCertification.certification.name }}
-          <button (click)="removeCertification()">Remove</button>
         </div>
       </li>
       <li>

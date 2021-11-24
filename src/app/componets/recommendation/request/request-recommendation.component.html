@@ -1,8 +1,9 @@
 <form
-    (ngSubmit)="onSubmit()"
     #form="ngForm"
 >
-<button>
+<button
+    (click)="close()"
+>
     close
 </button>
     <legend>
@@ -60,6 +61,15 @@
                 
             </li>
         </ul>
-        <input type="submit" value="Save">
+        <button
+            (click)="close()"
+        >
+            Cancel
+        </button>
+        <button
+            (click)="send()"
+        >
+            Send
+        </button>
     </fieldset>
 </form>

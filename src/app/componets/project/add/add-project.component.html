@@ -29,21 +29,16 @@
           placeholder="Enter name of project"
         />
       </li>
-      <li *ngIf="!project.course">
+      <li>
         <div id="divSelectCourse">
           <search-course
             [major]="student.major"
+            [seletedCourse] = 'this.project.course'
             (onCourseSelected)="setCoursse($event)"
           ></search-course>
         </div>
       </li>
-      <li *ngIf="project.course">
-        <label for="divSelectedCourse"> Related course </label>
-        <div id="divSelectedCourse">
-          {{ project.course.name }}
-          <button (click)="removeCoursse()">Remove</button>
-        </div>
-      </li>
+
       <li>
         <label for="txtDescription"> Description </label>
         <textarea
