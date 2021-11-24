@@ -1,0 +1,46 @@
+nav {
+  display: contents;
+}
+ul {
+  list-style: none;
+  display: inline-flex;
+  padding: 0;
+  margin: 45px 0 0 0;
+  li {
+    margin: 0 12px;
+    cursor: pointer;
+    &:nth-child(1) {
+      content: url(/assets/images/icn-general-attach-gray.svg);
+    }
+    &:nth-child(2) {
+      content: url(/assets/images/icn-general-addlink-gray.svg);
+    }
+    &:nth-child(3) {
+      content: url(/assets/images/icn-general-certificate-gray.svg);
+    }
+    &:nth-child(4) {
+      content: url(/assets/images/icn-general-team-gray.svg);
+    }
+    &:nth-child(5) {
+      content: url(/assets/images/icn-general-team-gray.svg);
+    }
+  }
+  label {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  input {
+    visibility: hidden;
+    display: none;
+  }
+  input[type="radio"]:checked + label {
+    background-color: red;
+  }
+}
