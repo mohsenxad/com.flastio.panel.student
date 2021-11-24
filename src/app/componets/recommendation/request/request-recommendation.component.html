@@ -1,54 +1,65 @@
-<form (ngSubmit)="onSubmit()" #form="ngForm">
-  <legend>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis
-    suscipit leo, id pretium lacus blandit at. Nam finibus varius nunc, cursus
-    semper elit porttitor suscipit. Nunc tincidunt purus quis finibus accumsan.
-    Proin ornare, augue at faucibus pretium, tellus odio consectetur enim, non
-    pharetra nulla nibh vitae lectus.
-  </legend>
-  <fieldset>
-    <ul>
-      <li>
-        <label for="txtRecommenderName"> Who do you want to ask? </label>
-        <input
-          type="text"
-          name="txtRecommenderName"
-          id="txtRecommenderName"
-          [(ngModel)]="recommendation.recommenderName"
-          placeholder="Type name"
-        />
-      </li>
-      <li>
-        <label for="txtRecommenderPosition"> What is his/her position? </label>
-        <input
-          type="text"
-          name="txtRecommenderPosition"
-          id="txtRecommenderPosition"
-          [(ngModel)]="recommendation.recommenderPosition"
-          placeholder="e.g., Professor of Mechanical Engineering @Cal Poly University"
-        />
-      </li>
-      <li>
-        <label for="txtRecommenderEmail"> Email </label>
-        <input
-          type="email"
-          name="txtRecommenderEmail"
-          id="txtRecommenderEmail"
-          [(ngModel)]="recommendation.recommenderEmail"
-          placeholder="Enter his/her email"
-        />
-      </li>
-      <li>
-        <label for="txtMessage"> Include a personalized message </label>
-        <textarea
-          name="txtMessage"
-          id="txtMessage"
-          rows="5"
-          [(ngModel)]="recommendation.message"
-          placeholder="Hi, would you write me a recommendation please?"
-        ></textarea>
-      </li>
-    </ul>
-    <input type="submit" value="Save" />
-  </fieldset>
+<form
+    (ngSubmit)="onSubmit()"
+    #form="ngForm"
+>
+<button>
+    close
+</button>
+    <legend>
+        It is always the best practice to contact the person you are asking for a recommendation for ahead of time and make sure they are willing and able to provide you with a recommendation.
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label for="txtRecommenderName">
+                    Who do you want to ask?
+                </label>
+                <input
+                    type="text"
+                    name="txtRecommenderName"
+                    id="txtRecommenderName"
+                    [(ngModel)] = 'recommendation.recommenderName'
+                    placeholder = "Type name"
+                >
+            </li>
+            <li>
+                <label for="txtRecommenderPosition">
+                    What is his/her position?
+                </label>
+                <input
+                    type="text"
+                    name="txtRecommenderPosition"
+                    id="txtRecommenderPosition"
+                    [(ngModel)] = 'recommendation.recommenderPosition'
+                    placeholder = "e.g., Professor of Mechanical Engineering @Cal Poly University"
+                >
+            </li>
+            <li>
+                <label for="txtRecommenderEmail">
+                    Email
+                </label>
+                <input
+                    type="email"
+                    name="txtRecommenderEmail"
+                    id="txtRecommenderEmail"
+                    [(ngModel)] = 'recommendation.recommenderEmail'
+                    placeholder = "Enter his/her email"
+                >
+            </li>
+            <li>
+                <label for="txtMessage">
+                    Include a personalized message
+                </label>
+                <textarea
+                    name="txtMessage"
+                    id="txtMessage"
+                    rows = "5"
+                    [(ngModel)] = 'recommendation.message'
+                    placeholder = "Hi, would you write me a recommendation please?"
+                ></textarea>
+                
+            </li>
+        </ul>
+        <input type="submit" value="Save">
+    </fieldset>
 </form>
