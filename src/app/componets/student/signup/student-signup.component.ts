@@ -13,9 +13,6 @@ import { Student } from '../../model/student';
 export class StudentSignupComponent implements OnInit {
 
   student : Student = {};
-  major : Major = {};
-  school : School = {};
-
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
 
   constructor(
@@ -26,13 +23,15 @@ export class StudentSignupComponent implements OnInit {
   }
 
   onMajorSet(major: Major):void{
-    console.log(major);
-    this.major = major;
+    this.student.major = major;
+  }
+
+  removeMajor(){
+    this.student.major = undefined;
   }
 
   onSchoolSet(school: School):void{
-    console.log(school);
-    this.school = school;
+    this.student.school = school;
   }
 
   
@@ -44,8 +43,8 @@ export class StudentSignupComponent implements OnInit {
         this.student.lastName,
         this.student.countryMobileNumberCode,
         this.student.mobileNumber,
-        this.school,
-        this.major,
+        this.student.school,
+        this.student.major,
         this.student.graduationYear,
         this.student.graduationMonth
       )

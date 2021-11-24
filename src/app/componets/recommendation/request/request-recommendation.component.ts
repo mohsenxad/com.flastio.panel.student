@@ -24,7 +24,7 @@ export class RequestRecommendationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async onSubmit(){
+  async send(){
     const user: Realm.User = this.app.currentUser;
     let result:any  = await user.functions.requestRecommendation(
       this.student._id,
@@ -34,6 +34,10 @@ export class RequestRecommendationComponent implements OnInit {
       this.recommendation.message
     );
     this.recommendation._id = result._id.toString();
+  }
+
+  close(){
+    
   }
 
 }

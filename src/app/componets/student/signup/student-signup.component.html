@@ -47,14 +47,17 @@
         <li>
           <div name="divSchool" id="divSchool">
             <search-school
+              [selectedSchool] = 'student.school'
               (onSchoolSelected)="onSchoolSet($event)"
             ></search-school>
           </div>
         </li>
+
         <li>
           <div name="divMajor" id="divMajor">
-            <add-major (onMajorSelected)="onMajorSet($event)"></add-major>
-            <search-major (onMajorSelected)="onMajorSet($event)"></search-major>
+            <search-major
+              [selectedMajor] = "student.major"
+              (onMajorSelected)="onMajorSet($event)"></search-major>
           </div>
         </li>
         <li>
