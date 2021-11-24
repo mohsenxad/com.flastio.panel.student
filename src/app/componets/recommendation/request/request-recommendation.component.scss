@@ -1,0 +1,83 @@
+form {
+  width: 80%;
+  margin: auto;
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  legend {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    margin-bottom: 24px;
+  }
+
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #0a1629;
+      display: block;
+      margin-left: 12px;
+    }
+    input {
+      border-radius: 14px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      padding: 13px 18px 14px 18px;
+      display: block;
+      width: 100%;
+      margin: 7px 0 27px 0;
+      &::placeholder {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #7d8592;
+      }
+    }
+    textarea {
+      border-radius: 14px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      width: 100%;
+      padding: 11px 13px 16px 18px;
+      margin: 7px 0 27px 0;
+    }
+  }
+}
+
+input[type="submit"] {
+  padding: 15px 23px;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
+  background-color: #3f8cff;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
