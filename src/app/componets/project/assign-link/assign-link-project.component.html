@@ -1,24 +1,17 @@
 <form #form="ngForm">
+  <button (click)="close()">Close</button>
 
-  <button
-    (click)="close()"
-  >
-    Close
-  </button>
-
-  <legend>
-    Add Supporting Links
-  </legend>
+  <legend>Add Supporting Links</legend>
 
   <fieldset>
-
     <p>
-      You can share any related links, including links to YouTube videos, potential websites, or webpages you built as a part of your project
+      You can share any related links, including links to YouTube videos,
+      potential websites, or webpages you built as a part of your project
     </p>
 
     <ul>
+      <!-- <label for="txtLink"> Insert Link </label> -->
       <li>
-        <label for="txtLink"> Insert Link </label>
         <input
           type="url"
           name="txtLink"
@@ -26,9 +19,9 @@
           [(ngModel)]="linkUrl"
           placeholder="Enter link here …"
         />
+        <button (click)="processLink()">Add</button>
       </li>
     </ul>
-    <button (click)="processLink()">Add</button>
   </fieldset>
 </form>
 
@@ -54,17 +47,7 @@
   </li>
 </ul>
 
-<hr>
-
 <div>
-  <button
-    (click)="close()"
-  >
-    Cancel
-  </button>
-  <button
-    (click)="save()"
-  >
-    Save
-  </button>
+  <button (click)="close()">Cancel</button>
+  <button (click)="save()">Save</button>
 </div>
