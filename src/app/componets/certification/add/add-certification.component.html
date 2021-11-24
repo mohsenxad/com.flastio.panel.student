@@ -1,21 +1,17 @@
 <form (ngSubmit)="onSubmit()" #form="ngForm">
-    <legend>
-        Add Certification
-    </legend>
-    <fieldset>
-        <ul>
-            <li>
-                <label for="txtCertificationName">
-                    Certification name
-                </label>
-                <input
-                    type="text"
-                    name="txtCertificationName"
-                    id="txtCertificationName"
-                    [(ngModel)] = 'certification.name'
-                >
-            </li>
-        </ul>
-        <input type="submit" value="Save">
-    </fieldset>
+  <legend>Add Certification</legend>
+  <fieldset>
+    <ul>
+      <li>
+        <label for="txtCertificationName"> Certification name </label>
+        <input
+          type="text"
+          name="txtCertificationName"
+          id="txtCertificationName"
+          [(ngModel)]="certification.name"
+        />
+      </li>
+    </ul>
+    <input type="submit" value="Save" />
+  </fieldset>
 </form>
