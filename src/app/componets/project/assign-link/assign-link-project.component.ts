@@ -29,7 +29,14 @@ export class AssignLinkProjectComponent implements OnInit {
   processLink(){
     let newLinkUrl = this.getLinkInfo(this.linkUrl);
     this.linkUrlList.push(newLinkUrl);
+  }
+
+  save(){
     this.onLinkUrlListUpdated.emit(this.linkUrlList);
+  }
+
+  close(){
+
   }
 
 
