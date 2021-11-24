@@ -34,10 +34,6 @@ export class StudentSignupComponent implements OnInit {
     this.student.school = school;
   }
 
-  removeSchool(){
-    this.student.school = undefined;
-  }
-
   
   async onSubmit(){
     const user: Realm.User = this.app.currentUser;

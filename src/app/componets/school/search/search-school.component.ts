@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { School } from '../../model/school';
 import { Student } from '../../model/student';
@@ -11,12 +11,14 @@ import * as Realm from "realm-web";
 })
 export class SearchSchoolComponent implements OnInit {
 
+  @Input() selectedSchool: School;
   @Output() onSchoolSelected = new EventEmitter<School>();
 
   schoolKeyWord: String;
   student: Student = {};
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   schoolList: School[];
+  
   isLoading: Boolean = false;
 
   constructor(
@@ -59,7 +61,13 @@ export class SearchSchoolComponent implements OnInit {
   }
 
   selected(school:School){
+    this.selectedSchool = school;
     this.onSchoolSelected.emit(school);
+  }
+
+  remove(){
+    this.selectedSchool = undefined;
+    this.onSchoolSelected.emit(undefined);
   }
 
 }
