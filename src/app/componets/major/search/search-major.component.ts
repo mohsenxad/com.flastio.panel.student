@@ -36,6 +36,17 @@ export class SearchMajorComponent implements OnInit {
     this.majorList = result;
   }
 
+  async addMajor(){
+    const user: Realm.User = this.app.currentUser;
+    let result: any = await user.functions.addMajor(this.majorKeyWord);
+    let newMajor:Major  = {
+      _id: result.insertedId.toString(),
+      name:this.majorKeyWord,
+    }
+    this.majorKeyWord = '';
+    this.onMajorSelected.emit(newMajor);
+  }
+
   selected(major:Major){
     this.onMajorSelected.emit(major);
   }

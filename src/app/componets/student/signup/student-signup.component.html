@@ -44,17 +44,44 @@
             [(ngModel)]="student.mobileNumber"
           />
         </li>
-        <li>
+        <li
+          *ngIf="!student.school"
+        >
           <div name="divSchool" id="divSchool">
             <search-school
               (onSchoolSelected)="onSchoolSet($event)"
             ></search-school>
           </div>
         </li>
-        <li>
+        <li
+          *ngIf="student.school"
+        >
+          <div name="divSchool" id="divSchool">
+            {{student.school.name}}
+            <button
+              (click)="removeSchool()"
+            >
+              Remove
+            </button>
+          </div>
+        </li>
+        <li
+          *ngIf="!student.major"
+        >
           <div name="divMajor" id="divMajor">
-            <add-major (onMajorSelected)="onMajorSet($event)"></add-major>
             <search-major (onMajorSelected)="onMajorSet($event)"></search-major>
+          </div>
+        </li>
+        <li
+          *ngIf="student.major"
+        >
+          <div name="divMajor" id="divMajor">
+            {{student.major.name}}
+            <button
+              (click)="removeMajor()"
+            >
+              Remove
+            </button>
           </div>
         </li>
         <li>

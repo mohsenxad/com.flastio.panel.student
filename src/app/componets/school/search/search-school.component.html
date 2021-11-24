@@ -21,7 +21,10 @@
     </fieldset>
     <button (click)="addSchool()">
         Add {{ schoolKeyWord }}
-      </button>
+    </button>
+    <div
+        *ngIf="isLoading"
+    >Loading ...</div>
     <ul
         *ngIf="schoolList && schoolList.length > 0"
     >

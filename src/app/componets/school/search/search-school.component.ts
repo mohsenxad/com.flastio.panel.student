@@ -17,6 +17,7 @@ export class SearchSchoolComponent implements OnInit {
   student: Student = {};
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   schoolList: School[];
+  isLoading: Boolean = false;
 
   constructor(
     private localStorageService:LocalStorageService
@@ -38,18 +39,23 @@ export class SearchSchoolComponent implements OnInit {
   }
 
   async addSchool(){
+    this.isLoading = true;
     const user: Realm.User = this.app.currentUser;
-    let newSchool:School  = await user.functions.addSchool(this.schoolKeyWord);
+    let result:any  = await user.functions.addSchool(this.schoolKeyWord);
+    let newSchool:School = {
+      _id: result.insertedId.toString(),
+      name: this.schoolKeyWord,
+    }
     this.schoolKeyWord = '';
     this.onSchoolSelected.emit(newSchool);
+    this.isLoading = false;
   }
 
   async search(keyword):Promise<void>{
-    console.log(`Searching for ${keyword}`);
+    this.isLoading = true;
     const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions.searchSchool(keyword);
-    this.schoolList = result;
-    console.log(result);
+    this.schoolList = await user.functions.searchSchool(keyword);
+    this.isLoading = false;
   }
 
   selected(school:School){
