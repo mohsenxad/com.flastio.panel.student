@@ -19,6 +19,9 @@
             </li>
         </ul>
     </fieldset>
+    <button (click)="addSchool()">
+        Add {{ schoolKeyWord }}
+      </button>
     <ul
         *ngIf="schoolList && schoolList.length > 0"
     >

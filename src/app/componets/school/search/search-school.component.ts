@@ -37,6 +37,13 @@ export class SearchSchoolComponent implements OnInit {
     }
   }
 
+  async addSchool(){
+    const user: Realm.User = this.app.currentUser;
+    let newSchool:School  = await user.functions.addSchool(this.schoolKeyWord);
+    this.schoolKeyWord = '';
+    this.onSchoolSelected.emit(newSchool);
+  }
+
   async search(keyword):Promise<void>{
     console.log(`Searching for ${keyword}`);
     const user: Realm.User = this.app.currentUser;
