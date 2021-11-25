@@ -16,7 +16,6 @@ form {
     margin-bottom: 24px;
   }
 
-  
   ul {
     list-style: none;
     margin: 0;
@@ -78,4 +77,49 @@ input[type="submit"] {
   color: #fff;
   border: none;
   cursor: pointer;
+}
+button:nth-of-type(1) {
+  padding: 12px 22px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #91929e;
+  cursor: pointer;
+
+}
+button:nth-of-type(2) {
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  padding: 14px 31px;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px 0 rgb(63 140 255 / 26%);
+  background-color: #3f8cff;
+  border: none;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.close-btn {
+  background-color: #f4f9fd !important;
+  border-radius: 50% !important;
+  padding: 10px !important;
+  border: none !important;
+  content: url(/assets/images/icn-general-add-blue.svg);
+  display: flex;
+  transform: rotate(45deg);
+  float: right;
 }
