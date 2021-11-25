@@ -12,4 +12,9 @@ export class TranscriptPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getUploadUrl(){
+    //IsValidUserToUseUploadUrl
+    //getUploadUrl
+  }
+
 }
