@@ -1,0 +1,40 @@
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0a1629;
+  display: flex;
+  align-items: center;
+  &::before {
+    content: url(/assets/images/recommendation.svg);
+    margin-right: 9px;
+  }
+}
+button {
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #91929e;
+  padding: 10px 17px 10px 8px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  &::before {
+    content: url(/assets/images/icn-general-add-blue.svg);
+    margin-right: 12px;
+  }
+}
+
+section{
+    width: 80%;
+    margin: auto;
+}

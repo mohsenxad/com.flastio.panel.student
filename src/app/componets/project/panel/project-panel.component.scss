@@ -6,8 +6,15 @@ h2 {
   line-height: normal;
   letter-spacing: normal;
   color: #0a1629;
+  display: flex;
+  align-items: center;
   &::before {
     content: url(/assets/images/project.svg);
-    margin-right: 16px;
+    margin-right: 9px;
   }
+}
+
+section {
+  width: 83%;
+  margin: auto;
 }
