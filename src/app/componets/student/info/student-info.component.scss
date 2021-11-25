@@ -58,6 +58,14 @@ dl {
       border-radius: 4px;
       border: solid 1px #7d8592;
     }
+    &:nth-child(10){
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+    }
+    &:nth-child(12){
+      border-left: none;
+      border-radius: 0 4px 4px 0;
+    }
     &:nth-child(14) {
       font-size: 14px;
       font-weight: normal;
@@ -66,6 +74,7 @@ dl {
       line-height: 1.5;
       letter-spacing: normal;
       color: #91929e;
+      border-left: none;
     }
   }
 }
