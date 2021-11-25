@@ -57,6 +57,8 @@ import { CountryRegionSelectComponent } from './componets/share/country-region-s
 import { CollegeStatusSelectComponent } from './componets/share/college-status-select/college-status-select.component';
 import { AnalyticsSummaryComponent } from './componets/analytics/summary/analytics-summary.component';
 import { StudentBannerComponent } from './componets/student/banner/student-banner.component';
+import { TranscriptPanelComponent } from './componets/transcript/panel/transcript-panel.component';
+
 
 
 
@@ -117,6 +119,7 @@ import { StudentBannerComponent } from './componets/student/banner/student-banne
     CollegeStatusSelectComponent,
     AnalyticsSummaryComponent,
     StudentBannerComponent,
+    TranscriptPanelComponent,
   ],
   imports: [
     BrowserModule,
