@@ -1,0 +1,39 @@
+dt {
+  display: none;
+}
+dl{
+    margin: 0;
+    padding: 0;
+}
+dd {
+  margin: 0;
+  padding: 0;
+  &:nth-child(2) {
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+    color: #0a1629;
+  }
+  &:nth-child(4) {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.31;
+    letter-spacing: normal;
+    color: #91929e;
+    margin: 8px 0 24px 0;
+  }
+  &:nth-child(6) {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+  }
+}
