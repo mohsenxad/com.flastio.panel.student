@@ -6,23 +6,8 @@
 <student-banner
     [student] = 'student'
 ></student-banner>
-
-
-<nav>
-    <ul>
-        <li>
-            Share
-        </li>
-        <li>
-            Public View
-        </li>
-        <li>
-            Add Project
-        </li>
-    </ul>
-</nav>
 </section>
-<analytics-summary></analytics-summary>
+
 <skill-panel
     *ngIf = "student"
     [skillList]="student.skillList"
