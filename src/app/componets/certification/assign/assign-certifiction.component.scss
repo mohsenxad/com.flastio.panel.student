@@ -1,25 +1,96 @@
-fieldset{
-    border: none;
+fieldset {
+  border: none;
 }
-ul{
-    list-style: none;
-    padding: 0;
+ul {
+  list-style: none;
+  padding: 0;
+  li {
+    &:nth-child(2) {
+      div {
+        display: flex;
+        gap: 24px;
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
-input[type="submit"] {
-    font-size: 16px;
-    font-weight: bold;
+input[type="submit"]:first-of-type {
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  padding: 14px 31px;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px 0 rgb(63 140 255 / 26%);
+  background-color: #3f8cff;
+  border: none;
+  float: right;
+  margin-left: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: #3a81eb;
+    transition: 0.5s;
+  }
+}
+input[type="submit"]:last-of-type {
+  padding: 12px 22px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #91929e;
+  transition: 0.5s;
+  float: right;
+  transition: 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    border: solid 1px #91929e;
+    transition: 0.5s;
+  }
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #0a1629;
+  display: block;
+  margin-left: 12px;
+}
+input {
+  border-radius: 14px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  padding: 13px 18px 14px 18px;
+  margin: 7px 0 27px 0;
+  &::placeholder {
+    font-size: 14px;
+    font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height: normal;
+    line-height: 1.5;
     letter-spacing: normal;
-    text-align: center;
-    color: #fff;
-    padding: 14px 31px;
-    border-radius: 14px;
-    box-shadow: 0 6px 12px 0 rgb(63 140 255 / 26%);
-    background-color: #3f8cff;
-    border: none;
-    margin-bottom: 15px;
+    color: #0a1629;
   }
-  
+}

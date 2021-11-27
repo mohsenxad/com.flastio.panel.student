@@ -45,6 +45,7 @@ section {
     &::before{
         content: url(/assets/images/icn-general-add-blue.svg);
         margin-right: 12px;
+        -webkit-writing-mode: vertical-rl;
     }
   }
 }

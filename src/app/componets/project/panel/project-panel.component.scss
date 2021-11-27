@@ -11,6 +11,7 @@ h2 {
   &::before {
     content: url(/assets/images/project.svg);
     margin-right: 9px;
+    -webkit-writing-mode: vertical-rl;
   }
 }
 
