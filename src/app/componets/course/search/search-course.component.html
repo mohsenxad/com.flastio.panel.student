@@ -20,11 +20,9 @@
       add {{ courseKeyWord }} to {{ major.name }}
     </button>
   </form>
-  <div
-    *ngIf="isLoading"
-  >
-    Loading ...
-  </div>
+  <loading
+        *ngIf="isLoading"
+    ></loading>
   <ul *ngIf="courseList && courseList.length > 0">
     <li *ngFor="let course of courseList" (click)="selected(course)">
       {{ course.name }}

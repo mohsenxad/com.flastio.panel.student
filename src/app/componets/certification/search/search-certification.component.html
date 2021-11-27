@@ -24,11 +24,9 @@
     </fieldset>
     <button (click)="addCertification()">Add {{ certificationKeyWord }}</button>
   </form>
-  <div
-    *ngIf="isLoading"
-  >
-    Loading ...
-  </div>
+  <loading
+        *ngIf="isLoading"
+    ></loading>
   <ul *ngIf="certificationList && certificationList.length > 0">
     <li
       *ngFor="let certification of certificationList"

@@ -24,11 +24,9 @@
         add {{skillKeyWord}} to Skills
     </button>
 </form>
-<div
-    *ngIf="isLoading"
->
-    Loading ...
-</div>
+    <loading
+        *ngIf="isLoading"
+    ></loading>
 <ul
     *ngIf="skillList && skillList.length > 0"
 >

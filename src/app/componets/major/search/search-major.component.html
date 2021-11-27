@@ -21,11 +21,9 @@
       Add {{ majorKeyWord }}
     </button>
   </form>
-  <div
-    *ngIf="isLoading"
-  >
-    Loading ...
-  </div>
+  <loading
+        *ngIf="isLoading"
+    ></loading>
 
   <ul *ngIf="majorList && majorList.length > 0">
     <li *ngFor="let major of majorList" (click)="selected(major)">

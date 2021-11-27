@@ -4,6 +4,7 @@ import * as Realm from "realm-web";
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { Student } from '../../model/student';
 import { AssignedCertification } from '../../model/assignedCertification';
+import { CertificationService } from 'src/app/services/certification/certification.service';
 
 @Component({
   selector: 'assign-certifiction',
@@ -21,7 +22,8 @@ export class AssignCertifictionComponent implements OnInit {
   fileUrl: String;
 
   constructor(
-    private localStorageService:LocalStorageService
+    private localStorageService:LocalStorageService,
+    private certificationService:CertificationService
   ) { 
     this.student = this.localStorageService.getStudent();
   }
@@ -39,7 +41,14 @@ export class AssignCertifictionComponent implements OnInit {
 
   async onSubmit(){
     const user: Realm.User = this.app.currentUser;
-    let result:any  = await user.functions.assignCertification(this.student._id, this.assignedCertification.certification, this.assignedCertification.issuedDateYear, this.assignedCertification.issuedDateMonth);
+    let result:any  = await user.functions
+      .assignCertification(
+        this.student._id,
+        this.assignedCertification.certification,
+        this.assignedCertification.issuedDateYear,
+        this.assignedCertification.issuedDateMonth,
+        this.uniqFileName
+      );
     this.assignedCertification = result;
     console.log(this.assignedCertification);
   }
@@ -55,27 +64,18 @@ export class AssignCertifictionComponent implements OnInit {
   async getUploadUrl(){
     const user: Realm.User = this.app.currentUser;
     let result: any  = await user.functions
-      .getResumeUploadUrl({Bucket:"flastio"})
+      .getCertificationUploadUrl({Bucket:"flastio"})
     console.log(result);
     return result;
   }
 
   uploadFile(uploadPresignUrl: string){
     const contentType = this.certificationFile.type;
-    // this.resumeService.upload(uploadPresignUrl,this.transcriptFile, contentType)
-    //   .subscribe(data=>{
-    //     console.log('uploaded');
-    //     console.log(data);
-    //     this.setCertificationFile();
-    //   });
+    this.certificationService.upload(uploadPresignUrl,this.certificationFile, contentType)
+      .subscribe(data=>{
+        console.log('uploaded');
+      });
   }
 
-  async setCertificationFile(){
-    const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions
-      .setResumeFileName(this.student._id,this.uniqFileName)
-    console.log(result);
-    this.fileUrl = result;
-  }
 
 }

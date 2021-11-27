@@ -60,6 +60,7 @@ import { StudentBannerComponent } from './componets/student/banner/student-banne
 import { TranscriptPanelComponent } from './componets/transcript/panel/transcript-panel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ResumePanelComponent } from './componets/resume/panel/resume-panel.component';
+import { LoadingComponent } from './componets/share/loading/loading.component';
 
 
 
@@ -123,6 +124,7 @@ import { ResumePanelComponent } from './componets/resume/panel/resume-panel.comp
     StudentBannerComponent,
     TranscriptPanelComponent,
     ResumePanelComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

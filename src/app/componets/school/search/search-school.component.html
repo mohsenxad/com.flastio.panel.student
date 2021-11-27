@@ -26,9 +26,10 @@
         </fieldset>
     </form>
 
-    <div
+    <loading
         *ngIf="isLoading"
-    >Loading ...</div>
+    ></loading>
+    
     <ul
         *ngIf="schoolList && schoolList.length > 0"
     >
