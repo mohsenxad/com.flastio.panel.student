@@ -1,13 +1,13 @@
 <div>
     <h3>
-        Transcript
+        Resume
     </h3>
     <div>
         <input
             type="file"
-            id='transcriptFile'
-            name='transcriptFile'
-            value="transcriptFile"
+            id='resumeFile'
+            name='resumeFile'
+            value="resumeFile"
             (change)="handleFileInput($event.target.files)"
         >
     </div>
@@ -15,7 +15,7 @@
         <a
             href="#"
         >
-            View transcript
+            View resume
         </a>
         <button
             (click)="getUploadUrl()"

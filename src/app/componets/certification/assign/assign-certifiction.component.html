@@ -53,6 +53,22 @@
           />
         </div>
       </li>
+      <li>
+        <label for="divCertificationFileSelector">
+          Certification File
+        </label>
+        <div
+          id="divCertificationFileSelector"
+          name="divCertificationFileSelector"
+        >
+          <input
+              type="file"
+              id='certificationFile'
+              name='certificationFile'
+              (change)="handleFileInput($event.target.files)"
+          >
+        </div>
+      </li>
     </ul>
     <input type="submit" value="Save" />
   </fieldset>

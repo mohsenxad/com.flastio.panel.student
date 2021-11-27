@@ -26,5 +26,7 @@ export interface Student {
     ethnicity?: String,
     isEthnicitySharable?: Boolean,
     collegeStatus? : String,
+    transcriptFileName? : String,
+    resumeFileName?: String,
 
 }

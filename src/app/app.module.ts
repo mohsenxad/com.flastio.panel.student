@@ -58,6 +58,8 @@ import { CollegeStatusSelectComponent } from './componets/share/college-status-s
 import { AnalyticsSummaryComponent } from './componets/analytics/summary/analytics-summary.component';
 import { StudentBannerComponent } from './componets/student/banner/student-banner.component';
 import { TranscriptPanelComponent } from './componets/transcript/panel/transcript-panel.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ResumePanelComponent } from './componets/resume/panel/resume-panel.component';
 
 
 
@@ -120,11 +122,13 @@ import { TranscriptPanelComponent } from './componets/transcript/panel/transcrip
     AnalyticsSummaryComponent,
     StudentBannerComponent,
     TranscriptPanelComponent,
+    ResumePanelComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

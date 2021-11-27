@@ -16,7 +16,9 @@ export class AssignCertifictionComponent implements OnInit {
   assignedCertification: AssignedCertification = {};
 
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-
+  certificationFile: File ;
+  uniqFileName: String;
+  fileUrl: String;
 
   constructor(
     private localStorageService:LocalStorageService
@@ -40,6 +42,40 @@ export class AssignCertifictionComponent implements OnInit {
     let result:any  = await user.functions.assignCertification(this.student._id, this.assignedCertification.certification, this.assignedCertification.issuedDateYear, this.assignedCertification.issuedDateMonth);
     this.assignedCertification = result;
     console.log(this.assignedCertification);
+  }
+
+  async handleFileInput(files: FileList) {
+    this.certificationFile = files.item(0);
+    let response:any = await this.getUploadUrl()
+    this.uniqFileName = response.fileName.toString();
+    let signedUploadUr = response.presignedUrl;
+    this.uploadFile(signedUploadUr)
+  }
+
+  async getUploadUrl(){
+    const user: Realm.User = this.app.currentUser;
+    let result: any  = await user.functions
+      .getResumeUploadUrl({Bucket:"flastio"})
+    console.log(result);
+    return result;
+  }
+
+  uploadFile(uploadPresignUrl: string){
+    const contentType = this.certificationFile.type;
+    // this.resumeService.upload(uploadPresignUrl,this.transcriptFile, contentType)
+    //   .subscribe(data=>{
+    //     console.log('uploaded');
+    //     console.log(data);
+    //     this.setCertificationFile();
+    //   });
+  }
+
+  async setCertificationFile(){
+    const user: Realm.User = this.app.currentUser;
+    let result: any  = await user.functions
+      .setResumeFileName(this.student._id,this.uniqFileName)
+    console.log(result);
+    this.fileUrl = result;
   }
 
 }
