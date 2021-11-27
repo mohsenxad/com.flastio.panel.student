@@ -8,6 +8,11 @@ dl {
     width: 85px;
     height: 64px;
   }
+  dd{
+    &:nth-child(2){
+      margin: 0;
+    }
+  }
 
   div {
     margin-left: 16px;

@@ -82,6 +82,8 @@ dt {
 }
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 dl {
   display: flex;
@@ -141,9 +143,7 @@ dl {
   }
 }
 div {
-  text-align: right;
-  border-top: 1px solid #e6ebf5;
-  padding-top: 35px;
+
   button {
     &:first-of-type {
       padding: 12px 22px;
@@ -159,6 +159,12 @@ div {
       letter-spacing: normal;
       text-align: center;
       color: #91929e;
+      transition: 0.5s;
+
+      &:hover {
+        border: solid 1px #91929e;
+        transition: 0.5s;
+      }
     }
     &:last-of-type {
       font-size: 16px;
@@ -175,6 +181,12 @@ div {
       background-color: #3f8cff;
       border: none;
       margin-left: 16px;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: #3a81eb;
+        transition: 0.5s;
+      }
     }
   }
 }
@@ -185,6 +197,7 @@ div {
   padding: 10px;
   border: none;
   content: url(/assets/images/icn-general-add-blue.svg);
+  -webkit-writing-mode: vertical-rl;
   display: flex;
   transform: rotate(45deg);
   float: right;

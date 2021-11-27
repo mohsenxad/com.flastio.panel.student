@@ -30,6 +30,12 @@ ul {
       letter-spacing: normal;
       text-align: center;
       color: #fff;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: #3a81eb;
+        transition: 0.5s;
+      }
     }
     &:nth-child(1),
     &:nth-child(2) {
@@ -38,6 +44,12 @@ ul {
       border: solid 1px #d8e0f0;
       background-color: #fff;
       text-indent: -9000px;
+      transition: 0.5s;
+
+      &:hover {
+        border: solid 1px #91929e;
+        transition: 0.5s;
+      }
     }
     &:nth-child(2) {
       content: url(/assets/images/eye.svg);

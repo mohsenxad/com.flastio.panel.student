@@ -11,6 +11,8 @@
   &::before {
     content: url(/assets/images/Resume-Transcript.svg);
     margin-right: 9px;
+    -webkit-writing-mode: vertical-rl;
+    
   }
 }
 .work-header {
@@ -26,6 +28,7 @@
   &::before {
     content: url(/assets/images/work.svg);
     margin-right: 9px;
+    -webkit-writing-mode: vertical-rl;
   }
 }
 section {

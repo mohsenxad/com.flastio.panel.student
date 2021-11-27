@@ -21,6 +21,7 @@ ul {
     margin: 0 12px;
     border-radius: 8px;
     width: 56px;
+    
   }
   li {
       
@@ -34,9 +35,7 @@ ul {
     visibility: hidden;
 
     display: none;
-    &:checked {
-      background-color: red;
-    }
+
   }
   input[type="radio"]:checked + label {
     font-size: 16px;
@@ -48,6 +47,17 @@ ul {
     text-align: center;
     color: #fff;
     border-radius: 8px;
+    background-color: #3f8cff;
+    animation: mymove 1s;
+
+  }
+}
+
+@keyframes mymove {
+  from {
+    background-color: #e6edf5;
+  }
+  to {
     background-color: #3f8cff;
   }
 }

@@ -13,8 +13,16 @@ button {
   background-color: #fff;
   display: flex;
   align-items: center;
+  transition: 0.5s;
+
   &::before {
     content: url(/assets/images/icn-general-add-blue.svg);
     margin-right: 12px;
+    -webkit-writing-mode: vertical-rl;
+  }
+
+  &:hover {
+    border: solid 1px #91929e;
+    transition: 0.5s;
   }
 }

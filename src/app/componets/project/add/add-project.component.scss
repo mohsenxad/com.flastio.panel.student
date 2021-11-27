@@ -1,5 +1,4 @@
 form {
- 
   fieldset {
     border: none;
   }
@@ -23,8 +22,22 @@ form {
     line-height: 1.44;
     letter-spacing: normal;
     color: #3f8cff;
+    margin-left: -14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &::after{
+      content: url(/assets/images/icn-general-arrow-down-gray.svg);
+      margin-left: 15px;
+      -webkit-writing-mode: vertical-rl;
+      transition: 0.5s;
+
+    }
+   
     &::marker {
       color: transparent;
+      display: none;
     }
   }
   ul {
@@ -73,8 +86,17 @@ form {
   }
 }
 
-button{
+button {
   cursor: pointer;
+}
+
+details[open] summary::after{
+    content: url(/assets/images/icn-general-arrow-down-gray.svg);
+    margin-left: 15px;
+    -webkit-writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transition: 0.5s;
+  
 }
 
 button:first-of-type {
@@ -91,6 +113,12 @@ button:first-of-type {
   letter-spacing: normal;
   text-align: center;
   color: #91929e;
+  transition: 0.5s;
+
+  &:hover {
+    border: solid 1px #91929e;
+    transition: 0.5s;
+  }
 }
 button:last-of-type {
   font-size: 16px;
@@ -107,4 +135,11 @@ button:last-of-type {
   background-color: #3f8cff;
   border: none;
   margin-left: 16px;
+
+  transition: 0.5s;
+
+  &:hover {
+    background-color: #3a81eb;
+    transition: 0.5s;
+  }
 }

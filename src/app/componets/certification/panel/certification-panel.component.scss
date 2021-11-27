@@ -11,6 +11,7 @@ h2 {
   &::before {
     content: url(/assets/images/certifications.svg);
     margin-right: 19px;
+    -webkit-writing-mode: vertical-rl;
   }
 }
 section{

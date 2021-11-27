@@ -40,18 +40,25 @@ ul {
   }
 }
 button:first-of-type {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: normal;
+  line-height: 1.5;
   letter-spacing: normal;
-  text-align: center;
-  color: #fff;
-  padding: 14px 31px;
-  border-radius: 14px;
-  box-shadow: 0 6px 12px 0 rgb(63 140 255 / 26%);
-  background-color: #3f8cff;
+  color: #3f8cff;
+  background-color: #fff;
   border: none;
+  display: flex;
+  align-items: center;
   text-transform: capitalize;
+  &::before {
+    content: "";
+    background: url(/assets/images/icn-general-add-dark-blue.svg);
+    width: 12px;
+    height: 12px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 8px;
+  }
 }
