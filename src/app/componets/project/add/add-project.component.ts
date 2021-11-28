@@ -108,6 +108,7 @@ export class AddProjectComponent implements OnInit {
       this.project.yearCompleted,
       this.project.isPublished,
       this.project.linkUrlList,
+      this.project.supportingFileList,
     );
     console.log(result);
   }

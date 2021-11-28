@@ -1,0 +1,8 @@
+<ul *ngIf="supportingFileList && supportingFileList.length > 0">
+    <li *ngFor="let supportingFile of supportingFileList">
+        <supporting-file-list-item
+            [supportingFile]="supportingFile"
+        ></supporting-file-list-item>
+    </li>
+  </ul>
+  
