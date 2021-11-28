@@ -4,13 +4,13 @@
   <fieldset>
     <ul>
       <li>
-        <label for="flProfilePicture" class="file-label"> Add Profile Picture </label>
+        <label for="pictureFile" class="file-label"> Add Profile Picture </label>
         <input
-          type="file"
-          name="flProfilePicture"
-          id="flProfilePicture"
-          (change)="onProfileImageChanged(profilePicture.file)"
-        />
+              type="file"
+              id='pictureFile'
+              name='pictureFile'
+              (change)="handleFileInput($event.target.files)"
+          >
       </li>
       <li>
         <label for="txtCountryRegion"> Location </label>
