@@ -10,7 +10,7 @@ export class ProjectService {
     private http: HttpClient
   ) { }
 
-  upload( url: string, file:any, contentType: String): any{
+  upload( url: String, file:any, contentType: String): any{
     let body: any =file;
     var headers: HttpHeaders = new HttpHeaders(
       {
@@ -18,6 +18,6 @@ export class ProjectService {
         "ContentType": contentType.toString()
       });
     return this.http
-      .put(url,body, {headers});
+      .put(url.toString(),body, {headers});
   }
 }

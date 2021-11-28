@@ -27,16 +27,18 @@ export class AssignSupportingFileProjectComponent implements OnInit {
     let currentSupportingFile:File = files.item(0);
     let response:any = await this.getUploadUrl()
     let uniqFileName = response.fileName.toString();
-    let signedUploadUr = response.presignedUrl;
+    let signedUploadUrl: String = response.presignedUrl;
+    let fileUrl = signedUploadUrl.split('?')[0];
     const newSupportingFile: SupportingFile = {
       _id: uniqFileName,
       title: currentSupportingFile.name,
       size: currentSupportingFile.size,
       isUploadComeplete: false,
       file: currentSupportingFile,
+      remoteUrl:fileUrl
     };
     this.supportingFileList.push(newSupportingFile);
-    this.uploadFile(newSupportingFile, signedUploadUr)
+    this.uploadFile(newSupportingFile, signedUploadUrl)
   }
 
   async getUploadUrl(){
@@ -46,7 +48,7 @@ export class AssignSupportingFileProjectComponent implements OnInit {
     return result;
   }
 
-  uploadFile(supportingFile:SupportingFile, uploadPresignUrl: string){
+  uploadFile(supportingFile:SupportingFile, uploadPresignUrl: String){
     const contentType = supportingFile.file.type;
     this.projectService.upload(uploadPresignUrl,supportingFile.file, contentType)
       .subscribe(data=>{
