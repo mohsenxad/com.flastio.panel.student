@@ -7,6 +7,7 @@ import { LinkUrl } from '../../model/linkUrl';
 import { Project } from '../../model/project';
 import { Skill } from '../../model/skill';
 import { Student } from '../../model/student';
+import { SupportingFile } from '../../model/supportingFile';
 
 @Component({
   selector: 'add-project',
@@ -18,6 +19,7 @@ export class AddProjectComponent implements OnInit {
   project :Project = {
     skillList:[],
     linkUrlList:[],
+    supportingFileList:[],
     isPublished:false,
   };
   student: Student;
@@ -66,6 +68,10 @@ export class AddProjectComponent implements OnInit {
 
   updateLinkUrlList(linkUrlList: LinkUrl[]){
     this.project.linkUrlList = linkUrlList
+  }
+
+  updateSupportingFileList(supportingFileList: SupportingFile[]){
+    this.project.supportingFileList = supportingFileList
   }
 
   removeSkillFromProject(skill:Skill){

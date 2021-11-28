@@ -1,6 +1,7 @@
 import { Course } from "./course";
 import { LinkUrl } from "./linkUrl";
 import { Skill } from "./skill";
+import { SupportingFile } from "./supportingFile";
 
 export interface Project {
     _id?: String,
@@ -14,4 +15,5 @@ export interface Project {
     course?: Course,
     isPublished?:Boolean,
     linkUrlList?: LinkUrl[],
+    supportingFileList? :SupportingFile[],
 }

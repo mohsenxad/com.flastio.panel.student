@@ -1,0 +1,65 @@
+<form #form="ngForm">
+    <button class="close-btn" (click)="close()">Close</button>
+  
+    <legend>
+        Add Supporting Files
+    </legend>
+  
+    <fieldset>
+      <p>
+        You can share any related links, including links to YouTube videos,
+        potential websites, or webpages you built as a part of your project
+      </p>
+  
+      <ul>
+        <!-- <label for="txtLink"> Insert Link </label> -->
+        <label for="divSupportingFileSelector">
+            Supporting File
+        </label>
+          <div
+            id="divSupportingFileSelector"
+            name="divSupportingFileSelector"
+          >
+            <input
+                type="file"
+                id='supportingFile'
+                name='supportingFile'
+                (change)="handleFileInput($event.target.files)"
+            >
+          </div>
+      </ul>
+    </fieldset>
+  </form>
+  
+  <ul *ngIf="supportingFileList && supportingFileList.length > 0">
+    <li *ngFor="let supportingFile of supportingFileList">
+      <dl>
+        <div>
+          <dt>Title</dt>
+          <dd>
+            {{ supportingFile.title }}
+          </dd>
+  
+          <dt>Size</dt>
+          <dd>
+            {{ supportingFile.size }}
+          </dd>
+
+          <dt>Uploaded</dt>
+          <dd>
+            {{ supportingFile.isUploadComeplete }}
+          </dd>
+        </div>
+        <dt>Delete</dt>
+        <dd>
+          <button>Delete</button>
+        </dd>
+      </dl>
+    </li>
+  </ul>
+  
+  <div>
+    <button (click)="close()">Cancel</button>
+    <button (click)="save()">Save</button>
+  </div>
+  

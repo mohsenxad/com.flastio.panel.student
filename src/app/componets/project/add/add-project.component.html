@@ -125,6 +125,11 @@
 >
   <!-- *ngIf = "pageTitle == 'Links'" -->
 </assign-link-project>
+<assign-supporting-file-project
+  [supportingFileList]="project.supportingFileList"
+  (onSupportingFileListUpdated)="updateSupportingFileList($event)"
+updateSupportingFileList
+></assign-supporting-file-project>
 <add-paging-project
   (onPageTitleSelected)="changePage($event)"
 ></add-paging-project>

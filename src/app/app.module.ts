@@ -61,6 +61,7 @@ import { TranscriptPanelComponent } from './componets/transcript/panel/transcrip
 import { HttpClientModule } from '@angular/common/http';
 import { ResumePanelComponent } from './componets/resume/panel/resume-panel.component';
 import { LoadingComponent } from './componets/share/loading/loading.component';
+import { AssignSupportingFileProjectComponent } from './componets/project/assign-supporting-file/assign-supporting-file-project.component';
 
 
 
@@ -125,6 +126,7 @@ import { LoadingComponent } from './componets/share/loading/loading.component';
     TranscriptPanelComponent,
     ResumePanelComponent,
     LoadingComponent,
+    AssignSupportingFileProjectComponent,
   ],
   imports: [
     BrowserModule,
