@@ -1,5 +1,25 @@
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  link-url-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.5s;
+    padding: 16px;
+
+    &:hover {
+      border-radius: 8px;
+      background-color: #f4f9fd;
+      transition: 0.5s;
+
+      dd {
+        button {
+          transition: 0.5s;
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
