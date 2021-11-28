@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Realm from "realm-web";
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+import { ProjectService } from 'src/app/services/project/project.service';
 import { Course } from '../../model/course';
 import { LinkUrl } from '../../model/linkUrl';
 import { Project } from '../../model/project';
@@ -24,9 +25,13 @@ export class AddProjectComponent implements OnInit {
 
   pageTitle: String;
   attachmentFile: any;
+  projectFile: File ;
+  uniqFileName: String;
+  fileUrl: String;
   
   constructor(
-    private localStorageService:LocalStorageService
+    private localStorageService:LocalStorageService,
+    private projectService:ProjectService
   ) { 
     this.student = this.localStorageService.getStudent();
   }
@@ -99,5 +104,29 @@ export class AddProjectComponent implements OnInit {
       this.project.linkUrlList,
     );
     console.log(result);
+  }
+
+  async handleFileInput(files: FileList) {
+    this.projectFile = files.item(0);
+    let response:any = await this.getUploadUrl()
+    this.uniqFileName = response.fileName.toString();
+    let signedUploadUr = response.presignedUrl;
+    this.uploadFile(signedUploadUr)
+  }
+
+  async getUploadUrl(){
+    const user: Realm.User = this.app.currentUser;
+    let result: any  = await user.functions
+      .getProjectUploadUrl({Bucket:"flastio"})
+    console.log(result);
+    return result;
+  }
+
+  uploadFile(uploadPresignUrl: string){
+    const contentType = this.projectFile.type;
+    this.projectService.upload(uploadPresignUrl,this.projectFile, contentType)
+      .subscribe(data=>{
+        console.log('uploaded');
+      });
   }
 }

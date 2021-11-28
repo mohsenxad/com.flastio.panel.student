@@ -13,6 +13,24 @@
   <fieldset>
     <ul>
       <li>
+        <label
+          for="divProjectFile"
+        >
+          Project Summary file  
+        </label>
+        <div
+          id="divProjectFile"
+          name="divProjectFile"
+        >
+          <input
+              type="file"
+              id='projectFile'
+              name='projectFile'
+              (change)="handleFileInput($event.target.files)"
+          >
+        </div>
+      </li>
+      <li>
         <label for="slctProjectType"> Project Type </label>
         <select-type-project
           id="slctProjectType"
