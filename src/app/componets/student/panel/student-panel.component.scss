@@ -12,7 +12,6 @@
     content: url(/assets/images/Resume-Transcript.svg);
     margin-right: 9px;
     -webkit-writing-mode: vertical-rl;
-    
   }
 }
 .work-header {
@@ -34,4 +33,15 @@
 section {
   width: 83%;
   margin: auto;
+}
+
+#secResumeAndTranscript {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 20px;
+  h2 {
+    grid-column: span 2;
+    margin: 20px 0 0 0;
+  }
+ 
 }
