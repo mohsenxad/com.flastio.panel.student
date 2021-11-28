@@ -28,5 +28,7 @@ export interface Student {
     collegeStatus? : String,
     transcriptFileName? : String,
     resumeFileName?: String,
+    pictureFileName?: String,
+    pictureFileUrl?: String,
 
 }

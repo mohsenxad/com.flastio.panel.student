@@ -1,6 +1,17 @@
 <dl>
   <dt>picture</dt>
-  <dd><img src="/assets/images/profile.webp" alt="image"></dd>
+  <dd>
+    <img 
+      *ngIf="!student.pictureFileUrl"
+      src="/assets/images/profile.webp"
+      alt="image"
+    >
+    <img 
+      *ngIf="student.pictureFileUrl"
+      [src]="student.pictureFileUrl"
+      alt="image"
+    >
+  </dd>
   <dt>FistName</dt>
   <dd>
     {{ student.firstName }}

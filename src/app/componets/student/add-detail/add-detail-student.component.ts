@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { Student } from '../../model/student';
 import * as Realm from "realm-web";
+import { StudentService } from 'src/app/services/student/student.service';
 
 @Component({
   selector: 'add-detail-student',
@@ -10,13 +11,15 @@ import * as Realm from "realm-web";
 })
 export class AddDetailStudentComponent implements OnInit {
 
-  profilePicture: any;
+  profilePicture: File;
   student: Student;
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   
+  
 
   constructor(
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private studentService: StudentService
   ) { 
     this.student = this.localStorageService.getStudent();
   }
@@ -58,9 +61,36 @@ export class AddDetailStudentComponent implements OnInit {
         this.student.ethnicity,
         this.student.isEthnicitySharable,
         this.student.collegeStatus,
+        this.student.pictureFileName,
+        this.student.pictureFileUrl
       )
     this.student = result;
     this.localStorageService.setStudent(this.student);
+  }
+
+  async handleFileInput(files: FileList) {
+    this.profilePicture = files.item(0);
+    let response:any = await this.getUploadUrl()
+    let signedUploadUr = response.presignedUrl;
+    this.student.pictureFileName = response.fileName.toString();
+    this.student.pictureFileUrl = signedUploadUr.split('?')[0];
+    this.uploadFile(signedUploadUr)
+  }
+
+  async getUploadUrl(){
+    const user: Realm.User = this.app.currentUser;
+    let result: any  = await user.functions
+      .getPictureUploadUrl({Bucket:"flastio"})
+    console.log(result);
+    return result;
+  }
+
+  uploadFile(uploadPresignUrl: string){
+    const contentType = this.profilePicture.type;
+    this.studentService.upload(uploadPresignUrl,this.profilePicture, contentType)
+      .subscribe(data=>{
+        console.log('uploaded');
+      });
   }
 
 }
