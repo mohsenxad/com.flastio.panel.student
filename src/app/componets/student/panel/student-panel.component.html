@@ -8,10 +8,12 @@
 ></student-banner>
 </section>
 
-<skill-panel
+<section>
+    <skill-panel
     *ngIf = "student"
     [skillList]="student.skillList"
 ></skill-panel>
+</section>
 <section
     id='secResumeAndTranscript'
 >
@@ -22,22 +24,32 @@
     <transcript-panel></transcript-panel>
 </section>
 
-<project-panel
+<section>
+    <project-panel
     *ngIf = "student"
     [projectList] = 'student.projectList'
 ></project-panel>
 
-<certification-panel
+</section>
+
+<section>
+    <certification-panel
     *ngIf = "student"
     [assignedCertificationList] = 'student.assignedCertificationList'
 ></certification-panel>
+</section>
 
 
-<recommendation-panel
+<section>
+    <recommendation-panel
     *ngIf = "student"
     [recommendationList] = 'student.recommendationList'
 ></recommendation-panel>
-
+</section>
+<section>
+    
 <work-style-panel
-    [workStyleList] = "student.workStyleList"
+[workStyleList] = "student.workStyleList"
 ></work-style-panel>
+
+</section>

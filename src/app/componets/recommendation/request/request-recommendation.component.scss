@@ -58,6 +58,19 @@ form {
       width: 100%;
       padding: 11px 13px 16px 18px;
       margin: 7px 0 27px 0;
+      font-family: NunitoSans;
+      color: #0a1629;
+
+      &::placeholder{
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #7d8592;
+      }
+
     }
   }
 }
