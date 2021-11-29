@@ -4,6 +4,7 @@ import { Project } from "./project";
 import { Recommendation } from "./recommendation";
 import { School } from "./school";
 import { Skill } from "./skill";
+import { WorkStyle } from "./workStyle";
 
 export interface Student {
     _id?: String,
@@ -30,5 +31,6 @@ export interface Student {
     resumeFileName?: String,
     pictureFileName?: String,
     pictureFileUrl?: String,
+    workStyleList?: WorkStyle[],
 
 }

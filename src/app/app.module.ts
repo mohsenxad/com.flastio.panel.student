@@ -65,6 +65,9 @@ import { AssignSupportingFileProjectComponent } from './componets/supportingFile
 import { SupportingFilePanelComponent } from './componets/supportingFile/panel/supporting-file-panel.component';
 import { SupportingFileListComponent } from './componets/supportingFile/list/supporting-file-list.component';
 import { SupportingFileListItemComponent } from './componets/supportingFile/list-item/supporting-file-list-item.component';
+import { WorkStylePanelComponent } from './componets/workStyle/panel/work-style-panel.component';
+import { EmptyWorkStyleComponent } from './componets/workStyle/empty/empty-work-style.component';
+import { EmptyWorkGraphComponent } from './componets/workStyle/graph/empty-work-graph.component';
 
 
 
@@ -134,6 +137,9 @@ import { SupportingFileListItemComponent } from './componets/supportingFile/list
     SupportingFilePanelComponent,
     SupportingFileListComponent,
     SupportingFileListItemComponent,
+    WorkStylePanelComponent,
+    EmptyWorkStyleComponent,
+    EmptyWorkGraphComponent,
   ],
   imports: [
     BrowserModule,
