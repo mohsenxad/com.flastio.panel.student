@@ -84,7 +84,7 @@ form {
       font-family: NunitoSans;
       color: #0a1629;
 
-      &::placeholder{
+      &::placeholder {
         font-size: 14px;
         font-weight: normal;
         font-stretch: normal;
@@ -207,7 +207,6 @@ button:last-of-type {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-
   }
   input[type="file"] {
     transform: translateX(-50%);
@@ -216,6 +215,29 @@ button:last-of-type {
     opacity: 0;
     height: 100%;
     cursor: pointer;
+  }
+}
 
+.remove-skill-list {
+  margin: 13px 4px;
+  border-radius: 8px;
+  background-color: rgba(0, 184, 92, 0.1);
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: center;
+  color: #00b85c;
+  padding: 12px 11.5px 12px 12.5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+#divAssignedSkill {
+  ul {
+    display: flex;
+    flex-flow: wrap;
   }
 }

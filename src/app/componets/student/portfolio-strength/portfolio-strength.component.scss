@@ -1,0 +1,138 @@
+dl {
+  margin: 32px 0 0 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  dt {
+    &:nth-child(1) {
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #0a1629;
+    }
+    &:nth-child(3) {
+      display: none;
+    }
+  }
+  dd {
+    &:nth-child(2) {
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #00b85c;
+      margin: 0;
+      padding: 0;
+    }
+    &:nth-child(4) {
+      margin: 0;
+      padding: 0;
+    }
+    &:nth-child(5) {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+progress#strengthValue {
+  height: 6px;
+  border-radius: 8.5px;
+  width: 100%;
+}
+
+progress::-webkit-progress-value {
+  background: #00b85c;
+  border-radius: 8.5px;
+}
+
+progress::-moz-progress-bar {
+  background: #00b85c;
+  border-radius: 8.5px;
+}
+
+progress {
+  border-radius: 20px;
+}
+progress::-webkit-progress-bar {
+  border-radius: 20px;
+  background: #e2e2ea;
+}
+progress::-webkit-progress-value {
+  border-radius: 20px;
+}
+progress::-moz-progress-bar {
+  border-radius: 20px;
+  background: #e2e2ea;
+}
+
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details {
+  position: relative;
+  summary {
+    content: url(/assets/images/icn-general-hint-dark.svg);
+    display: flex;
+    text-indent: -9000px;
+    cursor: pointer;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+    border-radius: 1px;
+    box-shadow: 0 5px 20px 0 rgba(139, 149, 170, 0.2);
+    background-color: #fff;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    li {
+      margin: 0;
+      padding: 7px 10px 7px 10px;
+
+      &:hover{
+        border-radius: 8px;
+        background-color: rgba(63, 140, 255, 0.1);
+      }
+      
+      a {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #0a1629;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          margin: 3px 8px 2px 0;
+          background-color: #00b85c;
+          border-radius: 50%;
+          display: inline-flex;
+        }
+        &::after {
+          content: url(/assets/images/edit.svg);
+          margin-left: auto;
+          padding-left: 40px;
+        }
+      }
+    }
+  }
+}

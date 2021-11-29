@@ -1,7 +1,9 @@
-{{skill.name}}
-<button
-    *ngIf = "isRemovable"
-    (click)="remove()"
->
-    Remove
-</button>
+    {{skill.name}}
+    <button
+        *ngIf = "isRemovable"
+        (click)="remove()"
+        class="remove-skill-btn"
+    >
+        Remove
+    </button>
+    
