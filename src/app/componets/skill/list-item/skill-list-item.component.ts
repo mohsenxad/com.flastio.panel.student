@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Skill } from '../../model/skill';
 
 @Component({
@@ -9,10 +9,20 @@ import { Skill } from '../../model/skill';
 export class SkillListItemComponent implements OnInit {
 
   @Input() skill: Skill;
+  @Output() onSkillDeleted = new EventEmitter<Skill>();
 
+  isRemovable:Boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.onSkillDeleted);
+    if(this.onSkillDeleted.observers.length > 0){
+      this.isRemovable = true;
+    }
+  }
+
+  remove(){
+    this.onSkillDeleted.emit(this.skill);
   }
 
 }

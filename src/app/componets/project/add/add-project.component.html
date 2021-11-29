@@ -78,8 +78,10 @@
             *ngIf="project && project.skillList && project.skillList.length > 0"
           >
             <li *ngFor="let skill of project.skillList">
-              {{ skill.name }}
-              <button (click)="removeSkillFromProject(skill)">Remove</button>
+              <skill-list-item
+                [skill] = 'skill'
+                (onSkillDeleted) = 'removeSkillFromProject(skill)'
+              ></skill-list-item>
             </li>
           </ul>
         </div>
