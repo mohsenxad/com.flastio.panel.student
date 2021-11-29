@@ -68,6 +68,7 @@ import { SupportingFileListItemComponent } from './componets/supportingFile/list
 import { WorkStylePanelComponent } from './componets/workStyle/panel/work-style-panel.component';
 import { EmptyWorkStyleComponent } from './componets/workStyle/empty/empty-work-style.component';
 import { EmptyWorkGraphComponent } from './componets/workStyle/graph/empty-work-graph.component';
+import { PortfolioStrengthComponent } from './componets/student/portfolio-strength/portfolio-strength.component';
 
 
 
@@ -140,6 +141,7 @@ import { EmptyWorkGraphComponent } from './componets/workStyle/graph/empty-work-
     WorkStylePanelComponent,
     EmptyWorkStyleComponent,
     EmptyWorkGraphComponent,
+    PortfolioStrengthComponent,
   ],
   imports: [
     BrowserModule,
