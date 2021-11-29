@@ -14,6 +14,7 @@ export class AddDetailStudentComponent implements OnInit {
   profilePicture: File;
   student: Student;
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+  isLoading: Boolean = false;
   
   
 
@@ -49,7 +50,8 @@ export class AddDetailStudentComponent implements OnInit {
     this.student.collegeStatus = collegeStatus;
   }
 
-  async onSubmit(){
+  async save(){
+    this.isLoading = true;
     const user: Realm.User = this.app.currentUser;
     let result: any  = await user.functions
       .updateStudentDetail(
@@ -66,6 +68,7 @@ export class AddDetailStudentComponent implements OnInit {
       )
     this.student = result;
     this.localStorageService.setStudent(this.student);
+    this.isLoading = false;
   }
 
   async handleFileInput(files: FileList) {
@@ -86,9 +89,11 @@ export class AddDetailStudentComponent implements OnInit {
   }
 
   uploadFile(uploadPresignUrl: string){
+    this.isLoading = true;
     const contentType = this.profilePicture.type;
     this.studentService.upload(uploadPresignUrl,this.profilePicture, contentType)
       .subscribe(data=>{
+        this.isLoading = false;
         console.log('uploaded');
       });
   }

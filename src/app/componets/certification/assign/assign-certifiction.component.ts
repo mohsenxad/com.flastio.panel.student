@@ -20,6 +20,7 @@ export class AssignCertifictionComponent implements OnInit {
   certificationFile: File ;
   uniqFileName: String;
   fileUrl: String;
+  isLoading:Boolean = false;
 
   constructor(
     private localStorageService:LocalStorageService,
@@ -39,7 +40,8 @@ export class AssignCertifictionComponent implements OnInit {
     this.assignedCertification.certification = undefined;
   }
 
-  async onSubmit(){
+  async save(){
+    this.isLoading = true;
     const user: Realm.User = this.app.currentUser;
     let result:any  = await user.functions
       .assignCertification(
@@ -50,31 +52,41 @@ export class AssignCertifictionComponent implements OnInit {
         this.uniqFileName
       );
     this.assignedCertification = result;
-    console.log(this.assignedCertification);
+    this.isLoading = false;
+  }
+  
+  cancel(){
+    
   }
 
   async handleFileInput(files: FileList) {
+    this.isLoading = true;
     this.certificationFile = files.item(0);
     let response:any = await this.getUploadUrl()
     this.uniqFileName = response.fileName.toString();
     let signedUploadUr = response.presignedUrl;
     this.uploadFile(signedUploadUr)
+    this.isLoading = false;
   }
 
   async getUploadUrl(){
+    this.isLoading = true;
     const user: Realm.User = this.app.currentUser;
     let result: any  = await user.functions
       .getCertificationUploadUrl({Bucket:"flastio"})
-    console.log(result);
+    this.isLoading = false;
     return result;
   }
 
   uploadFile(uploadPresignUrl: string){
+    this.isLoading = true;
     const contentType = this.certificationFile.type;
     this.certificationService.upload(uploadPresignUrl,this.certificationFile, contentType)
       .subscribe(data=>{
         console.log('uploaded');
+        this.isLoading = false;
       });
+
   }
 
 

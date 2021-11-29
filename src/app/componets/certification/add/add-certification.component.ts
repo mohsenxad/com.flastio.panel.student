@@ -16,6 +16,7 @@ export class AddCertificationComponent implements OnInit {
   certification :Certification = {};
   student: Student = {};
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+  isLoading:Boolean = false;
 
   constructor(
     private localStorageService:LocalStorageService
@@ -26,11 +27,11 @@ export class AddCertificationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async onSubmit(){
-    console.log(this.certification);
+  async save(){
+    this.isLoading = true;
     const user: Realm.User = this.app.currentUser;
     let result:any  = await user.functions.addCertification(this.certification.name);
     this.certification._id = result.insertedId.toString();
-    console.log(this.certification);
+    this.isLoading = false;
   }
 }
