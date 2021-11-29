@@ -1,7 +1,11 @@
-<form (ngSubmit)="onSubmit()" #form="ngForm">
+<form
+  #form="ngForm"
+>
   <button>Close</button>
   <legend>Personal information</legend>
-  <fieldset>
+  <fieldset
+    [disabled]="isLoading"
+  >
     <ul>
       <li>
         <label for="pictureFile" class="file-label"> Add Profile Picture </label>
@@ -80,6 +84,11 @@
         ></college-status-select>
       </li>
     </ul>
-    <input type="submit" value="Continue" />
+    
+    <button
+      (click)="save()"
+    >
+      Continue
+    </button>
   </fieldset>
 </form>

@@ -1,6 +1,10 @@
-<form (ngSubmit)="onSubmit()" #form="ngForm">
+<form 
+  #form="ngForm"
+>
   <legend>Add Certification</legend>
-  <fieldset>
+  <fieldset
+    [disabled]="isLoading"
+  >
     <ul>
       <li>
         <label for="divCertification"> Certification name </label>
@@ -70,7 +74,18 @@
         </div>
       </li>
     </ul>
-    <input type="submit" value="Save" />
-    <input type="submit" value="Cancel" />
+    <div>
+      <button
+        (click)="save()"
+      >
+        Save
+      </button>
+      <button
+      (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+    
   </fieldset>
 </form>
