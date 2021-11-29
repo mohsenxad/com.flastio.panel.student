@@ -1,0 +1,104 @@
+dt {
+    display: none;
+  }
+  dd {
+    margin: 0;
+    padding: 0;
+  }
+  dl {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0;
+    flex-direction: column;
+    dd {
+      &:nth-child(2) {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #0a1629;
+        display: flex;
+        align-items: flex-start;
+        &::before {
+          content: url(/assets/images/icn-general-attach.svg);
+          padding: 8px 10px 3px 10px;
+          border-radius: 14px;
+          background-color: rgba(109, 93, 211, 0.1);
+          margin-right: 16px;
+        }
+      }
+      &:nth-child(4) {
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #91929e;
+        margin: -13px 0 0 0;
+      }
+      // &:last-child{
+      //   margin-right: auto;
+      // }
+      button {
+        opacity: 0;
+        transition: 0.5s;
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #91929e;
+        padding: 11px 23px 10px 24px;
+        border-radius: 8px;
+        box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+        border: solid 1px #d8e0f0;
+        background-color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  li {
+    display: flex;
+  }
+  div {
+    button:first-of-type {
+      transition: 0.5s;
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #91929e;
+      padding: 11px 23px 10px 24px;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      cursor: pointer;
+      margin-right: 6px;
+    }
+    button:last-of-type {
+      transition: 0.5s;
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #91929e;
+      padding: 11px 23px 10px 24px;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      cursor: pointer;
+    }
+  }
+  
