@@ -1,0 +1,38 @@
+<div>
+    <button>
+        Close
+    </button>
+
+    <dl>
+        <dt>picture</dt>
+        <dd>
+            <img 
+            *ngIf="!student.pictureFileUrl"
+            src="/assets/images/profile.webp"
+            alt="image"
+            >
+            <img 
+            *ngIf="student.pictureFileUrl"
+            [src]="student.pictureFileUrl"
+            alt="image"
+            >
+        </dd>
+        
+        <dt>
+            Badge
+        </dt>
+        <dd>
+            
+        </dd>
+        <dt>FistName</dt>
+        <dd>
+            {{ student.firstName }}
+        </dd>
+        <dt>LastName</dt>
+        <dd>
+            {{ student.lastName }}
+        </dd>
+    </dl>
+
+    <student-action-panel></student-action-panel>
+</div>
