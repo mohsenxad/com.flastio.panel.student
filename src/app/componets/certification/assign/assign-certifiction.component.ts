@@ -49,7 +49,8 @@ export class AssignCertifictionComponent implements OnInit {
         this.assignedCertification.certification,
         this.assignedCertification.issuedDateYear,
         this.assignedCertification.issuedDateMonth,
-        this.uniqFileName
+        this.uniqFileName,
+        this.assignedCertification.fileUrl
       );
     this.assignedCertification = result;
     this.isLoading = false;
@@ -64,7 +65,8 @@ export class AssignCertifictionComponent implements OnInit {
     this.certificationFile = files.item(0);
     let response:any = await this.getUploadUrl()
     this.uniqFileName = response.fileName.toString();
-    let signedUploadUr = response.presignedUrl;
+    let signedUploadUr:String = response.presignedUrl;
+    this.assignedCertification.fileUrl = signedUploadUr.split('?')[0];
     this.uploadFile(signedUploadUr)
     this.isLoading = false;
   }
@@ -78,7 +80,7 @@ export class AssignCertifictionComponent implements OnInit {
     return result;
   }
 
-  uploadFile(uploadPresignUrl: string){
+  uploadFile(uploadPresignUrl: String){
     this.isLoading = true;
     const contentType = this.certificationFile.type;
     this.certificationService.upload(uploadPresignUrl,this.certificationFile, contentType)

@@ -47,6 +47,8 @@ export class SearchSkillComponent implements OnInit {
   }
 
   selected(skill:Skill){
+    this.skillKeyWord = '';
+    this.skillList =[];
     this.onSkillSelected.emit(skill);
   }
 

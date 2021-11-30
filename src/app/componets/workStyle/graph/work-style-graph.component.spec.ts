@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmptyWorkGraphComponent } from './empty-work-graph.component';
+import { WorkStyleGraphComponent } from './work-style-graph.component';
 
-describe('EmptyWorkGraphComponent', () => {
-  let component: EmptyWorkGraphComponent;
-  let fixture: ComponentFixture<EmptyWorkGraphComponent>;
+describe('WorkStyleGraphComponent', () => {
+  let component: WorkStyleGraphComponent;
+  let fixture: ComponentFixture<WorkStyleGraphComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmptyWorkGraphComponent ]
+      declarations: [ WorkStyleGraphComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmptyWorkGraphComponent);
+    fixture = TestBed.createComponent(WorkStyleGraphComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

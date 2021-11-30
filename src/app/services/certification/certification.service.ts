@@ -10,7 +10,7 @@ export class CertificationService {
     private http: HttpClient
   ) { }
 
-  upload( url: string, file:any, contentType: String): any{
+  upload( url: String, file:any, contentType: String): any{
     let body: any =file;
     var headers: HttpHeaders = new HttpHeaders(
       {
@@ -18,6 +18,6 @@ export class CertificationService {
         "ContentType": contentType.toString()
       });
     return this.http
-      .put(url,body, {headers});
+      .put(url.toString(),body, {headers});
   }
 }

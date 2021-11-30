@@ -67,8 +67,8 @@ import { SupportingFileListComponent } from './componets/supportingFile/list/sup
 import { SupportingFileListItemComponent } from './componets/supportingFile/list-item/supporting-file-list-item.component';
 import { WorkStylePanelComponent } from './componets/workStyle/panel/work-style-panel.component';
 import { EmptyWorkStyleComponent } from './componets/workStyle/empty/empty-work-style.component';
-import { EmptyWorkGraphComponent } from './componets/workStyle/graph/empty-work-graph.component';
 import { PortfolioStrengthComponent } from './componets/student/portfolio-strength/portfolio-strength.component';
+import { WorkStyleGraphComponent } from './componets/workStyle/graph/work-style-graph.component';
 
 
 
@@ -140,8 +140,8 @@ import { PortfolioStrengthComponent } from './componets/student/portfolio-streng
     SupportingFileListItemComponent,
     WorkStylePanelComponent,
     EmptyWorkStyleComponent,
-    EmptyWorkGraphComponent,
     PortfolioStrengthComponent,
+    WorkStyleGraphComponent,
   ],
   imports: [
     BrowserModule,

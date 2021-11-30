@@ -6,4 +6,5 @@ export interface AssignedCertification {
     issuedDateMonth?: Number,
     issuedDateYear?: Number,
     fileName?: String,
+    fileUrl?: String,
 }

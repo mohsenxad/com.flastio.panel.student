@@ -1,6 +1,21 @@
 <dl>
   <dt>Image</dt>
-  <dd><img src="/assets/images/certificate-sample.jpg" alt="image" /></dd>
+  <dd
+    *ngIf = "!assignedCertification.fileUrl"
+  >
+    <img
+      src = "/assets/images/certificate-sample.jpg"
+      [alt] = "assignedCertification.certification.name"
+    />
+  </dd>
+  <dd
+    *ngIf = "assignedCertification.fileUrl"
+  >
+    <img
+      [src] = "assignedCertification.fileUrl"
+      [alt] = "assignedCertification.certification.name"
+    />
+  </dd>
 
   <div>
     <dt>Name</dt>
