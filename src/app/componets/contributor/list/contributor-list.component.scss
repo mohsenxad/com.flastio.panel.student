@@ -1,0 +1,21 @@
+ul {
+  margin: 50px 0 0 0;
+  padding: 0;
+  list-style: none;
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  contributor-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.5s;
+    padding: 16px;
+    &:hover {
+      transition: 0.5s;
+      border-radius: 8px;
+      background-color: #f4f9fd;
+    }
+  }
+}

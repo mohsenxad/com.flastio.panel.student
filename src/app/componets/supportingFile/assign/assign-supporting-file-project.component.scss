@@ -1,7 +1,7 @@
 form {
   margin: 40px 0 0 0;
   padding: 0;
-
+  position: relative;
   legend {
     font-size: 24px;
     font-weight: bold;
@@ -13,16 +13,22 @@ form {
     color: #0a1629;
   }
   .close-btn {
-    content: url(/assets/images/move-up.svg);
-    text-indent: -6000px;
-    display: flex;
     background-color: #f4f9fd;
     border-radius: 50%;
+    padding: 10px;
     border: none;
-    float: left;
+    content: url(/assets/images/move-up.svg);
+    -webkit-writing-mode: vertical-rl;
+    display: flex;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    display: flex;
+    border: none;
     transform: rotate(-90deg);
     box-shadow: none;
     padding: 5px;
+    margin-top: 0;
   }
 
   fieldset {
