@@ -1,0 +1,105 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+  button {
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #7d8592;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    transition: 0.5s;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    &:hover {
+      border-radius: 10px;
+      background-color: rgba(63, 140, 255, 0.1);
+      transition: 0.5s;
+      color: #3f8cff;
+    }
+  }
+  li {
+    &:nth-child(1) {
+      button {
+        transition: 0.5s;
+
+        &::before {
+          content: url(/assets/images/SAP-analytics.svg);
+          padding-right: 16px;
+          padding-left: 12px;
+          transition: 0.5s;
+        }
+        &:hover {
+          transition: 0.5s;
+
+          &::before {
+            content: url(/assets/images/SAP-analytics-blue.svg);
+            transition: 0.5s;
+          }
+        }
+      }
+    }
+    &:nth-child(2) {
+      button {
+        &::before {
+          content: url(/assets/images/SAP-Upgrade-Plan.svg);
+          padding-right: 16px;
+          padding-left: 12px;
+        }
+        &:hover {
+            transition: 0.5s;
+  
+            &::before {
+                content: url(/assets/images/SAP-Upgrade-Plan-blue.svg);
+                transition: 0.5s;
+            }
+          }
+      }
+    }
+    &:nth-child(3) {
+      button {
+        &::before {
+          content: url(/assets/images/SAP-Personal-Information.svg);
+          padding-right: 16px;
+          padding-left: 12px;
+        }
+        &:hover {
+            transition: 0.5s;
+  
+            &::before {
+                content: url(/assets/images/SAP-Personal-Information-blue.svg);
+                transition: 0.5s;
+            }
+          }
+      }
+    }
+    &:nth-child(4) {
+      button {
+        &::before {
+          content: url(/assets/images/SAP-Sign-Out.svg);
+          padding-right: 16px;
+          padding-left: 12px;
+        }
+        &:hover {
+            transition: 0.5s;
+  
+            &::before {
+                content: url(/assets/images/SAP-Sign-Out-blue.svg);
+                transition: 0.5s;
+            }
+          }
+      }
+    }
+  }
+}
