@@ -69,6 +69,8 @@ import { WorkStylePanelComponent } from './componets/workStyle/panel/work-style-
 import { EmptyWorkStyleComponent } from './componets/workStyle/empty/empty-work-style.component';
 import { PortfolioStrengthComponent } from './componets/student/portfolio-strength/portfolio-strength.component';
 import { WorkStyleGraphComponent } from './componets/workStyle/graph/work-style-graph.component';
+import { ConfirmDeleteComponent } from './componets/share/confirm-delete/confirm-delete.component';
+
 
 
 
@@ -142,6 +144,7 @@ import { WorkStyleGraphComponent } from './componets/workStyle/graph/work-style-
     EmptyWorkStyleComponent,
     PortfolioStrengthComponent,
     WorkStyleGraphComponent,
+    ConfirmDeleteComponent,
   ],
   imports: [
     BrowserModule,

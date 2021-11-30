@@ -12,4 +12,24 @@ export class ProjectActionPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  edit(){
+
+  }
+
+  delete(){
+    
+  }
+
+  changeDisplayIndex(index:Number){
+
+  }
+
+  moveUp(){
+    this.changeDisplayIndex(+1);
+  }
+
+  moveDown(){
+    this.changeDisplayIndex(-1);
+  }
+
 }
