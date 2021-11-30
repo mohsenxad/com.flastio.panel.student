@@ -11,6 +11,7 @@ export class ProjectPanelComponent implements OnInit {
   @Input() projectList: Project[];
 
   isAddProjectVisible:Boolean = false;
+  isConfirmDeleteVisible: Boolean = false;
   
   constructor() { }
 
@@ -26,5 +27,17 @@ export class ProjectPanelComponent implements OnInit {
     this.isAddProjectVisible = false;
   }
 
+  showConfrimDelete(){
+    this.isConfirmDeleteVisible = true;
+  }
+
+  hideConfrimDelete(){
+    this.isConfirmDeleteVisible = false;
+  }
+
+  deleteProject(){
+    console.log('delete project');
+    
+  }
 
 }

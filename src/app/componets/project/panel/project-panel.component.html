@@ -12,5 +12,8 @@
         *ngIf="!projectList || projectList.length == 0"
     ></empty-project>
     <add-project></add-project>
-    <confirm-delete></confirm-delete>
+    <confirm-delete
+        (onCancel) = "hideConfrimDelete()"
+        (onConfirm) = "deleteProject()"
+    ></confirm-delete>
 </section>

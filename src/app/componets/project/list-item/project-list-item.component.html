@@ -16,7 +16,11 @@
 
   <dt>Action Panel</dt>
   <dd>
-    <project-action-panel> </project-action-panel>
+    <project-action-panel
+      (onEdit) = "edit()"
+      (onDelete) = "delete()"
+      (onChangeIndex) = "changeIndex($event)"
+    > </project-action-panel>
   </dd>
   <dt>Publish Status</dt>
   <dd>

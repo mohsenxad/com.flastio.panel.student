@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'project-action-panel',
@@ -7,21 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectActionPanelComponent implements OnInit {
 
+  @Output() onEdit = new EventEmitter();
+  @Output() onDelete = new EventEmitter();
+  @Output() onChangeIndex = new EventEmitter<Number>();
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
   edit(){
-
+    console.log('edit');
+    
+    this.onEdit.emit();
   }
 
   delete(){
+    console.log('delete');
     
+    this.onDelete.emit();
   }
 
   changeDisplayIndex(index:Number){
-
+    this.onChangeIndex.emit(index);
   }
 
   moveUp(){
