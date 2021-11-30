@@ -1,3 +1,4 @@
+import { Contributor } from "./contributor";
 import { Course } from "./course";
 import { LinkUrl } from "./linkUrl";
 import { Skill } from "./skill";
@@ -16,4 +17,5 @@ export interface Project {
     isPublished?:Boolean,
     linkUrlList?: LinkUrl[],
     supportingFileList? :SupportingFile[],
+    contributorList?: Contributor[],
 }
