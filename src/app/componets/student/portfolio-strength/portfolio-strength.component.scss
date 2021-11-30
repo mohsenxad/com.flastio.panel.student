@@ -102,11 +102,11 @@ details {
       margin: 0;
       padding: 7px 10px 7px 10px;
 
-      &:hover{
+      &:hover {
         border-radius: 8px;
         background-color: rgba(63, 140, 255, 0.1);
       }
-      
+
       a {
         font-size: 14px;
         font-weight: normal;
@@ -118,6 +118,22 @@ details {
         text-decoration: none;
         display: flex;
         align-items: center;
+        &::before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          margin: 3px 8px 2px 0;
+          background-color: #ced5e0;
+          border-radius: 50%;
+          display: inline-flex;
+        }
+        &::after {
+          content: url(/assets/images/edit-blue.svg);
+          margin-left: auto;
+          padding-left: 40px;
+        }
+      }
+      .iscompleted {
         &::before {
           content: "";
           width: 16px;

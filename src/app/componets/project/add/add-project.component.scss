@@ -1,6 +1,8 @@
 form {
   fieldset {
     border: none;
+    margin: 0;
+    padding: 0;
   }
 
   legend {
@@ -25,6 +27,7 @@ form {
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-bottom: 20px;
 
     &::after {
       content: url(/assets/images/icn-general-arrow-down-gray.svg);

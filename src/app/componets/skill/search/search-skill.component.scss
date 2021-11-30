@@ -50,9 +50,9 @@ button {
   border: none;
   display: flex;
   align-items: center;
-  text-transform:capitalize;
+  text-transform: capitalize;
 
-  &::before{
+  &::before {
     content: "";
     background: url(/assets/images/icn-general-add-dark-blue.svg);
     width: 12px;
@@ -60,5 +60,33 @@ button {
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 8px;
+  }
+}
+.search-skill-result {
+  position: relative;
+  button {
+    z-index: 3;
+    position: relative;
+    top: 0;
+  }
+  ul {
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(139, 149, 170, 0.2);
+    background-color: #fff;
+    padding: 45px 15px 15px 15px;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    top: -15px;
+  }
+  li {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    padding: 8px 0;
   }
 }

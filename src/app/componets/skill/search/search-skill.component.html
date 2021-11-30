@@ -17,18 +17,21 @@
             </li>
         </ul>
     </fieldset>
-    <button
-        (click) = "addSkill()"
-    >
-
-        add {{skillKeyWord}} to Skills
-    </button>
+ 
 </form>
     <loading
         *ngIf="isLoading"
     ></loading>
-<ul
+<div class="search-skill-result">
+    <button
+    (click) = "addSkill()"
+>
+
+    add {{skillKeyWord}} to Skills
+</button>
+    <ul
     *ngIf="skillList && skillList.length > 0"
+    
 >
     <li
         *ngFor = 'let skill of skillList'
@@ -37,3 +40,4 @@
         {{skill.name}}
     </li>
 </ul>
+</div>

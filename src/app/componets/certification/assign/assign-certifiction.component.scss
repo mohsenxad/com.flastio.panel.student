@@ -1,5 +1,7 @@
 fieldset {
   border: none;
+  margin: 0;
+  padding: 0;
 }
 ul {
   list-style: none;
@@ -79,7 +81,7 @@ ul {
   }
 }
 
-input[type="submit"]:first-of-type {
+button:first-of-type {
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -103,7 +105,7 @@ input[type="submit"]:first-of-type {
     transition: 0.5s;
   }
 }
-input[type="submit"]:last-of-type {
+button:last-of-type {
   padding: 12px 22px;
   border-radius: 10px;
   box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
