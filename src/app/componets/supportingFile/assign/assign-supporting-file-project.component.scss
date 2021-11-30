@@ -118,6 +118,13 @@ button:first-of-type {
   color: #91929e;
   transition: 0.5s;
   margin-top: 30px;
+  transition: 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    border: solid 1px #91929e;
+    transition: 0.5s;
+  }
 }
 
 button:last-of-type {

@@ -47,5 +47,12 @@ section {
         margin-right: 12px;
         -webkit-writing-mode: vertical-rl;
     }
+    transition: 0.5s;
+    cursor: pointer;
+  
+    &:hover {
+      border: solid 1px #91929e;
+      transition: 0.5s;
+    }
   }
 }

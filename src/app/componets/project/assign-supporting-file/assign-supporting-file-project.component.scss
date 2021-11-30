@@ -83,6 +83,13 @@ button:first-of-type {
   color: #91929e;
   transition: 0.5s;
   margin-top: 30px;
+  color: #91929e;
+  transition: 0.5s;
+
+  &:hover {
+    border: solid 1px #91929e;
+    transition: 0.5s;
+  }
 }
 
 button:last-of-type {
@@ -102,6 +109,12 @@ button:last-of-type {
   margin-left: 16px;
   transition: 0.5s;
   margin-top: 30px;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: #3a81eb;
+    transition: 0.5s;
+  }
 }
 
 dt {

@@ -87,6 +87,12 @@ div {
     background-color: #fff;
     cursor: pointer;
     margin-right: 6px;
+    transition: 0.5s;
+
+    &:hover {
+      border: solid 1px #91929e;
+      transition: 0.5s;
+    }
   }
   button:last-of-type {
     transition: 0.5s;
@@ -103,5 +109,11 @@ div {
     border: solid 1px #d8e0f0;
     background-color: #fff;
     cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      border: solid 1px #91929e;
+      transition: 0.5s;
+    }
   }
 }

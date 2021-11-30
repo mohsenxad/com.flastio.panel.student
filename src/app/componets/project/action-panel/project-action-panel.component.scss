@@ -21,48 +21,67 @@ ul {
   right: 0;
   top: 28px;
   li {
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
+    button {
+      border: none;
+      background: none;
+    }
     &:nth-child(1) {
-      content: url(/assets/images/edit.svg);
-      transition: 0.5s;
-      &:hover {
+      button {
+        content: url(/assets/images/edit.svg);
         transition: 0.5s;
-        content: url(/assets/images/edit-blue.svg);
+        display: flex;
+        &:hover {
+          transition: 0.5s;
+          content: url(/assets/images/edit-blue.svg);
+          background-color: #f4f9fd;
+        }
       }
     }
     &:nth-child(2) {
-      content: url(/assets/images/delete.svg);
-      border-left: solid 1px #e6ebf5;
-      transition: 0.5s;
-      &:hover {
+      button {
+        content: url(/assets/images/delete.svg);
+        border-left: solid 1px #e6ebf5;
         transition: 0.5s;
-        content: url(/assets/images/delete-blue.svg);
+        display: flex;
+ 
+
+        &:hover {
+          transition: 0.5s;
+          content: url(/assets/images/delete-blue.svg);
+          background-color: #f4f9fd;
+        }
       }
     }
     &:nth-child(3) {
-      content: url(/assets/images/move-up.svg);
-      transform: rotate(180deg);
-      transition: 0.5s;
-      &:hover {
+      button {
+        content: url(/assets/images/move-up.svg);
+        transform: rotate(180deg);
         transition: 0.5s;
-        content: url(/assets/images/move-up-blue.svg);
+        display: flex;
+
+        &:hover {
+          transition: 0.5s;
+          content: url(/assets/images/move-up-blue.svg);
+          background-color: #f4f9fd;
+        }
       }
     }
     &:nth-child(4) {
-      content: url(/assets/images/move-up.svg);
+      button {
+        content: url(/assets/images/move-up.svg);
+        transition: 0.5s;
+        display: flex;
+        &:hover {
+          transition: 0.5s;
+          content: url(/assets/images/move-up-blue.svg);
+        }
+      }
       transition: 0.5s;
       &:hover {
+        border-radius: 4px;
+        background-color: #f4f9fd;
         transition: 0.5s;
-        content: url(/assets/images/move-up-blue.svg);
       }
-    }
-    transition: 0.5s;
-    &:hover {
-      border-radius: 4px;
-      background-color: #f4f9fd;
-      transition: 0.5s;
     }
   }
 }
