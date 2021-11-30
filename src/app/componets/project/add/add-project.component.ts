@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Realm from "realm-web";
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { ProjectService } from 'src/app/services/project/project.service';
+import { Contributor } from '../../model/contributor';
 import { Course } from '../../model/course';
 import { LinkUrl } from '../../model/linkUrl';
 import { Project } from '../../model/project';
@@ -20,6 +21,7 @@ export class AddProjectComponent implements OnInit {
     skillList:[],
     linkUrlList:[],
     supportingFileList:[],
+    contributorList:[],
     isPublished:false,
   };
   student: Student;
@@ -70,6 +72,10 @@ export class AddProjectComponent implements OnInit {
     this.project.linkUrlList = linkUrlList
   }
 
+  updateContributorList(contributorList: Contributor[]){
+    this.project.contributorList = contributorList
+  }
+
   updateSupportingFileList(supportingFileList: SupportingFile[]){
     this.project.supportingFileList = supportingFileList
   }
@@ -109,6 +115,7 @@ export class AddProjectComponent implements OnInit {
       this.project.isPublished,
       this.project.linkUrlList,
       this.project.supportingFileList,
+      this.project.contributorList,
     );
     console.log(result);
   }

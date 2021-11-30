@@ -72,6 +72,10 @@ import { WorkStyleGraphComponent } from './componets/workStyle/graph/work-style-
 import { ConfirmDeleteComponent } from './componets/share/confirm-delete/confirm-delete.component';
 import { StudentActionPanelComponent } from './componets/student/action-panel/student-action-panel.component';
 import { StudentModalBannerComponent } from './componets/student/modal-banner/student-modal-banner.component';
+import { AssignContributorComponent } from './componets/contributor/assign/assign-contributor.component';
+import { ContributorPanelComponent } from './componets/contributor/panel/contributor-panel.component';
+import { ContributorListComponent } from './componets/contributor/list/contributor-list.component';
+import { ContributorListItemComponent } from './componets/contributor/list-item/contributor-list-item.component';
 
 
 
@@ -149,6 +153,10 @@ import { StudentModalBannerComponent } from './componets/student/modal-banner/st
     ConfirmDeleteComponent,
     StudentActionPanelComponent,
     StudentModalBannerComponent,
+    AssignContributorComponent,
+    ContributorPanelComponent,
+    ContributorListComponent,
+    ContributorListItemComponent,
   ],
   imports: [
     BrowserModule,

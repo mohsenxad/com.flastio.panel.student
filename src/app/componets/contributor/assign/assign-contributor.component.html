@@ -1,0 +1,76 @@
+<form #form="ngForm">
+    <button class="close-btn" (click)="close()">Close</button>
+  
+    <legend>
+        Add Contributors
+    </legend>
+  
+    <fieldset>
+      <p>
+        You can add as many contributors as you need to. The contributors will be notified upon submitting your project. It will enable them to consider uploading the project to their portfolio as well.
+      </p>
+  
+      <ul>
+        <li>
+            <label
+                for="txtName"
+            >
+                Contributor name
+            </label>
+            <input
+                type="text"
+                name="txtName"
+                id="txtName"
+                [(ngModel)] = 'contributor.name'
+                placeholder = "Enter name of contributor"
+            >
+        </li>
+
+        <li>
+            <label
+                for="txtEmail"
+            >
+                Email
+            </label>
+            <input
+                type="email"
+                name="txtEmail"
+                id="txtEmail"
+                [(ngModel)] = 'contributor.email'
+                placeholder = "Enter email of contributor"
+            >
+        </li>
+
+        <li>
+            <label
+                for="txtRole"
+            >
+                Role
+            </label>
+            <input
+                type="text"
+                name="txtRole"
+                id="txtRole"
+                [(ngModel)] = 'contributor.role'
+                placeholder = "e.g., Original draft preparation "
+            >
+        </li>
+
+        <button
+            (click)="add()"
+        >
+            Add Contributor
+        </button>
+
+      </ul>
+    </fieldset>
+  </form>
+  <contributor-list
+    *ngIf = "contributorList && contributorList.length > 0"
+    [contributorList] = "contributorList"
+  ></contributor-list>
+
+  <div>
+    <button (click)="close()">Cancel</button>
+    <button (click)="save()">Save</button>
+  </div>

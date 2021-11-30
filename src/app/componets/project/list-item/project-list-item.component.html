@@ -58,4 +58,11 @@
   <dd *ngIf="project.linkUrlList && project.linkUrlList.length > 0">
     <link-url-list [linkUrlList]="project.linkUrlList"></link-url-list>
   </dd>
+
+  <dt *ngIf="project.contributorList && project.contributorList.length > 0">
+    Contributors
+  </dt>
+  <dd *ngIf="project.contributorList && project.contributorList.length > 0">
+    <contributor-list [contributorList]="project.contributorList"></contributor-list>
+  </dd>
 </dl>

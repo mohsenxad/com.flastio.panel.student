@@ -1,0 +1,10 @@
+<ul *ngIf="contributorList && contributorList.length > 0">
+    <li
+        *ngFor = "let contributor of contributorList"
+    >
+        <contributor-list-item
+            [contributor]="contributor"
+        ></contributor-list-item>
+    </li>
+  </ul>
+  
