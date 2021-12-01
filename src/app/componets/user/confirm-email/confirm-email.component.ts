@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as Realm from "realm-web";
 
 @Component({
@@ -13,15 +13,14 @@ export class ConfirmEmailComponent implements OnInit {
   token: string;
   tokenId:string;
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
 
   async confirmUser(token:string, tokenId:string){
-    this.app.emailPasswordAuth.confirmUser(token, tokenId);
-    //let user: any = await this.app.emailPasswordAuth.confirmUser(token, tokenId);
-    //console.log(user);
-    
+    let user: any = await this.app.emailPasswordAuth.confirmUser(token, tokenId);
+    this.router.navigateByUrl('/login');
   }
 
 

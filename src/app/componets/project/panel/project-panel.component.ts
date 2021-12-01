@@ -9,8 +9,8 @@ import { Project } from '../../model/project';
 export class ProjectPanelComponent implements OnInit {
 
   @Input() projectList: Project[];
+  @Input() isAddProjectVisible:Boolean = false;
 
-  isAddProjectVisible:Boolean = false;
   isConfirmDeleteVisible: Boolean = false;
   
   constructor() { }
@@ -20,6 +20,8 @@ export class ProjectPanelComponent implements OnInit {
   }
 
   showAddProjectForm(){
+    console.log('show');
+    
     this.isAddProjectVisible = true;
   }
 

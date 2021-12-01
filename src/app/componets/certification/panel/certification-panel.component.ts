@@ -11,9 +11,22 @@ export class CertificationPanelComponent implements OnInit {
 
   @Input() assignedCertificationList: AssignedCertification[];
 
+  isAddCertificationModalVisible:Boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showAddCertificationModal(){
+    console.log('show');
+    
+    this.isAddCertificationModalVisible = true;
+  }
+
+  hideAddCertificationModal(){
+    console.log('hide');
+    
+    this.isAddCertificationModalVisible = false;
   }
 
 }

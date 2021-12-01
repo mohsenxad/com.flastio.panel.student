@@ -15,7 +15,6 @@ export class SkillListItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.onSkillDeleted);
     if(this.onSkillDeleted.observers.length > 0){
       this.isRemovable = true;
     }

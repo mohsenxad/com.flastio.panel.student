@@ -1,6 +1,11 @@
 <form 
   #form="ngForm"
 >
+  <button
+    (click)="close()"
+  >
+    Close
+  </button>
   <legend>Add Certification</legend>
   <fieldset
     [disabled]="isLoading"

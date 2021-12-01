@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import * as Realm from "realm-web";
 import { ProjectService } from 'src/app/services/project/project.service';
 import { SupportingFile } from '../../model/supportingFile';
 
@@ -12,8 +11,9 @@ export class AssignSupportingFileProjectComponent implements OnInit {
 
   @Input() supportingFileList: SupportingFile[] = [];
   @Output() onSupportingFileListUpdated = new EventEmitter<SupportingFile[]>();
-  
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+  @Output() onClose = new EventEmitter();
+
+
   fileUrl: String;
 
   constructor(
@@ -25,7 +25,7 @@ export class AssignSupportingFileProjectComponent implements OnInit {
 
   async handleFileInput(files: FileList) {
     let currentSupportingFile:File = files.item(0);
-    let response:any = await this.getUploadUrl()
+    let response:any = await this.projectService.getUploadUrl()
     let uniqFileName = response.fileName.toString();
     let signedUploadUrl: String = response.presignedUrl;
     let fileUrl = signedUploadUrl.split('?')[0];
@@ -41,13 +41,7 @@ export class AssignSupportingFileProjectComponent implements OnInit {
     this.uploadFile(newSupportingFile, signedUploadUrl)
   }
 
-  async getUploadUrl(){
-    const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions
-      .getProjectSupportingFileUploadUrl({Bucket:"flastio"})
-    return result;
-  }
-
+ 
   uploadFile(supportingFile:SupportingFile, uploadPresignUrl: String){
     const contentType = supportingFile.file.type;
     this.projectService.upload(uploadPresignUrl,supportingFile.file, contentType)
@@ -73,7 +67,12 @@ export class AssignSupportingFileProjectComponent implements OnInit {
   }
 
   close(){
+    this.onClose.emit();
+  }
 
+  cancel(){
+    this.onSupportingFileListUpdated.emit([]);
+    this.onClose.emit();
   }
 
 }

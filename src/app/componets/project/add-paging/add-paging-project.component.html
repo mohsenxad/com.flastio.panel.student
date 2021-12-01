@@ -1,6 +1,9 @@
 <nav>
   <ul>
-    <li *ngFor="let pageTitle of pageTitleList">
+    <li
+      *ngFor = "let pageTitle of pageTitleList"
+      (click)="changePageTitle(pageTitle)"
+    >
       <input
         type="radio"
         name="pageTitle"

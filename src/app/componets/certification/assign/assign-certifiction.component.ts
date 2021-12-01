@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Certification } from '../../model/certification';
 import * as Realm from "realm-web";
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
@@ -12,6 +12,8 @@ import { CertificationService } from 'src/app/services/certification/certificati
   styleUrls: ['./assign-certifiction.component.scss']
 })
 export class AssignCertifictionComponent implements OnInit {
+
+  @Output() onClose = new EventEmitter();
 
   student: Student = {};
   assignedCertification: AssignedCertification = {};
@@ -57,7 +59,16 @@ export class AssignCertifictionComponent implements OnInit {
   }
   
   cancel(){
+    // remove certification files from s3
+    console.log('cancel');
     
+    this.onClose.emit();
+  }
+
+  close(){
+    console.log('close');
+    
+    this.onClose.emit();
   }
 
   async handleFileInput(files: FileList) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as Realm from "realm-web";
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { ProjectService } from 'src/app/services/project/project.service';
@@ -17,6 +17,8 @@ import { SupportingFile } from '../../model/supportingFile';
 })
 export class AddProjectComponent implements OnInit {
 
+  @Output() onClose = new EventEmitter();
+
   project :Project = {
     skillList:[],
     linkUrlList:[],
@@ -27,7 +29,7 @@ export class AddProjectComponent implements OnInit {
   student: Student;
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
 
-  pageTitle: String;
+  pageTitle: String = 'General';
   attachmentFile: any;
   projectFile: File ;
   uniqFileName: String;
@@ -40,9 +42,13 @@ export class AddProjectComponent implements OnInit {
     this.student = this.localStorageService.getStudent();
   }
 
-  changePage(pageTitle:String){
+  changePage(pageTitle:String): void{
     this.pageTitle = pageTitle;
     console.log(this.pageTitle);
+  }
+
+  goToGeneralView(){
+    this.changePage("General");
   }
 
   setProjecType(projectType:String){
@@ -93,54 +99,40 @@ export class AddProjectComponent implements OnInit {
 
   draft(){
     this.project.isPublished = false;
-    this.onSubmit();
+    this.save();
   }
 
   publish(){
     this.project.isPublished = true;
-    this.onSubmit();
+    this.save();
   }
 
-  async onSubmit(){
-    console.log(this.project);
-    const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions.addProject(
-      this.student._id,
-      this.project.projectType,
-      this.project.name,
-      this.project.course,
-      this.project.description,
-      this.project.skillList,
-      this.project.yearCompleted,
-      this.project.isPublished,
-      this.project.linkUrlList,
-      this.project.supportingFileList,
-      this.project.contributorList,
-    );
+  async save(){
+    let result: any  = await this.projectService.add(this.project);
     console.log(result);
   }
 
   async handleFileInput(files: FileList) {
     this.projectFile = files.item(0);
-    let response:any = await this.getUploadUrl()
+    let response:any = await this.projectService.getProjectUploadUrl()
     this.uniqFileName = response.fileName.toString();
     let signedUploadUr = response.presignedUrl;
     this.uploadFile(signedUploadUr)
   }
 
-  async getUploadUrl(){
-    const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions
-      .getProjectUploadUrl({Bucket:"flastio"})
-    console.log(result);
-    return result;
-  }
+  
 
-  uploadFile(uploadPresignUrl: string){
+  uploadFile(uploadPresignUrl: String){
     const contentType = this.projectFile.type;
     this.projectService.upload(uploadPresignUrl,this.projectFile, contentType)
       .subscribe(data=>{
         console.log('uploaded');
+        this.fileUrl = uploadPresignUrl.split('?')[0];
+        this.project.summeryFileUrl = uploadPresignUrl.split('?')[0];
       });
+  }
+
+  close(){
+    this.onClose.emit();
   }
 }

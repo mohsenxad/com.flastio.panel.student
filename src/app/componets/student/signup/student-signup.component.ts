@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as Realm from "realm-web";
 import { LocalStorageService } from "src/app/services/localStorage/local-storage.service"
 import { Major } from '../../model/major';
@@ -16,7 +17,8 @@ export class StudentSignupComponent implements OnInit {
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
 
   constructor(
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -50,6 +52,7 @@ export class StudentSignupComponent implements OnInit {
       )
     this.student._id = result.insertedId.toString();
     this.localStorageService.setStudent(this.student);
+        this.router.navigateByUrl('/student/editDetail');
   }
 
 }

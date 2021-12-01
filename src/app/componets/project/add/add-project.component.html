@@ -1,4 +1,12 @@
-<form *ngIf="pageTitle == 'General'" #form="ngForm">
+<button
+  (click) = 'close()'
+>
+  Close
+</button>
+<form
+  *ngIf = "pageTitle == 'General'"
+  #form = "ngForm"
+>
   <legend>Project</legend>
   <details>
     <summary>How to add a project?</summary>
@@ -97,43 +105,25 @@
     </ul>
   </fieldset>
 </form>
-<form *ngIf="pageTitle == 'Attachment'">
-  <button>
-    Close
-  </button>
-  <legend>Add Supporting Files</legend>
-  <fieldset>
-    <p>
-      You can share any related links, including links to YouTube videos, potential websites, or webpages you built as a part of your project
-    </p>
-    <ul>
-      <li>
-        <label for="filAttachment"> Project’s Attachment </label>
-        <input
-          type="file"
-          name="filAttachment"
-          id="filAttachment"
-          [(ngModel)]="attachmentFile"
-          placeholder="Add Attachment"
-        />
-      </li>
-    </ul>
-  </fieldset>
-</form>
+
 <assign-link-project
+  *ngIf="pageTitle == 'Links'"
   [linkUrlList]="project.linkUrlList"
-  (onLinkUrlListUpdated)="updateLinkUrlList($event)"
->
-  <!-- *ngIf = "pageTitle == 'Links'" -->
-</assign-link-project>
+  (onLinkUrlListUpdated) = "updateLinkUrlList($event)"
+  (onClose) = 'goToGeneralView($event)'
+></assign-link-project>
 <assign-supporting-file-project
+  *ngIf="pageTitle == 'Attachment'"
   [supportingFileList] = "project.supportingFileList"
   (onSupportingFileListUpdated) = "updateSupportingFileList($event)"
+  (onClose) = 'goToGeneralView($event)'
 updateSupportingFileList
 ></assign-supporting-file-project>
 <assign-contributor
+  *ngIf = "pageTitle == 'Team'"
   [contributorList] = "project.contributorList"
   (onContributorListUpdated) = "updateContributorList($event)"
+  (onClose) = 'goToGeneralView($event)'
 ></assign-contributor>
 <add-paging-project
   (onPageTitleSelected)="changePage($event)"

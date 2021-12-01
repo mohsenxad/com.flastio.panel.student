@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as Realm from "realm-web";
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+import { StudentService } from 'src/app/services/student/student.service';
 import { Student } from '../../model/student';
 
 @Component({
@@ -10,11 +10,14 @@ import { Student } from '../../model/student';
 })
 export class StudentPanelComponent implements OnInit {
 
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+  
   student : Student;
+  isAddProjectVisible:Boolean = false;
+  isLoading: Boolean = false;
 
   constructor(
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private studentService: StudentService
   ) { }
 
   ngOnInit(): void {
@@ -22,11 +25,15 @@ export class StudentPanelComponent implements OnInit {
   }
 
   async getStudentInfo(){
-    const user: Realm.User = this.app.currentUser;
-    let result:any[]= await user.functions.getStudent();
-    this.student  = result[0];
-    console.log(this.student);
+    this.isLoading = true;
+    this.student  = await this.studentService.getStudentInfo();
     this.localStorageService.setStudent(this.student);
+    this.isLoading = false;
   }
+
+  showAddProject(){
+    this.isAddProjectVisible = true;
+  }
+
 
 }

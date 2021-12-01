@@ -8,11 +8,20 @@ import { Recommendation } from '../../model/recommendation';
 })
 export class RecommendationPanelComponent implements OnInit {
 
+  isRequestRecommendatinModalVisible: Boolean = false;
   
   @Input() recommendationList: Recommendation[];
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showRequestRecommendationModal(){
+    this.isRequestRecommendatinModalVisible = true;
+  }
+
+  hideRequestRecommendationModal(){
+    this.isRequestRecommendatinModalVisible = false;
   }
 
 }

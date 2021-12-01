@@ -2,25 +2,37 @@
     <h3>
         Transcript
     </h3>
-    <div>
-        <label for="transcript">Upload your Transcript</label>
-        <input
-            type="file"
-            id='transcriptFile'
-            name='transcriptFile'
-            value="transcriptFile"
-            (change)="handleFileInput($event.target.files)"
+    <loading
+        *ngIf="isLoading"
+    ></loading>
+    <form
+        *ngIf="!fileUrl"
+    >
+        <fieldset
+            [disabled]="isLoading"
         >
-
-    </div>
-    <div>
+            <label for="transcript">Upload your Transcript</label>
+            <input
+                type="file"
+                id='transcriptFile'
+                name='transcriptFile'
+                value="transcriptFile"
+                (change)="handleFileInput($event.target.files)"
+            >
+        </fieldset>
+        
+    </form>
+    <div
+        *ngIf="fileUrl"
+    >
         <a
-            href="#"
+            [href]="fileUrl"
+            target="_blank"
         >
             View transcript
         </a>
         <button
-            (click)="getUploadUrl()"
+            (click)="remove()"
         >
             Delete
         </button>

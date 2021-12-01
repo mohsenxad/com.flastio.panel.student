@@ -9,10 +9,15 @@
 
     
     <empty-project
-        *ngIf="!projectList || projectList.length == 0"
+        *ngIf = "!projectList || projectList.length == 0"
+        (onAddProjectClicked) = 'showAddProjectForm()'
     ></empty-project>
-    <add-project></add-project>
+    <add-project
+        *ngIf = "isAddProjectVisible"
+        (onClose) = "hideAddProjectForm()"
+    ></add-project>
     <confirm-delete
+        *ngIf = "isConfirmDeleteVisible"
         (onCancel) = "hideConfrimDelete()"
         (onConfirm) = "deleteProject()"
     ></confirm-delete>

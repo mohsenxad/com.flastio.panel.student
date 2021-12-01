@@ -1,3 +1,6 @@
+<loading
+    *ngIf = "isLoading"
+></loading>
 <student-modal-banner
     *ngIf = "student"
     [student] = 'student'
@@ -9,6 +12,7 @@
 >
 <student-banner
     [student] = 'student'
+    (onAddProjectClicked) = 'showAddProject()'
 ></student-banner>
 </section>
 
@@ -24,16 +28,22 @@
     <h2 class="resume-header">
         Resume & Transcript
     </h2>
-    <resume-panel></resume-panel>
-    <transcript-panel></transcript-panel>
+    <resume-panel
+        *ngIf = "student"
+        [fileUrl] = "student.resumeFileUrl"
+    ></resume-panel>
+    <transcript-panel
+        *ngIf = "student"
+        [fileUrl] = "student.transcriptFileUrl"
+    ></transcript-panel>
 </section>
 
 <section>
     <project-panel
-    *ngIf = "student"
-    [projectList] = 'student.projectList'
-></project-panel>
-
+        *ngIf = "student"
+        [isAddProjectVisible] = 'isAddProjectVisible'
+        [projectList] = 'student.projectList'
+    ></project-panel>
 </section>
 
 <section>
@@ -50,10 +60,10 @@
     [recommendationList] = 'student.recommendationList'
 ></recommendation-panel>
 </section>
-<section>
-    
-<work-style-panel
-[workStyleList] = "student.workStyleList"
-></work-style-panel>
 
+<section>
+    <work-style-panel
+        *ngIf = "student"
+        [workStyleList] = "student.workStyleList"
+    ></work-style-panel>
 </section>

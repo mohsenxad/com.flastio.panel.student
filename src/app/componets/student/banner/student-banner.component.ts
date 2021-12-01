@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Student } from '../../model/student';
 
 @Component({
@@ -8,9 +8,14 @@ import { Student } from '../../model/student';
 })
 export class StudentBannerComponent implements OnInit {
   @Input() student : Student;
+  @Output() onAddProjectClicked = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addProject(){
+    this.onAddProjectClicked.emit();
   }
 
 }

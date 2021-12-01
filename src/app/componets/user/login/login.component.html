@@ -7,7 +7,9 @@
       alt="images"
     />
   </div>
-  <form (ngSubmit)="onSubmit()" #form="ngForm">
+  <form
+    #form="ngForm"
+  >
     <legend>Login</legend>
     <fieldset>
       <ul>
@@ -36,7 +38,9 @@
           />
         </li>
       </ul>
-      <button>Sign up</button>
+      <button
+        (click)="onSubmit()"
+      >Sign up</button>
       <p>
         By signing up, I agree to the Flastio <span>Privacy Policy</span> and
         <span>Terms of Service.</span>

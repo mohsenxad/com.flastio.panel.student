@@ -37,10 +37,21 @@
     <skill-list [skillList]="project.skillList"></skill-list>
   </dd>
 
-  <dt>File Priveiw</dt>
-  <dd class="project-image">
+  <dt
+    *ngIf="project.summeryFileUrl"
+  >File Priveiw</dt>
+  <dd
+    class="project-image"
+    *ngIf="project.summeryFileUrl"
+  >
     <img src="assets/images/project-sample.jpg" alt="images" />
-    <button>View Project Summary</button>
+    <!-- <button>View Project Summary</button> -->
+    <a 
+      [href] = "project.summeryFileUrl"
+      target = "_blank"
+    >
+      View Project Summary
+    </a>
   </dd>
 
   

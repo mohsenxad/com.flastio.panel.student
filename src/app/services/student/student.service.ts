@@ -1,10 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as Realm from "realm-web";
+import { Student } from 'src/app/componets/model/student';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
+
+  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
 
   constructor(
     private http: HttpClient
@@ -19,5 +23,12 @@ export class StudentService {
       });
     return this.http
       .put(url,body, {headers});
+  }
+
+  async getStudentInfo(): Promise<Student>{
+    const user: Realm.User = this.app.currentUser;
+    let result:any[]= await user.functions.getStudent();
+    let student: Student  = result[0];
+    return student;
   }
 }

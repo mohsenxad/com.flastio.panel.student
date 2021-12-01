@@ -1,12 +1,24 @@
 <section>
   <h2>Certifications</h2>
   <certification-list
-    *ngIf="assignedCertificationList && assignedCertificationList.length > 0"
+    *ngIf = "assignedCertificationList && assignedCertificationList.length > 0"
     [assignedCertificationList]="assignedCertificationList"
   ></certification-list>
+
+  <button
+    *ngIf = "assignedCertificationList && assignedCertificationList.length > 0"
+    (click) = "showAddCertificationModal()"
+  >
+    Add Certification
+  </button>
 
   <empty-certification
     *ngIf="!assignedCertificationList || assignedCertificationList.length == 0"
   ></empty-certification>
-  <assign-certifiction></assign-certifiction>
+  
+  <assign-certifiction
+    *ngIf = "isAddCertificationModalVisible"
+    (onClose) = 'hideAddCertificationModal()'
+  ></assign-certifiction>
+  
 </section>

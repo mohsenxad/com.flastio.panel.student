@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Recommendation } from '../../model/recommendation';
 import * as Realm from "realm-web";
 import { Student } from '../../model/student';
@@ -10,6 +10,8 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
   styleUrls: ['./request-recommendation.component.scss']
 })
 export class RequestRecommendationComponent implements OnInit {
+
+  @Output() onClose = new EventEmitter();
 
   recommendation: Recommendation = {};
   app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
@@ -37,7 +39,7 @@ export class RequestRecommendationComponent implements OnInit {
   }
 
   close(){
-    
+    this.onClose.emit();
   }
 
 }

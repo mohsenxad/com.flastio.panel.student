@@ -12,6 +12,7 @@ import { SingupComponent } from './componets/user/singup/singup.component';
 const routes: Routes = [
   {path:'signup', component:SingupComponent},
   {path:'confirmEmail', component:ConfirmEmailComponent},
+  {path:'', component:LoginComponent},
   {path:'login', component:LoginComponent},
   {path:'student/signup', component:StudentSignupComponent},
   {path:'student/editDetail', component:AddDetailStudentComponent},

@@ -11,6 +11,7 @@ export class AssignLinkProjectComponent implements OnInit {
   linkUrl:String;
   @Input() linkUrlList: LinkUrl[] = [];
   @Output() onLinkUrlListUpdated = new EventEmitter<LinkUrl[]>();
+  @Output() onClose = new EventEmitter();
 
   constructor() { }
 
@@ -37,7 +38,12 @@ export class AssignLinkProjectComponent implements OnInit {
   }
 
   close(){
+    this.onClose.emit();
+  }
 
+  cancel(){
+    this.onLinkUrlListUpdated.emit([]);
+    this.onClose.emit();
   }
 
 

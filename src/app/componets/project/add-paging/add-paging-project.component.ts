@@ -10,7 +10,6 @@ export class AddPagingProjectComponent implements OnInit {
   @Output() onPageTitleSelected = new EventEmitter<String>();
 
   pageTitleList:String[] = [
-    'General',
     'Attachment',
     'Links',
     'Certification',
@@ -20,13 +19,12 @@ export class AddPagingProjectComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if(!this.selectedPageTitle){
-      this.selectedPageTitle = this.pageTitleList[0];
-      this.changePageTitle(this.selectedPageTitle);
-    }
+
   }
 
   changePageTitle(pageTitle:String){
+    console.log('asdfa');
+    
     this.onPageTitleSelected.emit(pageTitle);
   }
 }

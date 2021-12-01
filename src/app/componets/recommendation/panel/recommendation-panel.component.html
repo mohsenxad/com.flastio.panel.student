@@ -7,11 +7,20 @@
         [recommendationList] = 'recommendationList'
     ></recommendation-list>
     
-    <button>
+    <button
+        *ngIf = "recommendationList && recommendationList.length > 0"
+        (click) = "showRequestRecommendationModal()"
+    >
         Ask for a recommendation
     </button>
+
     <empty-recommendation
         *ngIf="!recommendationList || recommendationList.length == 0"
     ></empty-recommendation>
-    <request-recommendation></request-recommendation>
+
+    <request-recommendation
+        *ngIf = "isRequestRecommendatinModalVisible"
+        (onClose) = 'hideRequestRecommendationModal()'
+    ></request-recommendation>
+    
 </section>

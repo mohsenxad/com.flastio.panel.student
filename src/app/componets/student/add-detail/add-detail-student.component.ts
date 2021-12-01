@@ -3,6 +3,7 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 import { Student } from '../../model/student';
 import * as Realm from "realm-web";
 import { StudentService } from 'src/app/services/student/student.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'add-detail-student',
@@ -20,7 +21,8 @@ export class AddDetailStudentComponent implements OnInit {
 
   constructor(
     private localStorageService: LocalStorageService,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private router: Router,
   ) { 
     this.student = this.localStorageService.getStudent();
   }
@@ -69,6 +71,7 @@ export class AddDetailStudentComponent implements OnInit {
     this.student = result;
     this.localStorageService.setStudent(this.student);
     this.isLoading = false;
+    this.router.navigateByUrl('/student/panel')
   }
 
   async handleFileInput(files: FileList) {
@@ -96,6 +99,10 @@ export class AddDetailStudentComponent implements OnInit {
         this.isLoading = false;
         console.log('uploaded');
       });
+  }
+
+  skip(){
+    this.router.navigateByUrl('/student/panel')
   }
 
 }

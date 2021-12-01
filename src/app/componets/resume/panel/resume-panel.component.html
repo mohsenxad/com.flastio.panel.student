@@ -2,25 +2,40 @@
     <h3>
         Resume
     </h3>
-    <div>
-        <label for="resume">Upload your Resume</label>
-
-        <input
-            type="file"
-            id='resumeFile'
-            name='resumeFile'
-            value="resumeFile"
-            (change)="handleFileInput($event.target.files)"
+    <loading
+        *ngIf="isLoading"
+    ></loading>
+    <form
+        *ngIf="!fileUrl"
+    >
+        <fieldset
+            [disabled]="isLoading"
         >
-    </div>
-    <div>
+            <label
+                for="resumeFile"
+            >
+                Upload your Resume
+            </label>
+            <input
+                type="file"
+                id = 'resumeFile'
+                name = 'resumeFile'
+                value = "resumeFile"
+                (change) = "handleFileInput($event.target.files)"
+            >
+        </fieldset>
+    </form>
+    <div
+        *ngIf="fileUrl"
+    >
         <a
-            href="#"
+            [href]="fileUrl"
+            target="_blank"
         >
             View resume
         </a>
         <button
-            (click)="getUploadUrl()"
+            (click)="remove()"
         >
             Delete
         </button>

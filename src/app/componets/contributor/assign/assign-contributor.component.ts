@@ -11,6 +11,7 @@ export class AssignContributorComponent implements OnInit {
   
   @Input() contributorList: Contributor[] = [];
   @Output() onContributorListUpdated = new EventEmitter<Contributor[]>();
+  @Output() onClose = new EventEmitter();
 
   contributor:Contributor = {};
 
@@ -22,7 +23,12 @@ export class AssignContributorComponent implements OnInit {
   }
 
   close(){
+    this.onClose.emit();
+  }
 
+  cancel(){
+    this.onContributorListUpdated.emit([]);
+    this.onClose.emit();
   }
 
   add(){
