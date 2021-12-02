@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as Realm from "realm-web";
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-confirm-email',
@@ -8,20 +8,15 @@ import * as Realm from "realm-web";
   styleUrls: ['./confirm-email.component.scss']
 })
 export class ConfirmEmailComponent implements OnInit {
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+  
 
   token: string;
   tokenId:string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private userService: UserService,
   ) { }
-
-
-  async confirmUser(token:string, tokenId:string){
-    let user: any = await this.app.emailPasswordAuth.confirmUser(token, tokenId);
-    this.router.navigateByUrl('/login');
-  }
 
 
   ngOnInit(): void {
@@ -36,7 +31,8 @@ export class ConfirmEmailComponent implements OnInit {
       }
     })
     if(this.tokenId && this.token){
-      this.confirmUser(this.token,this.tokenId);
+      this.userService.confirmUser(this.token,this.tokenId);
+      this.router.navigateByUrl('/login');
     }
   }
 

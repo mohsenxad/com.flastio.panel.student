@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as Realm from "realm-web";
-import { Project } from 'src/app/componets/model/project';
+import { Project } from 'src/app/model/project';
 import { LocalStorageService } from '../localStorage/local-storage.service';
 
 @Injectable({
@@ -44,9 +44,9 @@ export class ProjectService {
     return result;
   }
 
-  async add(project: Project){
+  async add(project: Project): Promise<Project>{
     const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions.addProject(
+    let result: Project  = await user.functions.addProject(
       this.studentId,
       project.summeryFileUrl,
       project.projectType,
@@ -60,6 +60,6 @@ export class ProjectService {
       project.supportingFileList,
       project.contributorList,
     );
-    console.log(result);
+    return result;
   }
 }

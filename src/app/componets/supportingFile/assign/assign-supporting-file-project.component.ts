@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProjectService } from 'src/app/services/project/project.service';
-import { SupportingFile } from '../../model/supportingFile';
+import { SupportingFile } from '../../../model/supportingFile';
 
 @Component({
   selector: 'assign-supporting-file-project',
@@ -64,6 +64,7 @@ export class AssignSupportingFileProjectComponent implements OnInit {
 
   save(){
     this.onSupportingFileListUpdated.emit(this.supportingFileList);
+    this.onClose.emit();
   }
 
   close(){

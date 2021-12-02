@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'empty-skill',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmptySkillComponent implements OnInit {
 
+  @Output() onAddProjectClicked = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  addProject(){
+    this.onAddProjectClicked.emit();
+  }
 }

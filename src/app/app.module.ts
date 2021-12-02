@@ -9,13 +9,10 @@ import { ConfirmEmailComponent } from './componets/user/confirm-email/confirm-em
 import { LoginComponent } from './componets/user/login/login.component';
 import { StudentSignupComponent } from './componets/student/signup/student-signup.component';
 import { AddProjectComponent } from './componets/project/add/add-project.component';
-import { AddCertificationComponent } from './componets/certification/add/add-certification.component';
-import { SelectCertificationComponent } from './componets/certification/select/select-certification.component';
 import { AssignCertifictionComponent } from './componets/certification/assign/assign-certifiction.component';
 import { SearchCertificationComponent } from './componets/certification/search/search-certification.component';
 import { StudentPanelComponent } from './componets/student/panel/student-panel.component';
 import { AddSchoolComponent } from './componets/school/add/add-school.component';
-import { AddMajorComponent } from './componets/major/add/add-major.component';
 import { SearchMajorComponent } from './componets/major/search/search-major.component';
 import { SearchSchoolComponent } from './componets/school/search/search-school.component';
 import { ProjectPanelComponent } from './componets/project/panel/project-panel.component';
@@ -29,9 +26,7 @@ import { RecommendationPanelComponent } from './componets/recommendation/panel/r
 import { YearSelectComponent } from './componets/share/year-select/year-select.component';
 import { AddSkillComponent } from './componets/skill/add/add-skill.component';
 import { SearchSkillComponent } from './componets/skill/search/search-skill.component';
-import { AddCourseComponent } from './componets/course/add/add-course.component';
 import { SearchCourseComponent } from './componets/course/search/search-course.component';
-import { SelectCourseComponent } from './componets/course/select/select-course.component';
 import { SelectTypeProjectComponent } from './componets/project/select-type/select-type-project.component';
 import { AddPagingProjectComponent } from './componets/project/add-paging/add-paging-project.component';
 import { RequestRecommendationComponent } from './componets/recommendation/request/request-recommendation.component';
@@ -76,8 +71,10 @@ import { AssignContributorComponent } from './componets/contributor/assign/assig
 import { ContributorPanelComponent } from './componets/contributor/panel/contributor-panel.component';
 import { ContributorListComponent } from './componets/contributor/list/contributor-list.component';
 import { ContributorListItemComponent } from './componets/contributor/list-item/contributor-list-item.component';
-
-
+import { StudentHeaderComponent } from './componets/student/header/student-header.component';
+import { LogoComponent } from './componets/share/logo/logo.component';
+import { SchoolStatusComponent } from './componets/school/status/school-status.component';
+import { ShareProfileComponent } from './componets/student/share-profile/share-profile.component';
 
 
 
@@ -91,13 +88,10 @@ import { ContributorListItemComponent } from './componets/contributor/list-item/
     LoginComponent,
     StudentSignupComponent,
     AddProjectComponent,
-    AddCertificationComponent,
-    SelectCertificationComponent,
     AssignCertifictionComponent,
     SearchCertificationComponent,
     StudentPanelComponent,
     AddSchoolComponent,
-    AddMajorComponent,
     SearchMajorComponent,
     SearchSchoolComponent,
     ProjectPanelComponent,
@@ -111,9 +105,7 @@ import { ContributorListItemComponent } from './componets/contributor/list-item/
     YearSelectComponent,
     AddSkillComponent,
     SearchSkillComponent,
-    AddCourseComponent,
     SearchCourseComponent,
-    SelectCourseComponent,
     SelectTypeProjectComponent,
     AddPagingProjectComponent,
     RequestRecommendationComponent,
@@ -157,6 +149,10 @@ import { ContributorListItemComponent } from './componets/contributor/list-item/
     ContributorPanelComponent,
     ContributorListComponent,
     ContributorListItemComponent,
+    StudentHeaderComponent,
+    LogoComponent,
+    SchoolStatusComponent,
+    ShareProfileComponent,
   ],
   imports: [
     BrowserModule,

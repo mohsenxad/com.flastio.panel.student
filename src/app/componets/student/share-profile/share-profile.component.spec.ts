@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddMajorComponent } from './add-major.component';
+import { ShareProfileComponent } from './share-profile.component';
 
-describe('AddMajorComponent', () => {
-  let component: AddMajorComponent;
-  let fixture: ComponentFixture<AddMajorComponent>;
+describe('ShareProfileComponent', () => {
+  let component: ShareProfileComponent;
+  let fixture: ComponentFixture<ShareProfileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddMajorComponent ]
+      declarations: [ ShareProfileComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddMajorComponent);
+    fixture = TestBed.createComponent(ShareProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

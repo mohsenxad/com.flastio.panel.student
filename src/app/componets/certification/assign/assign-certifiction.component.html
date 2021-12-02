@@ -1,6 +1,9 @@
 <form 
   #form="ngForm"
 >
+<loading
+  *ngIf="isLoading"
+></loading>
   <button
     (click)="close()"
   >

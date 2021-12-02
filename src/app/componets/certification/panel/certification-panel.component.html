@@ -14,11 +14,13 @@
 
   <empty-certification
     *ngIf="!assignedCertificationList || assignedCertificationList.length == 0"
+    (onAddCertificationClicked) = 'showAddCertificationModal()'
   ></empty-certification>
   
   <assign-certifiction
     *ngIf = "isAddCertificationModalVisible"
     (onClose) = 'hideAddCertificationModal()'
+    (onAssignedCertificationAdded) = 'addNewAssignedCertification($event)'
   ></assign-certifiction>
   
 </section>

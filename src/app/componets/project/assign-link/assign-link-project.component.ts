@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { LinkUrl } from '../../model/linkUrl';
+import { LinkUrl } from '../../../model/linkUrl';
 
 @Component({
   selector: 'assign-link-project',
@@ -35,6 +35,7 @@ export class AssignLinkProjectComponent implements OnInit {
 
   save(){
     this.onLinkUrlListUpdated.emit(this.linkUrlList);
+    this.onClose.emit();
   }
 
   close(){

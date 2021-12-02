@@ -1,10 +1,11 @@
 <loading
     *ngIf = "isLoading"
 ></loading>
-<student-modal-banner
+<student-header
     *ngIf = "student"
     [student] = 'student'
-></student-modal-banner>
+></student-header>
+
 
 <section
     id='secStudentInfo'
@@ -20,6 +21,7 @@
     <skill-panel
     *ngIf = "student"
     [skillList]="student.skillList"
+    (onAddProjectClicked) = 'showAddProject()'
 ></skill-panel>
 </section>
 <section
@@ -41,6 +43,7 @@
 <section>
     <project-panel
         *ngIf = "student"
+        [major] = 'student.major'
         [isAddProjectVisible] = 'isAddProjectVisible'
         [projectList] = 'student.projectList'
     ></project-panel>

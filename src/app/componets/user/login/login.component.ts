@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as Realm from "realm-web";
 import { LocalStorageService } from "src/app/services/localStorage/local-storage.service"
-import { Student } from '../../model/student';
+import { UserService } from 'src/app/services/user/user.service';
+import { Student } from '../../../model/student';
 
 
 @Component({
@@ -12,14 +12,14 @@ import { Student } from '../../model/student';
 })
 export class LoginComponent implements OnInit {
 
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
 
   email: string;
   password: string;
 
   constructor(
     private router: Router,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private userService:UserService
   ) { }
 
   ngOnInit(): void {
@@ -33,14 +33,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  storeUser(user: Realm.User){
-    this.localStorageService.setUser(user);
-  }
 
   async onSubmit():Promise<void> {
-    let credentials = Realm.Credentials.emailPassword(this.email, this.password);
-    const user: Realm.User = await this.app.logIn(credentials);
-    console.log(user);
+    this.userService.login(this.email, this.password);
     let student: Student = this.localStorageService.getStudent();
     if(student){
       this.router.navigateByUrl('/student/panel');

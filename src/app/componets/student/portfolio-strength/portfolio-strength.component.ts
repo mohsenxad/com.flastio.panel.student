@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Student } from '../../model/student';
+import { Student } from '../../../model/student';
 
 @Component({
   selector: 'portfolio-strength',

@@ -1,7 +1,9 @@
 
-<form (ngSubmit)="onSubmit()" #form="ngForm">
+<form 
+    #form="ngForm"
+>
     <legend>
-        Signup555
+        Signup
     </legend>
     <fieldset>
         <ul>
@@ -28,6 +30,10 @@
                 >
             </li>
         </ul>
-        <input type="submit" value="Signup" />
+        <button
+            (click) = "signup()"
+        >
+            Signup
+        </button>
     </fieldset>
 </form>

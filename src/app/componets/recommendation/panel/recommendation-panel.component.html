@@ -16,11 +16,13 @@
 
     <empty-recommendation
         *ngIf="!recommendationList || recommendationList.length == 0"
+        (onRequestRecommendationClicked) = 'showRequestRecommendationModal()'
     ></empty-recommendation>
 
     <request-recommendation
         *ngIf = "isRequestRecommendatinModalVisible"
         (onClose) = 'hideRequestRecommendationModal()'
+        (onRecommendationAdded) = 'addNewRecommendation($event)'
     ></request-recommendation>
     
 </section>

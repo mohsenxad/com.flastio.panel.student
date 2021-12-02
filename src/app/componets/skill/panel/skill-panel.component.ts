@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Skill } from '../../model/skill';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Skill } from '../../../model/skill';
 
 @Component({
   selector: 'skill-panel',
@@ -8,10 +8,17 @@ import { Skill } from '../../model/skill';
 })
 export class SkillPanelComponent implements OnInit {
 
+  
   @Input() skillList: Skill[];
+  @Output() onAddProjectClicked = new EventEmitter();
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showAddProjectForm(){
+    this.onAddProjectClicked.emit();
   }
 
 }

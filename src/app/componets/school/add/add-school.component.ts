@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Student } from '../../model/student';
+import { Student } from '../../../model/student';
 import * as Realm from "realm-web";
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
-import { School } from '../../model/school';
+import { School } from '../../../model/school';
 
 @Component({
   selector: 'add-school',

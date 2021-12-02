@@ -20,7 +20,6 @@ export class SelectTypeProjectComponent implements OnInit {
 
   ngOnInit(): void {
     if(!this.selectedProjectType){
-      console.log(this.projectTypeList);
       this.selectedProjectType = this.projectTypeList[0];
       this.changeProjectType(this.selectedProjectType);
     }

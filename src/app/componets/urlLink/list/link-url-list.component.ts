@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LinkUrl } from '../../model/linkUrl';
+import { LinkUrl } from '../../../model/linkUrl';
 
 @Component({
   selector: 'link-url-list',

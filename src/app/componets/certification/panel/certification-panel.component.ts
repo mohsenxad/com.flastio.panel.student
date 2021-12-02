@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AssignedCertification } from '../../model/assignedCertification';
+import { AssignedCertification } from '../../../model/assignedCertification';
 
 
 @Component({
@@ -18,15 +18,18 @@ export class CertificationPanelComponent implements OnInit {
   }
 
   showAddCertificationModal(){
-    console.log('show');
-    
     this.isAddCertificationModalVisible = true;
   }
 
   hideAddCertificationModal(){
-    console.log('hide');
-    
     this.isAddCertificationModalVisible = false;
+  }
+
+  addNewAssignedCertification(assignedCertification:AssignedCertification){
+    if(!this.assignedCertificationList){
+      this.assignedCertificationList = [];
+    }
+    this.assignedCertificationList.push(assignedCertification);
   }
 
 }

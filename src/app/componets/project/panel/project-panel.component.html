@@ -14,7 +14,9 @@
     ></empty-project>
     <add-project
         *ngIf = "isAddProjectVisible"
+        [major] = 'major'
         (onClose) = "hideAddProjectForm()"
+        (onProjectAdded) = 'addNewProject($event)'
     ></add-project>
     <confirm-delete
         *ngIf = "isConfirmDeleteVisible"

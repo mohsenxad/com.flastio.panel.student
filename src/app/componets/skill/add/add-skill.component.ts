@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as Realm from "realm-web";
-import { Skill } from '../../model/skill';
+import { Skill } from '../../../model/skill';
 
 @Component({
   selector: 'add-skill',

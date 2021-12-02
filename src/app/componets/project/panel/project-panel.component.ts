@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Project } from '../../model/project';
+import { Major } from '../../../model/major';
+import { Project } from '../../../model/project';
 
 @Component({
   selector: 'project-panel',
@@ -8,8 +9,10 @@ import { Project } from '../../model/project';
 })
 export class ProjectPanelComponent implements OnInit {
 
+  @Input() major:Major;
   @Input() projectList: Project[];
   @Input() isAddProjectVisible:Boolean = false;
+
 
   isConfirmDeleteVisible: Boolean = false;
   
@@ -20,8 +23,6 @@ export class ProjectPanelComponent implements OnInit {
   }
 
   showAddProjectForm(){
-    console.log('show');
-    
     this.isAddProjectVisible = true;
   }
 
@@ -40,6 +41,13 @@ export class ProjectPanelComponent implements OnInit {
   deleteProject(){
     console.log('delete project');
     
+  }
+
+  addNewProject(project:Project){
+    if(!this.projectList){
+      this.projectList = [];
+    }
+    this.projectList.push(project);
   }
 
 }

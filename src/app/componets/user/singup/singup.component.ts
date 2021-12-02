@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Realm from "realm-web";
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-singup',
@@ -10,20 +10,16 @@ export class SingupComponent implements OnInit {
 
   email: string;
   password: string;
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
 
-
-  constructor() { }
+  constructor(
+    private userService:UserService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit():void {
-    this.signup();
-  }
-
-signup():void{
-    this.app.emailPasswordAuth.registerUser(this.email,this.password);
+  signup():void {
+    this.userService.signup(this.email, this.password);
   }
 
 }

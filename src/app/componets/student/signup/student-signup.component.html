@@ -7,7 +7,9 @@
       alt="images"
     />
   </div>
-  <form (ngSubmit)="onSubmit()" #form="ngForm">
+  <form 
+    #form="ngForm"
+  >
     <legend>Signup</legend>
     <fieldset>
       <ul>
@@ -76,7 +78,9 @@
           />
         </li>
       </ul>
-      <button>Continue</button>
+      <button
+        (click)="save()"
+      >Continue</button>
     </fieldset>
   </form>
 </section>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AssignedCertification } from '../../model/assignedCertification';
+import { AssignedCertification } from '../../../model/assignedCertification';
 
 @Component({
   selector: 'certification-list',

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'empty-certification',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./empty-certification.component.scss']
 })
 export class EmptyCertificationComponent implements OnInit {
-
+  @Output() onAddCertificationClicked = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addCertification(){
+    this.onAddCertificationClicked.emit();
   }
 
 }

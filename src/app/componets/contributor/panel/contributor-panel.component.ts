@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Contributor } from '../../model/contributor';
+import { Contributor } from '../../../model/contributor';
 
 @Component({
   selector: 'contributor-panel',

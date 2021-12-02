@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Major } from '../../model/major';
-import * as Realm from "realm-web";
+import { Major } from '../../../model/major';
+import { MajorService } from 'src/app/services/major/major.service';
 
 @Component({
   selector: 'search-major',
@@ -13,11 +13,12 @@ export class SearchMajorComponent implements OnInit {
   @Output() onMajorSelected = new EventEmitter<Major>();
 
   majorKeyWord: String;
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   majorList: Major[];
   isLoading:Boolean = false;
 
-  constructor(){}
+  constructor(
+    private majorService:MajorService
+  ){}
 
 
   ngOnInit(): void {
@@ -25,7 +26,10 @@ export class SearchMajorComponent implements OnInit {
 
   onKeyup(event) {
     console.log(event);
-    if(this.majorKeyWord.length >=3){
+    if(
+      this.majorKeyWord &&
+      this.majorKeyWord.length >=3
+    ){
       this.search(this.majorKeyWord);
     }else{
       this.majorList =[];
@@ -34,20 +38,13 @@ export class SearchMajorComponent implements OnInit {
 
   async search(keyword):Promise<void>{
     this.isLoading = true;
-    const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions.searchMajor(keyword);
-    this.majorList = result;
+    this.majorList  = await this.majorService.search(keyword);
     this.isLoading = false;
   }
 
   async addMajor(){
     this.isLoading = true;
-    const user: Realm.User = this.app.currentUser;
-    let result: any = await user.functions.addMajor(this.majorKeyWord);
-    let newMajor:Major  = {
-      _id: result.insertedId.toString(),
-      name:this.majorKeyWord,
-    }
+    let newMajor:Major  = await this.majorService.add(this.majorKeyWord);
     this.majorKeyWord = '';
     this.selectedMajor = newMajor;
     this.onMajorSelected.emit(newMajor);

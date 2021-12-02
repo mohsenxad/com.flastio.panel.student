@@ -7,6 +7,9 @@
   *ngIf = "pageTitle == 'General'"
   #form = "ngForm"
 >
+  <loading
+    *ngIf="isLoading"
+  ></loading>
   <legend>Project</legend>
   <details>
     <summary>How to add a project?</summary>
@@ -14,7 +17,9 @@
       We suggest using a PowerPoint or PDF format for the "Project Summary" file. Use a descriptive name. We highly recommend filling out the description section even though it is optional. Selecting the right project topics is crucial since Flastio uses this information to best match you with the right hiring managers and show you the most useful analytics.
     </p>
   </details>
-  <fieldset>
+  <fieldset
+    [disabled]="isLoading"
+  >
     <ul>
       <li class="uploadfile-section">
         <div
@@ -56,7 +61,7 @@
       <li>
         <div id="divSelectCourse">
           <search-course
-            [major]="student.major"
+            [major]="major"
             [seletedCourse] = 'this.project.course'
             (onCourseSelected)="setCoursse($event)"
           ></search-course>

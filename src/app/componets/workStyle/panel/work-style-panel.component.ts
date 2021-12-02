@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { WorkStyle } from '../../model/workStyle';
+import { WorkStyle } from '../../../model/workStyle';
 
 @Component({
   selector: 'work-style-panel',

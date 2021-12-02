@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
-import { Student } from '../../model/student';
+import { Student } from '../../../model/student';
 import * as Realm from "realm-web";
 import { StudentService } from 'src/app/services/student/student.service';
 import { Router } from '@angular/router';

@@ -1,14 +1,12 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import * as Realm from "realm-web";
-import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProjectService } from 'src/app/services/project/project.service';
-import { Contributor } from '../../model/contributor';
-import { Course } from '../../model/course';
-import { LinkUrl } from '../../model/linkUrl';
-import { Project } from '../../model/project';
-import { Skill } from '../../model/skill';
-import { Student } from '../../model/student';
-import { SupportingFile } from '../../model/supportingFile';
+import { Contributor } from '../../../model/contributor';
+import { Course } from '../../../model/course';
+import { LinkUrl } from '../../../model/linkUrl';
+import { Major } from '../../../model/major';
+import { Project } from '../../../model/project';
+import { Skill } from '../../../model/skill';
+import { SupportingFile } from '../../../model/supportingFile';
 
 @Component({
   selector: 'add-project',
@@ -17,7 +15,10 @@ import { SupportingFile } from '../../model/supportingFile';
 })
 export class AddProjectComponent implements OnInit {
 
+  @Input() major:Major;
+
   @Output() onClose = new EventEmitter();
+  @Output() onProjectAdded = new EventEmitter<Project>();
 
   project :Project = {
     skillList:[],
@@ -26,21 +27,18 @@ export class AddProjectComponent implements OnInit {
     contributorList:[],
     isPublished:false,
   };
-  student: Student;
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-
+  
+ 
   pageTitle: String = 'General';
   attachmentFile: any;
   projectFile: File ;
   uniqFileName: String;
   fileUrl: String;
+  isLoading:Boolean = false;
   
   constructor(
-    private localStorageService:LocalStorageService,
     private projectService:ProjectService
-  ) { 
-    this.student = this.localStorageService.getStudent();
-  }
+  ) {}
 
   changePage(pageTitle:String): void{
     this.pageTitle = pageTitle;
@@ -53,12 +51,10 @@ export class AddProjectComponent implements OnInit {
 
   setProjecType(projectType:String){
     this.project.projectType = projectType;
-    console.log(this.project);
   }
 
   setYearCompleted(year:Number){
     this.project.yearCompleted = year;
-    console.log(this.project);
   }
 
   setCoursse(course:Course){
@@ -71,7 +67,6 @@ export class AddProjectComponent implements OnInit {
 
   addSkill(skill:Skill){
     this.project.skillList.push(skill);
-    console.log(this.project);
   }
 
   updateLinkUrlList(linkUrlList: LinkUrl[]){
@@ -108,8 +103,11 @@ export class AddProjectComponent implements OnInit {
   }
 
   async save(){
-    let result: any  = await this.projectService.add(this.project);
-    console.log(result);
+    this.isLoading = true;
+    let addedProject: Project  = await this.projectService.add(this.project);
+    this.onProjectAdded.emit(addedProject)
+    this.isLoading = false;
+    this.onClose.emit();
   }
 
   async handleFileInput(files: FileList) {

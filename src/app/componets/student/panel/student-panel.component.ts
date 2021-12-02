@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { StudentService } from 'src/app/services/student/student.service';
-import { Student } from '../../model/student';
+import { Student } from '../../../model/student';
 
 @Component({
   selector: 'student-panel',

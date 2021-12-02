@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as Realm from "realm-web";
-import { Student } from 'src/app/componets/model/student';
+import { Student } from 'src/app/model/student';
 
 @Injectable({
   providedIn: 'root'

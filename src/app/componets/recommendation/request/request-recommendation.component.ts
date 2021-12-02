@@ -1,8 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Recommendation } from '../../model/recommendation';
-import * as Realm from "realm-web";
-import { Student } from '../../model/student';
-import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+import { Recommendation } from '../../../model/recommendation';
+import { RecommendationService } from 'src/app/services/recommendation/recommendation.service';
 
 @Component({
   selector: 'request-recommendation',
@@ -12,30 +10,24 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 export class RequestRecommendationComponent implements OnInit {
 
   @Output() onClose = new EventEmitter();
-
+  @Output() onRecommendationAdded = new EventEmitter<Recommendation>();
+  
   recommendation: Recommendation = {};
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-  student: Student;
+  isLoading:Boolean = false;
 
   constructor(
-    private localStorageService:LocalStorageService
-  ) { 
-    this.student = this.localStorageService.getStudent();
-  }
+    private recommendationService: RecommendationService
+  ){}
 
   ngOnInit(): void {
   }
 
   async send(){
-    const user: Realm.User = this.app.currentUser;
-    let result:any  = await user.functions.requestRecommendation(
-      this.student._id,
-      this.recommendation.recommenderName,
-      this.recommendation.recommenderPosition,
-      this.recommendation.recommenderEmail,
-      this.recommendation.message
-    );
-    this.recommendation._id = result._id.toString();
+    this.isLoading = true;
+    this.recommendation = await this.recommendationService.request(this.recommendation);
+    this.onRecommendationAdded.emit(this.recommendation);
+    this.isLoading = false;
+    this.onClose.emit();
   }
 
   close(){

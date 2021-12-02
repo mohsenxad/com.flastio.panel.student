@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Contributor } from '../../model/contributor';
+import { Contributor } from '../../../model/contributor';
 
 @Component({
   selector: 'assign-contributor',
@@ -37,6 +37,7 @@ export class AssignContributorComponent implements OnInit {
 
   save(){
     this.onContributorListUpdated.emit(this.contributorList);
+    this.onClose.emit();
   }
 }
 

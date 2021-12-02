@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SupportingFile } from '../../model/supportingFile';
+import { SupportingFile } from '../../../model/supportingFile';
 
 @Component({
   selector: 'supporting-file-panel',

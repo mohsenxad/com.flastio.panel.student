@@ -6,7 +6,8 @@
         *ngIf = "skillList && skillList.length > 0"
         [skillList] = 'skillList'
     ></skill-list>
-    <empty-skill>
-        *ngIf="!skillList || skillList.length == 0"
+    <empty-skill
+        *ngIf = "!skillList || skillList.length == 0"
+        (onAddProjectClicked) = 'showAddProjectForm()'
     ></empty-skill>
 </section>

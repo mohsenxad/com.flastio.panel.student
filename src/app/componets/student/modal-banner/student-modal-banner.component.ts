@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Student } from '../../model/student';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Student } from '../../../model/student';
 
 @Component({
   selector: 'student-modal-banner',
@@ -9,10 +9,14 @@ import { Student } from '../../model/student';
 export class StudentModalBannerComponent implements OnInit {
 
   @Input() student : Student;
+  @Output() onClose = new EventEmitter();
   
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  close(){
+    this.onClose.emit();
+  }
 }

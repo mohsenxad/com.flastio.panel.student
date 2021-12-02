@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Recommendation } from '../../model/recommendation';
+import { Recommendation } from '../../../model/recommendation';
 
 @Component({
   selector: 'recommendation-panel',
@@ -22,6 +22,13 @@ export class RecommendationPanelComponent implements OnInit {
 
   hideRequestRecommendationModal(){
     this.isRequestRecommendatinModalVisible = false;
+  }
+
+  addNewRecommendation(recommendation:Recommendation){
+    if(!this.recommendationList){
+      this.recommendationList = [];
+    }
+    this.recommendationList.push(recommendation);
   }
 
 }
