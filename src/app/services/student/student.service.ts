@@ -27,8 +27,7 @@ export class StudentService {
 
   async getStudentInfo(): Promise<Student>{
     const user: Realm.User = this.app.currentUser;
-    let result:any[]= await user.functions.getStudent();
-    let student: Student  = result[0];
+    let student: Student = await user.functions.getStudent();
     return student;
   }
 
