@@ -5,7 +5,9 @@
     <legend>
         Signup
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
                 <label for="txtEmail">

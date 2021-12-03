@@ -11,6 +11,8 @@ export class SingupComponent implements OnInit {
   email: string;
   password: string;
 
+  isLoading: Boolean = false;
+
   constructor(
     private userService:UserService
   ) { }
@@ -19,7 +21,9 @@ export class SingupComponent implements OnInit {
   }
 
   signup():void {
+    this.isLoading = true;
     this.userService.signup(this.email, this.password);
+    this.isLoading = false;
   }
 
 }

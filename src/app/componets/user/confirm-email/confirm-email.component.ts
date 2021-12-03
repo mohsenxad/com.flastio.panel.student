@@ -12,6 +12,7 @@ export class ConfirmEmailComponent implements OnInit {
 
   token: string;
   tokenId:string;
+  isLoading:Boolean = false;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -31,7 +32,9 @@ export class ConfirmEmailComponent implements OnInit {
       }
     })
     if(this.tokenId && this.token){
+      this.isLoading = true;
       this.userService.confirmUser(this.token,this.tokenId);
+      this.isLoading = false;
       this.router.navigateByUrl('/login');
     }
   }

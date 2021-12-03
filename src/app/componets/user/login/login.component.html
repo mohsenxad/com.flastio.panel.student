@@ -1,6 +1,6 @@
 <section>
   <div>
-    <a href="#">Flastio</a>
+    <flastio-logo></flastio-logo>
     <h1>Use Flastio and land your dream job</h1>
     <img
       src="/assets/images/clip-busy-day-at-the-office@3x.webp"
@@ -11,7 +11,9 @@
     #form="ngForm"
   >
     <legend>Login</legend>
-    <fieldset>
+    <fieldset
+      [disabled]="isLoading"
+    >
       <ul>
         <li>
           <label for="txtEmail"> Email Address </label>
@@ -39,7 +41,7 @@
         </li>
       </ul>
       <button
-        (click)="onSubmit()"
+        (click)="signup()"
       >Sign up</button>
       <p>
         By signing up, I agree to the Flastio <span>Privacy Policy</span> and

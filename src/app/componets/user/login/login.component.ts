@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
+  isLoading : Boolean = false;
 
   constructor(
     private router: Router,
@@ -34,7 +35,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-  async onSubmit():Promise<void> {
+  async signup():Promise<void> {
+    this.isLoading = true;
     this.userService.login(this.email, this.password);
     let student: Student = this.localStorageService.getStudent();
     if(student){
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
     }else{
       this.router.navigateByUrl('/student/signup');
     }
+    this.isLoading = false;
   }
 
 }
