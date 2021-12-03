@@ -40,6 +40,10 @@
           />
         </li>
       </ul>
+      <validation-result
+        *ngIf="validationResult"
+        [validationResult]="validationResult"
+      ></validation-result>
       <button
         (click)="signup()"
       >Sign up</button>

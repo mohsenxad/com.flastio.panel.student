@@ -75,6 +75,9 @@ import { StudentHeaderComponent } from './componets/student/header/student-heade
 import { LogoComponent } from './componets/share/logo/logo.component';
 import { SchoolStatusComponent } from './componets/school/status/school-status.component';
 import { ShareProfileComponent } from './componets/student/share-profile/share-profile.component';
+import { StudentPlaneComponent } from './componets/student/plane/student-plane.component';
+import { ValidationResultComponent } from './componets/share/validation-result/validation-result.component';
+
 
 
 
@@ -153,6 +156,8 @@ import { ShareProfileComponent } from './componets/student/share-profile/share-p
     LogoComponent,
     SchoolStatusComponent,
     ShareProfileComponent,
+    StudentPlaneComponent,
+    ValidationResultComponent,
   ],
   imports: [
     BrowserModule,
