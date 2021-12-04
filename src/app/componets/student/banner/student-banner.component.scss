@@ -17,24 +17,28 @@ ul {
     margin: 0;
     padding: 0;
     cursor: pointer;
-    &:nth-child(3) {
-      padding: 13px 22px 13px 21px;
-      border-radius: 14px;
-      box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
-      background-color: #3f8cff;
-      font-size: 16px;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: center;
-      color: #fff;
-      transition: 0.5s;
 
-      &:hover {
-        background-color: #3a81eb;
+    &:nth-child(3) {
+      button {
+        padding: 13px 22px 13px 21px;
+        border-radius: 14px;
+        box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
+        background-color: #3f8cff;
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #fff;
         transition: 0.5s;
+        border: none;
+
+        &:hover {
+          background-color: #3a81eb;
+          transition: 0.5s;
+        }
       }
     }
     &:nth-child(1),

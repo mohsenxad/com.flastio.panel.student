@@ -1,0 +1,278 @@
+div {
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 6px 58px 0 rgba(121, 145, 173, 0.2);
+  background-color: #fff;
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0a1629;
+    text-align: center;
+    margin-bottom: 64px;
+    padding-top: 37px;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  section {
+    background-color: #f4f9fd;
+    padding: 32px;
+    &:nth-child(3) {
+      ul {
+        position: relative;
+        input {
+          width: 98%;
+          padding-right: 10px;
+          padding-left: 10px;
+        }
+        button {
+          position: absolute;
+          top: 38px;
+          right: 5px;
+          content: url(/assets/images/copy-text-icon.svg);
+          display: flex;
+          border: none;
+          background: none;
+        }
+      }
+    }
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #0a1629;
+      display: block;
+      margin-left: 12px;
+    }
+    input {
+      border-radius: 14px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      padding: 13px 0 14px 0;
+      display: block;
+      width: 100%;
+      margin: 7px 0 27px 0;
+      &::placeholder {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #7d8592;
+        margin: 0 18px;
+      }
+    }
+    &:nth-child(4) {
+      display: flex;
+      div {
+        box-shadow: none;
+        background: transparent;
+      }
+      img {
+        width: 133px;
+        height: 133px;
+      }
+      h4 {
+        font-size: 18px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.44;
+        letter-spacing: normal;
+        color: #0a1629;
+        margin: 0;
+        padding: 0;
+      }
+      p {
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #0a1629;
+        padding: 0;
+        margin: 8px 0;
+      }
+      button {
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #91929e;
+        border-radius: 8px;
+        box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+        border: solid 1px #d8e0f0;
+        background-color: #fff;
+        padding: 12px 16px;
+        transition: 0.5s;
+
+        &:hover {
+          border: solid 1px #91929e;
+          transition: 0.5s;
+        }
+      }
+    }
+    &:nth-child(5) {
+      label {
+        margin-left: 0;
+      }
+      li {
+        position: relative;
+        &:nth-child(1) {
+          label {
+            text-align: center;
+          }
+          input {
+            width: 98%;
+            padding-right: 10px;
+            padding-left: 10px;
+            &::placeholder {
+              text-align: center;
+            }
+          }
+          .add-recipients-btn {
+            position: absolute;
+            content: url(/assets/images/icn-general-add-dark-blue.svg);
+            display: flex;
+            top: 40px;
+            right: 0;
+            border: none;
+            background: none;
+          }
+        }
+        ol {
+          list-style: none;
+          margin: 3px 0 24px 0;
+          padding: 0;
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          justify-content: start;
+          flex-flow: wrap;
+          li {
+            padding: 7px;
+            border-radius: 8px;
+            background-color: rgba(63, 140, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span {
+              font-size: 14px;
+              font-weight: bold;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.14;
+              letter-spacing: normal;
+              color: #3f8cff;
+            }
+            button {
+              background: none;
+              border: none;
+              content: url(/assets/images/icn-general-add-dark-blue.svg);
+              display: flex;
+              transform: rotate(45deg);
+            }
+          }
+        }
+      }
+      textarea {
+        border-radius: 14px;
+        box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+        border: solid 1px #d8e0f0;
+        background-color: #fff;
+        width: 100%;
+        padding: 11px 13px 16px 18px;
+        margin: 7px 0 27px 0;
+        font-family: NunitoSans;
+        color: #0a1629;
+
+        &::placeholder {
+          font-size: 14px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.5;
+          letter-spacing: normal;
+          color: #7d8592;
+        }
+      }
+      .cancel-btn {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 21px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #91929e;
+        border-radius: 10px;
+        box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
+        border: solid 1px #d8e0f0;
+        background-color: #fff;
+        cursor: pointer;
+        transition: 0.5s;
+        float: right;
+
+        &:hover {
+          border: solid 1px #91929e;
+          transition: 0.5s;
+        }
+      }
+      .submit-btn {
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #fff;
+        border-radius: 14px;
+        box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
+        background-color: #3f8cff;
+        border: none;
+        padding: 12px 27px;
+        transition: 0.5s;
+        float: right;
+        margin-left: 16px;
+
+        &:hover {
+          background-color: #3a81eb;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}
+.close-btn {
+  background-color: #f4f9fd;
+  border-radius: 50%;
+  padding: 10px;
+  border: none;
+  content: url(/assets/images/icn-general-add-blue.svg);
+  -webkit-writing-mode: vertical-rl;
+  display: flex;
+  position: absolute;
+  top: 39px;
+  right: 31px;
+  display: flex;
+  border: none;
+  box-shadow: none;
+  padding: 5px;
+  transform: rotate(45deg);
+}

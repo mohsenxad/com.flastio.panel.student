@@ -32,7 +32,7 @@
 }
 section {
   width: 52%;
-  margin:30px auto;
+  margin: 30px auto;
 }
 
 #secResumeAndTranscript {
@@ -43,5 +43,16 @@ section {
     grid-column: span 2;
     margin: 20px 0 0 0;
   }
- 
+}
+
+student-header {
+  background: #7e15b0;
+  background: -webkit-linear-gradient(top left, #7e15b0, #e3a63f);
+  background: -moz-linear-gradient(top left, #7e15b0, #e3a63f);
+  background: linear-gradient(to bottom right, #7e15b0, #e3a63f);
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 280px;
+  padding-top: 40px;
 }
