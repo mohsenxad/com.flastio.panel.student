@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ValidationResult } from 'src/app/model/validationResult';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class SingupComponent implements OnInit {
   email: string;
   password: string;
 
-  isLoading: Boolean = false;
+  isLoading : Boolean = false;
+  validationResult: ValidationResult;
 
   constructor(
     private userService:UserService

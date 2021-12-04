@@ -10,7 +10,9 @@
   <form
     #form="ngForm"
   >
-    <legend>Login</legend>
+    <legend>
+      Login
+    </legend>
     <fieldset
       [disabled]="isLoading"
     >
@@ -46,7 +48,13 @@
       ></validation-result>
       <button
         (click)="signup()"
-      >Sign up</button>
+      >Login</button>
+      <p>
+        Go to 
+        <a href="/sigup">
+          Signup
+        </a>
+      </p>
       <p>
         By signing up, I agree to the Flastio <span>Privacy Policy</span> and
         <span>Terms of Service.</span>
