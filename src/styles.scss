@@ -47,3 +47,33 @@ form{
     border: none;
   }
 }
+.main-add-btn{
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 10px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #91929e;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &::before {
+    content: url(/assets/images/icn-general-add-blue.svg);
+    margin-right: 12px;
+    -webkit-writing-mode: vertical-rl;
+  }
+  transition: 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    border: solid 1px #91929e;
+    transition: 0.5s;
+  }
+}

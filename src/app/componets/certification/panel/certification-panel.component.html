@@ -5,7 +5,7 @@
     [assignedCertificationList]="assignedCertificationList"
   ></certification-list>
 
-  <button
+  <button class="main-add-btn"
     *ngIf = "assignedCertificationList && assignedCertificationList.length > 0"
     (click) = "showAddCertificationModal()"
   >

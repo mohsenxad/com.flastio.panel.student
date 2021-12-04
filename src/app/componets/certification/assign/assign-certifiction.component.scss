@@ -81,7 +81,7 @@ ul {
   }
 }
 
-button:first-of-type {
+.submit-btn {
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -105,7 +105,7 @@ button:first-of-type {
     transition: 0.5s;
   }
 }
-button:last-of-type {
+.cancel-btn {
   padding: 12px 22px;
   border-radius: 10px;
   box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
@@ -157,4 +157,48 @@ input {
     letter-spacing: normal;
     color: #7d8592;
   }
+}
+form {
+  border-radius: 8px;
+  box-shadow: 0 6px 58px 0 rgba(121, 145, 173, 0.2);
+  background-color: #fff;
+  position: relative;
+  z-index: 5;
+  width: 40%;
+  margin: 32px auto;
+  padding: 20px;
+  legend {
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #0a1629;
+  }
+}
+.main-modal {
+  background-color: rgba(10, 22, 41, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+}
+
+.close-btn {
+  background-color: #f4f9fd;
+  border-radius: 50%;
+  padding: 10px;
+  border: none;
+  content: url(/assets/images/icn-general-add-blue.svg);
+  -webkit-writing-mode: vertical-rl;
+  display: flex;
+  transform: rotate(45deg);
+  border: none;
+  position: absolute;
+  right: 17px;
+  top: 12px;
 }
