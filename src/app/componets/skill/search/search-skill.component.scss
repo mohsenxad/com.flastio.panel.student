@@ -68,6 +68,8 @@ button {
     z-index: 3;
     position: relative;
     top: 0;
+    background-color: #fff;
+    width: 100%;
   }
   ul {
     border-radius: 8px;
@@ -78,6 +80,8 @@ button {
     z-index: 2;
     width: 100%;
     top: -15px;
+    height: 200px;
+    overflow-y: scroll;
   }
   li {
     font-size: 16px;
