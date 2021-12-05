@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { Student } from '../../../model/student';
-import * as Realm from "realm-web";
 import { StudentService } from 'src/app/services/student/student.service';
 import { Router } from '@angular/router';
 
@@ -14,7 +13,6 @@ export class AddDetailStudentComponent implements OnInit {
 
   profilePicture: File;
   student: Student;
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   isLoading: Boolean = false;
   
   
@@ -52,23 +50,19 @@ export class AddDetailStudentComponent implements OnInit {
     this.student.collegeStatus = collegeStatus;
   }
 
+  selectedGraduationMonth(graduationMonth: Number){
+    this.student.graduationMonth = graduationMonth;
+
+  }
+
+  selectedGraduationYear(graduationYear: Number){
+    this.student.graduationYear = graduationYear;
+
+  }
+
   async save(){
     this.isLoading = true;
-    const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions
-      .updateStudentDetail(
-        this.student._id,
-        this.student.countryRegion,
-        this.student.postalCode,
-        this.student.gender,
-        this.student.isGenderSharable,
-        this.student.ethnicity,
-        this.student.isEthnicitySharable,
-        this.student.collegeStatus,
-        this.student.pictureFileName,
-        this.student.pictureFileUrl
-      )
-    this.student = result;
+    this.student = await this.studentService.updateDetail(this.student);
     this.localStorageService.setStudent(this.student);
     this.isLoading = false;
     this.router.navigateByUrl('/student/panel')
@@ -76,20 +70,13 @@ export class AddDetailStudentComponent implements OnInit {
 
   async handleFileInput(files: FileList) {
     this.profilePicture = files.item(0);
-    let response:any = await this.getUploadUrl()
-    let signedUploadUr = response.presignedUrl;
+    let response:any = await this.studentService.getUploadUrl()
+    let signedUploadUrl = response.presignedUrl;
     this.student.pictureFileName = response.fileName.toString();
-    this.student.pictureFileUrl = signedUploadUr.split('?')[0];
-    this.uploadFile(signedUploadUr)
+    this.student.pictureFileUrl = signedUploadUrl.split('?')[0];
+    this.uploadFile(signedUploadUrl)
   }
 
-  async getUploadUrl(){
-    const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions
-      .getPictureUploadUrl({Bucket:"flastio"})
-    console.log(result);
-    return result;
-  }
 
   uploadFile(uploadPresignUrl: string){
     this.isLoading = true;

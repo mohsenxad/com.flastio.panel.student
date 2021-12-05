@@ -59,6 +59,7 @@
           name="chkShareGender"
           id="chkShareGender"
           [(ngModel)]="student.isGenderSharable"
+          checked
         />
       </li>
 
@@ -71,6 +72,7 @@
           name="chkShareEthnicity"
           id="chkShareEthnicity"
           [(ngModel)]="student.isEthnicitySharable"
+          checked
         />
       </li>
       <li>
@@ -83,6 +85,31 @@
           (onCollegeStatusSelected)="setCollegeStatus($event)"
         ></college-status-select>
       </li>
+
+      <li>
+        <label
+          for="divGraduationDate"
+        >
+          Graduation date
+        </label>
+        <div
+          id = 'divGraduationDate'
+          name = 'divGraduationDate'
+        >
+          <month-select
+            [selectedMonth] = 'student.graduationMonth'
+            (onMonthSelected) = 'selectedGraduationMonth($event)'
+          ></month-select>
+
+          <year-select2
+            [selectedYear] = 'student.graduationYear'
+            (onYearSelected) = 'selectedGraduationYear($event)'
+          ></year-select2>
+        </div>
+        
+      </li>
+
+      
     </ul>
     
     <button

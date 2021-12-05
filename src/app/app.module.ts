@@ -77,6 +77,8 @@ import { SchoolStatusComponent } from './componets/school/status/school-status.c
 import { ShareProfileComponent } from './componets/student/share-profile/share-profile.component';
 import { StudentPlaneComponent } from './componets/student/plane/student-plane.component';
 import { ValidationResultComponent } from './componets/share/validation-result/validation-result.component';
+import { MonthSelectComponent } from './componets/share/month-select/month-select.component';
+import { YearSelect2Component } from './componets/share/year-select2/year-select2.component';
 
 
 
@@ -158,6 +160,8 @@ import { ValidationResultComponent } from './componets/share/validation-result/v
     ShareProfileComponent,
     StudentPlaneComponent,
     ValidationResultComponent,
+    MonthSelectComponent,
+    YearSelect2Component,
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,28 @@
-<ul>
-    <li *ngFor="let countryRegion of countryRegionList">
-        <input
-        type="radio"
-        name="countryRegion"
-        [attr.id]="countryRegion"
-        value="{{ countryRegion }}"
-        [(ngModel)]="selectedCountryRegion"
-        (change)="changeCountryRegion(countryRegion)"
-        />
-        <label [attr.for]="countryRegion">
-        {{ countryRegion }}
-        </label>
-    </li>
-</ul>
+<select
+    name="countryRegion"
+    id="countryRegion"
+    [(ngModel)]="selectedCountryRegion"
+    (change)="changeCountryRegion()"
+>
+    <option
+        value="America"
+    >
+    America
+    </option>
+
+    <option
+        value="Asian"
+    >
+    Asian
+    </option>
+
+    <option
+        value="England"
+    >
+    England
+    </option>
+
+</select>
+
+
+

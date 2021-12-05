@@ -25,6 +25,13 @@ export class StudentService {
       .put(url,body, {headers});
   }
 
+  async getUploadUrl():Promise<any>{
+    const user: Realm.User = this.app.currentUser;
+    let result: any  = await user.functions
+      .getPictureUploadUrl({Bucket:"flastio"})
+    return result;
+  }
+
   async getStudentInfo(): Promise<Student>{
     const user: Realm.User = this.app.currentUser;
     let student: Student = await user.functions.getStudent();
@@ -46,4 +53,25 @@ export class StudentService {
       )
     return newStudent;
   }
+
+  async updateDetail(student: Student):Promise<Student>{
+    const user: Realm.User = this.app.currentUser;
+    let result: Student  = await user.functions
+      .updateStudentDetail(
+        student._id.toString(),
+        student.countryRegion,
+        student.postalCode,
+        student.gender,
+        student.isGenderSharable,
+        student.ethnicity,
+        student.isEthnicitySharable,
+        student.collegeStatus,
+        student.pictureFileName,
+        student.pictureFileUrl
+      )
+    return result;
+  }  
+    
+    
+  
 }
