@@ -1,15 +1,32 @@
-<ul>
-    <li *ngFor="let gender of genderList">
-        <input
-        type="radio"
-        name="gender"
-        [attr.id]="gender"
-        value="{{ gender }}"
-        [(ngModel)]="selectedGender"
-        (change)="changeGender(gender)"
-        />
-        <label [attr.for]="gender">
-        {{ gender }}
-        </label>
-    </li>
-</ul>
+<select
+    name="gneder"
+    id="gender"
+    [(ngModel)]="selectedGender"
+    (change)="changeGender()"
+>
+    <option
+        value="Woman"
+    >
+        Woman
+    </option>
+    <option
+        value="Man"
+    >
+        Man
+    </option>
+    <option
+        value="Transgender"
+    >
+        Transgender
+    </option>
+    <option
+        value="Non-binary/non-conforming"
+    >
+        Non-binary/non-conforming
+    </option>
+    <option
+        value="Prefer not to respond"
+    >
+        Prefer not to respond
+    </option>
+</select>

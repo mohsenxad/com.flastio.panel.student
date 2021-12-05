@@ -46,4 +46,25 @@ export class StudentService {
       )
     return newStudent;
   }
+
+  async updateDetail(student: Student):Promise<Student>{
+    const user: Realm.User = this.app.currentUser;
+    let result: Student  = await user.functions
+      .updateStudentDetail(
+        student._id.toString(),
+        student.countryRegion,
+        student.postalCode,
+        student.gender,
+        student.isGenderSharable,
+        student.ethnicity,
+        student.isEthnicitySharable,
+        student.collegeStatus,
+        student.pictureFileName,
+        student.pictureFileUrl
+      )
+    return result;
+  }  
+    
+    
+  
 }

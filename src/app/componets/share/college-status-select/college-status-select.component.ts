@@ -10,21 +10,13 @@ export class CollegeStatusSelectComponent implements OnInit {
   @Input() selectedCollegeStatus:String;
   @Output() onCollegeStatusSelected = new EventEmitter<String>();
 
-  collegeStatusList:String[] = [
-    'Freshman',
-    'Sophomore',
-    'Junior',
-    'Senior',
-    'Graduated'
-  ];
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  changeCollegeStatus(collegeStatus:String){
-    this.onCollegeStatusSelected.emit(collegeStatus);
+  changeCollegeStatus(){
+    this.onCollegeStatusSelected.emit(this.selectedCollegeStatus);
   }
 
 }

@@ -1,15 +1,38 @@
-<ul>
-    <li *ngFor="let collegeStatus of collegeStatusList">
-        <input
-        type="radio"
-        name="collegeStatus"
-        [attr.id]="collegeStatus"
-        value="{{ collegeStatus }}"
-        [(ngModel)]="selectedCollegeStatus"
-        (change)="changeCollegeStatus(collegeStatus)"
-        />
-        <label [attr.for]="collegeStatus">
-        {{ collegeStatus }}
-        </label>
-    </li>
-</ul>
+<select
+    name="collegeStatus"
+    id="collegeStatus"
+    [(ngModel)]="selectedCollegeStatus"
+    (change)="changeCollegeStatus()"
+>
+    <option
+        value="Freshman"
+    >
+        Freshman
+    </option>
+
+    <option
+        value="Sophomore"
+    >
+        Sophomore
+    </option>
+
+    <option
+        value="Junior"
+    >
+        Junior
+    </option>
+
+    <option
+        value="Senior"
+    >
+        Senior
+    </option>
+
+    <option
+        value="Graduated"
+    >
+        Graduated
+    </option>
+</select>
+
+

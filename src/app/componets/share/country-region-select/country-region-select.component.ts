@@ -10,19 +10,13 @@ export class CountryRegionSelectComponent implements OnInit {
   @Input() selectedCountryRegion:String;
   @Output() onCountryRegionSelected = new EventEmitter<String>();
 
-  countryRegionList:String[] = [
-    'America',
-    'Asian',
-    'England',
-  ];
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  changeCountryRegion(countryRegion:String){
-    this.onCountryRegionSelected.emit(countryRegion);
+  changeCountryRegion(){
+    this.onCountryRegionSelected.emit(this.selectedCountryRegion);
   }
 
 }

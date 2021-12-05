@@ -1,15 +1,33 @@
-<ul>
-    <li *ngFor="let ethnicity of ethnicityList">
-        <input
-        type="radio"
-        name="ethnicity"
-        [attr.id]="ethnicity"
-        value="{{ ethnicity }}"
-        [(ngModel)]="selectedEthnicity"
-        (change)="changeEthnicity(ethnicity)"
-        />
-        <label [attr.for]="ethnicity">
-        {{ ethnicity }}
-        </label>
-    </li>
-</ul>
+<select
+    name="ethnicity"
+    id="ethnicity"
+    [(ngModel)]="selectedEthnicity"
+    (change)="changeEthnicity()"
+>
+    <option
+        value="American Indian or Alaska Native"
+    >
+    American Indian or Alaska Native
+    </option>
+    <option
+        value="Asian"
+    >
+    Asian
+    </option>
+    <option
+        value="Black or African American"
+    >
+    Black or African American
+    </option>
+    <option
+        value="Hispanic or Latino"
+    >
+    Hispanic or Latino
+    </option>
+    <option
+        value="Native Hawaiian or Other Pacific Islander"
+    >
+    Native Hawaiian or Other Pacific Islander
+    </option>
+</select>
+
