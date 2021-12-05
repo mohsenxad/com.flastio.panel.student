@@ -77,3 +77,13 @@ form{
     transition: 0.5s;
   }
 }
+
+.main-modal {
+  background-color: rgba(10, 22, 41, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+}

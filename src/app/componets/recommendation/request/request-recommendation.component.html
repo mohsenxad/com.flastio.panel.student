@@ -1,4 +1,5 @@
-<form
+<div class="main-modal">
+    <form
     #form="ngForm"
 >
 <button class="close-btn"
@@ -7,8 +8,9 @@
     close
 </button>
     <legend>
-        It is always the best practice to contact the person you are asking for a recommendation for ahead of time and make sure they are willing and able to provide you with a recommendation.
+        Ask for a recommendation
     </legend>
+    <p>It is always the best practice to contact the person you are asking for a recommendation for ahead of time and make sure they are willing and able to provide you with a recommendation.</p>
     <fieldset>
         <ul>
             <li>
@@ -61,15 +63,19 @@
                 
             </li>
         </ul>
-        <button
+        <button class="submit-btn"
+        (click)="send()"
+    >
+        Send
+    </button>
+
+        <button class="cancel-btn"
             (click)="close()"
         >
             Cancel
         </button>
-        <button
-            (click)="send()"
-        >
-            Send
-        </button>
+     
     </fieldset>
 </form>
+
+</div>

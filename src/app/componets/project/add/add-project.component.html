@@ -1,15 +1,17 @@
-<button
-  (click) = 'close()'
->
-  Close
-</button>
-<form
+<div class="main-modal">
+    
+  <form
   *ngIf = "pageTitle == 'General'"
   #form = "ngForm"
->
+  >
   <loading
     *ngIf="isLoading"
   ></loading>
+  <button class="close-btn"
+  (click) = 'close()'
+  >
+  Close
+  </button>
   <legend>Project</legend>
   <details>
     <summary>How to add a project?</summary>
@@ -109,30 +111,33 @@
       </li>
     </ul>
   </fieldset>
-</form>
-
-<assign-link-project
+  <assign-link-project
   *ngIf="pageTitle == 'Links'"
   [linkUrlList]="project.linkUrlList"
   (onLinkUrlListUpdated) = "updateLinkUrlList($event)"
   (onClose) = 'goToGeneralView($event)'
-></assign-link-project>
-<assign-supporting-file-project
+  ></assign-link-project>
+  <assign-supporting-file-project
   *ngIf="pageTitle == 'Attachment'"
   [supportingFileList] = "project.supportingFileList"
   (onSupportingFileListUpdated) = "updateSupportingFileList($event)"
   (onClose) = 'goToGeneralView($event)'
-updateSupportingFileList
-></assign-supporting-file-project>
-<assign-contributor
+  updateSupportingFileList
+  ></assign-supporting-file-project>
+  <assign-contributor
   *ngIf = "pageTitle == 'Team'"
   [contributorList] = "project.contributorList"
   (onContributorListUpdated) = "updateContributorList($event)"
   (onClose) = 'goToGeneralView($event)'
-></assign-contributor>
-<add-paging-project
+  ></assign-contributor>
+  <add-paging-project
   (onPageTitleSelected)="changePage($event)"
-></add-paging-project>
+  ></add-paging-project>
 
-<button (click)="draft()">Save draft</button>
-<button (click)="publish()">Publish</button>
+  <button class="submit-btn" (click)="draft()">Save draft</button>
+  <button class="cancel-btn" (click)="publish()">Publish</button>
+  </form>
+
+
+
+</div>

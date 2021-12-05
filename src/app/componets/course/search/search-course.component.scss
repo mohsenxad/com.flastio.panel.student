@@ -24,7 +24,7 @@ ul {
     box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
     border: solid 1px #d8e0f0;
     background-color: #fff;
-    padding: 13px 18px 14px 18px;
+    padding: 13px 0 14px 0;
     display: block;
     width: 100%;
     margin: 7px 0 27px 0;
@@ -60,5 +60,35 @@ button:first-of-type {
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 8px;
+  }
+}
+
+
+.search-course-result {
+  position: relative;
+  button {
+    z-index: 3;
+    position: relative;
+    top: 0;
+  }
+  ul {
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(139, 149, 170, 0.2);
+    background-color: #fff;
+    padding: 45px 15px 15px 15px;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    top: -15px;
+  }
+  li {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    padding: 8px 0;
   }
 }

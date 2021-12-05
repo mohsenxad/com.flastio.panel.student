@@ -1,5 +1,11 @@
 form {
-  margin-top: 20px;
+  margin: 20px auto 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 58px 0 rgba(121, 145, 173, 0.2);
+  background-color: #fff;
+  padding: 25px;
+  width: 60%;
+
   fieldset {
     border: none;
     margin: 0;
@@ -7,6 +13,18 @@ form {
   }
 
   legend {
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #0a1629;
+    margin: 0;
+    padding: 0;
+  }
+  p {
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
@@ -14,7 +32,7 @@ form {
     line-height: 1.5;
     letter-spacing: normal;
     color: #0a1629;
-    margin-bottom: 24px;
+    margin: 39px 0 16px 0;
   }
 
   ul {
@@ -37,7 +55,7 @@ form {
       box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
       border: solid 1px #d8e0f0;
       background-color: #fff;
-      padding: 13px 18px 14px 18px;
+      padding: 13px 0 14px 0;
       display: block;
       width: 100%;
       margin: 7px 0 27px 0;
@@ -49,6 +67,7 @@ form {
         line-height: 1.5;
         letter-spacing: normal;
         color: #7d8592;
+        padding: 0 0 0 10px;
       }
     }
     textarea {
@@ -57,12 +76,12 @@ form {
       border: solid 1px #d8e0f0;
       background-color: #fff;
       width: 100%;
-      padding: 11px 13px 16px 18px;
+      padding: 11px 0 16px 0;
       margin: 7px 0 27px 0;
       font-family: NunitoSans;
       color: #0a1629;
 
-      &::placeholder{
+      &::placeholder {
         font-size: 14px;
         font-weight: normal;
         font-stretch: normal;
@@ -70,29 +89,13 @@ form {
         line-height: 1.5;
         letter-spacing: normal;
         color: #7d8592;
+        padding: 0 0 0 10px;
       }
-
     }
   }
 }
 
-input[type="submit"] {
-  padding: 15px 23px;
-  border-radius: 14px;
-  box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
-  background-color: #3f8cff;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-button:nth-of-type(1) {
+.cancel-btn {
   padding: 12px 22px;
   border-radius: 10px;
   box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
@@ -107,6 +110,7 @@ button:nth-of-type(1) {
   text-align: center;
   color: #91929e;
   cursor: pointer;
+  float: right;
 
   transition: 0.5s;
 
@@ -115,7 +119,7 @@ button:nth-of-type(1) {
     transition: 0.5s;
   }
 }
-button:nth-of-type(2) {
+.submit-btn {
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -131,6 +135,7 @@ button:nth-of-type(2) {
   border: none;
   margin-left: 16px;
   cursor: pointer;
+  float: right;
 
   transition: 0.5s;
 
@@ -149,4 +154,8 @@ button:nth-of-type(2) {
   display: flex;
   transform: rotate(45deg);
   float: right;
+}
+
+.main-modal {
+  overflow: scroll;
 }
