@@ -1,6 +1,12 @@
 form {
   position: relative;
-  margin-top: 30px;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 6px 58px 0 rgba(121, 145, 173, 0.2);
+  background-color: #fff;
+  width: 50%;
+  margin: 25px auto;
+  position: relative;
 }
 fieldset {
   border: none;
@@ -48,7 +54,7 @@ ul {
     box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
     border: solid 1px #d8e0f0;
     background-color: #fff;
-    padding: 13px 18px 14px 18px;
+    padding: 13px 0 14px 0;
     display: block;
     width: 100%;
     margin: 7px 0 27px 0;
@@ -100,8 +106,8 @@ ul {
   -webkit-writing-mode: vertical-rl;
   display: flex;
   position: absolute;
-  top: -6px;
-  left: 0;
+  top: 13px;
+  left: 13px;
   display: flex;
   border: none;
   transform: rotate(-90deg);

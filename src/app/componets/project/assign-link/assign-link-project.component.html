@@ -11,7 +11,7 @@
 
     <ul>
       <!-- <label for="txtLink"> Insert Link </label> -->
-      <li>
+      <li class="assign-link-add-section">
         <input
           type="url"
           name="txtLink"
@@ -19,35 +19,36 @@
           [(ngModel)]="linkUrl"
           placeholder="Enter link here …"
         />
-        <button (click)="processLink()">Add</button>
+        <button class="assign-link-add-btn" (click)="processLink()">Add</button>
       </li>
     </ul>
   </fieldset>
+  <ul *ngIf="linkUrlList && linkUrlList.length > 0">
+    <li *ngFor="let linkUrl of linkUrlList">
+      <dl>
+        <div>
+          <dt>Title</dt>
+          <dd>
+            {{ linkUrl.title }}
+          </dd>
+  
+          <dt>Host</dt>
+          <dd>
+            {{ linkUrl.host }}
+          </dd>
+        </div>
+        <dt>Delete</dt>
+        <dd>
+          <button class="assign-link-delete-btn">Delete</button>
+        </dd>
+      </dl>
+    </li>
+  </ul>
+  
+  <div class="assign-link-btn-section">
+    <button class="cancel-btn" (click)="cancel()">Cancel</button>
+    <button class="submit-btn" (click)="save()">Save</button>
+  </div>
+  
 </form>
 
-<ul *ngIf="linkUrlList && linkUrlList.length > 0">
-  <li *ngFor="let linkUrl of linkUrlList">
-    <dl>
-      <div>
-        <dt>Title</dt>
-        <dd>
-          {{ linkUrl.title }}
-        </dd>
-
-        <dt>Host</dt>
-        <dd>
-          {{ linkUrl.host }}
-        </dd>
-      </div>
-      <dt>Delete</dt>
-      <dd>
-        <button>Delete</button>
-      </dd>
-    </dl>
-  </li>
-</ul>
-
-<div>
-  <button (click)="cancel()">Cancel</button>
-  <button (click)="save()">Save</button>
-</div>
