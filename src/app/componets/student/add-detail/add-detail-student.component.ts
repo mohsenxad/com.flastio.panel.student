@@ -70,20 +70,13 @@ export class AddDetailStudentComponent implements OnInit {
 
   async handleFileInput(files: FileList) {
     this.profilePicture = files.item(0);
-    let response:any = await this.getUploadUrl()
-    let signedUploadUr = response.presignedUrl;
+    let response:any = await this.studentService.getUploadUrl()
+    let signedUploadUrl = response.presignedUrl;
     this.student.pictureFileName = response.fileName.toString();
-    this.student.pictureFileUrl = signedUploadUr.split('?')[0];
-    this.uploadFile(signedUploadUr)
+    this.student.pictureFileUrl = signedUploadUrl.split('?')[0];
+    this.uploadFile(signedUploadUrl)
   }
 
-  async getUploadUrl(){
-    const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions
-      .getPictureUploadUrl({Bucket:"flastio"})
-    console.log(result);
-    return result;
-  }
 
   uploadFile(uploadPresignUrl: string){
     this.isLoading = true;

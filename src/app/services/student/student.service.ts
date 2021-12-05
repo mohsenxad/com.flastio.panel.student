@@ -25,6 +25,13 @@ export class StudentService {
       .put(url,body, {headers});
   }
 
+  async getUploadUrl():Promise<any>{
+    const user: Realm.User = this.app.currentUser;
+    let result: any  = await user.functions
+      .getPictureUploadUrl({Bucket:"flastio"})
+    return result;
+  }
+
   async getStudentInfo(): Promise<Student>{
     const user: Realm.User = this.app.currentUser;
     let student: Student = await user.functions.getStudent();
