@@ -63,11 +63,10 @@ button:first-of-type {
   }
 }
 
-
 .search-course-result {
   position: relative;
   button {
-    z-index: 3;
+    z-index: 9;
     position: relative;
     top: 0;
   }
@@ -77,7 +76,7 @@ button:first-of-type {
     background-color: #fff;
     padding: 45px 15px 15px 15px;
     position: absolute;
-    z-index: 2;
+    z-index: 7;
     width: 100%;
     top: -15px;
   }
@@ -90,5 +89,29 @@ button:first-of-type {
     letter-spacing: normal;
     color: #0a1629;
     padding: 8px 0;
+  }
+}
+.search-course-result-section {
+  margin: 5px 4px 10px 5px;
+  border-radius: 8px;
+  background-color: rgba(0, 184, 92, 0.1);
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: center;
+  color: #00b85c;
+  padding: 12px 11.5px 12px 12.5px;
+  display: inline-flex;
+  align-items: center;
+  button {
+    border: none;
+    background: none;
+    content: url(/assets/images/icn-general-add-green.svg);
+    display: inline-flex;
+    margin-left: 8px;
+    transform: rotate(45deg);
   }
 }

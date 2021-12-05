@@ -22,21 +22,23 @@
         </li>
       </ul>
     </fieldset>
-    <button (click)="addCertification()">Add {{ certificationKeyWord }}</button>
   </form>
   <loading
         *ngIf="isLoading"
     ></loading>
-  <ul *ngIf="certificationList && certificationList.length > 0">
-    <li
-      *ngFor="let certification of certificationList"
-      (click)="selected(certification)"
-    >
-      {{ certification.name }}
-    </li>
-  </ul>
+    <div class="search-certification-result">
+      <button (click)="addCertification()">Add {{ certificationKeyWord }}</button>
+      <ul *ngIf="certificationList && certificationList.length > 0">
+        <li
+          *ngFor="let certification of certificationList"
+          (click)="selected(certification)"
+        >
+          {{ certification.name }}
+        </li>
+      </ul>
+    </div>
 </div>
-<div
+<div class="search-certification-result-section"
   *ngIf="selectedCertification"
 >
   {{selectedCertification.name}}
