@@ -27,7 +27,7 @@ dl {
       //     padding: 7px;
       //   }
     }
-    &:nth-child(4){
+    &:nth-child(4) {
       display: none;
     }
     &:nth-child(6),
@@ -51,8 +51,7 @@ dl {
       color: #0a1629;
       grid-area: 3;
     }
-    &:nth-child(12),
-    &:nth-child(14) {
+    &:nth-child(12) {
       font-size: 12px;
       font-weight: 500;
       font-stretch: normal;
@@ -65,15 +64,8 @@ dl {
       grid-area: 3;
       padding: 3px;
     }
-    &:nth-child(12) {
-      border-right: none;
-      border-radius: 4px 0 0 4px;
-    }
+
     &:nth-child(14) {
-      border-left: none;
-      border-radius: 0 4px 4px 0;
-    }
-    &:nth-child(16) {
       font-size: 14px;
       font-weight: normal;
       font-stretch: normal;
@@ -84,6 +76,5 @@ dl {
       border-left: none;
       grid-area: 4;
     }
-  
   }
 }
