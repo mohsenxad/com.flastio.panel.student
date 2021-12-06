@@ -12,6 +12,7 @@ export class SkillListItemComponent implements OnInit {
   @Output() onSkillDeleted = new EventEmitter<Skill>();
 
   isRemovable:Boolean = false;
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -1,12 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
-
 @Component({
-  selector: 'share-profile',
-  templateUrl: './share-profile.component.html',
-  styleUrls: ['./share-profile.component.scss']
+  selector: 'share-profile-panel',
+  templateUrl: './share-profile-panel.component.html',
+  styleUrls: ['./share-profile-panel.component.scss']
 })
-export class ShareProfileComponent implements OnInit {
+export class ShareProfilePanelComponent implements OnInit {
 
   @Output() onClose = new EventEmitter();
 

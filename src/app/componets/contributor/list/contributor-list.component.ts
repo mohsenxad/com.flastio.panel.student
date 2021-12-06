@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { Contributor } from '../../../model/contributor';
 
 @Component({
@@ -9,9 +10,16 @@ import { Contributor } from '../../../model/contributor';
 export class ContributorListComponent implements OnInit {
 
   @Input() contributorList:Contributor[];
+  @Output() onDeleted = new EventEmitter<Contributor>();
+
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  removeItem(contributor: Contributor){
+    this.onDeleted.emit(contributor);
   }
 
 }

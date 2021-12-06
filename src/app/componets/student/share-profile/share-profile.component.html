@@ -1,11 +1,39 @@
 <div>
-    <button class="close-btn">
+    <button
+        class="close-btn"
+        (click) = 'close()'
+    >
         Close
     </button>
     <h3>
         Share Profile
     </h3>
-    <section>
+    <ul>
+        <li>
+            <button
+               (click) = 'changeView("shareLink")' 
+            >
+                Share Link
+            </button>
+        </li>
+        <li>
+            <button
+                (click) = 'changeView("qrCode")'
+            >
+                QR Code
+            </button>
+        </li>
+        <li>
+            <button
+                (click) = 'changeView("sendEmail")' 
+            >
+                Send Email
+            </button>
+        </li>
+    </ul>
+    <section
+        *ngIf = 'currentView == "shareLink"'
+    >
         <ul>
             <li>
                 <label
@@ -26,7 +54,9 @@
         </ul>
     </section>
 
-    <section>
+    <section
+    *ngIf = 'currentView == "qrCode"'
+    >
         <img src="/assets/images/QR-Code.png" alt="QRCode">
        <div>
             <h4>
@@ -39,7 +69,9 @@
        </div>
     </section>
 
-    <section>
+    <section
+        *ngIf = 'currentView == "sendEmail"'
+    >
         <form>
             <fieldset>
                 <ul>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Contributor } from '../../../model/contributor';
 
 @Component({
@@ -9,13 +9,20 @@ import { Contributor } from '../../../model/contributor';
 export class ContributorListItemComponent implements OnInit {
 
   @Input() contributor:Contributor;
+  @Output() onDeleted = new EventEmitter<Contributor>();
+
+  isRemovable:Boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+    if(this.onDeleted.observers.length > 0){
+      this.isRemovable = true;
+    }
   }
 
   remove(){
-    
+    this.onDeleted.emit(this.contributor);
   }
 
 }

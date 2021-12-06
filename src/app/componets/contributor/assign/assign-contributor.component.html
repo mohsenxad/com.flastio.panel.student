@@ -64,10 +64,12 @@
 
       </ul>
     </fieldset>
+
     <contributor-list
-    *ngIf = "contributorList && contributorList.length > 0"
-    [contributorList] = "contributorList"
-  ></contributor-list>
+        *ngIf = "contributorList && contributorList.length > 0"
+        [contributorList] = "contributorList"
+        (onDeleted) = 'remove($event)'
+    ></contributor-list>
 
   <div>
     <button (click)="cancel()">Cancel</button>

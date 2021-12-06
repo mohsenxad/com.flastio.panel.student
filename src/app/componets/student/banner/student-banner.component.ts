@@ -9,6 +9,9 @@ import { Student } from '../../../model/student';
 export class StudentBannerComponent implements OnInit {
   @Input() student : Student;
   @Output() onAddProjectClicked = new EventEmitter();
+
+  isShareProfileModalVisible: Boolean = false;
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -17,5 +20,14 @@ export class StudentBannerComponent implements OnInit {
   addProject(){
     this.onAddProjectClicked.emit();
   }
+
+  showShareProfileModal(){
+    this.isShareProfileModalVisible = true;
+  }
+
+  hideShareProfileModal(){
+    this.isShareProfileModalVisible = false;
+  }
+
 
 }

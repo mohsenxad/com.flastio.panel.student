@@ -80,6 +80,11 @@ import { ValidationResultComponent } from './componets/share/validation-result/v
 import { MonthSelectComponent } from './componets/share/month-select/month-select.component';
 import { YearSelect2Component } from './componets/share/year-select2/year-select2.component';
 
+import { ShareProfileByEmailComponent } from './componets/shareProfile/by-email/share-profile-by-email.component';
+import { ShareProfileByLinkComponent } from './componets/shareProfile/by-link/share-profile-by-link.component';
+import { ShareProfileByQRCodeComponent } from './componets/shareProfile/by-qrcode/share-profile-by-qrcode.component';
+import { ShareProfilePanelComponent } from './componets/shareProfile/panel/share-profile-panel.component';
+
 
 
 
@@ -162,6 +167,10 @@ import { YearSelect2Component } from './componets/share/year-select2/year-select
     ValidationResultComponent,
     MonthSelectComponent,
     YearSelect2Component,
+    ShareProfileByLinkComponent,
+    ShareProfileByQRCodeComponent,
+    ShareProfileByEmailComponent,
+    ShareProfilePanelComponent,
   ],
   imports: [
     BrowserModule,

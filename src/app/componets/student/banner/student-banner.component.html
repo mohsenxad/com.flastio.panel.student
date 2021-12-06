@@ -5,7 +5,15 @@
     ></student-info>
     <nav>
       <ul>
-        <li>Share</li>
+        <li
+          (click) = 'showShareProfileModal()'
+        >
+          <button
+          (click) = 'showShareProfileModal()'  
+          >
+            Share
+          </button>
+        </li>
         <li>Public View</li>
         <li>
           <button
@@ -17,7 +25,10 @@
       </ul>
     </nav>
   </div>
-  <share-profile></share-profile>
+  <share-profile-panel
+    *ngIf = 'isShareProfileModalVisible'
+    (onClose) = 'hideShareProfileModal()'
+  ></share-profile-panel>
   <portfolio-strength
     [student] = "student"
   ></portfolio-strength>

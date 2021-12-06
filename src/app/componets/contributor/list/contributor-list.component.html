@@ -3,6 +3,7 @@
         *ngFor = "let contributor of contributorList"
     >
         <contributor-list-item
+            (onDeleted) = 'removeItem($event)'
             [contributor]="contributor"
         ></contributor-list-item>
     </li>

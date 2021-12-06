@@ -33,6 +33,15 @@ export class AssignContributorComponent implements OnInit {
 
   add(){
     this.contributorList.push(this.contributor);
+    this.contributor = {};
+  }
+
+  remove(contributor: Contributor){
+    this.contributorList = this.contributorList.filter(current => {
+      if(current.email.toString() != contributor.email.toString()){
+        return current;
+      }
+    })
   }
 
   save(){
