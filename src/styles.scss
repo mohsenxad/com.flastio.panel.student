@@ -39,15 +39,15 @@ body {
   font-family: IRANSans-web, serif;
 }
 
-button{
+button {
   cursor: pointer;
 }
-form{
-  fieldset{
+form {
+  fieldset {
     border: none;
   }
 }
-.main-add-btn{
+.main-add-btn {
   font-size: 14px;
   font-weight: bold;
   padding: 8px 10px;
@@ -86,4 +86,19 @@ form{
   bottom: 0;
   left: 0;
   z-index: 4;
+}
+
+input {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+textarea {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }

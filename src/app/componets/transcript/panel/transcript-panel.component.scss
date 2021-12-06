@@ -24,7 +24,7 @@
     letter-spacing: normal;
     color: #0a1629;
     margin: 0;
-    padding:16px 16px 8px 16px;
+    padding: 16px 16px 8px 16px;
     border: 7px solid #00b85c;
     border-radius: 8px 8px 0 0;
     border-bottom: none;
@@ -92,8 +92,15 @@
   }
   input[type="file"] {
     position: absolute;
-    top: 0;
+    top: 15px;
     opacity: 0;
     cursor: pointer;
   }
+}
+
+.delete-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 8px 16px;
 }

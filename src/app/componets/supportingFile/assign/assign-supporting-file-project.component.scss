@@ -1,7 +1,12 @@
 form {
-  margin: 40px 0 0 0;
-  padding: 0;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 6px 58px 0 rgba(121, 145, 173, 0.2);
+  background-color: #fff;
+  width: 50%;
+  margin: 25px auto;
   position: relative;
+  
   legend {
     font-size: 24px;
     font-weight: bold;
@@ -21,7 +26,7 @@ form {
     -webkit-writing-mode: vertical-rl;
     display: flex;
     position: absolute;
-    top: -6px;
+    top: 13px;
     left: 0;
     display: flex;
     border: none;
@@ -144,6 +149,12 @@ button:last-of-type {
   margin-left: 16px;
   transition: 0.5s;
   margin-top: 30px;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: #3a81eb;
+    transition: 0.5s;
+  }
 }
 
 dt {
@@ -209,4 +220,9 @@ dl {
     background-color: #f4f9fd;
     transition: 0.5s;
   }
+}
+.assign-supporting-file-submit-section{
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }

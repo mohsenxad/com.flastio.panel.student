@@ -32,8 +32,7 @@
           </div>
       </ul>
     </fieldset>
-  </form>
-  
+      
   <ul *ngIf="supportingFileList && supportingFileList.length > 0">
     <li *ngFor="let supportingFile of supportingFileList">
       <dl>
@@ -61,8 +60,9 @@
     </li>
   </ul>
   
-  <div>
+  <div class="assign-supporting-file-submit-section">
     <button (click)="cancel()">Cancel</button>
     <button (click)="save()">Save</button>
   </div>
   
+  </form>
