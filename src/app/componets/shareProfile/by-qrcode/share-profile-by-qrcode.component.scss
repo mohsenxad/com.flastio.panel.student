@@ -1,0 +1,57 @@
+section {
+  display: flex;
+  background-color: #f4f9fd;
+  padding: 32px;
+  border-radius: 0 0 8px 8px;
+
+  div {
+    box-shadow: none;
+    background: transparent;
+  }
+  img {
+    width: 133px;
+    height: 133px;
+  }
+  h4 {
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+    color: #0a1629;
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    padding: 0;
+    margin: 8px 0;
+  }
+  button {
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #91929e;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+    border: solid 1px #d8e0f0;
+    background-color: #fff;
+    padding: 12px 16px;
+    transition: 0.5s;
+
+    &:hover {
+      border: solid 1px #91929e;
+      transition: 0.5s;
+    }
+  }
+}

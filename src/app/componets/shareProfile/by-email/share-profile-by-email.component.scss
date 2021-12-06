@@ -1,0 +1,211 @@
+form {
+  background-color: #f4f9fd;
+  padding: 32px;
+  border-radius: 0 0 8px 8px;
+  label {
+    margin-left: 0;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  ol {
+    list-style: none;
+    margin: 3px 0 24px 0;
+    padding: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: start;
+    flex-flow: wrap;
+    li {
+      padding: 7px;
+      border-radius: 8px;
+      background-color: rgba(63, 140, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span {
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.14;
+        letter-spacing: normal;
+        color: #3f8cff;
+      }
+      button {
+        background: none;
+        border: none;
+        content: url(/assets/images/icn-general-add-dark-blue.svg);
+        display: flex;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  textarea {
+    border-radius: 14px;
+    box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+    border: solid 1px #d8e0f0;
+    background-color: #fff;
+    width: 100%;
+    padding: 11px 13px 16px 18px;
+    margin: 7px 0 27px 0;
+    font-family: NunitoSans;
+    color: #0a1629;
+
+    &::placeholder {
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #7d8592;
+    }
+  }
+  .cancel-btn {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 21px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #91929e;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
+    border: solid 1px #d8e0f0;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+    float: right;
+
+    &:hover {
+      border: solid 1px #91929e;
+      transition: 0.5s;
+    }
+  }
+  .submit-btn {
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
+    background-color: #3f8cff;
+    border: none;
+    padding: 12px 27px;
+    transition: 0.5s;
+    float: right;
+    margin-left: 16px;
+
+    &:hover {
+      background-color: #3a81eb;
+      transition: 0.5s;
+    }
+  }
+}
+
+.cancel-btn {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 21px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #91929e;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  float: right;
+
+  &:hover {
+    border: solid 1px #91929e;
+    transition: 0.5s;
+  }
+}
+.submit-btn {
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
+  background-color: #3f8cff;
+  border: none;
+  padding: 12px 27px;
+  transition: 0.5s;
+  float: right;
+  margin-left: 16px;
+
+  &:hover {
+    background-color: #3a81eb;
+    transition: 0.5s;
+  }
+}
+
+.share-profile-by-email-input {
+  position: relative;
+  label {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    display: block;
+    margin-left: 12px;
+  }
+  input {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+    border: solid 1px #d8e0f0;
+    background-color: #fff;
+    padding: 13px 0 14px 0;
+    display: block;
+    width: 100%;
+    margin: 7px 0 27px 0;
+    &::placeholder {
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #7d8592;
+      margin: 0 18px;
+    }
+    &::placeholder {
+      text-align: center;
+    }
+  }
+  .add-recipients-btn {
+    position: absolute;
+    content: url(/assets/images/icn-general-add-dark-blue.svg);
+    display: flex;
+    top: 39px;
+    right: 3px;
+    border: none;
+    background: none;
+  }
+}
