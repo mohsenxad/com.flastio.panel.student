@@ -26,44 +26,16 @@
       <li>
         <label for="divDateIssued"> Date issued </label>
         <div id="divDateIssued" name="divDateIssued">
-          <input
-            type="tel"
-            name="txtIssuedDateMonth"
-            id="txtIssuedDateMonth"
-            [(ngModel)]="assignedCertification.issuedDateMonth"
-            placeholder="Month"
-            list="txtIssuedDateMonthList"
-            maxlength="2"
-            max="12"
-            minlength="1"
-            min="1"
-          />
-          <datalist id="txtIssuedDateMonthList">
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-            <option value="4"></option>
-            <option value="5"></option>
-            <option value="6"></option>
-            <option value="7"></option>
-            <option value="8"></option>
-            <option value="9"></option>
-            <option value="10"></option>
-            <option value="11"></option>
-            <option value="12"></option>
-          </datalist>
+          <month-select
+            [selectedMonth] = 'assignedCertification.issuedDateMonth'
+            (onMonthSelected) = 'selectedIssuedDateMonth($event)'
+          ></month-select>
 
-          <input
-            type="tel"
-            name="txtIssuedDateYear"
-            id="txtIssuedDateYear"
-            [(ngModel)]="assignedCertification.issuedDateYear"
-            placeholder="Year"
-            minlength="4"
-            min="2011"
-            maxlength="4"
-            max="2050"
-          />
+          <year-select2
+            [selectedYear] = 'assignedCertification.issuedDateYear'
+            (onYearSelected) = 'selectedIssuedDateYear($event)'
+          ></year-select2>
+
         </div>
       </li>
       <li>

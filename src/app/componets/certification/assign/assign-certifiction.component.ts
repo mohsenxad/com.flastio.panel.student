@@ -34,6 +34,16 @@ export class AssignCertifictionComponent implements OnInit {
     this.assignedCertification.certification = undefined;
   }
 
+  selectedIssuedDateMonth(issuedDateMonth: Number){
+    this.assignedCertification.issuedDateMonth = issuedDateMonth;
+
+  }
+
+  selectedIssuedDateYear(issuedDateYear: Number){
+    this.assignedCertification.issuedDateYear = issuedDateYear;
+
+  }
+
   async save(){
     this.isLoading = true;
     this.assignedCertification = await this.certificationService.save(this.assignedCertification);
