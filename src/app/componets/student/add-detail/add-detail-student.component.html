@@ -53,7 +53,7 @@
       </li>
 
       <li>
-        <label for="chkShareGender"> Share my gender with employers </label>
+        <label class="switch" for="chkShareGender"> Share my gender with employers 
         <input
           type="checkbox"
           name="chkShareGender"
@@ -61,12 +61,13 @@
           [(ngModel)]="student.isGenderSharable"
           checked
         />
+        <span class="slider round"></span>
+      </label>
       </li>
 
       <li>
-        <label for="chkShareEthnicity">
+        <label for="chkShareEthnicity" class="switch">
           Share my ethnicity with employers
-        </label>
         <input
           type="checkbox"
           name="chkShareEthnicity"
@@ -74,6 +75,9 @@
           [(ngModel)]="student.isEthnicitySharable"
           checked
         />
+        <span class="slider round"></span>
+      </label>
+
       </li>
       <li>
         <label for="slcCollegeStatus">
