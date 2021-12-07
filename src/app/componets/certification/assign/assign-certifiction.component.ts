@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Certification } from '../../../model/certification';
 import { AssignedCertification } from '../../../model/assignedCertification';
 import { CertificationService } from 'src/app/services/certification/certification.service';
+import { ValidationResult } from 'src/app/model/validationResult';
 
 @Component({
   selector: 'assign-certifiction',
@@ -17,6 +18,10 @@ export class AssignCertifictionComponent implements OnInit {
 
   certificationFile: File ;
   isLoading:Boolean = false;
+  validationResult: ValidationResult = {
+    hasError:false,
+    messageList:[]
+  }
 
   constructor(
     private certificationService:CertificationService
@@ -44,12 +49,44 @@ export class AssignCertifictionComponent implements OnInit {
 
   }
 
+  validate(assignedCertification: AssignedCertification): ValidationResult{
+    let validationResult: ValidationResult ={
+      hasError: false,
+      messageList: []
+    };
+
+    if (!assignedCertification.certification){
+      validationResult.hasError = true;
+      validationResult.messageList.push("Chose Certification Name from List");
+    }
+
+    if(!assignedCertification.issuedDateMonth){
+      validationResult.hasError = true;
+      validationResult.messageList.push("Set Month of IssueDate");
+    }
+
+
+    if(!assignedCertification.issuedDateYear){
+      validationResult.hasError = true;
+      validationResult.messageList.push("Set Year of IssueDate");
+    }
+
+    return validationResult;
+  }
+
   async save(){
-    this.isLoading = true;
-    this.assignedCertification = await this.certificationService.save(this.assignedCertification);
-    this.isLoading = false;
-    this.onAssignedCertificationAdded.emit(this.assignedCertification);
-    this.onClose.emit();
+    let validationResult = this.validate(this.assignedCertification);
+    
+    if(!validationResult.hasError){
+      this.isLoading = true;
+      this.assignedCertification = await this.certificationService.save(this.assignedCertification);
+      this.isLoading = false;
+      this.onAssignedCertificationAdded.emit(this.assignedCertification);
+      this.onClose.emit();
+    }else{
+      this.validationResult = validationResult;
+    }
+    
   }
   
   cancel(){
