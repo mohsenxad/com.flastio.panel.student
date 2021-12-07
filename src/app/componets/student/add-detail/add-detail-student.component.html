@@ -1,7 +1,7 @@
 <form
   #form="ngForm"
 >
-  <button>Close</button>
+  <button class="close-btn">Close</button>
   <legend>Personal information</legend>
   <fieldset
     [disabled]="isLoading"
@@ -95,12 +95,12 @@
       
     </ul>
 
-    <button
+    <button class="add-detail-student-start"
       (click)="save()"
     >
       Let's Start
     </button>
-    <button
+    <button class="add-detail-student-skip"
       (click)="skip()"
     >
       I will complete later

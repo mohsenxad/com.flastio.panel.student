@@ -91,6 +91,13 @@ button {
     line-height: 1.5;
     letter-spacing: normal;
     color: #0a1629;
-    padding: 8px 0;
+    padding: 8px;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover{
+      border-radius: 14px;
+      background-color: rgba(63, 140, 255, 0.12);
+      transition: 0.5s;
+    }
   }
 }

@@ -9,19 +9,18 @@ form {
   fieldset {
     border: none;
   }
-  button {
-    &:nth-of-type(1) {
-      background-color: #f4f9fd;
-      border-radius: 50%;
-      padding: 10px;
-      border: none;
-      content: url(/assets/images/icn-general-add-blue.svg);
-      display: flex;
-      transform: rotate(45deg);
-      float: right;
-      -webkit-writing-mode: vertical-rl;
-    }
+  .close-btn {
+    background-color: #f4f9fd;
+    border-radius: 50%;
+    padding: 10px;
+    border: none;
+    content: url(/assets/images/icn-general-add-blue.svg);
+    display: flex;
+    transform: rotate(45deg);
+    float: right;
+    -webkit-writing-mode: vertical-rl;
   }
+
   legend {
     font-size: 24px;
     font-weight: bold;
@@ -184,16 +183,61 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(-26px);
-  -ms-transform: translateX(-26px);
-  transform: translateX(-26px);
+  -webkit-transform: translateX(-19px);
+  -ms-transform: translateX(-19px);
+  transform: translateX(-19px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.add-detail-student-start {
+  padding: 5px 10px;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
+  background-color: #3f8cff;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #fff;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+
+  &::after {
+    content: url(/assets/images/icn-general-arrow-left-white.svg);
+    transform: rotate(180deg);
+    margin-left: 12px;
+  }
+  transition: 0.5s;
+
+  &:hover {
+    background-color: #3a81eb;
+    transition: 0.5s;
+  }
+}
+
+.add-detail-student-skip {
+  border: none;
+  background: none;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #3f8cff;
+  float: right;
+  margin-top: 22px;
+
 }

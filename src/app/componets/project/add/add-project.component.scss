@@ -39,7 +39,7 @@ form {
     margin-bottom: 20px;
 
     &::after {
-      content: url(/assets/images/icn-general-arrow-down-gray.svg);
+      content: url(/assets/images/icn-general-arrow-down-blue.svg);
       margin-left: 15px;
       -webkit-writing-mode: vertical-rl;
       transition: 0.5s;
@@ -116,7 +116,7 @@ button {
 }
 
 details[open] summary::after {
-  content: url(/assets/images/icn-general-arrow-down-gray.svg);
+  content: url(/assets/images/icn-general-arrow-down-blue.svg);
   margin-left: 15px;
   -webkit-writing-mode: vertical-rl;
   transform: rotate(180deg);

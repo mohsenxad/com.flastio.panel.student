@@ -1,21 +1,28 @@
 select {
-    border-radius: 14px;
-    box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
-    border: solid 1px #d8e0f0;
-    background-color: #fff;
-    padding: 13px 18px 14px 18px;
-    display: block;
-    width: 100%;
-    margin: 7px 0 27px 0;
-    box-sizing: border-box;
-    &::placeholder {
-      font-size: 14px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.5;
-      letter-spacing: normal;
-      color: #0a1629;
-    }
+  border-radius: 14px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  padding: 13px 18px 14px 18px;
+  display: block;
+  width: 100%;
+  margin: 7px 0 27px 0;
+  box-sizing: border-box;
+  &::placeholder {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
   }
-  
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("/assets/images/icn-general-arrow-down-gray.svg") white no-repeat 98.5% !important; 
+  background: url("/assets/images/icn-general-arrow-down-gray.svg") white no-repeat calc(100% - 10px) !important; 
+}

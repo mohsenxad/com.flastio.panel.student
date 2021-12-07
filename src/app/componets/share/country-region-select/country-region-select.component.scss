@@ -21,3 +21,11 @@ select {
     color: #0a1629;
   }
 }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("/assets/images/icn-general-arrow-down-gray.svg") white no-repeat 98.5% !important; 
+  background: url("/assets/images/icn-general-arrow-down-gray.svg") white no-repeat calc(100% - 10px) !important; 
+}

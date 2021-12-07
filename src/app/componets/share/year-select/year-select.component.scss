@@ -21,21 +21,18 @@ ul {
     margin: 0 12px;
     border-radius: 8px;
     width: 56px;
-    
   }
   li {
-      
     &:nth-child(1) {
-     label{
-         margin-left: 0;
-     }
+      label {
+        margin-left: 0;
+      }
     }
   }
   input {
     visibility: hidden;
 
     display: none;
-
   }
   input[type="radio"]:checked + label {
     font-size: 16px;
@@ -49,7 +46,6 @@ ul {
     border-radius: 8px;
     background-color: #3f8cff;
     animation: mymove 1s;
-
   }
 }
 
@@ -60,4 +56,14 @@ ul {
   to {
     background-color: #3f8cff;
   }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("/assets/images/icn-general-arrow-down-gray.svg") white
+    no-repeat 98.5% !important;
+  background: url("/assets/images/icn-general-arrow-down-gray.svg") white
+    no-repeat calc(100% - 10px) !important;
 }
