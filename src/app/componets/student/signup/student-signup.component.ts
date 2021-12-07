@@ -38,6 +38,11 @@ export class StudentSignupComponent implements OnInit {
     this.student.school = school;
   }
 
+  onSetMobileNumber(mobileNumber: String):void{
+    console.log(mobileNumber);
+    this.student.mobileNumber = mobileNumber;
+  }
+
   selectedGraduationMonth(graduationMonth: Number){
     this.student.graduationMonth = graduationMonth;
 

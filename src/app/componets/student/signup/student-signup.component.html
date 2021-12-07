@@ -38,13 +38,11 @@
             name="txtCountryMobileNumberCode"
             id="txtCountryMobileNumberCode"
             [(ngModel)]="student.countryMobileNumberCode"
+            maxlength="4"
           />
-          <input
-            type="tel"
-            name="txtMobileNumber"
-            id="txtMobileNumber"
-            [(ngModel)]="student.mobileNumber"
-          />
+          <mobile-number-input
+            (onSetMobileNumber) = 'onSetMobileNumber($event)'
+          ></mobile-number-input>
         </li>
         <li>
           <div name="divSchool" id="divSchool">
