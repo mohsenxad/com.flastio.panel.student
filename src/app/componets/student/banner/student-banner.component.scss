@@ -41,13 +41,12 @@ ul {
         }
       }
     }
-    &:nth-child(1),
+
     &:nth-child(2) {
       border-radius: 10px;
       box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
       border: solid 1px #d8e0f0;
       background-color: #fff;
-      text-indent: -9000px;
       transition: 0.5s;
 
       &:hover {
@@ -61,8 +60,22 @@ ul {
       padding: 13px;
     }
     &:nth-child(1) {
-      content: url(/assets/images/share.svg);
-      padding: 11px;
+    
+      button {
+        content: url(/assets/images/share.svg);
+        padding: 11px;
+        border-radius: 10px;
+        box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+        border: solid 1px #d8e0f0;
+        background-color: #fff;
+        transition: 0.5s;
+        display: flex;
+  
+        &:hover {
+          border: solid 1px #91929e;
+          transition: 0.5s;
+        }
+      }
     }
   }
 }
