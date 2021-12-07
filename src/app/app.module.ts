@@ -84,6 +84,7 @@ import { ShareProfileByEmailComponent } from './componets/shareProfile/by-email/
 import { ShareProfileByLinkComponent } from './componets/shareProfile/by-link/share-profile-by-link.component';
 import { ShareProfileByQRCodeComponent } from './componets/shareProfile/by-qrcode/share-profile-by-qrcode.component';
 import { ShareProfilePanelComponent } from './componets/shareProfile/panel/share-profile-panel.component';
+import { MobileNumberInputComponent } from './componets/share/mobile-number-input/mobile-number-input.component';
 
 
 
@@ -171,6 +172,7 @@ import { ShareProfilePanelComponent } from './componets/shareProfile/panel/share
     ShareProfileByQRCodeComponent,
     ShareProfileByEmailComponent,
     ShareProfilePanelComponent,
+    MobileNumberInputComponent,
   ],
   imports: [
     BrowserModule,
