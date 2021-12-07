@@ -50,15 +50,6 @@ export class AddDetailStudentComponent implements OnInit {
     this.student.collegeStatus = collegeStatus;
   }
 
-  selectedGraduationMonth(graduationMonth: Number){
-    this.student.graduationMonth = graduationMonth;
-
-  }
-
-  selectedGraduationYear(graduationYear: Number){
-    this.student.graduationYear = graduationYear;
-
-  }
 
   async save(){
     this.isLoading = true;

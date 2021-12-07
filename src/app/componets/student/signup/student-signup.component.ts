@@ -38,6 +38,15 @@ export class StudentSignupComponent implements OnInit {
     this.student.school = school;
   }
 
+  selectedGraduationMonth(graduationMonth: Number){
+    this.student.graduationMonth = graduationMonth;
+
+  }
+
+  selectedGraduationYear(graduationYear: Number){
+    this.student.graduationYear = graduationYear;
+  }
+
   async save(){
     this.isLoading = true;
     this.student = await this.studentService.create(this.student);

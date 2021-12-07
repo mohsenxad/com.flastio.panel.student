@@ -10,7 +10,7 @@ export interface Project {
     projectType? : String,
     name?:String,
     relatedInternship?:String,
-    description?:Number,
+    description?:String,
     skillList?:Skill[],
     yearCompleted?: Number,
     course?: Course,

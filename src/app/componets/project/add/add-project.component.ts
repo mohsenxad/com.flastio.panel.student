@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ValidationResult } from 'src/app/model/validationResult';
 import { ProjectService } from 'src/app/services/project/project.service';
 import { Contributor } from '../../../model/contributor';
 import { Course } from '../../../model/course';
@@ -35,10 +36,54 @@ export class AddProjectComponent implements OnInit {
   uniqFileName: String;
   fileUrl: String;
   isLoading:Boolean = false;
+  validationResult: ValidationResult = {
+    hasError : false,
+    messageList: []
+  };
   
   constructor(
     private projectService:ProjectService
   ) {}
+
+  validate(project: Project): ValidationResult{
+    let result: ValidationResult = {
+      hasError:false,
+      messageList: []
+    };
+
+    if(!project.summeryFileUrl){
+      result.hasError = true;
+      result.messageList.push("Add Project Summary File");
+    }
+
+    if(!project.name || project.name == ""){
+      result.hasError = true;
+      result.messageList.push("Add Project Name");
+    }
+
+    if(project.name && project.name != "" && project.name.length < 5){
+      result.hasError = true;
+      result.messageList.push("Project Name should be more than 5 charachter");
+    }
+
+    if(!project.description || project.description == ""){
+      result.hasError = true;
+      result.messageList.push("Add Project Description");
+    }
+
+    if(project.description && project.description != "" && project.description.length < 10){
+      result.hasError = true;
+      result.messageList.push("Project Description should be more than 10 charachter");
+    }
+
+    if(!project.yearCompleted){
+      result.hasError = true;
+      result.messageList.push("Select Project Year of Completed");
+    }
+
+
+    return result;
+  }
 
   changePage(pageTitle:String): void{
     this.pageTitle = pageTitle;
@@ -103,11 +148,17 @@ export class AddProjectComponent implements OnInit {
   }
 
   async save(){
-    this.isLoading = true;
-    let addedProject: Project  = await this.projectService.add(this.project);
-    this.onProjectAdded.emit(addedProject)
-    this.isLoading = false;
-    this.onClose.emit();
+    let validationResult = this.validate(this.project);
+    if(!validationResult.hasError){
+      this.isLoading = true;
+      let addedProject: Project  = await this.projectService.add(this.project);
+      this.onProjectAdded.emit(addedProject)
+      this.isLoading = false;
+      this.onClose.emit();
+    }else{
+      this.validationResult = validationResult;
+    }
+    
   }
 
   async handleFileInput(files: FileList) {

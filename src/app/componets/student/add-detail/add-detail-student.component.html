@@ -90,32 +90,11 @@
         ></college-status-select>
       </li>
 
-      <li>
-        <label
-          for="divGraduationDate"
-        >
-          Graduation date
-        </label>
-        <div
-          id = 'divGraduationDate'
-          name = 'divGraduationDate'
-        >
-          <month-select
-            [selectedMonth] = 'student.graduationMonth'
-            (onMonthSelected) = 'selectedGraduationMonth($event)'
-          ></month-select>
-
-          <year-select2
-            [selectedYear] = 'student.graduationYear'
-            (onYearSelected) = 'selectedGraduationYear($event)'
-          ></year-select2>
-        </div>
-        
-      </li>
+      
 
       
     </ul>
-    
+
     <button
       (click)="save()"
     >
