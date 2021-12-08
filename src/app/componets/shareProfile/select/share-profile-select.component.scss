@@ -1,0 +1,54 @@
+ul {
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+  li {
+    button {
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: right;
+      color: #7d8592;
+      background: none;
+      border: none;
+    }
+  }
+}
+ul {
+  label {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #0a1629;
+    padding: 0;
+    cursor: pointer;
+    padding-bottom: 10px;
+  }
+
+  input {
+    visibility: hidden;
+    display: none;
+  }
+  input[type="radio"]:checked + label {
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #3f8cff;
+    animation: mymove 1s;
+    border-bottom: 1px solid #3f8cff;
+  }
+}
