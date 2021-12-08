@@ -1,37 +1,20 @@
 <div class="main-modal">
     <div class="share-profile-content">
-            <button
+        <button
             class="close-btn"
             (click) = 'close()'
         >
             Close
         </button>
+
         <h3>
             Share Profile
         </h3>
-        <ul class="shere-profile-panel-nav">
-            <li>
-                <button
-                (click) = 'changeView("shareLink")' 
-                >
-                    Share Link
-                </button>
-            </li>
-            <li>
-                <button
-                    (click) = 'changeView("qrCode")'
-                >
-                    QR Code
-                </button>
-            </li>
-            <li>
-                <button
-                    (click) = 'changeView("sendEmail")' 
-                >
-                    Send Email
-                </button>
-            </li>
-        </ul>
+
+        <share-profile-select
+            (onShareTypeSelected) = 'changeView($event)'
+        ></share-profile-select>
+
         <share-profile-by-link
             *ngIf = 'currentView == "shareLink"'
         ></share-profile-by-link>

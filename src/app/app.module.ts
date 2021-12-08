@@ -85,6 +85,7 @@ import { ShareProfileByQRCodeComponent } from './componets/shareProfile/by-qrcod
 import { ShareProfilePanelComponent } from './componets/shareProfile/panel/share-profile-panel.component';
 import { MobileNumberInputComponent } from './componets/share/mobile-number-input/mobile-number-input.component';
 import { UniversityEmailInputComponent } from './componets/share/university-email-input/university-email-input.component';
+import { ShareProfileSelectComponent } from './componets/shareProfile/select/share-profile-select.component';
 
 
 
@@ -173,6 +174,7 @@ import { UniversityEmailInputComponent } from './componets/share/university-emai
     ShareProfilePanelComponent,
     MobileNumberInputComponent,
     UniversityEmailInputComponent,
+    ShareProfileSelectComponent,
   ],
   imports: [
     BrowserModule,
