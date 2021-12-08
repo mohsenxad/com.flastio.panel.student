@@ -12,7 +12,6 @@ import { AddProjectComponent } from './componets/project/add/add-project.compone
 import { AssignCertifictionComponent } from './componets/certification/assign/assign-certifiction.component';
 import { SearchCertificationComponent } from './componets/certification/search/search-certification.component';
 import { StudentPanelComponent } from './componets/student/panel/student-panel.component';
-import { AddSchoolComponent } from './componets/school/add/add-school.component';
 import { SearchMajorComponent } from './componets/major/search/search-major.component';
 import { SearchSchoolComponent } from './componets/school/search/search-school.component';
 import { ProjectPanelComponent } from './componets/project/panel/project-panel.component';
@@ -102,7 +101,6 @@ import { MobileNumberInputComponent } from './componets/share/mobile-number-inpu
     AssignCertifictionComponent,
     SearchCertificationComponent,
     StudentPanelComponent,
-    AddSchoolComponent,
     SearchMajorComponent,
     SearchSchoolComponent,
     ProjectPanelComponent,
