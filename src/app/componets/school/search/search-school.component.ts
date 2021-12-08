@@ -16,6 +16,7 @@ export class SearchSchoolComponent implements OnInit {
   schoolList: School[];
   
   isLoading: Boolean = false;
+  keywordMinCharLengthToSearch:Number = 3;
 
   constructor(
     private schoolService: SchoolService
@@ -27,10 +28,23 @@ export class SearchSchoolComponent implements OnInit {
 
   onKeyup(event) {
     console.log(event);
-    if(this.schoolKeyWord.length >=3 ){
+    if(this.schoolKeyWord.length >= this.keywordMinCharLengthToSearch ){
       this.search(this.schoolKeyWord);
     }else{
       this.schoolList =[];
+    }
+  }
+
+  isAddable():Boolean{
+    if(
+      !this.isLoading &&
+      this.schoolList &&
+      this.schoolList.length == 0 &&
+      this.schoolKeyWord.length >= this.keywordMinCharLengthToSearch
+    ){
+      return true;
+    }else{
+      return false;
     }
   }
 
@@ -55,6 +69,8 @@ export class SearchSchoolComponent implements OnInit {
   selected(school:School){
     this.selectedSchool = school;
     this.onSchoolSelected.emit(school);
+    this.schoolList = [];
+    this.schoolKeyWord = '';
   }
 
   remove(){

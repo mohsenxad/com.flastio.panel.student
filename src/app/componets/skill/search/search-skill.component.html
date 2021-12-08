@@ -24,11 +24,11 @@
     ></loading>
 <div class="search-skill-result">
     <button
-    (click) = "addSkill()"
->
-
-    add {{skillKeyWord}} to Skills
-</button>
+        *ngIf = 'isAddable()'
+        (click) = "addSkill()"
+    >
+        add {{skillKeyWord}} to Skills
+    </button>
     <ul
     *ngIf="skillList && skillList.length > 0"
     

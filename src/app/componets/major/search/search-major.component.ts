@@ -16,6 +16,8 @@ export class SearchMajorComponent implements OnInit {
   majorList: Major[];
   isLoading:Boolean = false;
 
+  keywordMinCharLengthToSearch:Number = 3;
+
   constructor(
     private majorService:MajorService
   ){}
@@ -24,11 +26,24 @@ export class SearchMajorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isAddable():Boolean{
+    if(
+      !this.isLoading &&
+      this.majorList &&
+      this.majorList.length == 0 &&
+      this.majorKeyWord.length >= this.keywordMinCharLengthToSearch
+    ){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   onKeyup(event) {
     console.log(event);
     if(
       this.majorKeyWord &&
-      this.majorKeyWord.length >=3
+      this.majorKeyWord.length >= this.keywordMinCharLengthToSearch
     ){
       this.search(this.majorKeyWord);
     }else{
@@ -45,15 +60,18 @@ export class SearchMajorComponent implements OnInit {
   async addMajor(){
     this.isLoading = true;
     let newMajor:Major  = await this.majorService.add(this.majorKeyWord);
-    this.majorKeyWord = '';
     this.selectedMajor = newMajor;
     this.onMajorSelected.emit(newMajor);
+    this.majorKeyWord = '';
+    this.majorList = [];
     this.isLoading = false;
   }
 
   selected(major:Major){
     this.selectedMajor = major;
     this.onMajorSelected.emit(major);
+    this.majorKeyWord = '';
+    this.majorList = [];
   }
 
   remove(){

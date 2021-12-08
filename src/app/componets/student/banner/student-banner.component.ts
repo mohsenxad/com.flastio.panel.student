@@ -18,6 +18,8 @@ export class StudentBannerComponent implements OnInit {
   }
 
   addProject(){
+    console.log(' show add project in banner');
+    
     this.onAddProjectClicked.emit();
   }
 

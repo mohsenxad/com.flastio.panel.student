@@ -26,6 +26,7 @@
 </section>
 <section
     id='secResumeAndTranscript'
+    *ngIf = "student"
 >
     <h2 class="resume-header">
         Resume & Transcript
@@ -44,7 +45,7 @@
     <project-panel
         *ngIf = "student"
         [major] = 'student.major'
-        [isAddProjectVisible] = 'isAddProjectVisible'
+        [(isAddProjectVisible)] = 'isAddProjectVisible'
         [projectList] = 'student.projectList'
     ></project-panel>
 </section>

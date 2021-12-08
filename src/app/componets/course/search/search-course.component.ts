@@ -16,6 +16,7 @@ export class SearchCourseComponent implements OnInit {
   courseKeyWord: String;
   courseList: Course[];
   isLoading:Boolean = false;
+  keywordMinCharLengthToSearch: Number= 3;
 
   constructor(
     private courseService: CourseService
@@ -29,17 +30,32 @@ export class SearchCourseComponent implements OnInit {
     let newCurse:Course  = await this.courseService.addCrurse(this.major._id, this.courseKeyWord);
     this.selectedCourse = newCurse;
     this.onCourseSelected.emit(newCurse);
+    this.courseKeyWord = '';
+    this.courseList = [];
     this.isLoading = false;
   }
 
   onKeyup(event) {
     if(
       this.courseKeyWord &&
-      this.courseKeyWord.length >=3
+      this.courseKeyWord.length >= this.keywordMinCharLengthToSearch
     ){
       this.search(this.courseKeyWord);
     }else{
       this.courseList =[];
+    }
+  }
+
+  isAddable():Boolean{
+    if(
+      !this.isLoading &&
+      this.courseList &&
+      this.courseList.length == 0 &&
+      this.courseKeyWord.length >= this.keywordMinCharLengthToSearch
+    ){
+      return true;
+    }else{
+      return false;
     }
   }
 
@@ -52,6 +68,8 @@ export class SearchCourseComponent implements OnInit {
   selected(course:Course){
     this.selectedCourse = course;
     this.onCourseSelected.emit(course);
+    this.courseKeyWord = '';
+    this.courseList = [];
   }
 
   remove(){

@@ -28,7 +28,10 @@
         *ngIf="isLoading"
     ></loading>
     <div class="search-school-result">
-           <button (click)="addSchool()">
+           <button
+                (click)="addSchool()"
+                *ngIf = 'isAddable()'
+            >
                 Add {{ schoolKeyWord }}
             </button>
         <ul

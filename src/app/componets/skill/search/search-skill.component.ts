@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Skill } from '../../../model/skill';
-import * as Realm from "realm-web";
+import { SkillService } from 'src/app/services/skill/skill.service';
 
 @Component({
   selector: 'search-skill',
@@ -11,38 +11,52 @@ export class SearchSkillComponent implements OnInit {
   @Output() onSkillSelected = new EventEmitter<Skill>();
 
   skillKeyWord: String;
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   skillList: Skill[];
   isLoading:Boolean = false;
+  keywordMinCharLengthToSearch: Number = 3;
 
-  constructor(){}
+  constructor(
+    private skillService: SkillService
+  ){}
 
   ngOnInit(): void {
   }
 
   onKeyup(event) {
     console.log(event);
-    if(this.skillKeyWord.length >=3){
+    if(this.skillKeyWord.length >= this.keywordMinCharLengthToSearch){
       this.search(this.skillKeyWord);
     }else{
       this.skillList =[];
     }
   }
 
+  isAddable():Boolean{
+    if(
+      !this.isLoading &&
+      this.skillList &&
+      this.skillList.length == 0 &&
+      this.skillKeyWord.length >= this.keywordMinCharLengthToSearch
+    ){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   async search(keyword):Promise<void>{
     this.isLoading = true;
-    const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions.searchSkill(keyword);
+    let result: any  = await this.skillService.search(keyword);
     this.skillList = result;
     this.isLoading = false;
   }
 
   async addSkill(){
     this.isLoading = true;
-    const user: Realm.User = this.app.currentUser;
-    let newSkill:Skill  = await user.functions.addSkill(this.skillKeyWord);
+    let newSkill:Skill  = await this.skillService.add(this.skillKeyWord);
     this.onSkillSelected.emit(newSkill);
     this.skillKeyWord = '';
+    this.skillList = [];
     this.isLoading = false;
   }
 

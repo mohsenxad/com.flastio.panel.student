@@ -23,7 +23,10 @@
         *ngIf="isLoading"
     ></loading>
   <div class="search-major-result">
-    <button (click)="addMajor()">
+    <button
+      *ngIf = 'isAddable()'
+      (click)="addMajor()"
+    >
       Add {{ majorKeyWord }}
     </button>
     <ul *ngIf="majorList && majorList.length > 0">

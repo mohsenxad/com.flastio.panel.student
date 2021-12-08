@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { StudentService } from 'src/app/services/student/student.service';
 import { Student } from '../../../model/student';
@@ -12,7 +12,7 @@ export class StudentPanelComponent implements OnInit {
 
   
   student : Student;
-  isAddProjectVisible:Boolean = false;
+  @Input() isAddProjectVisible:Boolean = false;
   isLoading: Boolean = false;
 
   constructor(
@@ -32,6 +32,8 @@ export class StudentPanelComponent implements OnInit {
   }
 
   showAddProject(){
+    console.log('show add project in student panel');
+    
     this.isAddProjectVisible = true;
   }
 
