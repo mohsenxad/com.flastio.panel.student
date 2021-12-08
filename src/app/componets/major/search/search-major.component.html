@@ -17,22 +17,25 @@
         </li>
       </ul>
     </fieldset>
-    <button (click)="addMajor()">
-      Add {{ majorKeyWord }}
-    </button>
+
   </form>
   <loading
         *ngIf="isLoading"
     ></loading>
+  <div class="search-major-result">
+    <button (click)="addMajor()">
+      Add {{ majorKeyWord }}
+    </button>
+    <ul *ngIf="majorList && majorList.length > 0">
+      <li *ngFor="let major of majorList" (click)="selected(major)">
+        {{ major.name }}
+      </li>
+    </ul>
+  </div>
 
-  <ul *ngIf="majorList && majorList.length > 0">
-    <li *ngFor="let major of majorList" (click)="selected(major)">
-      {{ major.name }}
-    </li>
-  </ul>
 </div>
 
-<div
+<div class="search-major-result-section"
   *ngIf="selectedMajor"
 >
   {{selectedMajor.name}}

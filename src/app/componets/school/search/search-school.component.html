@@ -20,17 +20,18 @@
                     >
                 </li>
             </ul>
-            <button (click)="addSchool()">
-                Add {{ schoolKeyWord }}
-            </button>
+         
         </fieldset>
     </form>
 
     <loading
         *ngIf="isLoading"
     ></loading>
-    
-    <ul
+    <div class="search-school-result">
+           <button (click)="addSchool()">
+                Add {{ schoolKeyWord }}
+            </button>
+        <ul
         *ngIf="schoolList && schoolList.length > 0"
     >
         <li
@@ -40,8 +41,10 @@
             {{school.name}}
         </li>
     </ul>
+    </div>
+ 
 </div>
-<div
+<div class="search-school-result-section"
     *ngIf="selectedSchool"
 >
     {{selectedSchool.name}}

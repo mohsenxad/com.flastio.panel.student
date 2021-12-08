@@ -1,91 +1,174 @@
 form {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+
+  legend {
+    display: none;
+  }
+  fieldset {
+    border: none;
+    width: 90%;
+    padding: 0;
+  }
+  ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    background-color: #fff;
-  
-    legend {
-      display: none;
-    }
-    fieldset {
-      border: none;
-      width: 90%;
-      padding: 0;
-    }
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      label {
-        font-size: 14px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.5;
-        letter-spacing: normal;
-        color: #0a1629;
-        display: block;
-        margin-bottom: 10px;
-        margin-left: 8px;
-      }
-      input {
-        border-radius: 14px;
-        box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
-        border: solid 1px #d8e0f0;
-        background-color: #fff;
-        padding: 15px 11px;
-        display: block;
-        width: 100%;
-        margin-bottom: 28px;
-  
-        &::placeholder {
-          font-size: 14px;
-          font-weight: normal;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.71;
-          letter-spacing: normal;
-          color: #7d8592;
-          margin-left: 18px;
-        }
-      }
-    }
-    button {
-      border-radius: 14px;
-      box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
-      background-color: #3f8cff;
-      font-size: 16px;
+    label {
+      font-size: 14px;
       font-weight: bold;
       font-stretch: normal;
       font-style: normal;
-      line-height: normal;
+      line-height: 1.5;
       letter-spacing: normal;
-      color: #fff;
-      border: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 6px 28px 6px 28px;
-      cursor: pointer;
-      &::after {
-        content: url(/assets/images/icn-general-arrow-left-white.svg);
-        transform: rotate(180deg);
-        margin-left: 15px;
-      }
+      color: #0a1629;
+      display: block;
+      margin-bottom: 10px;
+      margin-left: 8px;
     }
-    p {
-      font-size: 14px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.71;
-      letter-spacing: normal;
-      color: #91929e;
-      padding: 0;
-      margin: 32px 0 0 0;
-      span {
-        color: #3f8cff;
+    input {
+      border-radius: 14px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      padding: 15px 11px;
+      display: block;
+      width: 100%;
+      margin-bottom: 28px;
+
+      &::placeholder {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
+        color: #7d8592;
+        margin-left: 18px;
       }
     }
   }
-  
-  
+  // button {
+  //   border-radius: 14px;
+  //   box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
+  //   background-color: #3f8cff;
+  //   font-size: 16px;
+  //   font-weight: bold;
+  //   font-stretch: normal;
+  //   font-style: normal;
+  //   line-height: normal;
+  //   letter-spacing: normal;
+  //   color: #fff;
+  //   border: none;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   padding: 6px 28px 6px 28px;
+  //   cursor: pointer;
+  //   &::after {
+  //     content: url(/assets/images/icn-general-arrow-left-white.svg);
+  //     transform: rotate(180deg);
+  //     margin-left: 15px;
+  //   }
+  // }
+  p {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: #91929e;
+    padding: 0;
+    margin: 32px 0 0 0;
+    span {
+      color: #3f8cff;
+    }
+  }
+}
+
+.search-school-result {
+  position: relative;
+  background-color:#fff ;
+  button {
+    z-index: 9;
+    position: relative;
+    top: 0;
+  }
+  ul {
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(139, 149, 170, 0.2);
+    background-color: #fff;
+    padding: 45px 15px 15px 15px;
+    position: absolute;
+    z-index: 7;
+    width: 100%;
+    top: -15px;
+    list-style: none;
+  }
+  li {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    padding: 8px;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      border-radius: 14px;
+      background-color: rgba(63, 140, 255, 0.12);
+      transition: 0.5s;
+    }
+  }
+  button {
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #3f8cff;
+    background-color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    &::before {
+      content: "";
+      background: url(/assets/images/icn-general-add-dark-blue.svg);
+      width: 12px;
+      height: 12px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin-right: 8px;
+    }
+  }
+}
+
+.search-school-result-section {
+  margin: 5px 4px 10px 5px;
+  border-radius: 8px;
+  background-color: rgba(0, 184, 92, 0.1);
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: center;
+  color: #00b85c;
+  padding: 12px 11.5px 12px 12.5px;
+  display: inline-flex;
+  align-items: center;
+  button {
+    border: none;
+    background: none;
+    content: url(/assets/images/icn-general-add-green.svg);
+    display: inline-flex;
+    margin-left: 8px;
+    transform: rotate(45deg);
+  }
+}
