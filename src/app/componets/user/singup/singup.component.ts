@@ -13,7 +13,12 @@ export class SingupComponent implements OnInit {
   password: string;
 
   isLoading : Boolean = false;
-  validationResult: ValidationResult;
+  validationResult: ValidationResult = {
+    hasError : false,
+    messageList: []
+  };
+
+  isCheckMailVisible: Boolean = false;
 
   constructor(
     private userService:UserService
@@ -22,10 +27,22 @@ export class SingupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signup():void {
+  async signup():Promise<void> {
     this.isLoading = true;
-    this.userService.signup(this.email, this.password);
+    try {
+      await this.userService.signup(this.email, this.password);  
+      this.isCheckMailVisible = true;
+    } catch (error) {
+      this.validationResult = {
+        hasError : true,
+        messageList: [error.error]
+      }
+      
+    }
+    
     this.isLoading = false;
   }
+
+
 
 }

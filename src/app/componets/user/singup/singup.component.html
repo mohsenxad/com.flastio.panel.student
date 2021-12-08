@@ -8,7 +8,9 @@
       />
     </div>
     <form
+      *ngIf = '!isCheckMailVisible'
       #form="ngForm"
+
     >
       <legend>
           Sigup
@@ -63,5 +65,11 @@
         </p>
       </fieldset>
     </form>
+
+    <section
+      *ngIf = 'isCheckMailVisible'
+    >
+      Check Your email to confirm signup
+    </section>
   </section>
   

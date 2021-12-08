@@ -28,6 +28,7 @@ export class SearchCertificationComponent implements OnInit {
   isAddable():Boolean{
     if(
       !this.isLoading &&
+      this.certificationList &&
       this.certificationList.length == 0 &&
       this.certificationKeyWord.length >= this.keywordMinCharLengthToSearch
     ){

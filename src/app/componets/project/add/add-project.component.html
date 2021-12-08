@@ -2,7 +2,6 @@
     
   <form
   *ngIf = "pageTitle == 'General'"
-  #form = "ngForm"
   >
   <loading
     *ngIf="isLoading"
@@ -31,10 +30,10 @@
         <p>Project Summary file</p>
         <span>Drag your files here to upload</span>
         <label
-        for="divProjectFile"
-      >
-      or click to browse
-      </label>
+          for="divProjectFile"
+        >
+          or click to browse
+        </label>
           <input
               type="file"
               id='projectFile'
