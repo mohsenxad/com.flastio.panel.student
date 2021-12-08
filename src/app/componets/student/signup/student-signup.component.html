@@ -31,7 +31,7 @@
             [(ngModel)]="student.lastName"
           />
         </li>
-        <li>
+        <li class="student-signup-mobile">
           <label for="txtMobileNumber"> Mobile Number </label>
           <input
             type="tel"
@@ -44,7 +44,7 @@
             (onSetMobileNumber) = 'onSetMobileNumber($event)'
           ></mobile-number-input>
         </li>
-        <li>
+        <li class="student-signup-school">
           <div name="divSchool" id="divSchool">
             <search-school
               [selectedSchool] = 'student.school'
@@ -53,20 +53,20 @@
           </div>
         </li>
 
-        <li>
+        <li class="student-signup-major">
           <div name="divMajor" id="divMajor">
             <search-major
               [selectedMajor] = "student.major"
               (onMajorSelected)="onMajorSet($event)"></search-major>
           </div>
         </li>
-        <li>
+        <li class="student-signup-date-selector">
           <label
             for="divGraduationDate"
           >
             Graduation date
           </label>
-          <div class="student-signup-date-selector"
+          <div 
             id = 'divGraduationDate'
             name = 'divGraduationDate'
           >

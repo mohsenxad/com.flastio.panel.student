@@ -81,43 +81,31 @@ form {
     border: none;
     width: 70%;
     margin: auto;
+    padding: 0;
   }
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    li {
-      &:nth-child(1),
-      &:nth-child(2) {
-        display: inline-block;
-        width: 49%;
-        input {
-          width: 80%;
-        }
-      }
-      &:nth-child(3) {
-        input {
-          &:nth-child(2) {
-            display: inline-block;
-            width: 20%;
-            margin-right: 16px;
-          }
-          &:nth-child(3) {
-            display: inline-block;
-            width: 61%;
-          }
-        }
-      }
-      &:nth-child(6) {
-        input {
-          display: inline-block;
-          width: 42%;
-        }
-        input {
-          margin-right: 16px;
-        }
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 15px;
+    .student-signup-mobile {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 20% 79%;
+      gap: 15px;
+      label {
+        grid-column: span 2;
       }
     }
+    .student-signup-school {
+      grid-column: span 2;
+    }
+    .student-signup-major {
+      grid-column: span 2;
+    }
+
     label {
       font-size: 14px;
       font-weight: bold;
@@ -197,6 +185,16 @@ form {
 
 .student-signup-date-selector {
   display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 15px;
+  grid-column: span 2;
+  grid-template-columns: 20% 79%;
+  div {
+    grid-column: span 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 15px;
+  }
+  label {
+    grid-column: span 2;
+  }
 }

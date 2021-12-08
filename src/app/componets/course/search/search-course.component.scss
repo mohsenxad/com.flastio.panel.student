@@ -93,7 +93,7 @@ button:first-of-type {
     padding: 8px;
     cursor: pointer;
     transition: 0.5s;
-    &:hover{
+    &:hover {
       border-radius: 14px;
       background-color: rgba(63, 140, 255, 0.12);
       transition: 0.5s;
@@ -101,26 +101,33 @@ button:first-of-type {
   }
 }
 .search-course-result-section {
-  margin: 5px 4px 10px 5px;
-  border-radius: 8px;
-  background-color: rgba(0, 184, 92, 0.1);
-  font-size: 14px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.14;
-  letter-spacing: normal;
-  text-align: center;
-  color: #00b85c;
-  padding: 12px 11.5px 12px 12.5px;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
   display: inline-flex;
-  align-items: center;
-  button {
-    border: none;
-    background: none;
-    content: url(/assets/images/icn-general-add-green.svg);
+  padding-right: 20px;
+  span {
+    margin: 2px;
+    border-radius: 8px;
+    background-color: rgba(63, 140, 255, 0.1);
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: center;
+    color: #3f8cff;
+    padding: 7px;
     display: inline-flex;
-    margin-left: 8px;
-    transform: rotate(45deg);
+    align-items: center;
+    button {
+      border: none;
+      background: none;
+      content: url(/assets/images/icn-general-add-dark-blue.svg);
+      display: inline-flex;
+      margin-left: 8px;
+      transform: rotate(45deg);
+    }
   }
 }
