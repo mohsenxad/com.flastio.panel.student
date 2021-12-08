@@ -57,6 +57,8 @@ export class SearchCertificationComponent implements OnInit {
   selected(certification:Certification){
     this.selectedCertification = certification;
     this.onCertificationSelected.emit(certification);
+    this.certificationKeyWord = '';
+    this.certificationList = [];
   }
 
   async addCertification(){
@@ -65,6 +67,7 @@ export class SearchCertificationComponent implements OnInit {
     this.selectedCertification = newCertification;
     this.onCertificationSelected.emit(newCertification);
     this.certificationKeyWord = '';
+    this.certificationList = [];
     this.isLoading = false;
   }
 
