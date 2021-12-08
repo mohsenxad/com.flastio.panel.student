@@ -31,6 +31,10 @@ export class AssignContributorComponent implements OnInit {
     this.onClose.emit();
   }
 
+  setEamil(email:String):void{
+    this.contributor.email = email;
+  }
+
   add(){
     this.contributorList.push(this.contributor);
     this.contributor = {};

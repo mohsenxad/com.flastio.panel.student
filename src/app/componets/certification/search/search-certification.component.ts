@@ -16,6 +16,8 @@ export class SearchCertificationComponent implements OnInit {
   certificationList: Certification[];
   isLoading: Boolean = false;
 
+  keywordMinCharLengthToSearch: Number = 3;
+
   constructor(
     private certificationService: CertificationService
   ) {}
@@ -23,8 +25,22 @@ export class SearchCertificationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isAddable():Boolean{
+    if(
+      !this.isLoading &&
+      this.certificationList.length == 0 &&
+      this.certificationKeyWord.length >= this.keywordMinCharLengthToSearch
+    ){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   onKeyup(event) {
-    if(this.certificationKeyWord.length >=3){
+    if(
+      this.certificationKeyWord.length >= this.keywordMinCharLengthToSearch
+    ){
       this.search();
     }else{
       this.certificationList = [];
