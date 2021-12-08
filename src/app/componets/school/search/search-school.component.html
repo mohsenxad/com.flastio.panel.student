@@ -47,10 +47,12 @@
 <div class="search-school-result-section"
     *ngIf="selectedSchool"
 >
-    {{selectedSchool.name}}
-    <button
+    <span>{{selectedSchool.name}}
+        <button
         (click)="remove()"
     >
         Remove
     </button>
+    </span>
+  
 </div>

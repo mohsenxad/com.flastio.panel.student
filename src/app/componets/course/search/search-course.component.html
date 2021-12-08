@@ -35,11 +35,14 @@
 <div  class="search-course-result-section"
   *ngIf = "selectedCourse"
 >
-  {{selectedCourse.name}}
-  <button
+  <span>{{selectedCourse.name}}
+
+    <button
     (click)="remove()"
   >
     Remove
   </button>
+  </span>
+
 </div>
 
