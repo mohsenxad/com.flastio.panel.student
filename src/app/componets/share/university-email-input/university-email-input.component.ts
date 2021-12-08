@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
 import { ValidationResult } from 'src/app/model/validationResult';
 
@@ -10,8 +10,8 @@ import { ValidationResult } from 'src/app/model/validationResult';
 export class UniversityEmailInputComponent implements OnInit {
 
   @Output() onSetEmail = new EventEmitter();
+  @Input() email: String;
 
-  email: String;
   validationResult: ValidationResult = {
     hasError: false,
     messageList: []

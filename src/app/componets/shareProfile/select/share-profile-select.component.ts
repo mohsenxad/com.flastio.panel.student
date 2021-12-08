@@ -26,8 +26,6 @@ export class ShareProfileSelectComponent implements OnInit {
   }
 
   changeShareType(shareType:String){
-    console.log(shareType);
-    
     this.onShareTypeSelected.emit(shareType);
   }
 
