@@ -27,7 +27,12 @@
         *ngIf="isLoading"
     ></loading>
     <div class="search-certification-result">
-      <button (click)="addCertification()">Add {{ certificationKeyWord }}</button>
+      <button
+        *ngIf = 'isAddable()'
+        (click)="addCertification()"
+      >
+        Add {{ certificationKeyWord }}
+      </button>
       <ul *ngIf="certificationList && certificationList.length > 0">
         <li
           *ngFor="let certification of certificationList"

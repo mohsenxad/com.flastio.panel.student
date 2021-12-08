@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShareProfileByEmailComponent implements OnInit {
 
+  currentEmail: String;
+  emailList: String[] = [];
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  setEamil(email:String):void{
+    this.currentEmail = email;
+  }
+
+  addEmailToList(){
+    this.emailList.push(this.currentEmail);
+    this.currentEmail = '';
   }
 
 }

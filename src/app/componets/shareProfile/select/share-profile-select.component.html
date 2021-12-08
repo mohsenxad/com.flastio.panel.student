@@ -1,0 +1,23 @@
+
+<ul>
+    <li
+        *ngFor = 'let shareType of shareTypeList'
+    >
+        
+        <input
+            type="radio"
+            name = 'shareType'
+            [attr.id]="shareType"
+            value="{{shareType}}"
+            [(ngModel)]="selectedShareType"
+            (change)="changeShareType(shareType)"
+        >
+        <label
+        [attr.for] = "shareType"
+    >
+        {{shareType}}
+    </label>
+    </li>
+</ul>
+
+

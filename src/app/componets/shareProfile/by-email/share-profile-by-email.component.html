@@ -8,29 +8,28 @@
                     >
                         Recipients
                     </label>
-                    <input
-                        id = 'txtRecipients'
-                        name = 'txtRecipients'
-                        type = "email"
-                        placeholder = "Enter recipient email"
+                    <university-email-input
+                        [email] = 'currentEmail'
+                        (onSetEmail) = 'setEamil($event)'
+
+                    ></university-email-input>
+
+
+                    <button class="add-recipients-btn"
+                        (click) = 'addEmailToList()'
                     >
-                    <button class="add-recipients-btn">
                         Add
                     </button>
                 </li>
-                <li>
+                <li
+                    *ngIf = 'emailList && emailList.length > 0'
+                >
                     <ol>
-                        <li>
+                        <li
+                            *ngFor = 'let email of emailList'
+                        >
                             <span>
-                                john@stanford.edu
-                            </span>
-                            <button>
-                                Remove
-                            </button>
-                        </li>
-                        <li>
-                            <span>
-                                john@stanford.edu
+                                {{email}}
                             </span>
                             <button>
                                 Remove

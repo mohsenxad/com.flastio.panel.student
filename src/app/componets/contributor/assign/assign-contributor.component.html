@@ -32,13 +32,9 @@
             >
                 Email
             </label>
-            <input
-                type="email"
-                name="txtEmail"
-                id="txtEmail"
-                [(ngModel)] = 'contributor.email'
-                placeholder = "Enter email of contributor"
-            >
+            <university-email-input
+                (onSetEmail) = 'setEamil($event)'
+            ></university-email-input>
         </li>
 
         <li>
