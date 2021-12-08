@@ -12,4 +12,9 @@ export class ShareProfileByEmailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  setEamil(email:String):void{
+    //this.contributor.email = email;
+  }
+
 }

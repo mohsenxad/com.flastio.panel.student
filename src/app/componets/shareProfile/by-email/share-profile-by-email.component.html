@@ -8,12 +8,11 @@
                     >
                         Recipients
                     </label>
-                    <input
-                        id = 'txtRecipients'
-                        name = 'txtRecipients'
-                        type = "email"
-                        placeholder = "Enter recipient email"
-                    >
+                    <university-email-input
+                        (onSetEmail) = 'setEamil($event)'
+                    ></university-email-input>
+
+
                     <button class="add-recipients-btn">
                         Add
                     </button>
