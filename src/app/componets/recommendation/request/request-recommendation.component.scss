@@ -148,9 +148,12 @@ form {
   border-radius: 50% !important;
   padding: 10px !important;
   border: none !important;
-  content: url(/assets/images/icn-general-add-blue.svg);
+  background-color: #f4f9fd;
+  border: none;
+  border-radius: 14px;
+  content: url(/assets/images/icn-general-close.svg);
+  -webkit-writing-mode: vertical-rl;
   display: flex;
-  transform: rotate(45deg);
   float: right;
 }
 
