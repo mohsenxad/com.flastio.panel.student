@@ -15,6 +15,7 @@ export class AssignSupportingFileProjectComponent implements OnInit {
 
 
   fileUrl: String;
+  isLoading: Boolean = false;
 
   constructor(
     private projectService:ProjectService
@@ -24,6 +25,7 @@ export class AssignSupportingFileProjectComponent implements OnInit {
   }
 
   async handleFileInput(files: FileList) {
+    this.isLoading = true;
     let currentSupportingFile:File = files.item(0);
     let response:any = await this.projectService.getUploadUrl()
     let uniqFileName = response.fileName.toString();
@@ -39,15 +41,18 @@ export class AssignSupportingFileProjectComponent implements OnInit {
     };
     this.supportingFileList.push(newSupportingFile);
     this.uploadFile(newSupportingFile, signedUploadUrl)
+    this.isLoading = false;
   }
 
  
   uploadFile(supportingFile:SupportingFile, uploadPresignUrl: String){
+    this.isLoading = true;
     const contentType = supportingFile.file.type;
     this.projectService.upload(uploadPresignUrl,supportingFile.file, contentType)
       .subscribe(data=>{
         console.log('uploaded');
         this.fileUploadCompelete(supportingFile._id);
+        this.isLoading = false;
       });
   }
 
