@@ -37,10 +37,10 @@ export class ResumePanelComponent implements OnInit {
   }
 
 
-  uploadFile(uploadPresignUrl: String){
+  async uploadFile(uploadPresignUrl: String){
     this.isLoading = true;
     const contentType = this.transcriptFile.type;
-    this.resumeService.upload(uploadPresignUrl,this.transcriptFile, contentType)
+    await this.resumeService.upload(uploadPresignUrl,this.transcriptFile, contentType)
       .subscribe(data=>{
         console.log('uploaded');
         this.fileUrl = uploadPresignUrl.split('?')[0];
@@ -49,12 +49,10 @@ export class ResumePanelComponent implements OnInit {
       });
   }
 
-  remove(){
+  async remove(){
     this.isLoading = true;
-    this.resumeService.setTranscriptFile(undefined, undefined);
+    await this.resumeService.setTranscriptFile(undefined, undefined);
     this.fileUrl = undefined;
     this.isLoading = false;
   }
-
-
 }
