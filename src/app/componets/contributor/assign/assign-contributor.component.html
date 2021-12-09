@@ -23,6 +23,8 @@
                 id="txtName"
                 [(ngModel)] = 'contributor.name'
                 placeholder = "Enter name of contributor"
+                minlength="3"
+                maxlength="200"
             >
         </li>
 
@@ -48,7 +50,9 @@
                 name="txtRole"
                 id="txtRole"
                 [(ngModel)] = 'contributor.role'
-                placeholder = "e.g., Original draft preparation "
+                placeholder = "e.g., Original draft preparation"
+                minlength="3"
+                maxlength="200"
             >
         </li>
 
