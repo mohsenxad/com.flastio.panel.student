@@ -14,13 +14,14 @@ div {
 
   .close-btn {
     background-color: #f4f9fd;
-    border-radius: 50%;
     padding: 10px;
     border: none;
-    content: url(/assets/images/icn-general-add-blue.svg);
+    border-radius: 14px;
+    padding: 10px;
+    border: none;
+    content: url(/assets/images/icn-general-close.svg);
     -webkit-writing-mode: vertical-rl;
     display: flex;
-    transform: rotate(45deg);
     margin-left: auto;
   }
   img {
