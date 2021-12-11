@@ -15,6 +15,11 @@
       <label [attr.for]="pageTitle">
         {{ pageTitle }}
       </label>
+      <span
+        *ngIf="hadItem(pageTitle)"
+      >
+        had Item
+      </span>
     </li>
   </ul>
 </nav>

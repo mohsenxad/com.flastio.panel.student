@@ -48,10 +48,17 @@
                         name = 'txtMessage'
                         placeholder = "Hi, Please check my portfolio"
                         rows="5"
+                        [(ngModel)] = "message"
                     ></textarea>
                 </li>
             </ul>
-            <button class="submit-btn">
+            <validation-result
+              [validationResult] = 'validationResult'
+            ></validation-result>
+            <button
+                class="submit-btn"
+                (click)="send()"
+            >
                 Send
             </button>
             
