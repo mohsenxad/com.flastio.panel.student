@@ -86,6 +86,7 @@ import { MobileNumberInputComponent } from './componets/share/mobile-number-inpu
 
 import { ShareProfileSelectComponent } from './componets/shareProfile/select/share-profile-select.component';
 import { UniversityEmailInputComponent } from './componets/share/university-email-input/university-email-input.component';
+import { ProjectStrengthComponent } from './componets/project/strength/project-strength.component';
 
 
 
@@ -174,6 +175,7 @@ import { UniversityEmailInputComponent } from './componets/share/university-emai
     MobileNumberInputComponent,
     UniversityEmailInputComponent,
     ShareProfileSelectComponent,
+    ProjectStrengthComponent,
   ],
   imports: [
     BrowserModule,

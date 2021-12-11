@@ -7,6 +7,13 @@
         [projectList] = "projectList"
     ></project-list>
 
+    <button class="main-add-btn"
+        *ngIf = "projectList && projectList.length > 0"
+        (click) = "showAddProjectForm()"
+    >
+        Add Project
+    </button>
+
     
     <empty-project
         *ngIf = "!projectList || projectList.length == 0"

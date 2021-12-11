@@ -117,8 +117,15 @@
 
   <button class="submit-btn" (click)="draft()">Save draft</button>
   <button class="cancel-btn" (click)="publish()">Publish</button>
+  <project-strength
+    [project] = project
+  ></project-strength>
   <add-paging-project
-  (onPageTitleSelected)="changePage($event)"
+    [hadAttachment] = 'project.supportingFileList.length > 0'
+    [hadLinks] = 'project.linkUrlList.length > 0' 
+    [hadCertification] = 'project.linkUrlList.length > 0' 
+    [hadTeam] = 'project.contributorList.length > 0' 
+    (onPageTitleSelected)="changePage($event)"
   ></add-paging-project>
   </form>
   
