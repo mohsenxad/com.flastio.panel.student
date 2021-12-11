@@ -22,9 +22,13 @@
       (onChangeIndex) = "changeIndex($event)"
     > </project-action-panel>
   </dd>
-  <dt>Publish Status</dt>
-  <dd>
-    {{ project.isPublished }}
+  <dt
+    *ngIf="!project.isPublished"
+  >Draft</dt>
+  <dd
+    *ngIf="!project.isPublished"
+  >
+    Draft
   </dd>
 
   <dt>Description</dt>
