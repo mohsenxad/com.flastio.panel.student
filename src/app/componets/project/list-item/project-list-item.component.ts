@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { Project } from '../../../model/project';
 
 @Component({
@@ -14,9 +15,14 @@ export class ProjectListItemComponent implements OnInit {
   @Output() onDelete = new EventEmitter<Project>();
   @Output() onChangeIndex = new EventEmitter<Number>();
 
-  constructor() { }
+  safeResourceUrl: SafeResourceUrl;
+
+  constructor(
+    private sanitizer: DomSanitizer,
+  ) { }
 
   ngOnInit(): void {
+    this.safeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.project.summeryFileUrl.toString());
   }
 
   edit(){
@@ -30,6 +36,12 @@ export class ProjectListItemComponent implements OnInit {
 
   changeIndex(index:Number){
     console.log('change  project index to ' + index.toString());
+  }
+
+  getSummeryFileUrl():SafeResourceUrl {
+    let result: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.project.summeryFileUrl.toString());
+    console.log(result);
+    return result;
   }
 
 }

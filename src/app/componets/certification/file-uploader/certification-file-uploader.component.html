@@ -1,0 +1,31 @@
+
+<loading
+    *ngIf="isLoading"
+></loading>
+<div
+    id="divCertificationFileSelector"
+    name="divCertificationFileSelector"
+    *ngIf="!isFileUploaded"
+>
+<p>Certification File</p>
+<span>Drag your files here to upload</span>
+<label for="divCertificationFileSelector">
+  or click to browse
+</label>
+  <input
+      type="file"
+      id='certificationFile'
+      name='certificationFile'
+      (change)="handleFileInput($event.target.files)"
+  >
+</div>
+<div
+    *ngIf="isFileUploaded"
+>
+    <p>
+        Certification File Uploaded
+    </p>
+    <button>
+        Remove
+    </button>
+</div>

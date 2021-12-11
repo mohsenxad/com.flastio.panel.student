@@ -32,7 +32,7 @@ import { PostalCodeInputComponent } from './componets/share/postal-code-input/po
 import { GenderSelectComponent } from './componets/share/gender-select/gender-select.component';
 import { EthnicitySelectComponent } from './componets/share/ethnicity-select/ethnicity-select.component';
 import { AddDetailStudentComponent } from './componets/student/add-detail/add-detail-student.component';
-import { AssignLinkProjectComponent } from './componets/project/assign-link/assign-link-project.component';
+import { AssignLinkProjectComponent } from './componets/urlLink/assign/assign-link-project.component';
 import { ProjectListComponent } from './componets/project/list/project-list.component';
 import { ProjectListItemComponent } from './componets/project/list-item/project-list-item.component';
 import { CertificationListComponent } from './componets/certification/list/certification-list.component';
@@ -87,6 +87,8 @@ import { MobileNumberInputComponent } from './componets/share/mobile-number-inpu
 import { ShareProfileSelectComponent } from './componets/shareProfile/select/share-profile-select.component';
 import { UniversityEmailInputComponent } from './componets/share/university-email-input/university-email-input.component';
 import { ProjectStrengthComponent } from './componets/project/strength/project-strength.component';
+import { WorkStyleTestComponent } from './componets/workStyle/test/work-style-test.component';
+import { CertificationFileUploaderComponent } from './componets/certification/file-uploader/certification-file-uploader.component';
 
 
 
@@ -176,6 +178,8 @@ import { ProjectStrengthComponent } from './componets/project/strength/project-s
     UniversityEmailInputComponent,
     ShareProfileSelectComponent,
     ProjectStrengthComponent,
+    WorkStyleTestComponent,
+    CertificationFileUploaderComponent,
   ],
   imports: [
     BrowserModule,

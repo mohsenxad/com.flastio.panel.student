@@ -23,13 +23,15 @@
     > </project-action-panel>
   </dd>
   <dt
-    *ngIf="!project.isPublished"
-  >Draft</dt>
+  >isPublished</dt>
   <dd
     *ngIf="!project.isPublished"
   >
     Draft
   </dd>
+  <dd
+    *ngIf="project.isPublished"
+  ></dd>
 
   <dt>Description</dt>
   <dd>
@@ -49,6 +51,17 @@
     *ngIf="project.summeryFileUrl"
   >
     <img src="assets/images/project-sample.jpg" alt="images" />
+    <!-- <embed
+      src = {{getSummeryFileUrl()}}
+    > -->
+    <!-- <iframe
+      [src]='safeResourceUrl'
+      frameborder="0"
+      webkitallowfullscreen
+      mozallowfullscreen
+      allowfullscreen
+
+    ></iframe> -->
     <!-- <button>View Project Summary</button> -->
     <a 
       [href] = "project.summeryFileUrl"

@@ -88,6 +88,11 @@ export class AssignCertifictionComponent implements OnInit {
     }
     
   }
+
+  setCertificationFile(uploadResponse: any, fileUrl:String){
+    this.assignedCertification.fileName = uploadResponse.fileName;
+    this.assignedCertification.fileUrl = uploadResponse.fileUrl;
+  }
   
   cancel(){
     // remove certification files from s3
