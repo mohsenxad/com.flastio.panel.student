@@ -4,10 +4,10 @@
   border: solid 1px #d8e0f0;
   background-color: #fff;
   padding: 0;
+  height: 100%;
   div:nth-child(2),
   form {
     position: relative;
-    // display: none;
   }
   div:nth-child(3) {
     display: flex;
@@ -25,9 +25,7 @@
     color: #0a1629;
     margin: 0;
     padding: 16px 16px 8px 16px;
-    border: 7px solid #00b85c;
-    border-radius: 8px 8px 0 0;
-    border-bottom: none;
+
   }
   a {
     font-size: 14px;
@@ -103,4 +101,16 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 16px 8px 16px;
+}
+.isUploaded{
+  border: 7px solid #00b85c;
+  border-radius: 8px 8px 0 0;
+  border-bottom: none;
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 16px;
+
 }

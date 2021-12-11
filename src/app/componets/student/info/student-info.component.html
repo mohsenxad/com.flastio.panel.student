@@ -3,7 +3,7 @@
   <dd>
     <img 
       *ngIf="!student.pictureFileUrl"
-      src="/assets/images/profile.webp"
+      src="/assets/images/profile-icon.svg"
       alt="image"
     >
     <img 
@@ -22,22 +22,25 @@
   <dt>FistName</dt>
   <dd>
     {{ student.firstName }}
+    {{ student.lastName }}
   </dd>
   <dt>LastName</dt>
   <dd>
-    {{ student.lastName }}
+ 
   </dd>
   <dt>Major</dt>
   <dd>
     {{ student.major.name }} Student
+
+    <school-status
+    [status] = '"Freshman"'
+  ></school-status>
   </dd>
   <dt>
     School Status
   </dt>
   <dd>
-    <school-status
-      [status] = '"Freshman"'
-    ></school-status>
+
   </dd>
   <dt>School</dt>
   <dd>

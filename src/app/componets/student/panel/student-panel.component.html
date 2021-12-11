@@ -1,4 +1,4 @@
-<loading
+    <loading
     *ngIf = "isLoading"
 ></loading>
 <student-header
@@ -6,68 +6,70 @@
     [student] = 'student'
 ></student-header>
 
+<div class="student-panel-main-body">
 
-<section
-    id='secStudentInfo'
-    *ngIf = "student"
->
-<student-banner
-    [student] = 'student'
-    (onAddProjectClicked) = 'showAddProject()'
-></student-banner>
-</section>
-
-<section>
-    <skill-panel
-    *ngIf = "student"
-    [skillList]="student.skillList"
-    (onAddProjectClicked) = 'showAddProject()'
-></skill-panel>
-</section>
-<section
-    id='secResumeAndTranscript'
-    *ngIf = "student"
->
-    <h2 class="resume-header">
-        Resume & Transcript
-    </h2>
-    <resume-panel
+    <section
+        id='secStudentInfo'
         *ngIf = "student"
-        [fileUrl] = "student.resumeFileUrl"
-    ></resume-panel>
-    <transcript-panel
+    >
+    <student-banner
+        [student] = 'student'
+        (onAddProjectClicked) = 'showAddProject()'
+    ></student-banner>
+    </section>
+
+    <section>
+        <skill-panel
         *ngIf = "student"
-        [fileUrl] = "student.transcriptFileUrl"
-    ></transcript-panel>
-</section>
-
-<section>
-    <project-panel
+        [skillList]="student.skillList"
+        (onAddProjectClicked) = 'showAddProject()'
+    ></skill-panel>
+    </section>
+    <section
+        id='secResumeAndTranscript'
         *ngIf = "student"
-        [major] = 'student.major'
-        [(isAddProjectVisible)] = 'isAddProjectVisible'
-        [projectList] = 'student.projectList'
-    ></project-panel>
-</section>
+    >
+        <h2 class="resume-header">
+            Resume & Transcript
+        </h2>
+        <resume-panel
+            *ngIf = "student"
+            [fileUrl] = "student.resumeFileUrl"
+        ></resume-panel>
+        <transcript-panel
+            *ngIf = "student"
+            [fileUrl] = "student.transcriptFileUrl"
+        ></transcript-panel>
+    </section>
 
-<section>
-    <certification-panel
-    *ngIf = "student"
-    [assignedCertificationList] = 'student.assignedCertificationList'
-></certification-panel>
-</section>
+    <section>
+        <project-panel
+            *ngIf = "student"
+            [major] = 'student.major'
+            [(isAddProjectVisible)] = 'isAddProjectVisible'
+            [projectList] = 'student.projectList'
+        ></project-panel>
+    </section>
 
-
-<section>
-    <recommendation-panel
-    *ngIf = "student"
-    [recommendationList] = 'student.recommendationList'
-></recommendation-panel>
-</section>
-
-<section>
-    <work-style-panel
+    <section>
+        <certification-panel
         *ngIf = "student"
-        [workStyleList] = "student.workStyleList"
-    ></work-style-panel>
-</section>
+        [assignedCertificationList] = 'student.assignedCertificationList'
+    ></certification-panel>
+    </section>
+
+
+    <section>
+        <recommendation-panel
+        *ngIf = "student"
+        [recommendationList] = 'student.recommendationList'
+    ></recommendation-panel>
+    </section>
+
+    <section>
+        <work-style-panel
+            *ngIf = "student"
+            [workStyleList] = "student.workStyleList"
+        ></work-style-panel>
+    </section>
+</div>

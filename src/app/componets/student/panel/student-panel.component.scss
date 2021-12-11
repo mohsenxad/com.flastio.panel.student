@@ -32,7 +32,10 @@
 }
 section {
   width: 52%;
-  margin: 30px auto;
+  margin: 64px auto;
+  &:first-child{
+    margin-top: 0;
+  }
 }
 
 #secResumeAndTranscript {
@@ -53,6 +56,9 @@ student-header {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  height: 280px;
+  height: 352px;
   padding-top: 40px;
+}
+.student-panel-main-body {
+  margin-top: -200px;
 }
