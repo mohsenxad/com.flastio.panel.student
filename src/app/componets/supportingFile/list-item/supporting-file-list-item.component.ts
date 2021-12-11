@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SupportingFile } from '../../../model/supportingFile';
 
 @Component({
@@ -8,9 +8,20 @@ import { SupportingFile } from '../../../model/supportingFile';
 })
 export class SupportingFileListItemComponent implements OnInit {
   @Input() supportingFile: SupportingFile;
+  @Output() onDeleted = new EventEmitter<SupportingFile>();
+  @Output() onViewed = new EventEmitter<SupportingFile>();
+
+  isRemovable:Boolean = false;
+  isViewable:Boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+    if(this.onDeleted.observers.length > 0){
+      this.isRemovable = true;
+    }
+    if(this.onViewed.observers.length > 0){
+      this.isViewable = true;
+    }
   }
 
 }

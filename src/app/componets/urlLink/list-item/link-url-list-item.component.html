@@ -10,10 +10,14 @@
     </dd>
 </dl>
 <div>
-  <button>
+  <button
+    *ngIf="isViewable"
+  >
     View
   </button>
-  <button>
+  <button
+    *ngIf="isRemovable"
+  >
     Delete
   </button>  
 </div>
