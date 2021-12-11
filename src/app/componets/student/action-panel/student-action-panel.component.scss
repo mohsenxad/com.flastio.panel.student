@@ -58,13 +58,13 @@ ul {
           padding-left: 12px;
         }
         &:hover {
+          transition: 0.5s;
+
+          &::before {
+            content: url(/assets/images/SAP-Upgrade-Plan-blue.svg);
             transition: 0.5s;
-  
-            &::before {
-                content: url(/assets/images/SAP-Upgrade-Plan-blue.svg);
-                transition: 0.5s;
-            }
           }
+        }
       }
     }
     &:nth-child(3) {
@@ -75,30 +75,35 @@ ul {
           padding-left: 12px;
         }
         &:hover {
+          transition: 0.5s;
+
+          &::before {
+            content: url(/assets/images/SAP-Personal-Information-blue.svg);
             transition: 0.5s;
-  
-            &::before {
-                content: url(/assets/images/SAP-Personal-Information-blue.svg);
-                transition: 0.5s;
-            }
           }
+        }
       }
     }
     &:nth-child(4) {
+      border-top: 1px solid #e6ebf5;
+      margin: 0 -16px;
+      padding-right: 32px;
       button {
+        margin: 8px 0 0 16px;
+        
         &::before {
           content: url(/assets/images/SAP-Sign-Out.svg);
           padding-right: 16px;
           padding-left: 12px;
         }
         &:hover {
+          transition: 0.5s;
+
+          &::before {
+            content: url(/assets/images/SAP-Sign-Out-blue.svg);
             transition: 0.5s;
-  
-            &::before {
-                content: url(/assets/images/SAP-Sign-Out-blue.svg);
-                transition: 0.5s;
-            }
           }
+        }
       }
     }
   }
