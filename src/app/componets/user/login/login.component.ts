@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ValidationResult } from 'src/app/model/validationResult';
 
 import { LocalStorageService } from "src/app/services/localStorage/local-storage.service"
+import { StudentService } from 'src/app/services/student/student.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { Student } from '../../../model/student';
 
@@ -23,7 +24,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private localStorageService: LocalStorageService,
-    private userService:UserService
+    private userService:UserService,
+    private studentService: StudentService
+
   ) { }
 
   ngOnInit(): void {
@@ -43,7 +46,8 @@ export class LoginComponent implements OnInit {
     
     try {
       await this.userService.login(this.email, this.password); 
-      let student: Student = this.localStorageService.getStudent();
+      let student: Student = await this.studentService.getStudentInfo();
+      
       if(student){
         this.router.navigateByUrl('/student/panel');
       }else{
