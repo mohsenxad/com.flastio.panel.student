@@ -1,10 +1,12 @@
 <div class="transcript-body">
-    <h3>
-        Transcript
-    </h3>
-    <loading
-        *ngIf="isLoading"
-    ></loading>
+    <section class="header isUploaded">
+        <h3>
+            Transcript
+        </h3>
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+    </section>
     <form
         *ngIf="!fileUrl"
     >

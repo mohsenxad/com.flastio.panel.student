@@ -1,11 +1,12 @@
 <div class="resume-body">
-    <h3>
-        Resume
-        
-    </h3>
-    <loading
-        *ngIf="isLoading"
-    ></loading>
+    <section class="header isUploaded">
+        <h3 >
+            Resume
+        </h3>
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+    </section>
     <form
         *ngIf="!fileUrl"
     >
