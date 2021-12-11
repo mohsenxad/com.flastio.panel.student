@@ -15,4 +15,17 @@ export class CertificationListItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  edit(){
+    console.log('edit project');
+    
+  }
+
+  delete(){
+    console.log('delete project');
+  }
+
+  changeIndex(index:Number){
+    console.log('change  project index to ' + index.toString());
+  }
+
 }

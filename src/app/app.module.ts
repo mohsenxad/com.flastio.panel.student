@@ -89,6 +89,7 @@ import { UniversityEmailInputComponent } from './componets/share/university-emai
 import { ProjectStrengthComponent } from './componets/project/strength/project-strength.component';
 import { WorkStyleTestComponent } from './componets/workStyle/test/work-style-test.component';
 import { CertificationFileUploaderComponent } from './componets/certification/file-uploader/certification-file-uploader.component';
+import { CertificationActionPanelComponent } from './componets/certification/action-panel/certification-action-panel.component';
 
 
 
@@ -180,6 +181,7 @@ import { CertificationFileUploaderComponent } from './componets/certification/fi
     ProjectStrengthComponent,
     WorkStyleTestComponent,
     CertificationFileUploaderComponent,
+    CertificationActionPanelComponent,
   ],
   imports: [
     BrowserModule,

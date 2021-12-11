@@ -23,6 +23,15 @@
       {{ assignedCertification.certification.name }}
     </dd>
 
+    <dt>Action Panel</dt>
+    <dd>
+      <certification-action-panel
+        (onEdit) = "edit()"
+        (onDelete) = "delete()"
+        (onChangeIndex) = "changeIndex($event)"
+      > </certification-action-panel>
+    </dd>
+
     <dt>Issued Date Year</dt>
     <dd>
       {{ assignedCertification.issuedDateYear }}
