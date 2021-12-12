@@ -6,6 +6,9 @@
     >
         <project-list-item
             [project] = 'project'
+            (onEdit) = "edit($event)"
+            (onDelete) = "delete($event)"
+            (onChangeIndex) = "changeIndex($event)"
         ></project-list-item>
     </li>
     

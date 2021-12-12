@@ -62,4 +62,14 @@ export class ProjectService {
     );
     return result;
   }
+
+  async remove(project: Project):Promise<any>{
+    const user: Realm.User = this.app.currentUser;
+    let result:any  = await user.functions
+      .removeProject(
+        this.studentId,
+        project._id.toString()
+      );
+    return result;
+  }
 }

@@ -31,7 +31,7 @@ export class ProjectListItemComponent implements OnInit {
   }
 
   delete(){
-    console.log('delete project');
+    this.onDelete.emit(this.project);
   }
 
   changeIndex(index:Number){
