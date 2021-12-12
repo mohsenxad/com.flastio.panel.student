@@ -4,6 +4,9 @@
     >
         <certification-list-item
             [assignedCertification] = 'assignedCertification'
+            (onEdit) = "edit($event)"
+            (onDelete) = "delete($event)"
+            (onChangeIndex) = "changeIndex($event)"
         ></certification-list-item>
     </li>
     

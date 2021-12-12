@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CertificationService } from 'src/app/services/certification/certification.service';
 import { AssignedCertification } from '../../../model/assignedCertification';
 
 @Component({
@@ -9,10 +10,25 @@ import { AssignedCertification } from '../../../model/assignedCertification';
 export class CertificationListComponent implements OnInit {
 
   @Input() assignedCertificationList: AssignedCertification[];
+  @Output() onEdit = new EventEmitter<AssignedCertification>();
+  @Output() onDelete = new EventEmitter<AssignedCertification>();
+  @Output() onChangeIndex = new EventEmitter<any>();
   
-  constructor() { }
+  constructor(){ }
 
   ngOnInit(): void {
+  }
+
+  edit(assignedCertification: AssignedCertification){
+    this.onEdit.emit(assignedCertification);
+  }
+
+  async delete(assignedCertification: AssignedCertification){
+    this.onDelete.emit(assignedCertification);
+  }
+
+  changeIndex(index:Number){
+    console.log('change  project index to ' + index.toString());
   }
 
 }
