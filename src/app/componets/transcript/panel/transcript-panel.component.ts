@@ -31,7 +31,7 @@ export class TranscriptPanelComponent implements OnInit {
     this.isLoading = false;
   }
 
-  uploadFile(uploadPresignUrl: String){
+  async uploadFile(uploadPresignUrl: String){
     this.isLoading = true;
     const contentType = this.transcriptFile.type;
     this.transcriptService.upload(uploadPresignUrl,this.transcriptFile, contentType)
@@ -43,9 +43,9 @@ export class TranscriptPanelComponent implements OnInit {
       });
   }
 
-  remove(){
+  async remove(){
     this.isLoading = true;
-    this.transcriptService.setTranscriptFile(undefined, undefined);
+    await this.transcriptService.setTranscriptFile(undefined, undefined);
     this.fileUrl = undefined;
     this.isLoading = false;
   }

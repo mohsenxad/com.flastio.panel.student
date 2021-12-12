@@ -3,6 +3,9 @@
   <certification-list
     *ngIf = "assignedCertificationList && assignedCertificationList.length > 0"
     [assignedCertificationList]="assignedCertificationList"
+    (onEdit) = "edit($event)"
+    (onDelete) = "delete($event)"
+    (onChangeIndex) = "changeIndex($event)"
   ></certification-list>
 
   <button class="main-add-btn"
@@ -22,5 +25,11 @@
     (onClose) = 'hideAddCertificationModal()'
     (onAssignedCertificationAdded) = 'addNewAssignedCertification($event)'
   ></assign-certifiction>
+
+  <confirm-delete
+    *ngIf = "isConfirmRemoveModalVisible && markAsDeleteSssignedCertification"
+    (onCancel)="hideConfrimDeleteModal()"
+    (onConfirm)="confirmedDelete($event)"
+  ></confirm-delete>
   
 </section>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AssignedCertification } from '../../../model/assignedCertification';
 
 @Component({
@@ -9,6 +9,9 @@ import { AssignedCertification } from '../../../model/assignedCertification';
 export class CertificationListItemComponent implements OnInit {
 
   @Input() assignedCertification: AssignedCertification;
+  @Output() onEdit = new EventEmitter<AssignedCertification>();
+  @Output() onDelete = new EventEmitter<AssignedCertification>();
+  @Output() onChangeIndex = new EventEmitter<Number>();
 
   constructor() { }
 
@@ -21,6 +24,7 @@ export class CertificationListItemComponent implements OnInit {
   }
 
   delete(){
+    this.onDelete.emit(this.assignedCertification);
     console.log('delete project');
   }
 

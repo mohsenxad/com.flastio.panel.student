@@ -53,6 +53,16 @@ export class CertificationService {
     return result;
   }
 
+  async remove(assignedCertification: AssignedCertification):Promise<any>{
+    const user: Realm.User = this.app.currentUser;
+    let result:any  = await user.functions
+      .removeCertification(
+        this.studentId,
+        assignedCertification._id.toString()
+      );
+    return result;
+  }
+
   async search(certificationKeyWord: String):Promise<Certification[]>{
     const user: Realm.User = this.app.currentUser;
     let certificationList: Certification[]  = await user.functions.searchCertification(certificationKeyWord);
