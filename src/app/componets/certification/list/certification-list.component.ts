@@ -23,7 +23,7 @@ export class CertificationListComponent implements OnInit {
     this.onEdit.emit(assignedCertification);
   }
 
-  async delete(assignedCertification: AssignedCertification){
+  delete(assignedCertification: AssignedCertification){
     this.onDelete.emit(assignedCertification);
   }
 

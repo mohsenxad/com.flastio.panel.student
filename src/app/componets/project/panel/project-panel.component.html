@@ -5,6 +5,9 @@
     <project-list
         *ngIf="projectList && projectList.length > 0"
         [projectList] = "projectList"
+        (onEdit) = "edit($event)"
+        (onDelete) = "delete($event)"
+        (onChangeIndex) = "changeIndex($event)"
     ></project-list>
 
     <button class="main-add-btn"
@@ -28,6 +31,6 @@
     <confirm-delete
         *ngIf = "isConfirmDeleteVisible"
         (onCancel) = "hideConfrimDelete()"
-        (onConfirm) = "deleteProject()"
+        (onConfirm) = "confirmedDelete()"
     ></confirm-delete>
 </section>
