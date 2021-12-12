@@ -1,88 +1,108 @@
 details {
-    position: relative;
-  }
-  summary {
-    content: url(/assets/images/project-action.svg);
-    display: flex;
-    text-indent: -9000px;
-    cursor: pointer;
-    margin-left: auto;
-  }
-  ul {
-    list-style: none;
-    border-radius: 4px;
-    box-shadow: 0 5px 20px 0 rgb(139 140 170 / 20%);
-    background-color: #fff;
-    margin: 0;
-    padding: 7px 10px 8px;
-    display: flex;
-    flex-direction: row-reverse;
-    position: absolute;
-    right: 0;
-    top: 28px;
-    li {
+  position: relative;
+}
+summary {
+  content: url(/assets/images/project-action.svg);
+  display: flex;
+  text-indent: -9000px;
+  cursor: pointer;
+  margin-left: auto;
+}
+ul {
+  list-style: none;
+  border-radius: 4px;
+  box-shadow: 0 5px 20px 0 rgb(139 140 170 / 20%);
+  background-color: #fff;
+  margin: 0;
+  padding: 7px 10px 8px;
+  display: flex;
+  position: absolute;
+  flex-direction: row-reverse;
+  right: 0;
+  top: 28px;
+  overflow: hidden;
+
+  li {
+    button {
+      border: none;
+      background: none;
+    }
+    &:nth-child(1) {
       button {
-        border: none;
-        background: none;
-      }
-      &:nth-child(1) {
-        button {
-          content: url(/assets/images/edit.svg);
-          transition: 0.5s;
-          display: flex;
-          &:hover {
-            transition: 0.5s;
-            content: url(/assets/images/edit-blue.svg);
-            background-color: #f4f9fd;
-          }
-        }
-      }
-      &:nth-child(2) {
-        button {
-          content: url(/assets/images/delete.svg);
-          border-left: solid 1px #e6ebf5;
-          transition: 0.5s;
-          display: flex;
-   
-  
-          &:hover {
-            transition: 0.5s;
-            content: url(/assets/images/delete-blue.svg);
-            background-color: #f4f9fd;
-          }
-        }
-      }
-      &:nth-child(3) {
-        button {
-          content: url(/assets/images/move-up.svg);
-          transform: rotate(180deg);
-          transition: 0.5s;
-          display: flex;
-  
-          &:hover {
-            transition: 0.5s;
-            content: url(/assets/images/move-up-blue.svg);
-            background-color: #f4f9fd;
-          }
-        }
-      }
-      &:nth-child(4) {
-        button {
-          content: url(/assets/images/move-up.svg);
-          transition: 0.5s;
-          display: flex;
-          &:hover {
-            transition: 0.5s;
-            content: url(/assets/images/move-up-blue.svg);
-          }
-        }
+        content: "";
+        background: url(/assets/images/edit.svg);
+        width: 42px;
+        height: 28px;
         transition: 0.5s;
+        text-indent: -9000px;
+        background-repeat: no-repeat;
+        background-position:center;
         &:hover {
-          border-radius: 4px;
-          background-color: #f4f9fd;
           transition: 0.5s;
+          content: url(/assets/images/edit-blue.svg);
+          background-color: #f4f9fd;
         }
       }
     }
+    &:nth-child(2) {
+      button {
+        content: "";
+        border-left: solid 1px #e6ebf5;
+        transition: 0.5s;
+        background: url(/assets/images/delete.svg);
+        width: 42px;
+        height: 28px;
+        transition: 0.5s;
+        text-indent: -9000px;
+        background-repeat: no-repeat;
+        background-position:center;
+        &:hover {
+          transition: 0.5s;
+          content: url(/assets/images/delete-blue.svg);
+          background-color: #f4f9fd;
+        }
+      }
+    }
+    &:nth-child(3) {
+      button {
+        content: "";
+        transform: rotate(180deg);
+        transition: 0.5s;
+        background: url(/assets/images/move-up.svg);
+        width: 42px;
+        height: 28px;
+        text-indent: -9000px;
+        background-repeat: no-repeat;
+        background-position:center;
+
+        &:hover {
+          transition: 0.5s;
+          content: url(/assets/images/move-up-blue.svg);
+          background-color: #f4f9fd;
+        }
+      }
+    }
+    &:nth-child(4) {
+      button {
+        content: "";
+        transition: 0.5s;
+        background: url(/assets/images/move-up.svg);
+        width: 42px;
+        height: 28px;
+        text-indent: -9000px;
+        background-repeat: no-repeat;
+        background-position:center;
+        &:hover {
+          transition: 0.5s;
+          content: url(/assets/images/move-up-blue.svg);
+        }
+      }
+      transition: 0.5s;
+      &:hover {
+        border-radius: 4px;
+        background-color: #f4f9fd;
+        transition: 0.5s;
+      }
+    }
   }
-  
+}

@@ -20,6 +20,7 @@ ul {
   position: absolute;
   right: 0;
   top: 28px;
+  overflow: hidden;
   li {
     button {
       border: none;
@@ -27,9 +28,14 @@ ul {
     }
     &:nth-child(1) {
       button {
-        content: url(/assets/images/edit.svg);
+        content: "";
+        background: url(/assets/images/edit.svg);
+        width: 42px;
+        height: 28px;
         transition: 0.5s;
-        display: flex;
+        text-indent: -9000px;
+        background-repeat: no-repeat;
+        background-position:center;
         &:hover {
           transition: 0.5s;
           content: url(/assets/images/edit-blue.svg);
@@ -39,12 +45,16 @@ ul {
     }
     &:nth-child(2) {
       button {
-        content: url(/assets/images/delete.svg);
+        content: "";
         border-left: solid 1px #e6ebf5;
         transition: 0.5s;
-        display: flex;
- 
-
+        background: url(/assets/images/delete.svg);
+        width: 42px;
+        height: 28px;
+        transition: 0.5s;
+        text-indent: -9000px;
+        background-repeat: no-repeat;
+        background-position:center;
         &:hover {
           transition: 0.5s;
           content: url(/assets/images/delete-blue.svg);
@@ -54,10 +64,15 @@ ul {
     }
     &:nth-child(3) {
       button {
-        content: url(/assets/images/move-up.svg);
+        content: "";
         transform: rotate(180deg);
         transition: 0.5s;
-        display: flex;
+        background: url(/assets/images/move-up.svg);
+        width: 42px;
+        height: 28px;
+        text-indent: -9000px;
+        background-repeat: no-repeat;
+        background-position:center;
 
         &:hover {
           transition: 0.5s;
@@ -68,9 +83,14 @@ ul {
     }
     &:nth-child(4) {
       button {
-        content: url(/assets/images/move-up.svg);
+        content: "";
         transition: 0.5s;
-        display: flex;
+        background: url(/assets/images/move-up.svg);
+        width: 42px;
+        height: 28px;
+        text-indent: -9000px;
+        background-repeat: no-repeat;
+        background-position:center;
         &:hover {
           transition: 0.5s;
           content: url(/assets/images/move-up-blue.svg);
