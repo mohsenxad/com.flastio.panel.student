@@ -4,18 +4,28 @@ dt {
 dl {
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
   img {
     width: 85px;
     height: 64px;
+    border-radius: 2px;
+    background-color: rgba(63, 140, 255, 0.09);
   }
-  dd{
-    &:nth-child(2){
+  dd {
+    margin: 0;
+    padding: 0;
+    &:nth-child(2) {
       margin: 0;
     }
   }
 
   div {
     margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     dd {
       &:nth-child(2) {
         font-size: 18px;
@@ -25,7 +35,7 @@ dl {
         line-height: 1.44;
         letter-spacing: normal;
         color: #0a1629;
-        margin: 0 0 8px 0;
+        margin: 0 0 3px 0;
       }
       &:nth-child(4) {
         font-size: 16px;
@@ -36,9 +46,8 @@ dl {
         letter-spacing: normal;
         color: #91929e;
         margin: 0;
-        display: contents;
       }
-      &:nth-child(6) {
+      &:nth-child(8) {
         font-size: 16px;
         font-weight: normal;
         font-stretch: normal;
@@ -51,4 +60,14 @@ dl {
       }
     }
   }
+}
+.certification-action-panel {
+  position: absolute;
+  right: 0;
+  top: 2px;
+}
+.defult-image {
+  width: 17px !important;
+  height: 21px !important;
+  padding: 26px 35px;
 }

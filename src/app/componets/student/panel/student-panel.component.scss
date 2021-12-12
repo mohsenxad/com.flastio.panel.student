@@ -33,7 +33,7 @@
 section {
   width: 52%;
   margin: 64px auto;
-  &:first-child{
+  &:first-child {
     margin-top: 0;
   }
 }
@@ -49,10 +49,11 @@ section {
 }
 
 student-header {
-  background: #7e15b0;
-  background: -webkit-linear-gradient(top left, #7e15b0, #e3a63f);
-  background: -moz-linear-gradient(top left, #7e15b0, #e3a63f);
-  background: linear-gradient(to bottom right, #7e15b0, #e3a63f);
+  background: url(/assets/images/header-bg.webp) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;

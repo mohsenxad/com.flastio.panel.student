@@ -4,7 +4,7 @@
     *ngIf = "!assignedCertification.fileUrl"
   >
     <img
-      src = "/assets/images/certificate-sample.jpg"
+      src = "/assets/images/defult-certification-bg.svg" class="defult-image"
       [alt] = "assignedCertification.certification.name"
     />
   </dd>
@@ -24,7 +24,7 @@
     </dd>
 
     <dt>Action Panel</dt>
-    <dd>
+    <dd class="certification-action-panel">
       <certification-action-panel
         (onEdit) = "edit()"
         (onDelete) = "delete()"
