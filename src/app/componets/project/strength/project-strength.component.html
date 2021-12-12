@@ -1,79 +1,82 @@
-<h4>
-    Complete your project
-</h4>
-<dl>
-    <dt>
-        Require Action List
-    </dt>
-
-    <dd>
-        <details>
-            <summary>
-                Details
-            </summary>
-            <ul>
-                <li>
-                    <a href="#" class="iscompleted">
-                        Personal Information
-                    </a>
-                    
-                </li>
-                <li>
-                    <a href="#">
-                        Project
-                    </a>
-                    
-                </li>
-                <li>
-                    <a href="#">
-                        Resume
-                    </a>
-                    
-                </li>
-                <li>
-                    <a href="#">
-                        Transcript
-                    </a>
-                    
-                </li>
-                <li>
-                    <a href="#">
-                        Certifications
-                    </a>
-                    
-                </li>
-                <li>
-                    <a href="#">
-                        Recommendations
-                    </a>
-                    
-                </li>
-                <li>
-                    <a href="#">
-                        Work Style
-                    </a>
-                    
-                </li>
-            </ul>
-        </details>
-    </dd>
-
-    <dt>
-        Progress
-    </dt>
-    <dd>
-        <progress
-            id="strengthValue"
-            [max] = "strengthMaxValue"
-            [value] = "calculate()"
-        ></progress>
-    </dd>
-
-    <dt>
-        Value
-    </dt>
-    <dd>
-        {{calculate()}}
-    </dd>
-</dl>
-
+<div class="project-strength-section">
+    <h4>
+        Complete your project
+    </h4>
+    <dl>
+        <dt>
+            Require Action List
+        </dt>
+    
+        <dd>
+            <details>
+                <summary>
+                    Details
+                </summary>
+                <ul>
+                    <li>
+                        <a href="#" class="iscompleted">
+                            Personal Information
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="#">
+                            Project
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="#">
+                            Resume
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="#">
+                            Transcript
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="#">
+                            Certifications
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="#">
+                            Recommendations
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="#">
+                            Work Style
+                        </a>
+                        
+                    </li>
+                </ul>
+            </details>
+        </dd>
+    
+        <dt>
+            Progress
+        </dt>
+        <dd>
+            <progress
+                id="strengthValue"
+                [max] = "strengthMaxValue"
+                [value] = "calculate()"
+            ></progress>
+        </dd>
+    
+        <dt>
+            Value
+        </dt>
+        <dd>
+            {{calculate()}}
+        </dd>
+    </dl>
+    
+    
+</div>

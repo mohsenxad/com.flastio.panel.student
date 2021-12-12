@@ -119,12 +119,8 @@ details {
         display: flex;
         align-items: center;
         &::before {
-          content: "";
-          width: 16px;
-          height: 16px;
+          content: url(/assets/images/project-strength.svg);
           margin: 3px 8px 2px 0;
-          background-color: #ced5e0;
-          border-radius: 50%;
           display: inline-flex;
         }
         &::after {
@@ -135,12 +131,8 @@ details {
       }
       .iscompleted {
         &::before {
-          content: "";
-          width: 16px;
-          height: 16px;
+          content: url(/assets/images/project-strength-iscompleted.svg);
           margin: 3px 8px 2px 0;
-          background-color: #00b85c;
-          border-radius: 50%;
           display: inline-flex;
         }
         &::after {

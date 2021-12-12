@@ -1,0 +1,167 @@
+.project-strength-section {
+  background-color: #f4f9fd;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  padding: 14px 19px;
+  width: 100%;
+  margin: 0 -18px 32px -18px;
+  align-items: center;
+  justify-content: space-between;
+
+  h4 {
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    margin: 0;
+    padding: 0;
+  }
+  dt {
+    display: none;
+  }
+  dl {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: right;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    dd {
+      &:nth-child(2) {
+        margin: 0 0 0 9px;
+        padding: 0;
+
+        summary {
+          content: url(/assets/images/icn-general-hint-dark.svg);
+          display: flex;
+          position: absolute;
+          top: 4px;
+          left: 8px;
+          cursor: pointer;
+        }
+        ul {
+          list-style: none;
+          margin: 0 0 15px 0;
+          padding: 8px;
+          border-radius: 1px;
+          box-shadow: 0 5px 20px 0 rgba(139, 149, 170, 0.2);
+          background-color: #fff;
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          width: max-content;
+          left: 30px;
+          li {
+            margin: 0;
+            padding: 7px 10px 7px 10px;
+
+            &:hover {
+              border-radius: 8px;
+              background-color: rgba(63, 140, 255, 0.1);
+            }
+
+            a {
+              font-size: 14px;
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.5;
+              letter-spacing: normal;
+              color: #0a1629;
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              &::before {
+                content: url(/assets/images/project-strength.svg);
+                margin: 3px 8px 2px 0;
+                display: inline-flex;
+              }
+              &::after {
+                content: url(/assets/images/edit-blue.svg);
+                margin-left: auto;
+                padding-left: 40px;
+              }
+            }
+            .iscompleted {
+              &::before {
+                content: url(/assets/images/project-strength-iscompleted.svg);
+                margin: 3px 8px 2px 0;
+                display: inline-flex;
+              }
+              &::after {
+                content: url(/assets/images/edit.svg);
+                margin-left: auto;
+                padding-left: 40px;
+              }
+            }
+          }
+        }
+      }
+      &:nth-child(4) {
+        margin: 0 0 0 9px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &:nth-child(6) {
+        margin: 0 0 0 9px;
+        padding: 0;
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
+        text-align: right;
+        color: #0a1629;
+      }
+    }
+  }
+}
+
+progress#strengthValue {
+  height: 6px;
+  border-radius: 8.5px;
+}
+
+progress::-webkit-progress-value {
+  background: #00b85c;
+  border-radius: 8.5px;
+}
+
+progress::-moz-progress-bar {
+  background: #00b85c;
+  border-radius: 8.5px;
+}
+
+progress {
+  border-radius: 20px;
+}
+progress::-webkit-progress-bar {
+  border-radius: 20px;
+  background: #e2e2ea;
+}
+progress::-webkit-progress-value {
+  border-radius: 20px;
+}
+progress::-moz-progress-bar {
+  border-radius: 20px;
+  background: #e2e2ea;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
