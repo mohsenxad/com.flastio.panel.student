@@ -1,5 +1,12 @@
-div {
+section {
   position: relative;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 6px 58px 0 rgba(121, 145, 173, 0.2);
+  background-color: #fff;
+  width: 40%;
+  margin: 30px auto;
+
   h4 {
     font-size: 24px;
     font-weight: bold;
@@ -25,16 +32,15 @@ div {
 
   .close-btn {
     background-color: #f4f9fd;
-    border-radius: 50%;
-    padding: 10px;
+    border-radius: 14px;
+    padding: 6px;
     border: none;
-    content: url(/assets/images/icn-general-add-blue.svg);
+    content: url(/assets/images/left-arrow.svg);
     -webkit-writing-mode: vertical-rl;
     display: flex;
-    transform: rotate(45deg);
     position: absolute;
-    top: -6px;
-    right: 0;
+    top: 59px;
+    left: 22px;
   }
   button:nth-child(4) {
     font-size: 16px;
@@ -61,7 +67,7 @@ div {
       transition: 0.5s;
     }
   }
-  button:nth-child(5){
+  button:nth-child(5) {
     font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
@@ -78,7 +84,7 @@ div {
     width: 100%;
     padding: 10px 0;
     transition: 0.5s;
-  
+
     &:hover {
       border: solid 1px #91929e;
       transition: 0.5s;
