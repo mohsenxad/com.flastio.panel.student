@@ -56,24 +56,8 @@ export class ProjectBaseInfoComponent implements OnInit {
     })
   }
 
-  async handleFileInput(files: FileList) {
-    this.projectFile = files.item(0);
-    let response:any = await this.projectService.getProjectUploadUrl()
-    this.uniqFileName = response.fileName.toString();
-    let signedUploadUr = response.presignedUrl;
-    this.uploadFile(signedUploadUr)
-  }
-
-  
-
-  uploadFile(uploadPresignUrl: String){
-    const contentType = this.projectFile.type;
-    this.projectService.upload(uploadPresignUrl,this.projectFile, contentType)
-      .subscribe(data=>{
-        console.log('uploaded');
-        this.fileUrl = uploadPresignUrl.split('?')[0];
-        this.project.summeryFileUrl = uploadPresignUrl.split('?')[0];
-      });
+  setSummaryFile(uploadResponse: any, fileUrl:String){
+    this.project.summeryFileUrl = uploadResponse.fileUrl;
   }
 
 }

@@ -91,6 +91,7 @@ import { WorkStyleTestComponent } from './componets/workStyle/test/work-style-te
 import { CertificationFileUploaderComponent } from './componets/certification/file-uploader/certification-file-uploader.component';
 import { CertificationActionPanelComponent } from './componets/certification/action-panel/certification-action-panel.component';
 import { ProjectBaseInfoComponent } from './componets/project/base-info/project-base-info.component';
+import { ProjectFileUploaderComponent } from './componets/project/file-uploader/project-file-uploader.component';
 
 
 
@@ -184,6 +185,7 @@ import { ProjectBaseInfoComponent } from './componets/project/base-info/project-
     CertificationFileUploaderComponent,
     CertificationActionPanelComponent,
     ProjectBaseInfoComponent,
+    ProjectFileUploaderComponent,
   ],
   imports: [
     BrowserModule,

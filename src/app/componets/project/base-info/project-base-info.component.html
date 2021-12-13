@@ -2,28 +2,10 @@
   <legend>Project</legend>
   <fieldset>
     <ul>
-      <li 
-        *ngIf = "!fileUrl"
-        class="uploadfile-section"
-      >
-        <div
-          id="divProjectFile"
-          name="divProjectFile"
-        >
-        <p>Project Summary file</p>
-        <span>Drag your files here to upload</span>
-        <label
-          for="divProjectFile"
-        >
-          or click to browse
-        </label>
-          <input
-              type="file"
-              id='projectFile'
-              name='projectFile'
-              (change)="handleFileInput($event.target.files)"
-          >
-        </div>
+      <li>
+        <project-file-uploader
+          (onFileUploaded) = 'setSummaryFile($event,$event)'
+        ></project-file-uploader>
       </li>
       <li
         *ngIf="fileUrl"

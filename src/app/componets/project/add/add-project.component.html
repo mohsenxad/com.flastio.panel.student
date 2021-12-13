@@ -3,40 +3,40 @@
   <form class="popup"
   *ngIf = "pageTitle == 'General'"
   >
-  <loading
-    *ngIf="isLoading"
-  ></loading>
-  <button class="close-btn"
-  (click) = 'close()'
-  >
-  Close
-  </button>
+    <loading
+      *ngIf="isLoading"
+    ></loading>
+    <button class="close-btn"
+    (click) = 'close()'
+    >
+    Close
+    </button>
 
 
-  <project-base-info
-    *ngIf = "pageTitle == 'General'"
-    [major] = 'major'
-    [(project)] = 'project'
-  ></project-base-info>
+    <project-base-info
+      *ngIf = "pageTitle == 'General'"
+      [major] = 'major'
+      [(project)] = 'project'
+    ></project-base-info>
 
-  <project-strength
-    [project] = project
-  ></project-strength>
+    <project-strength
+      [project] = project
+    ></project-strength>
 
-  <validation-result
-      [validationResult] = 'validationResult'
-  ></validation-result>
+    <validation-result
+        [validationResult] = 'validationResult'
+    ></validation-result>
 
-  <button class="submit-btn" (click)="draft()">Save draft</button>
-  <button class="cancel-btn" (click)="publish()">Publish</button>
+    <button class="submit-btn" (click)="draft()">Save draft</button>
+    <button class="cancel-btn" (click)="publish()">Publish</button>
 
-  <add-paging-project
-    [hadAttachment] = 'project.supportingFileList.length > 0'
-    [hadLinks] = 'project.linkUrlList.length > 0' 
-    [hadCertification] = 'project.linkUrlList.length > 0' 
-    [hadTeam] = 'project.contributorList.length > 0' 
-    (onPageTitleSelected)="changePage($event)"
-  ></add-paging-project>
+    <add-paging-project
+      [hadAttachment] = 'project.supportingFileList.length > 0'
+      [hadLinks] = 'project.linkUrlList.length > 0' 
+      [hadCertification] = 'project.linkUrlList.length > 0' 
+      [hadTeam] = 'project.contributorList.length > 0' 
+      (onPageTitleSelected)="changePage($event)"
+    ></add-paging-project>
   </form>
  >
   <assign-link-project

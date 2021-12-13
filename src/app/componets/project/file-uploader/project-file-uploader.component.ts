@@ -1,13 +1,13 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ValidationResult } from 'src/app/model/validationResult';
-import { CertificationService } from 'src/app/services/certification/certification.service';
+import { ProjectService } from 'src/app/services/project/project.service';
 
 @Component({
-  selector: 'certification-file-uploader',
-  templateUrl: './certification-file-uploader.component.html',
-  styleUrls: ['./certification-file-uploader.component.scss']
+  selector: 'project-file-uploader',
+  templateUrl: './project-file-uploader.component.html',
+  styleUrls: ['./project-file-uploader.component.scss']
 })
-export class CertificationFileUploaderComponent implements OnInit {
+export class ProjectFileUploaderComponent implements OnInit {
 
   file: File ;
   fileName: String;
@@ -23,17 +23,24 @@ export class CertificationFileUploaderComponent implements OnInit {
   @Output() onFileUploaded = new EventEmitter<{fileName: String, fileUrl: String}>();
 
   constructor(
-    private certificationService:CertificationService
+    private projectService:ProjectService
   ) { 
   }
 
   ngOnInit(): void {
   }
 
+  remove(): void{
+    this.fileName = undefined;
+    this.fileUrl = undefined;
+    this.isFileUploaded = false;
+    this.onFileUploaded.emit({fileName:this.fileName,fileUrl:this.fileUrl})
+  }
+
   async handleFileInput(files: FileList) {
     this.isLoading = true;
     this.file = files.item(0);
-    let response:any = await this.certificationService.getUploadUrl()
+    let response:any = await this.projectService.getUploadUrl()
     let signedUploadUr:String = response.presignedUrl;
 
     this.fileName = response.fileName.toString();
@@ -46,7 +53,7 @@ export class CertificationFileUploaderComponent implements OnInit {
   uploadFile(uploadPresignUrl: String){
     this.isLoading = true;
     const contentType = this.file.type;
-    this.certificationService.upload(uploadPresignUrl,this.file, contentType)
+    this.projectService.upload(uploadPresignUrl,this.file, contentType)
       .subscribe(data => {
         console.log('uploaded');
         this.isLoading = false;
@@ -55,13 +62,6 @@ export class CertificationFileUploaderComponent implements OnInit {
         this.onFileUploaded.emit({fileName:this.fileName,fileUrl:this.fileUrl})
       });
 
-  }
-
-  remove(): void{
-    this.fileName = undefined;
-    this.fileUrl = undefined;
-    this.isFileUploaded = false;
-    this.onFileUploaded.emit({fileName:this.fileName,fileUrl:this.fileUrl})
   }
 
 }
