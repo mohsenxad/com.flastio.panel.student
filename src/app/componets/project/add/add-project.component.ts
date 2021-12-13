@@ -32,9 +32,7 @@ export class AddProjectComponent implements OnInit {
  
   pageTitle: String = 'General';
   attachmentFile: any;
-  projectFile: File ;
-  uniqFileName: String;
-  fileUrl: String;
+
   isLoading:Boolean = false;
   validationResult: ValidationResult = {
     hasError : false,
@@ -94,26 +92,6 @@ export class AddProjectComponent implements OnInit {
     this.changePage("General");
   }
 
-  setProjecType(projectType:String){
-    this.project.projectType = projectType;
-  }
-
-  setYearCompleted(year:Number){
-    this.project.yearCompleted = year;
-  }
-
-  setCoursse(course:Course){
-    this.project.course = course;
-  }
-
-  removeCoursse(){
-    this.project.course = undefined;
-  }
-
-  addSkill(skill:Skill){
-    this.project.skillList.push(skill);
-  }
-
   updateLinkUrlList(linkUrlList: LinkUrl[]){
     this.project.linkUrlList = linkUrlList
   }
@@ -126,15 +104,11 @@ export class AddProjectComponent implements OnInit {
     this.project.supportingFileList = supportingFileList
   }
 
-  removeSkillFromProject(skill:Skill){
-    this.project.skillList = this.project.skillList.filter((currentSkill)=>{
-      if(currentSkill._id.toString() != skill._id.toString()){
-        return currentSkill;
-      }
-    })
-  }
+ 
 
   ngOnInit(): void {
+    console.log(this.project);
+    
   }
 
   draft(){
@@ -161,25 +135,7 @@ export class AddProjectComponent implements OnInit {
     
   }
 
-  async handleFileInput(files: FileList) {
-    this.projectFile = files.item(0);
-    let response:any = await this.projectService.getProjectUploadUrl()
-    this.uniqFileName = response.fileName.toString();
-    let signedUploadUr = response.presignedUrl;
-    this.uploadFile(signedUploadUr)
-  }
 
-  
-
-  uploadFile(uploadPresignUrl: String){
-    const contentType = this.projectFile.type;
-    this.projectService.upload(uploadPresignUrl,this.projectFile, contentType)
-      .subscribe(data=>{
-        console.log('uploaded');
-        this.fileUrl = uploadPresignUrl.split('?')[0];
-        this.project.summeryFileUrl = uploadPresignUrl.split('?')[0];
-      });
-  }
 
   close(){
     this.onClose.emit();

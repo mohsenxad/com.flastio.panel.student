@@ -5,8 +5,9 @@
       name="year"
       [attr.id]="year"
       value="{{ year }}"
-      [(ngModel)]="selectedYear"
-      (change)="changeYear(year)"
+  
+      (change)="changed(year)"
+      [checked]="year == selectedYear"
     />
     <label [attr.for]="year">
       {{ year }}

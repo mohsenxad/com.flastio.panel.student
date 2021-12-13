@@ -90,6 +90,7 @@ import { ProjectStrengthComponent } from './componets/project/strength/project-s
 import { WorkStyleTestComponent } from './componets/workStyle/test/work-style-test.component';
 import { CertificationFileUploaderComponent } from './componets/certification/file-uploader/certification-file-uploader.component';
 import { CertificationActionPanelComponent } from './componets/certification/action-panel/certification-action-panel.component';
+import { ProjectBaseInfoComponent } from './componets/project/base-info/project-base-info.component';
 
 
 
@@ -182,6 +183,7 @@ import { CertificationActionPanelComponent } from './componets/certification/act
     WorkStyleTestComponent,
     CertificationFileUploaderComponent,
     CertificationActionPanelComponent,
+    ProjectBaseInfoComponent,
   ],
   imports: [
     BrowserModule,
