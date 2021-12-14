@@ -1,0 +1,118 @@
+form {
+  position: relative;
+  z-index: 5;
+  width: min-content;
+  padding: 10px 30px 15px;
+
+  fieldset {
+    border: none;
+    margin: 0 0 30px 0;
+    padding: 0;
+  }
+  details {
+    p {
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #0a1629;
+    }
+  }
+
+  legend {
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0a1629;
+    display: block;
+    text-align: center;
+    margin-bottom: 27px;
+  }
+  summary {
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+    color: #3f8cff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    &::after {
+      content: url(/assets/images/icn-general-arrow-down-blue.svg);
+      margin-left: 15px;
+      -webkit-writing-mode: vertical-rl;
+      transition: 0.5s;
+    }
+
+    &::marker {
+      color: transparent;
+      display: none;
+    }
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #0a1629;
+      display: flex;
+      margin-left: 12px;
+    }
+    input[type="text"],
+    input[type="tel"] {
+      border-radius: 14px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      padding: 13px 0 14px 0;
+      display: block;
+      width: 100%;
+      margin: 7px 0 27px 0;
+      &::placeholder {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #7d8592;
+      }
+    }
+    textarea {
+      border-radius: 14px;
+      box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+      border: solid 1px #d8e0f0;
+      background-color: #fff;
+      width: 100%;
+      padding: 11px 0 16px 0;
+      margin: 7px 0 27px 0;
+      font-family: NunitoSans;
+      color: #0a1629;
+
+      &::placeholder {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #7d8592;
+      }
+    }
+  }
+}

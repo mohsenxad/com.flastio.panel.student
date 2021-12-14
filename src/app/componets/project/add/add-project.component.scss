@@ -249,7 +249,6 @@ details[open] summary::after {
   background-color: #3f8cff;
   border: none;
   float: right;
-  margin-left: 16px;
   cursor: pointer;
   transition: 0.5s;
 
@@ -273,8 +272,8 @@ details[open] summary::after {
   text-align: center;
   color: #91929e;
   transition: 0.5s;
+  margin-left: 16px;
   float: right;
-  transition: 0.5s;
   cursor: pointer;
 
   &:hover {
