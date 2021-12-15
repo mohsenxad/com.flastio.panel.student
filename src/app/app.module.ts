@@ -92,6 +92,9 @@ import { CertificationFileUploaderComponent } from './componets/certification/fi
 import { CertificationActionPanelComponent } from './componets/certification/action-panel/certification-action-panel.component';
 import { ProjectBaseInfoComponent } from './componets/project/base-info/project-base-info.component';
 import { ProjectFileUploaderComponent } from './componets/project/file-uploader/project-file-uploader.component';
+import { MonthLabelComponent } from './componets/share/month-label/month-label.component';
+import { EditProjectComponent } from './componets/project/edit/edit-project.component';
+import { EditCertificationComponent } from './componets/certification/edit/edit-certification.component';
 
 
 
@@ -186,6 +189,9 @@ import { ProjectFileUploaderComponent } from './componets/project/file-uploader/
     CertificationActionPanelComponent,
     ProjectBaseInfoComponent,
     ProjectFileUploaderComponent,
+    MonthLabelComponent,
+    EditProjectComponent,
+    EditCertificationComponent,
   ],
   imports: [
     BrowserModule,

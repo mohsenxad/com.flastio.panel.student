@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Project } from 'src/app/model/project';
+import { Skill } from 'src/app/model/skill';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { StudentService } from 'src/app/services/student/student.service';
 import { Student } from '../../../model/student';
@@ -35,6 +37,19 @@ export class StudentPanelComponent implements OnInit {
     console.log('show add project in student panel');
     
     this.isAddProjectVisible = true;
+  }
+
+  countSkillList(){
+    // let skillList : Skill[];
+    // for (let project in this.student.projectList as Project) {
+    //   console.log(project.skillList);
+      
+    // }
+    // this.student.projectList.forEach((project:Project)=>{
+    //   skillList.push(project.skillList);
+    // });
+    // console.log(skillList);
+    
   }
 
 

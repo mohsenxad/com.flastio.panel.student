@@ -17,7 +17,9 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
 
 
   isConfirmDeleteVisible: Boolean = false;
+  isEditProjectVisible:Boolean = false;
   markAsDeleteProject : Project;
+  markAsEditProject : Project;
 
   constructor(
     private projectService: ProjectService
@@ -50,13 +52,32 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
     this.isConfirmDeleteVisible = false;
   }
 
+  showEditProjectForm(){
+    this.isEditProjectVisible = true;
+  }
+
+  hideEditProjectForm(){
+    this.isEditProjectVisible = false;
+  }
+
+  changeEditedProject(project: Project){
+    console.log('here to update project');
+    
+    this.projectList.forEach((currentProject:Project)=>{
+      if(currentProject._id.toString() == project._id.toString()){
+        currentProject.name = project.baseInfo.name;
+        currentProject.description = project.baseInfo.description;
+      }
+    })
+  }
+
+
   edit(project: Project){
-    console.log('edit project');
+    this.markAsEditProject = Object.assign({},project);
+    this.showEditProjectForm();
   }
 
   delete(project: Project){
-    console.log('here hereh here');
-    
     this.markAsDeleteProject = project;
     this.showConfrimDelete();
   }
@@ -74,16 +95,6 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
   changeIndex(index:Number){
     console.log('change  project index to ' + index.toString());
   }
-
-
-
-
-
-
-
-
-
-
 
   addNewProject(project:Project){
     if(!this.projectList){

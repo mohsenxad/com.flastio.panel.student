@@ -48,13 +48,34 @@ export class ProjectService {
     const user: Realm.User = this.app.currentUser;
     let result: Project  = await user.functions.addProject(
       this.studentId,
-      project.summeryFileUrl,
-      project.projectType,
-      project.name,
-      project.course,
-      project.description,
-      project.skillList,
-      project.yearCompleted,
+      project.baseInfo.summeryFileUrl,
+      project.baseInfo.projectType,
+      project.baseInfo.name,
+      project.baseInfo.course,
+      project.baseInfo.description,
+      project.baseInfo.skillList,
+      project.baseInfo.yearCompleted,
+      project.isPublished,
+      project.linkUrlList,
+      project.supportingFileList,
+      project.contributorList,
+    );
+    return result;
+  }
+
+  
+  async edit(project: Project): Promise<Project>{
+    const user: Realm.User = this.app.currentUser;
+    let result: Project  = await user.functions.editProject(
+      this.studentId,
+      project._id.toString(),
+      project.baseInfo.summeryFileUrl,
+      project.baseInfo.projectType,
+      project.baseInfo.name,
+      project.baseInfo.course,
+      project.baseInfo.description,
+      project.baseInfo.skillList,
+      project.baseInfo.yearCompleted,
       project.isPublished,
       project.linkUrlList,
       project.supportingFileList,

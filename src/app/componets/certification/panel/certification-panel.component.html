@@ -26,6 +26,13 @@
     (onAssignedCertificationAdded) = 'addNewAssignedCertification($event)'
   ></assign-certifiction>
 
+  <edit-certification
+    *ngIf = "isEditCertificationModalVisible"
+    [assignedCertification] = 'markAsEditAssignedCertification'
+    (onClose) = 'hideEditCertificationModal()'
+    (onAssignedCertificationEdited) = 'editedAssignedCertification($event)'
+  ></edit-certification>
+
   <confirm-delete
     *ngIf = "isConfirmRemoveModalVisible && markAsDeleteSssignedCertification"
     (onCancel)="hideConfrimDeleteModal()"

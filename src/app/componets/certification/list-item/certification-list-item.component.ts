@@ -19,13 +19,11 @@ export class CertificationListItemComponent implements OnInit {
   }
 
   edit(){
-    console.log('edit project');
-    
+    this.onEdit.emit(this.assignedCertification)
   }
 
   delete(){
     this.onDelete.emit(this.assignedCertification);
-    console.log('delete project');
   }
 
   changeIndex(index:Number){

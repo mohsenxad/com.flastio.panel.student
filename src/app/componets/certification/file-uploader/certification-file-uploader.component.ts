@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ValidationResult } from 'src/app/model/validationResult';
 import { CertificationService } from 'src/app/services/certification/certification.service';
 
@@ -9,9 +9,12 @@ import { CertificationService } from 'src/app/services/certification/certificati
 })
 export class CertificationFileUploaderComponent implements OnInit {
 
+  @Input() fileUrl:String;
+  @Output() onFileUploaded = new EventEmitter<{fileName: String, fileUrl: String}>();
+
   file: File ;
   fileName: String;
-  fileUrl:String;
+  
 
   isFileUploaded:Boolean = false;
   isLoading:Boolean = false;
@@ -20,7 +23,7 @@ export class CertificationFileUploaderComponent implements OnInit {
     messageList:[]
   }
 
-  @Output() onFileUploaded = new EventEmitter<{fileName: String, fileUrl: String}>();
+  
 
   constructor(
     private certificationService:CertificationService
@@ -28,6 +31,9 @@ export class CertificationFileUploaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.fileUrl){
+      this.isFileUploaded = true;
+    }
   }
 
   async handleFileInput(files: FileList) {

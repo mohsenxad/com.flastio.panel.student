@@ -1,43 +1,27 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Contributor } from 'src/app/model/contributor';
+import { LinkUrl } from 'src/app/model/linkUrl';
+import { Major } from 'src/app/model/major';
+import { Project } from 'src/app/model/project';
 import { ProjectBaseInfo } from 'src/app/model/projectBaseInfo';
+import { SupportingFile } from 'src/app/model/supportingFile';
 import { ValidationResult } from 'src/app/model/validationResult';
 import { ProjectService } from 'src/app/services/project/project.service';
-import { Contributor } from '../../../model/contributor';
-import { Course } from '../../../model/course';
-import { LinkUrl } from '../../../model/linkUrl';
-import { Major } from '../../../model/major';
-import { Project } from '../../../model/project';
-import { Skill } from '../../../model/skill';
-import { SupportingFile } from '../../../model/supportingFile';
 
 @Component({
-  selector: 'add-project',
-  templateUrl: './add-project.component.html',
-  styleUrls: ['./add-project.component.scss']
+  selector: 'edit-project',
+  templateUrl: './edit-project.component.html',
+  styleUrls: ['./edit-project.component.scss']
 })
-export class AddProjectComponent implements OnInit {
+export class EditProjectComponent implements OnInit {
 
   @Input() major:Major;
+  @Input() project:Project;
 
   @Output() onClose = new EventEmitter();
-  @Output() onProjectAdded = new EventEmitter<Project>();
+  @Output() onProjectEdited = new EventEmitter<Project>();
 
-  project :Project = {
-    baseInfo:{
-      projectType : 'Related course',
-      yearCompleted:2021,
-      skillList:[],  
-    },
-    projectType : 'Related course',
-    yearCompleted:2021,
-    skillList:[],
-    linkUrlList:[],
-    supportingFileList:[],
-    contributorList:[],
-    isPublished:false,
-  };
-  
- 
+
   pageTitle: String = 'General';
   attachmentFile: any;
 
@@ -118,7 +102,17 @@ export class AddProjectComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.project);
-    
+    this.project.baseInfo ={
+      projectType:this.project.projectType,
+      name:this.project.name,
+      description:this.project.description,
+      course:this.project.course,
+      skillList:this.project.skillList,
+      yearCompleted:this.project.yearCompleted,
+      summeryFileUrl:this.project.summeryFileUrl,
+
+    }
+   
   }
 
   draft(){
@@ -135,8 +129,8 @@ export class AddProjectComponent implements OnInit {
     let validationResult = this.validate(this.project);
     if(!validationResult.hasError){
       this.isLoading = true;
-      let addedProject: Project  = await this.projectService.add(this.project);
-      this.onProjectAdded.emit(addedProject)
+      await this.projectService.edit(this.project);
+      this.onProjectEdited.emit(this.project)
       this.isLoading = false;
       this.onClose.emit();
     }else{
@@ -154,4 +148,5 @@ export class AddProjectComponent implements OnInit {
   close(){
     this.onClose.emit();
   }
+
 }

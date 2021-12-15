@@ -4,6 +4,7 @@
     <ul>
       <li>
         <project-file-uploader
+          [(fileUrl)] = 'projectBaseInfo.summeryFileUrl'
           (onFileUploaded) = 'setSummaryFile($event,$event)'
         ></project-file-uploader>
       </li>
@@ -16,7 +17,8 @@
         <!-- <label for="slctProjectType"> Project Type </label> -->
         <select-type-project
           id="slctProjectType"
-          (onProjectTypeSelected)="setProjecType($event)"
+          [(selectedProjectType)] = 'projectBaseInfo.projectType'
+          (onProjectTypeSelected)="setProjectType($event)"
         ></select-type-project>
       </li>
       <li>
@@ -25,7 +27,7 @@
           type="text"
           name="txtProjectName"
           id="txtProjectName"
-          [(ngModel)]="project.name"
+          [(ngModel)]="projectBaseInfo.name"
           placeholder="Enter name of project"
         />
       </li>
@@ -33,7 +35,7 @@
         <div id="divSelectCourse">
           <search-course
             [major] = "major"
-            [selectedCourse] = "project.course"
+            [selectedCourse] = "projectBaseInfo.course"
             (onCourseSelected) = "setCoursse($event)"
           ></search-course>
         </div>
@@ -45,7 +47,7 @@
           name="txtDescription"
           id="txtDescription"
           rows="5"
-          [(ngModel)]="project.description"
+          [(ngModel)]="projectBaseInfo.description"
           placeholder="Brief description is recommended for projects"
         ></textarea>
       </li>
@@ -59,9 +61,9 @@
         <label for="divAssignedSkill"> Project Assigned Skill List </label>
         <div id="divAssignedSkill">
           <ul
-            *ngIf="project && project.skillList && project.skillList.length > 0"
+            *ngIf="projectBaseInfo && projectBaseInfo.skillList && projectBaseInfo.skillList.length > 0"
           >
-            <li *ngFor="let skill of project.skillList">
+            <li *ngFor="let skill of projectBaseInfo.skillList">
               <skill-list-item
                 [skill] = 'skill'
                 (onSkillDeleted) = 'removeSkillFromProject(skill)'
@@ -77,10 +79,10 @@
         </label>
         <year-select
           id="slctYearCompleted"
-          [(selectedYear)] = 'project.yearCompleted'
+          [(selectedYear)] = 'projectBaseInfo.yearCompleted'
+          (onYearSelected) = 'setYearCompleted($event)'
         ></year-select>
       </li>
     </ul>
   </fieldset>
-
   </form>

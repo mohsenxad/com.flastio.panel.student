@@ -1,22 +1,21 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Certification } from '../../../model/certification';
-import { AssignedCertification } from '../../../model/assignedCertification';
-import { CertificationService } from 'src/app/services/certification/certification.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AssignedCertification } from 'src/app/model/assignedCertification';
+import { Certification } from 'src/app/model/certification';
 import { ValidationResult } from 'src/app/model/validationResult';
+import { CertificationService } from 'src/app/services/certification/certification.service';
 
 @Component({
-  selector: 'assign-certifiction',
-  templateUrl: './assign-certifiction.component.html',
-  styleUrls: ['./assign-certifiction.component.scss']
+  selector: 'edit-certification',
+  templateUrl: './edit-certification.component.html',
+  styleUrls: ['./edit-certification.component.scss']
 })
-export class AssignCertifictionComponent implements OnInit {
+export class EditCertificationComponent implements OnInit {
 
-  @Output() onAssignedCertificationAdded = new EventEmitter<AssignedCertification>();
+  @Input() assignedCertification: AssignedCertification;
+  @Output() onAssignedCertificationEdited = new EventEmitter<AssignedCertification>();
   @Output() onClose = new EventEmitter();
 
-  assignedCertification: AssignedCertification = {};
-
-  certificationFile: File ;
+  
   isLoading:Boolean = false;
   validationResult: ValidationResult = {
     hasError:false,
@@ -79,9 +78,9 @@ export class AssignCertifictionComponent implements OnInit {
     
     if(!validationResult.hasError){
       this.isLoading = true;
-      this.assignedCertification = await this.certificationService.save(this.assignedCertification);
+      await this.certificationService.edit(this.assignedCertification);
       this.isLoading = false;
-      this.onAssignedCertificationAdded.emit(this.assignedCertification);
+      this.onAssignedCertificationEdited.emit(this.assignedCertification);
       this.onClose.emit();
     }else{
       this.validationResult = validationResult;

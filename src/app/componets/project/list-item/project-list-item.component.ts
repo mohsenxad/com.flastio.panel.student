@@ -26,8 +26,7 @@ export class ProjectListItemComponent implements OnInit {
   }
 
   edit(){
-    console.log('edit project');
-    
+    this.onEdit.emit(this.project);
   }
 
   delete(){

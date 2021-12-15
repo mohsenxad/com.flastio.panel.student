@@ -7,9 +7,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class YearSelectComponent implements OnInit {
 
-  @Input() selectedYear:Number;
+  @Input() selectedYear:number;
+  @Output() onYearSelected = new EventEmitter<number>();
 
-  yearList:Number[] = [2017,2018,2019,2020,2021];
+  yearList:number[] = [2017,2018,2019,2020,2021];
 
 
   constructor() { }
@@ -18,11 +19,9 @@ export class YearSelectComponent implements OnInit {
     console.log(this.selectedYear);
   }
 
-  changed(year:Number){
-    console.log(year);
+  changed(year:number){
     this.selectedYear = year;
-    console.log(this.selectedYear);
-    
+    this.onYearSelected.emit(this.selectedYear);
   }
 
 

@@ -13,8 +13,10 @@ export class CertificationPanelComponent implements OnInit {
   @Input() assignedCertificationList: AssignedCertification[];
 
   isAddCertificationModalVisible:Boolean = false;
+  isEditCertificationModalVisible:Boolean = false;
   isConfirmRemoveModalVisible:Boolean = false;
   markAsDeleteSssignedCertification :AssignedCertification;
+  markAsEditAssignedCertification :AssignedCertification;
 
   constructor(
     private certificationService: CertificationService
@@ -29,6 +31,14 @@ export class CertificationPanelComponent implements OnInit {
 
   hideAddCertificationModal(){
     this.isAddCertificationModalVisible = false;
+  }
+
+  showEditCertificationModal(){
+    this.isEditCertificationModalVisible = true;
+  }
+
+  hideEditCertificationModal(){
+    this.isEditCertificationModalVisible = false;
   }
 
   showConfrimDeleteModal(){
@@ -47,8 +57,20 @@ export class CertificationPanelComponent implements OnInit {
     this.assignedCertificationList.push(assignedCertification);
   }
 
+  editedAssignedCertification(assignedCertification:AssignedCertification){
+    this.assignedCertificationList.forEach((currentAssignedCertification:AssignedCertification)=>{
+      if(currentAssignedCertification._id.toString() == assignedCertification._id.toString()){
+        currentAssignedCertification.certification = assignedCertification.certification;
+        currentAssignedCertification.issuedDateMonth = assignedCertification.issuedDateMonth;
+        currentAssignedCertification.issuedDateYear = assignedCertification.issuedDateYear;
+        currentAssignedCertification.fileUrl = assignedCertification.fileUrl;
+      }
+    })
+  }
+
   edit(assignedCertification: AssignedCertification){
-    console.log('edit project');
+    this.markAsEditAssignedCertification = Object.assign({},assignedCertification);
+    this.showEditCertificationModal();
   }
 
   async delete(assignedCertification: AssignedCertification){

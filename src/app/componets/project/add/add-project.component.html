@@ -1,22 +1,23 @@
 <div class="main-modal">
-    
+  
   <form class="popup"
-  *ngIf = "pageTitle == 'General'"
+    *ngIf = "pageTitle == 'General'"
   >
     <loading
       *ngIf="isLoading"
     ></loading>
     <button class="close-btn"
-    (click) = 'close()'
+      (click) = 'close()'
     >
-    Close
+      Close
     </button>
 
 
     <project-base-info
       *ngIf = "pageTitle == 'General'"
       [major] = 'major'
-      [(project)] = 'project'
+      [(projectBaseInfo)]  = 'project.baseInfo'
+      (onSetBaseInfo) = 'setBaseInfo($event)'
     ></project-base-info>
 
     <project-strength
@@ -24,7 +25,7 @@
     ></project-strength>
 
     <validation-result
-        [validationResult] = 'validationResult'
+      [validationResult] = 'validationResult'
     ></validation-result>
 
     <button class="cancel-btn" (click)="publish()">Publish</button>
@@ -38,25 +39,24 @@
       (onPageTitleSelected)="changePage($event)"
     ></add-paging-project>
   </form>
- >
+  
   <assign-link-project
-  *ngIf="pageTitle == 'Links'"
-  [linkUrlList]="project.linkUrlList"
-  (onLinkUrlListUpdated) = "updateLinkUrlList($event)"
-  (onClose) = 'goToGeneralView($event)'
+    *ngIf="pageTitle == 'Links'"
+    [linkUrlList]="project.linkUrlList"
+    (onLinkUrlListUpdated) = "updateLinkUrlList($event)"
+    (onClose) = 'goToGeneralView($event)'
   ></assign-link-project>
   <assign-supporting-file-project
-  *ngIf="pageTitle == 'Attachment'"
-  [supportingFileList] = "project.supportingFileList"
-  (onSupportingFileListUpdated) = "updateSupportingFileList($event)"
-  (onClose) = 'goToGeneralView($event)'
-  updateSupportingFileList
+    *ngIf="pageTitle == 'Attachment'"
+    [supportingFileList] = "project.supportingFileList"
+    (onSupportingFileListUpdated) = "updateSupportingFileList($event)"
+    (onClose) = 'goToGeneralView($event)'
   ></assign-supporting-file-project>
   <assign-contributor
-  *ngIf = "pageTitle == 'Team'"
-  [contributorList] = "project.contributorList"
-  (onContributorListUpdated) = "updateContributorList($event)"
-  (onClose) = 'goToGeneralView($event)'
+    *ngIf = "pageTitle == 'Team'"
+    [contributorList] = "project.contributorList"
+    (onContributorListUpdated) = "updateContributorList($event)"
+    (onClose) = 'goToGeneralView($event)'
   ></assign-contributor>
 
 </div>

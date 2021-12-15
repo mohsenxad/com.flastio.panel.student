@@ -5,9 +5,9 @@
       name="year"
       [attr.id]="year"
       value="{{ year }}"
-  
       (change)="changed(year)"
       [checked]="year == selectedYear"
+      (input)="selectedYear"
     />
     <label [attr.for]="year">
       {{ year }}

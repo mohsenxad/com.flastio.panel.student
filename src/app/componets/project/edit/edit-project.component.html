@@ -1,0 +1,62 @@
+<div class="main-modal">
+  
+    <form class="popup"
+      *ngIf = "pageTitle == 'General'"
+    >
+      <loading
+        *ngIf="isLoading"
+      ></loading>
+      <button class="close-btn"
+        (click) = 'close()'
+      >
+        Close
+      </button>
+  
+  
+      <project-base-info
+        *ngIf = "pageTitle == 'General'"
+        [major] = 'major'
+        [(projectBaseInfo)]  = 'project.baseInfo'
+        (onSetBaseInfo) = 'setBaseInfo($event)'
+      ></project-base-info>
+  
+      <project-strength
+        [project] = project
+      ></project-strength>
+  
+      <validation-result
+        [validationResult] = 'validationResult'
+      ></validation-result>
+  
+      <button class="cancel-btn" (click)="publish()">Publish</button>
+      <button class="submit-btn" (click)="draft()">Save draft</button>
+  
+      <add-paging-project
+        [hadAttachment] = 'project.supportingFileList.length > 0'
+        [hadLinks] = 'project.linkUrlList.length > 0' 
+        [hadCertification] = 'project.linkUrlList.length > 0' 
+        [hadTeam] = 'project.contributorList.length > 0' 
+        (onPageTitleSelected)="changePage($event)"
+      ></add-paging-project>
+    </form>
+    
+    <assign-link-project
+      *ngIf="pageTitle == 'Links'"
+      [linkUrlList]="project.linkUrlList"
+      (onLinkUrlListUpdated) = "updateLinkUrlList($event)"
+      (onClose) = 'goToGeneralView($event)'
+    ></assign-link-project>
+    <assign-supporting-file-project
+      *ngIf="pageTitle == 'Attachment'"
+      [supportingFileList] = "project.supportingFileList"
+      (onSupportingFileListUpdated) = "updateSupportingFileList($event)"
+      (onClose) = 'goToGeneralView($event)'
+    ></assign-supporting-file-project>
+    <assign-contributor
+      *ngIf = "pageTitle == 'Team'"
+      [contributorList] = "project.contributorList"
+      (onContributorListUpdated) = "updateContributorList($event)"
+      (onClose) = 'goToGeneralView($event)'
+    ></assign-contributor>
+  
+  </div>

@@ -9,8 +9,9 @@
             name = 'projectType'
             [attr.id]="projectType"
             value="{{projectType}}"
-            [(ngModel)]="selectedProjectType"
-            (change)="changeProjectType(projectType)"
+            (change)="changed(projectType)"
+            [checked]="projectType == selectedProjectType"
+            (input)="selectedProjectType"
         >
         <label
         [attr.for] = "projectType"

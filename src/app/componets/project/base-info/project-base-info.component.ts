@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Course } from 'src/app/model/course';
 import { Major } from 'src/app/model/major';
 import { Project } from 'src/app/model/project';
+import { ProjectBaseInfo } from 'src/app/model/projectBaseInfo';
 import { Skill } from 'src/app/model/skill';
-import { ProjectService } from 'src/app/services/project/project.service';
 
 @Component({
   selector: 'project-base-info',
@@ -13,51 +13,62 @@ import { ProjectService } from 'src/app/services/project/project.service';
 export class ProjectBaseInfoComponent implements OnInit {
 
   @Input() major:Major;
-  @Input() project:Project;
+  @Input() projectBaseInfo:ProjectBaseInfo;
+  @Output() onSetBaseInfo = new EventEmitter<ProjectBaseInfo>();
 
   fileUrl: String;
   projectFile: File ;
   uniqFileName: String;
 
-  constructor(
-    private projectService: ProjectService
-  ) { }
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   setCoursse(course:Course){
-    this.project.course = course;
+    console.log(course);
+    
+    this.projectBaseInfo.course = course;
+    this.updateProjectBaseInfo();
   }
 
   removeCoursse(){
-    this.project.course = undefined;
+    this.projectBaseInfo.course = undefined;
+    this.updateProjectBaseInfo();
   }
 
-  setProjecType(projectType:String){
-    this.project.projectType = projectType;
-  }
-
-  setYearCompleted(year:Number){
-    console.log(`year selected ${year}`);
-    
-    this.project.yearCompleted = year;
-  }
 
   addSkill(skill:Skill){
-    this.project.skillList.push(skill);
+    this.projectBaseInfo.skillList.push(skill);
+    this.updateProjectBaseInfo();
   }
 
   removeSkillFromProject(skill:Skill){
-    this.project.skillList = this.project.skillList.filter((currentSkill)=>{
+    this.projectBaseInfo.skillList = this.projectBaseInfo.skillList.filter((currentSkill)=>{
       if(currentSkill._id.toString() != skill._id.toString()){
         return currentSkill;
       }
     })
+    this.updateProjectBaseInfo();
   }
 
   setSummaryFile(uploadResponse: any, fileUrl:String){
-    this.project.summeryFileUrl = uploadResponse.fileUrl;
+    this.projectBaseInfo.summeryFileUrl = uploadResponse.fileUrl;
+    this.updateProjectBaseInfo();
+  }
+
+  setYearCompleted(year: number){
+    this.projectBaseInfo.yearCompleted = year;
+    this.updateProjectBaseInfo();
+  }
+  setProjectType(projectType: String){
+    this.projectBaseInfo.projectType = projectType;
+    this.updateProjectBaseInfo();
+  }
+
+  updateProjectBaseInfo(){
+    this.onSetBaseInfo.emit(this.projectBaseInfo);
   }
 
 }

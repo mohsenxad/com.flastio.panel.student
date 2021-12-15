@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ValidationResult } from 'src/app/model/validationResult';
 import { ProjectService } from 'src/app/services/project/project.service';
 
@@ -9,9 +9,12 @@ import { ProjectService } from 'src/app/services/project/project.service';
 })
 export class ProjectFileUploaderComponent implements OnInit {
 
+  @Input() fileUrl:String;
+  @Output() onFileUploaded = new EventEmitter<{fileName: String, fileUrl: String}>();
+
   file: File ;
   fileName: String;
-  fileUrl:String;
+  
 
   isFileUploaded:Boolean = false;
   isLoading:Boolean = false;
@@ -20,7 +23,7 @@ export class ProjectFileUploaderComponent implements OnInit {
     messageList:[]
   }
 
-  @Output() onFileUploaded = new EventEmitter<{fileName: String, fileUrl: String}>();
+ 
 
   constructor(
     private projectService:ProjectService
@@ -28,6 +31,9 @@ export class ProjectFileUploaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.fileUrl){
+      this.isFileUploaded = true;
+    }
   }
 
   remove(): void{

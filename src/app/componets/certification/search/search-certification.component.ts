@@ -72,8 +72,10 @@ export class SearchCertificationComponent implements OnInit {
   }
 
   remove(){
+    console.log('here to remove');
+    
     this.selectedCertification = undefined;
-    this.onCertificationSelected.emit(undefined);
+    this.onCertificationSelected.emit(this.selectedCertification);
   }
 
 }

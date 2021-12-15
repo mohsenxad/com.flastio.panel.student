@@ -1,0 +1,69 @@
+<div class="main-modal">
+    <form
+      class="popup" 
+    >
+    <loading
+      *ngIf = "isLoading"
+    ></loading>
+    <button class="close-btn"
+      (click)="close()"
+    >
+      Close
+    </button>
+    <legend>Add Certification</legend>
+    <fieldset
+      [disabled] = "isLoading"
+    >
+      <ul>
+        <li>
+          <label for="divCertification"> Certification name </label>
+          <div id="divCertification" name="divCertification">
+            <search-certification
+              [selectedCertification] = 'assignedCertification.certification'
+              (onCertificationSelected)="onCertificationSet($event)"
+            ></search-certification>
+          </div>
+        </li>
+        <li>
+          <label for="divDateIssued"> Date issued </label>
+          <div id="divDateIssued" name="divDateIssued">
+            <month-select
+              [selectedMonth] = 'assignedCertification.issuedDateMonth'
+              (onMonthSelected) = 'selectedIssuedDateMonth($event)'
+            ></month-select>
+  
+            <year-select2
+              [selectedYear] = 'assignedCertification.issuedDateYear'
+              (onYearSelected) = 'selectedIssuedDateYear($event)'
+            ></year-select2>
+  
+          </div>
+        </li>
+        <li>
+          <certification-file-uploader
+            [fileUrl]="assignedCertification.fileUrl"
+            (onFileUploaded) = 'setCertificationFile($event,$event)'
+          ></certification-file-uploader>
+         
+        </li>
+      </ul>
+      <validation-result
+        [validationResult] = 'validationResult'
+      ></validation-result>
+      <div>
+        <button class="submit-btn"
+          (click)="save()"
+        >
+          Save
+        </button>
+        <button class="cancel-btn"
+        (click)="cancel()"
+        >
+          Cancel
+        </button>
+      </div>
+      
+    </fieldset>
+  </form>
+  
+  </div>

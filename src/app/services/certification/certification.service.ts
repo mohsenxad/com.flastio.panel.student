@@ -53,6 +53,21 @@ export class CertificationService {
     return result;
   }
 
+  async edit(assignedCertification: AssignedCertification):Promise<AssignedCertification>{
+    const user: Realm.User = this.app.currentUser;
+    let result:AssignedCertification  = await user.functions
+      .editAssignCertification(
+        this.studentId,
+        assignedCertification._id.toString(),
+        assignedCertification.certification,
+        assignedCertification.issuedDateYear,
+        assignedCertification.issuedDateMonth,
+        assignedCertification.fileName,
+        assignedCertification.fileUrl
+      );
+    return result;
+  }
+
   async remove(assignedCertification: AssignedCertification):Promise<any>{
     const user: Realm.User = this.app.currentUser;
     let result:any  = await user.functions

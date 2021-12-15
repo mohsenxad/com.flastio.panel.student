@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'select-type-project',
   templateUrl: './select-type-project.component.html',
   styleUrls: ['./select-type-project.component.scss']
 })
-export class SelectTypeProjectComponent implements OnInit {
+export class SelectTypeProjectComponent implements OnInit, OnChanges {
 
   @Input() selectedProjectType:String;
   @Output() onProjectTypeSelected = new EventEmitter<String>();
@@ -17,16 +17,20 @@ export class SelectTypeProjectComponent implements OnInit {
   ];
 
   constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    
+  }
 
   ngOnInit(): void {
     if(!this.selectedProjectType){
       this.selectedProjectType = this.projectTypeList[0];
-      this.changeProjectType(this.selectedProjectType);
     }
   }
 
-  changeProjectType(projectType:String){
-    this.onProjectTypeSelected.emit(projectType);
+  changed(selectedYear:String){
+    this.selectedProjectType = selectedYear;
+    this.onProjectTypeSelected.emit(this.selectedProjectType);
   }
 
 }

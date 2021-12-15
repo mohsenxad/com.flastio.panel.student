@@ -1,7 +1,7 @@
 <dl>
   <dt>Image</dt>
   <dd
-    *ngIf = "!assignedCertification.fileUrl"
+    *ngIf = "!assignedCertification.fileUrl && assignedCertification.certification"
   >
     <img
       src = "/assets/images/defult-certification-bg.svg" class="defult-image"
@@ -9,7 +9,7 @@
     />
   </dd>
   <dd
-    *ngIf = "assignedCertification.fileUrl"
+    *ngIf = "assignedCertification.fileUrl && assignedCertification.certification"
   >
     <img
       [src] = "assignedCertification.fileUrl"
@@ -19,7 +19,9 @@
 
   <div>
     <dt>Name</dt>
-    <dd>
+    <dd
+      *ngIf="assignedCertification.certification"
+    >
       {{ assignedCertification.certification.name }}
     </dd>
 
@@ -40,7 +42,9 @@
 
     <dt>Issued Date Month</dt>
     <dd>
-      {{ assignedCertification.issuedDateMonth }}
+      <month-label
+        [monthNumber] = "assignedCertification.issuedDateMonth"
+      ></month-label>
     </dd>
   </div>
 </dl>

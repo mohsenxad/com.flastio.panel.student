@@ -28,6 +28,15 @@
         (onClose) = "hideAddProjectForm()"
         (onProjectAdded) = 'addNewProject($event)'
     ></add-project>
+
+    <edit-project
+        *ngIf = "isEditProjectVisible && markAsEditProject"
+        [project] = 'markAsEditProject'
+        [major] = 'major'
+        (onClose) = "hideEditProjectForm()"
+        (onProjectEdited) = 'changeEditedProject($event)'
+    ></edit-project>
+
     <confirm-delete
         *ngIf = "isConfirmDeleteVisible"
         (onCancel) = "hideConfrimDelete()"
