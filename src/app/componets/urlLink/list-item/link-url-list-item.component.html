@@ -12,11 +12,13 @@
 <div>
   <button
     *ngIf="isViewable"
+    (click) = 'view()'
   >
     View
   </button>
   <button
     *ngIf="isRemovable"
+    (click) = 'delete()'
   >
     Delete
   </button>  

@@ -1,5 +1,8 @@
 <ul *ngIf="linkUrlList && linkUrlList.length > 0">
   <li *ngFor="let linkUrl of linkUrlList">
-    <link-url-list-item [linkUrl]="linkUrl"></link-url-list-item>
+    <link-url-list-item
+      [linkUrl] = "linkUrl"
+      (onViewed) = 'view($event)'
+    ></link-url-list-item>
   </li>
 </ul>

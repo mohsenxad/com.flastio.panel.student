@@ -95,6 +95,11 @@ import { ProjectFileUploaderComponent } from './componets/project/file-uploader/
 import { MonthLabelComponent } from './componets/share/month-label/month-label.component';
 import { EditProjectComponent } from './componets/project/edit/edit-project.component';
 import { EditCertificationComponent } from './componets/certification/edit/edit-certification.component';
+import { WorkStyleTestPanelComponent } from './componets/workStyle/test/panel/work-style-test-panel.component';
+
+import { WorkStyleTestListItemComponent } from './componets/workStyle/test/list-item/work-style-test-list-item.component';
+import { WorkStyleTestListComponent } from './componets/workStyle/test/list/work-style-test-list.component';
+
 
 
 
@@ -192,6 +197,9 @@ import { EditCertificationComponent } from './componets/certification/edit/edit-
     MonthLabelComponent,
     EditProjectComponent,
     EditCertificationComponent,
+    WorkStyleTestPanelComponent,
+    WorkStyleTestListComponent,
+    WorkStyleTestListItemComponent,
   ],
   imports: [
     BrowserModule,

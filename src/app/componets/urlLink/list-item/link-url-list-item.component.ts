@@ -25,5 +25,12 @@ export class LinkUrlListItemComponent implements OnInit {
       this.isViewable = true;
     }
   }
+  view(){
+    this.onViewed.emit(this.linkUrl);
+  }
+
+  delete(){
+    this.onDeleted.emit(this.linkUrl);
+  }
 
 }

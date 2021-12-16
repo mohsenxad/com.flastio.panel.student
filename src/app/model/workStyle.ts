@@ -1,5 +1,5 @@
 export interface WorkStyle {
     _id?:String,
-    name?:String,
+    question?:String,
     value?:Number
 }

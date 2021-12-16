@@ -8,6 +8,7 @@ import { StudentSignupComponent } from './componets/student/signup/student-signu
 import { ConfirmEmailComponent } from './componets/user/confirm-email/confirm-email.component';
 import { LoginComponent } from './componets/user/login/login.component';
 import { SingupComponent } from './componets/user/singup/singup.component';
+import { WorkStyleTestComponent } from './componets/workStyle/test/work-style-test.component';
 
 const routes: Routes = [
   {path:'signup', component:SingupComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'student/signup', component:StudentSignupComponent},
   {path:'student/editDetail', component:AddDetailStudentComponent},
   {path:'student/panel', component:StudentPanelComponent},
+  {path:'workStyle/test', component:WorkStyleTestComponent},
   {path:'project/add', component:AddProjectComponent},
   {path:'certification/assign', component:AssignCertifictionComponent},
 ];

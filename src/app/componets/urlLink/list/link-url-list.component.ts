@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LinkUrl } from '../../../model/linkUrl';
 
 @Component({
@@ -8,10 +8,21 @@ import { LinkUrl } from '../../../model/linkUrl';
 })
 export class LinkUrlListComponent implements OnInit {
   @Input() linkUrlList: LinkUrl[];
+
+  @Output() onDeleted = new EventEmitter<LinkUrl>();
+  @Output() onViewed = new EventEmitter<LinkUrl>();
   
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  view(linkUrl:LinkUrl):void{
+    this.onViewed.emit(linkUrl);
+  }
+
+  delete(linkUrl: LinkUrl): void{
+    this.onDeleted.emit(linkUrl);
   }
 
 }
