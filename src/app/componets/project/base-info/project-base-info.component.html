@@ -31,7 +31,9 @@
           placeholder="Enter name of project"
         />
       </li>
-      <li>
+      <li
+        *ngIf="projectBaseInfo.projectType!='Internship'"
+      >
         <div id="divSelectCourse">
           <search-course
             [major] = "major"
@@ -40,6 +42,19 @@
           ></search-course>
         </div>
       </li>
+
+      <li
+        *ngIf="projectBaseInfo.projectType=='Internship'"
+      >
+        <div id="divSelectCompany">
+          <company-search
+            [selectedCompany] = "projectBaseInfo.company"
+            (onCompanySelected) = "setCompany($event)"
+          ></company-search>
+        </div>
+      </li>
+
+      
 
       <li>
         <label for="txtDescription"> Description </label>

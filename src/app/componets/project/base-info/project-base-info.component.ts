@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Company } from 'src/app/model/company';
 import { Course } from 'src/app/model/course';
 import { Major } from 'src/app/model/major';
 import { Project } from 'src/app/model/project';
@@ -27,9 +28,12 @@ export class ProjectBaseInfoComponent implements OnInit {
   }
 
   setCoursse(course:Course){
-    console.log(course);
-    
     this.projectBaseInfo.course = course;
+    this.updateProjectBaseInfo();
+  }
+
+  setCompany(company: Company){
+    this.projectBaseInfo.company = company;
     this.updateProjectBaseInfo();
   }
 

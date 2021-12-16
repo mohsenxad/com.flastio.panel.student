@@ -1,0 +1,57 @@
+<div
+  *ngIf="!selectedCompany"
+>
+  <form>
+    <legend>Search Company</legend>
+    <fieldset>
+      <ul>
+        <li>
+          <label for="txtCompanyKeyWord"> Type To Search in Company: </label>
+          <input
+            type="text"
+            name="txtCompanyKeyWord"
+            id="txtCompanyKeyWord"
+            [(ngModel)]="companyKeyWord"
+            (keyup)="onKeyup($event)"
+          />
+        </li>
+      </ul>
+    </fieldset>
+
+  </form>
+  <loading
+        *ngIf="isLoading"
+    ></loading>
+  <div class="search-major-result">
+    <button
+      *ngIf = 'isAddable()'
+      (click)="addCompany()"
+    >
+      Add {{ companyKeyWord }}
+    </button>
+    <ul *ngIf="companyList && companyList.length > 0">
+      <li
+        *ngFor="let company of companyList"
+        (click)="selected(company)"
+    >
+        {{ company.name }}
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="search-major-result-section"
+  *ngIf="selectedCompany"
+>
+  <span>
+    {{selectedCompany.name}}
+    <button
+    (click)="remove()"
+  >
+    Remove
+  </button>
+  </span>
+  
+</div>
+

@@ -1,3 +1,4 @@
+import { Company } from "./company";
 import { Contributor } from "./contributor";
 import { Course } from "./course";
 import { LinkUrl } from "./linkUrl";
@@ -16,6 +17,7 @@ export interface Project {
     skillList?:Skill[],
     yearCompleted?: Number,
     course?: Course,
+    company?: Company,
     isPublished?:Boolean,
     linkUrlList?: LinkUrl[],
     supportingFileList? :SupportingFile[],

@@ -1,3 +1,4 @@
+import { Company } from "./company";
 import { Course } from "./course";
 import { Skill } from "./skill";
 
@@ -11,4 +12,5 @@ export interface ProjectBaseInfo {
     skillList?:Skill[],
     yearCompleted?: Number,
     course?: Course,
+    company?: Company,
 }
