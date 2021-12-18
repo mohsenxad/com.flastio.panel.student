@@ -19,11 +19,11 @@
     </section>
 
     <section>
-        <skill-panel
-        *ngIf = "student"
-        [skillList]="student.skillList"
-        (onAddProjectClicked) = 'showAddProject()'
-    ></skill-panel>
+        <skillset-panel
+            *ngIf = "student && skillSetList"
+            [skillSetList]="skillSetList"
+            (onAddProjectClicked) = 'showAddProject()'
+        ></skillset-panel>
     </section>
     <section
         id='secResumeAndTranscript'
@@ -53,17 +53,17 @@
 
     <section>
         <certification-panel
-        *ngIf = "student"
-        [assignedCertificationList] = 'student.assignedCertificationList'
-    ></certification-panel>
+            *ngIf = "student"
+            [assignedCertificationList] = 'student.assignedCertificationList'
+        ></certification-panel>
     </section>
 
 
     <section>
         <recommendation-panel
-        *ngIf = "student"
-        [recommendationList] = 'student.recommendationList'
-    ></recommendation-panel>
+            *ngIf = "student"
+            [recommendationList] = 'student.recommendationList'
+        ></recommendation-panel>
     </section>
 
     <section>

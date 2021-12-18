@@ -1,5 +1,7 @@
 <div class="transcript-body">
-    <section class="header isUploaded">
+    <section
+        [ngClass]="{'header isUploaded':fileUrl}"
+    >
         <h3>
             Transcript
         </h3>

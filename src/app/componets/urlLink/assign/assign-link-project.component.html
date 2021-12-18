@@ -39,7 +39,11 @@
         </div>
         <dt>Delete</dt>
         <dd>
-          <button class="assign-link-delete-btn">Delete</button>
+          <button
+            class="assign-link-delete-btn"
+            (click)="remove(linkUrl)"
+          >
+            Delete</button>
         </dd>
       </dl>
     </li>

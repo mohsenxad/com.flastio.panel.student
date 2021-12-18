@@ -18,6 +18,8 @@ export class LinkUrlListItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('here');
+    
     if(this.onDeleted.observers.length > 0){
       this.isRemovable = true;
     }
@@ -30,6 +32,7 @@ export class LinkUrlListItemComponent implements OnInit {
   }
 
   delete(){
+    console.log('here to u[pdate');
     this.onDeleted.emit(this.linkUrl);
   }
 

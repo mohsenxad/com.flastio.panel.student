@@ -87,6 +87,8 @@ export class EditProjectComponent implements OnInit {
   }
 
   updateLinkUrlList(linkUrlList: LinkUrl[]){
+    console.log('here to u[pdate');
+    
     this.project.linkUrlList = linkUrlList
   }
 

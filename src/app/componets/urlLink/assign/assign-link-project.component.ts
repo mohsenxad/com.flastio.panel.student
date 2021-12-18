@@ -47,5 +47,14 @@ export class AssignLinkProjectComponent implements OnInit {
     this.onClose.emit();
   }
 
+  remove(linkUrl:LinkUrl){
+    this.linkUrlList = this.linkUrlList.filter((currentLinkUrl: LinkUrl) => {
+      if(currentLinkUrl.url != linkUrl.url){
+        return currentLinkUrl;
+      }
+    })
+    
+  }
+
 
 }

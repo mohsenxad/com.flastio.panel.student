@@ -1,0 +1,13 @@
+<section>
+    <h2>
+        Top Skills
+    </h2>
+    <skillset-list
+        *ngIf = "skillSetList && skillSetList.length > 0"
+        [skillSetList] = 'skillSetList'
+    ></skillset-list>
+    <empty-skillset
+        *ngIf = "!skillSetList || skillSetList.length == 0"
+        (onAddProjectClicked) = 'showAddProjectForm()'
+    ></empty-skillset>
+</section>
