@@ -1,0 +1,19 @@
+dl {
+  margin: 0 0 0 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  dt {
+    display: none;
+  }
+  dd {
+    margin: 0;
+    padding: 0;
+    &:nth-child(2) {
+      border-right: 1px solid rgba(0, 184, 92, 0.24);
+      margin-right: 8px;
+      padding-right: 8px;
+    }
+  }
+}
