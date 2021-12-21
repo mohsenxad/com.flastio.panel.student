@@ -12,3 +12,41 @@ label {
   margin: 0 0 31px 0;
   padding: 0;
 }
+
+section {
+  border-radius: 4px;
+  background-color: #91929e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: auto;
+  gap: 41px;
+  transition: 0.5s all;
+  padding: 3px;
+  &:hover {
+    background-color: #3f8cff;
+    transition: 0.5s all;
+  }
+  input {
+    margin: 0;
+    padding: 0 !important;
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+  }
+  input[type="radio"]:checked {
+    transform: scale(3);
+    transition: 0.5s all;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+    border: solid 2px #91929e;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+}
