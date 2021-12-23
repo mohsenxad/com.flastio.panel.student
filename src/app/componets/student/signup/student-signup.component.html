@@ -10,6 +10,7 @@
   <form 
     #form="ngForm"
   >
+  <!-- <flastio-logo></flastio-logo> -->
     <legend>Signup</legend>
     <fieldset>
       <ul>
@@ -20,6 +21,7 @@
             name="txtFirstName"
             id="txtFirstName"
             [(ngModel)]="student.firstName"
+            placeholder="First Name"
           />
         </li>
         <li>
@@ -29,6 +31,7 @@
             name="txtLastName"
             id="txtLastName"
             [(ngModel)]="student.lastName"
+            placeholder="Last Name"
           />
         </li>
         <li class="student-signup-mobile">

@@ -198,3 +198,43 @@ form {
     grid-column: span 2;
   }
 }
+
+@media screen and (max-width: 992px) {
+  section {
+    display: block;
+  }
+  .student-signup-img-section {
+    display: none;
+  }
+
+  form {
+    legend {
+      font-size: 24px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #0a1629;
+      margin: 50px 0;
+    }
+    fieldset {
+      width: 100%;
+      padding: 0 24px 0 16px;
+      box-sizing: border-box;
+    }
+    ul {
+      gap: 2%;
+      .student-signup-mobile {
+        gap: 2%;
+      }
+    }
+  }
+  .student-signup-date-selector div {
+    gap: 2%;
+  }
+  .student-signup-submit {
+    width: 100%;
+  }
+}
