@@ -28,3 +28,10 @@ dl {
     color: #0a1629;
   }
 }
+@media screen and (max-width: 992px) {
+  dl {
+    dt {
+      font-size: 14px;
+    }
+  }
+}

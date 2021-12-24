@@ -1,3 +1,4 @@
+
 ul {
   list-style: none;
   margin: 0;
@@ -31,4 +32,11 @@ details > summary {
 
 details > summary::-webkit-details-marker {
   display: none;
+}
+
+@media screen and (max-width: 992px) {
+  ul{
+    gap: 20px;
+    padding: 10px 10px 10px 60px;
+  }
 }

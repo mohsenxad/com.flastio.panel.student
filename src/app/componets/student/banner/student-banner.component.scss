@@ -8,6 +8,7 @@ div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 ul {
   list-style: none;
@@ -60,7 +61,6 @@ ul {
       padding: 13px;
     }
     &:nth-child(1) {
-    
       button {
         content: url(/assets/images/share.svg);
         padding: 11px;
@@ -70,11 +70,31 @@ ul {
         background-color: #fff;
         transition: 0.5s;
         display: flex;
-  
+
         &:hover {
           border: solid 1px #91929e;
           transition: 0.5s;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  section {
+    padding: 16px;
+  }
+  ul {
+    li {
+      &:nth-child(2),
+      &:nth-child(3) {
+        display: none;
+      }
+      &:nth-child(1) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 8px;
       }
     }
   }

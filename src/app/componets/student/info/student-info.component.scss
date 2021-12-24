@@ -79,3 +79,32 @@ dl {
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  dl {
+    img {
+      width: 85px;
+      height: 85px;
+    }
+    dd {
+      &:nth-child(4) {
+        position: relative;
+        grid-area: 1;
+        student-plane {
+          position: absolute;
+          right: 6px;
+          top: -8px;
+        }
+      }
+      &:nth-child(10) {
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        gap: 8px;
+      }
+      school-status {
+        margin-left: 0;
+      }
+    }
+  }
+}

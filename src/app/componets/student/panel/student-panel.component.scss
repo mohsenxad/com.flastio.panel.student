@@ -63,3 +63,23 @@ student-header {
 .student-panel-main-body {
   margin-top: -200px;
 }
+
+@media screen and (max-width: 992px) {
+  section {
+    width: 100%;
+    margin: 0;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .student-panel-main-body {
+    margin-top: -250px;
+  }
+  #secResumeAndTranscript {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  student-header {
+    padding-top: 20px;
+  }
+}
