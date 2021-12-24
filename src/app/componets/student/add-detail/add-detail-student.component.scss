@@ -125,6 +125,7 @@ form {
       border: none;
       box-shadow: none;
       margin: 0;
+      display: none;
     }
     input[type="file"] {
       border: none;
@@ -142,8 +143,10 @@ form {
   height: 34px;
   align-items: center;
   white-space: pre;
+  justify-content: space-between;
+  align-items: center;
   span {
-    width: 72px;
+    width: 51px;
     height: 32px;
   }
 }
@@ -218,6 +221,7 @@ input:checked + .slider:before {
     content: url(/assets/images/icn-general-arrow-left-white.svg);
     transform: rotate(180deg);
     margin-left: 12px;
+    -webkit-writing-mode: vertical-rl;
   }
   transition: 0.5s;
 
@@ -239,5 +243,22 @@ input:checked + .slider:before {
   color: #3f8cff;
   float: right;
   margin-top: 22px;
+}
 
+@media screen and (max-width: 992px) {
+  form {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 16px;
+  }
+  .add-detail-student-start {
+    width: 100%;
+  }
+  .add-detail-student-skip {
+    display: block;
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
 }
