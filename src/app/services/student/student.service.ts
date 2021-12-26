@@ -33,7 +33,8 @@ export class StudentService {
   }
 
   async getStudentInfo(): Promise<Student>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let student: Student = await user.functions.getStudent();
     return student;
   }

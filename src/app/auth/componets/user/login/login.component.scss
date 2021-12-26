@@ -5,56 +5,7 @@ section {
   overflow: hidden;
   background-color: #3f8cff;
 
-  div {
-    height: 100vh;
-    // background: url(/assets/images/clip-busy-day-at-the-office@3x.webp) no-repeat
-    //   center bottom;
-    // -webkit-background-size: cover;
-    // -moz-background-size: cover;
-    // -o-background-size: cover;
-    // background-size: contain;
-    a {
-      font-size: 30px;
-      font-weight: 200;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      margin-left: 130px;
-      margin-top: 50px;
-      &::before {
-        content: "";
-        width: 25px;
-        height: 25px;
-        border-radius: 8px;
-        background-color: #fff;
-        margin-right: 24px;
-      }
-    }
-    img {
-      width: 100%;
-      height: 540px;
-    }
-    h1 {
-      font-size: 40px;
-      margin-left: 130px;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.4;
-      letter-spacing: normal;
-      color: #fff;
-      margin: 0 auto;
-      padding: 0;
-      margin-left: 130px;
-      width: 70%;
-      margin-top: 40px;
-    }
-  }
+ 
 }
 form {
   margin: 0;

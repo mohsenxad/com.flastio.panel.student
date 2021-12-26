@@ -4,8 +4,8 @@ import { ValidationResult } from 'src/app/model/validationResult';
 
 import { LocalStorageService } from "src/app/services/localStorage/local-storage.service"
 import { StudentService } from 'src/app/services/student/student.service';
-import { UserService } from 'src/app/services/user/user.service';
-import { Student } from '../../../model/student';
+import { UserService } from 'src/app/auth/services/user/user.service';
+import { Student } from '../../../../model/student';
 
 
 @Component({
@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
       }
       this.isLoading = false;
     } catch (error) {
+      this.isLoading = false;
       if(
         error.statusCode == 401 &&
         error.error == "invalid username/password"

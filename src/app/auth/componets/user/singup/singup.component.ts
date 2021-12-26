@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidationResult } from 'src/app/model/validationResult';
-import { UserService } from 'src/app/services/user/user.service';
+import { UserService } from 'src/app/auth/services/user/user.service';
 
 @Component({
   selector: 'app-singup',

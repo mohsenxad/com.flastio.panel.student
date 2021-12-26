@@ -1,12 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA  } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SingupComponent } from './componets/user/singup/singup.component';
 import { FormsModule } from '@angular/forms';
-import { ConfirmEmailComponent } from './componets/user/confirm-email/confirm-email.component';
-import { LoginComponent } from './componets/user/login/login.component';
 import { StudentSignupComponent } from './componets/student/signup/student-signup.component';
 import { AddProjectComponent } from './componets/project/add/add-project.component';
 import { AssignCertifictionComponent } from './componets/certification/assign/assign-certifiction.component';
@@ -53,7 +50,6 @@ import { StudentBannerComponent } from './componets/student/banner/student-banne
 import { TranscriptPanelComponent } from './componets/transcript/panel/transcript-panel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ResumePanelComponent } from './componets/resume/panel/resume-panel.component';
-import { LoadingComponent } from './componets/share/loading/loading.component';
 import { AssignSupportingFileProjectComponent } from './componets/supportingFile/assign/assign-supporting-file-project.component';
 import { SupportingFilePanelComponent } from './componets/supportingFile/panel/supporting-file-panel.component';
 import { SupportingFileListComponent } from './componets/supportingFile/list/supporting-file-list.component';
@@ -70,7 +66,6 @@ import { ContributorPanelComponent } from './componets/contributor/panel/contrib
 import { ContributorListComponent } from './componets/contributor/list/contributor-list.component';
 import { ContributorListItemComponent } from './componets/contributor/list-item/contributor-list-item.component';
 import { StudentHeaderComponent } from './componets/student/header/student-header.component';
-import { LogoComponent } from './componets/share/logo/logo.component';
 import { SchoolStatusComponent } from './componets/school/status/school-status.component';
 import { ShareProfileComponent } from './componets/student/share-profile/share-profile.component';
 import { StudentPlaneComponent } from './componets/student/plane/student-plane.component';
@@ -104,17 +99,14 @@ import { SkillsetListItemComponent } from './componets/skillSet/list-item/skills
 import { SkillsetListComponent } from './componets/skillSet/list/skillset-list.component';
 import { SkillsetPanelComponent } from './componets/skillSet/panel/skillset-panel.component';
 import { EmptySkillsetComponent } from './componets/skillSet/empty/empty-skillset.component';
-
-
+import { ShareModule } from './share/share.module';
+import { AuthModule } from './auth/auth.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SingupComponent,
-    ConfirmEmailComponent,
-    LoginComponent,
     StudentSignupComponent,
     AddProjectComponent,
     AssignCertifictionComponent,
@@ -160,7 +152,6 @@ import { EmptySkillsetComponent } from './componets/skillSet/empty/empty-skillse
     StudentBannerComponent,
     TranscriptPanelComponent,
     ResumePanelComponent,
-    LoadingComponent,
     AssignSupportingFileProjectComponent,
     SupportingFilePanelComponent,
     SupportingFileListComponent,
@@ -177,7 +168,6 @@ import { EmptySkillsetComponent } from './componets/skillSet/empty/empty-skillse
     ContributorListComponent,
     ContributorListItemComponent,
     StudentHeaderComponent,
-    LogoComponent,
     SchoolStatusComponent,
     ShareProfileComponent,
     StudentPlaneComponent,
@@ -213,9 +203,15 @@ import { EmptySkillsetComponent } from './componets/skillSet/empty/empty-skillse
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ShareModule,
+    AuthModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
 })
 export class AppModule { }
