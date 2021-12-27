@@ -25,6 +25,7 @@
   </div>
   <share-profile-panel
     *ngIf = 'isShareProfileModalVisible'
+    [student]  ='student'
     (onClose) = 'hideShareProfileModal()'
   ></share-profile-panel>
   <portfolio-strength

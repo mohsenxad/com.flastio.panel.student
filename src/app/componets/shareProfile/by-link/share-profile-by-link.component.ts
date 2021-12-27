@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+
 
 @Component({
   selector: 'share-profile-by-link',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./share-profile-by-link.component.scss']
 })
 export class ShareProfileByLinkComponent implements OnInit {
-
+   
+  @Input() publicLinkUrl: String ;
+  
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+
+  copyToClipboard(){
+    navigator.clipboard.writeText(this.publicLinkUrl.toString()).then().catch(e => console.error(e));
   }
 
 }

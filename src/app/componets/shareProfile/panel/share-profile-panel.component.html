@@ -17,14 +17,17 @@
 
         <share-profile-by-link
             *ngIf = 'currentView == "Share Link"'
+            [publicLinkUrl]  ='publicLinkUrl'
         ></share-profile-by-link>
         
         <share-profile-by-qrcode
             *ngIf = 'currentView == "QR Code"'
+            [publicLinkUrl]  ='publicLinkUrl'
         ></share-profile-by-qrcode>
     
         <share-profile-by-email
             *ngIf = 'currentView == "Send Email"'
+            [student]  ='student'
         ></share-profile-by-email>
     
     </div>

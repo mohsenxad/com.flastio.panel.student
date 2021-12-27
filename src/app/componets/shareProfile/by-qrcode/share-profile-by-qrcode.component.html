@@ -1,5 +1,12 @@
 <section>
-    <img src="/assets/images/QR-Code.png" alt="QRCode">
+    <span>
+        <ngx-qrcode 
+            [elementType]="'url'" 
+            [value]="publicLinkUrl"
+            cssClass="aclass"
+            errorCorrectionLevel="L">
+        </ngx-qrcode>
+    </span>
    <div>
         <h4>
             Scan QR Code

@@ -26,12 +26,17 @@ const routes: Routes = [
         path: 'confirmEmail', 
         component: ConfirmEmailComponent,
       },
+      {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+      },
     ]
   },
   //{path:'signup', component:SingupComponent},
   //{path:'confirmEmail', component:ConfirmEmailComponent},
   //{path:'login', component:LoginComponent},
-  {path:'', component:LoginComponent},
+  {path:'', redirectTo: 'auth/login', pathMatch:'full'},
   {path:'student/signup', component:StudentSignupComponent},
   {path:'student/editDetail', component:AddDetailStudentComponent},
   {path:'student/panel', component:StudentPanelComponent},

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Student } from 'src/app/model/student';
 import { ValidationResult } from 'src/app/model/validationResult';
+import { StudentService } from 'src/app/services/student/student.service';
 
 @Component({
   selector: 'share-profile-by-email',
@@ -8,6 +10,8 @@ import { ValidationResult } from 'src/app/model/validationResult';
 })
 export class ShareProfileByEmailComponent implements OnInit {
 
+  @Input() student : Student;
+  
   currentEmail: String;
   message:String;
   emailList: String[] = [];
@@ -16,17 +20,19 @@ export class ShareProfileByEmailComponent implements OnInit {
     messageList:[]
   };
 
-  constructor() { }
+  constructor(
+    private studentService:StudentService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  validate(email:String, message: String): ValidationResult{
+  validate(emailList:String[], message: String): ValidationResult{
     let validationResult: ValidationResult = {
       hasError: false,
       messageList:[]
     };
-    if(!email){
+    if(!emailList || emailList.length == 0){
       validationResult.hasError = true;
       validationResult.messageList.push("Enter email address")
     }
@@ -49,9 +55,16 @@ export class ShareProfileByEmailComponent implements OnInit {
   }
 
   send(){
-    this.validationResult = this.validate(this.currentEmail, this.message);
+    this.validationResult = this.validate(this.emailList, this.message);
     if(!this.validationResult.hasError){
       // send message to email List
+      this.emailList.forEach(async (currentEmail:String)=>{
+        await this.studentService.share(this.student,currentEmail, this.message)
+      })
+      this.emailList = [];
+      this.message = '';
+      this.validationResult.hasError = true;
+      this.validationResult.messageList.push("Your Profile Will be Shared!")
     }
   }
 

@@ -6,14 +6,21 @@
             >
                 Profile’s Link
             </label>
+            <loading
+                *ngIf="!publicLinkUrl"
+            ></loading>
             <input
+                *ngIf="publicLinkUrl"
                 id = 'profileLink'
                 name = 'profileLink'
                 type="url"
-                value="www.google.com"
+                readonly
+                [value]="publicLinkUrl"
             >
         </li>
-        <button>
+        <button
+            (click)="copyToClipboard()"
+        >
             Copy
         </button>
     </ul>
