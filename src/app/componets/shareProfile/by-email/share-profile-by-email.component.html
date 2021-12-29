@@ -8,11 +8,11 @@
                     >
                         Recipients
                     </label>
-                    <university-email-input
+                    <public-email-input
                         [email] = 'currentEmail'
                         (onSetEmail) = 'setEamil($event)'
 
-                    ></university-email-input>
+                    ></public-email-input>
 
 
                     <button class="add-recipients-btn"
@@ -31,8 +31,10 @@
                             <span>
                                 {{email}}
                             </span>
-                            <button>
-                                Remove
+                            <button
+                                (click) = "remove(email)"
+                            >
+                                Remove {{email}}
                             </button>
                         </li>
                     </ol>

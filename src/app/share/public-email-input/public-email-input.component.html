@@ -1,0 +1,13 @@
+<input
+    type="email"
+    name="txtEmail"
+    id="txtEmail"
+    [(ngModel)] = 'email'
+    placeholder = "Enter email Address"
+    (keyup)="onKeyup($event)"
+    maxlength="200"
+    minlength="5"
+>
+<validation-result
+    [validationResult] = 'validationResult'
+></validation-result>

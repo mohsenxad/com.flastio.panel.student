@@ -1,5 +1,5 @@
 <ul
-    *ngIf="validationResult.messageList && validationResult.messageList.length > 0"
+    *ngIf="validationResult && validationResult.messageList && validationResult.messageList.length > 0"
 >
     <li
         *ngFor = 'let messsage of validationResult.messageList'

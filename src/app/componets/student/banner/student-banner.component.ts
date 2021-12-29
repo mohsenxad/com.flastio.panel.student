@@ -31,5 +31,10 @@ export class StudentBannerComponent implements OnInit {
     this.isShareProfileModalVisible = false;
   }
 
+  openPublicView(){
+    let publicLinkUrl: string  = `https://v.flastio.com/${this.student._id.toString()}`;
+    window.open(publicLinkUrl);
+  }
+
 
 }

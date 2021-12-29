@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA  } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
@@ -70,7 +69,6 @@ import { ContributorListItemComponent } from './componets/contributor/list-item/
 import { StudentHeaderComponent } from './componets/student/header/student-header.component';
 import { SchoolStatusComponent } from './componets/school/status/school-status.component';
 import { StudentPlaneComponent } from './componets/student/plane/student-plane.component';
-import { ValidationResultComponent } from './componets/share/validation-result/validation-result.component';
 import { MonthSelectComponent } from './componets/share/month-select/month-select.component';
 import { YearSelect2Component } from './componets/share/year-select2/year-select2.component';
 
@@ -102,6 +100,7 @@ import { SkillsetPanelComponent } from './componets/skillSet/panel/skillset-pane
 import { EmptySkillsetComponent } from './componets/skillSet/empty/empty-skillset.component';
 import { ShareModule } from './share/share.module';
 import { AuthModule } from './auth/auth.module';
+
 
 
 
@@ -171,7 +170,6 @@ import { AuthModule } from './auth/auth.module';
     StudentHeaderComponent,
     SchoolStatusComponent,
     StudentPlaneComponent,
-    ValidationResultComponent,
     MonthSelectComponent,
     YearSelect2Component,
     ShareProfileByLinkComponent,
@@ -202,7 +200,6 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
     NgxQRCodeModule,
     ShareModule,
