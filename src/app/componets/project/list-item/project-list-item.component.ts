@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { iif } from 'rxjs';
 import { LinkUrl } from 'src/app/model/linkUrl';
 import { Project } from '../../../model/project';
 
@@ -23,7 +24,9 @@ export class ProjectListItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.safeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.project.summeryFileUrl.toString());
+    if(this.project.summeryFileUrl){
+      this.safeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.project.summeryFileUrl.toString());
+    }
   }
 
   edit(){

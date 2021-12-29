@@ -51,7 +51,7 @@ export class AddProjectComponent implements OnInit {
     private projectService:ProjectService
   ) {}
 
-  validate(project: Project): ValidationResult{
+  validatePublish(project: Project): ValidationResult{
     let result: ValidationResult = {
       hasError:false,
       messageList: []
@@ -87,6 +87,27 @@ export class AddProjectComponent implements OnInit {
       result.messageList.push("Select Project Year of Completed");
     }
 
+    if(
+      result.hasError &&
+      project.baseInfo.name
+    ){
+      result.messageList.unshift("You Can Draft This Project or Fillup the bellow Items");
+    }
+
+
+    return result;
+  }
+
+  validateDraft(project: Project): ValidationResult{
+    let result: ValidationResult = {
+      hasError:false,
+      messageList: []
+    };
+
+    if(!project.baseInfo.name || project.baseInfo.name == ""){
+      result.hasError = true;
+      result.messageList.push("Add Project Name");
+    }
 
     return result;
   }
@@ -123,26 +144,31 @@ export class AddProjectComponent implements OnInit {
 
   draft(){
     this.project.isPublished = false;
-    this.save();
-  }
-
-  publish(){
-    this.project.isPublished = true;
-    this.save();
-  }
-
-  async save(){
-    let validationResult = this.validate(this.project);
+    let validationResult = this.validateDraft(this.project);
     if(!validationResult.hasError){
-      this.isLoading = true;
-      let addedProject: Project  = await this.projectService.add(this.project);
-      this.onProjectAdded.emit(addedProject)
-      this.isLoading = false;
-      this.onClose.emit();
+      this.save();
     }else{
       this.validationResult = validationResult;
     }
     
+  }
+
+  publish(){
+    this.project.isPublished = true;
+    let validationResult = this.validatePublish(this.project);
+    if(!validationResult.hasError){
+      this.save();
+    }else{
+      this.validationResult = validationResult;
+    }
+  }
+
+  async save(){
+    this.isLoading = true;
+    let addedProject: Project  = await this.projectService.add(this.project);
+    this.onProjectAdded.emit(addedProject)
+    this.isLoading = false;
+    this.onClose.emit();
   }
 
   setBaseInfo(baseInfo:ProjectBaseInfo){

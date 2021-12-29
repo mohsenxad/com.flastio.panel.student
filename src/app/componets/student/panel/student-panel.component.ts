@@ -48,8 +48,10 @@ export class StudentPanelComponent implements OnInit {
   getSkillList(student: Student):Skill[]{
     let skillList : Skill[] =[];
     for (let project of student.projectList) {
-      for (let skill of project.skillList) {
-        skillList.push(skill);
+      if(project.isPublished){
+        for (let skill of project.skillList) {
+          skillList.push(skill);
+        }
       }
     }
     return skillList;

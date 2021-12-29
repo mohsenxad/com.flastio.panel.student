@@ -5,12 +5,16 @@
   </dd>
 
   <dt>Year Completed</dt>
-  <dd>
+  <dd
+    *ngIf="project.yearCompleted"
+  >
     {{ project.yearCompleted }}
   </dd>
 
   <dt>Course</dt>
-  <dd>
+  <dd
+    *ngIf="project.course"
+  >
     {{ project.course.name }}
   </dd>
 
@@ -38,7 +42,9 @@
   </dd>
 
   <dt>Description</dt>
-  <dd>
+  <dd
+    *ngIf="project.description"
+  >
     {{ project.description }}
   </dd>
 
@@ -48,8 +54,10 @@
   </dd>
 
   <dt
-    *ngIf="project.summeryFileUrl"
-  >File Priveiw</dt>
+    *ngIf = "project.summeryFileUrl"
+  >
+    File Priveiw
+  </dt>
   <dd
     class="project-image"
     *ngIf="project.summeryFileUrl"

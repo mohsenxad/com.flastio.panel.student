@@ -22,6 +22,7 @@ export class SupportingFileListItemComponent implements OnInit {
     if(this.onViewed.observers.length > 0){
       this.isViewable = true;
     }
+    
   }
 
 }

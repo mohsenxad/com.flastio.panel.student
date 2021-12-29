@@ -10,9 +10,16 @@
     </dd>
 
     <dt>Uploaded</dt>
-  <dd>
-    {{ supportingFile.isUploadComeplete }}
-  </dd>
+    <dd
+      *ngIf="!supportingFile.isUploadComeplete"
+    >
+      Uploading ...
+    </dd>
+    <dd
+      *ngIf="supportingFile.isUploadComeplete"
+    >
+      {{this.supportingFile.file.type}}
+    </dd>
 </dl>
 <div>
   <button

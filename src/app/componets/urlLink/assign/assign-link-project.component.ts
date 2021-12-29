@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Url } from 'url';
 import { LinkUrl } from '../../../model/linkUrl';
 
 @Component({
@@ -19,9 +20,12 @@ export class AssignLinkProjectComponent implements OnInit {
   }
 
   getLinkInfo(url: String){
+    let orginalUrlLink: URL = new URL(url.toString())
+    console.log(orginalUrlLink);
+    
     let newLinkUrl : LinkUrl = {
       title:'New Link From Url',
-      host: 'Youtube',
+      host: orginalUrlLink.host,
       url: this.linkUrl
     };
     return newLinkUrl;

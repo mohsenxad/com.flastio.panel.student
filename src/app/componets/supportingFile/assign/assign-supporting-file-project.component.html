@@ -7,8 +7,7 @@
   
     <fieldset>
       <p>
-        You can share any related links, including links to YouTube videos,
-        potential websites, or webpages you built as a part of your project
+        Consider uploading files such as your Python code, Excel file including your modeling or analysis, CAD files, or relevant photos or videos.
       </p>
   
       <ul>
@@ -48,13 +47,24 @@
           </dd>
 
           <dt>Uploaded</dt>
-          <dd>
-            {{ supportingFile.isUploadComeplete }}
+          <dd
+            *ngIf="!supportingFile.isUploadComeplete"
+          >
+            Uploading ...
+          </dd>
+          <dd
+            *ngIf="supportingFile.isUploadComeplete"
+          >
+            {{this.supportingFile.file.type}}
           </dd>
         </div>
         <dt>Delete</dt>
         <dd>
-          <button>Delete</button>
+          <button
+            (click) = "remove(supportingFile)"
+          >
+            Delete
+          </button>
         </dd>
       </dl>
     </li>
