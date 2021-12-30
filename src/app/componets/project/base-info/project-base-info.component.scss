@@ -119,3 +119,10 @@ form {
     }
   }
 }
+
+#divAssignedSkill{
+  ul{
+    display: flex;
+    flex-flow: wrap;
+  }
+}
