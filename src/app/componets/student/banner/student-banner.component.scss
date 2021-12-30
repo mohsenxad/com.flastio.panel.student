@@ -56,9 +56,14 @@ ul {
       }
     }
     &:nth-child(2) {
-      content: url(/assets/images/eye.svg);
       margin: 0 16px;
-      padding: 13px;
+      button {
+        content: url(/assets/images/eye.svg);
+        padding: 13px;
+        display: flex;
+        border: none;
+        background: none;
+      }
     }
     &:nth-child(1) {
       button {
