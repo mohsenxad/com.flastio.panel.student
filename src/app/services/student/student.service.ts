@@ -86,7 +86,7 @@ export class StudentService {
 
 
   getSharableLink(studentId: String): String{
-    return `https://v.flastio.com/${studentId.toString()}`
+    return `https://v.flastio.com/home;sudentId=${studentId.toString()}`
   }
     
     
