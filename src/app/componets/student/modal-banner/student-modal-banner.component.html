@@ -1,41 +1,43 @@
-<div class="popup">
-    <button
-        class="close-btn"
-        (click)="close()"
-    >
-        Close
-    </button>
-
-    <dl>
-        <dt>picture</dt>
-        <dd>
-            <img 
-            *ngIf="!student.pictureFileUrl"
-            src="/assets/images/profile-icon.svg"
-            alt="image"
-            >
-            <img 
-            *ngIf="student.pictureFileUrl"
-            [src]="student.pictureFileUrl"
-            alt="image"
-            >
-        </dd>
-        
-        <dt>
-            Badge
-        </dt>
-        <dd class="student-plane">
-            <student-plane></student-plane>
-        </dd>
-        <dt>FistName</dt>
-        <dd>
-            {{ student.firstName }}
-        </dd>
-        <dt>LastName</dt>
-        <dd>
-            {{ student.lastName }}
-        </dd>
-    </dl>
-
-    <student-action-panel></student-action-panel>
+<div class="main-modal">
+    <div class="popup student-modal-banner">
+        <button
+            class="close-btn"
+            (click)="close()"
+        >
+            Close
+        </button>
+    
+        <dl>
+            <dt>picture</dt>
+            <dd>
+                <img 
+                *ngIf="!student.pictureFileUrl"
+                src="/assets/images/profile-icon.svg"
+                alt="image"
+                >
+                <img 
+                *ngIf="student.pictureFileUrl"
+                [src]="student.pictureFileUrl"
+                alt="image"
+                >
+            </dd>
+            
+            <dt>
+                Badge
+            </dt>
+            <dd class="student-plane">
+                <student-plane></student-plane>
+            </dd>
+            <dt>FistName</dt>
+            <dd>
+                {{ student.firstName }}
+            </dd>
+            <dt>LastName</dt>
+            <dd>
+                {{ student.lastName }}
+            </dd>
+        </dl>
+    
+        <student-action-panel></student-action-panel>
+    </div>
 </div>

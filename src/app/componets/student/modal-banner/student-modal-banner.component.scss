@@ -1,4 +1,4 @@
-div {
+.student-modal-banner {
   border-radius: 16px;
   box-shadow: 0 6px 58px 0 rgba(121, 145, 173, 0.2);
   background-color: #fff;
@@ -11,6 +11,7 @@ div {
   margin-top: 15px;
   position: absolute;
   right: 0;
+  top: 0;
 
   .close-btn {
     background-color: #f4f9fd;
