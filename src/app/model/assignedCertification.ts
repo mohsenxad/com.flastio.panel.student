@@ -5,6 +5,7 @@ export interface AssignedCertification {
     certification?: Certification,
     issuedDateMonth?: Number,
     issuedDateYear?: Number,
+    organization?:String,
     fileName?: String,
     fileUrl?: String,
 }

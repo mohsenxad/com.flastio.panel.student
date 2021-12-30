@@ -1,7 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AssignedCertification } from 'src/app/model/assignedCertification';
-import { Project } from 'src/app/model/project';
-
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'confirm-delete',

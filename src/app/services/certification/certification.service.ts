@@ -47,6 +47,7 @@ export class CertificationService {
         assignedCertification.certification,
         assignedCertification.issuedDateYear,
         assignedCertification.issuedDateMonth,
+        assignedCertification.organization,
         assignedCertification.fileName,
         assignedCertification.fileUrl
       );
@@ -62,6 +63,7 @@ export class CertificationService {
         assignedCertification.certification,
         assignedCertification.issuedDateYear,
         assignedCertification.issuedDateMonth,
+        assignedCertification.organization,
         assignedCertification.fileName,
         assignedCertification.fileUrl
       );

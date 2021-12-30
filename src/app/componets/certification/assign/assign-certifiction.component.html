@@ -39,10 +39,22 @@
         </div>
       </li>
       <li>
+        <label
+          for="txtOrganization"
+        >
+          Organization
+        </label>
+        <input
+          type="text"
+          [(ngModel)] = "assignedCertification.organization"
+          maxlength="200"
+          placeholder="e.g., ASQ"
+        >
+      </li>
+      <li>
         <certification-file-uploader
           (onFileUploaded) = 'setCertificationFile($event,$event)'
         ></certification-file-uploader>
-       
       </li>
     </ul>
     <validation-result

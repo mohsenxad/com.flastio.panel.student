@@ -1,4 +1,30 @@
-<select
+<input
+    list="yearList"
+    [(ngModel)] = "selectedYear" 
+    value = "{{selectedYear}}"
+    (ngModelChange)="changeYear()"
+    type="number"
+    maxlength="4"
+    max="2021"
+    minlength="4"
+    min="1980"
+    id="year"
+    name="year"
+    placeholder="Year"
+>
+<datalist
+    id="yearList"
+>
+    <option
+        *ngFor="let year of yearList"
+        [value]="year"
+    >
+        {{year}}
+    </option>
+</datalist>
+
+
+<!-- <select
     name="year"
     id="year"
     [(ngModel)]="selectedYear"
@@ -37,4 +63,4 @@
     >
         2023
     </option>
-</select>
+</select> -->
