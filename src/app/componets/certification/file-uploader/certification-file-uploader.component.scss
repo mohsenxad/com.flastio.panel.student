@@ -1,8 +1,11 @@
-div {
+#divCertificationFileSelector {
   border-radius: 3px;
-
   padding: 50px;
   text-align: center;
+  border-radius: 3px;
+  border: dashed 1px rgba(0, 59, 119, 0.2);
+  background-color: rgba(0, 112, 255, 0.05);
+
   div {
     position: relative;
   }
@@ -57,5 +60,6 @@ div {
     position: absolute;
     opacity: 0;
     cursor: pointer;
+    display: none;
   }
 }

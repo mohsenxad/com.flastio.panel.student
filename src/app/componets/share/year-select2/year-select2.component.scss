@@ -1,4 +1,4 @@
-select {
+input {
   border-radius: 14px;
   box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
   border: solid 1px #d8e0f0;
@@ -33,5 +33,21 @@ option {
   font-size: 16px;
   color: #7d8592;
   margin: 6px 0;
-  padding: 6px 0;
+  padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
 }
