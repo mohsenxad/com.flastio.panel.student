@@ -24,6 +24,21 @@ export class AssignSupportingFileProjectComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setDropable(){
+    console.log('statr dropable');
+    
+    let dropContainer = document.getElementById("divSupportingFileSelector");
+
+    dropContainer.ondragover = dropContainer.ondragenter = (evt) => {
+      evt.preventDefault();
+    };
+
+    dropContainer.ondrop = (evt) => {
+      this.handleFileInput(evt.dataTransfer.files)
+      evt.preventDefault();
+    };
+  }
+
   async handleFileInput(files: FileList) {
     this.isLoading = true;
     let currentSupportingFile:File = files.item(0);

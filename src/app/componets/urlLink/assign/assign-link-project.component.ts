@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Url } from 'url';
+import { ValidationResult } from 'src/app/model/validationResult';
 import { LinkUrl } from '../../../model/linkUrl';
 
 @Component({
@@ -9,10 +9,17 @@ import { LinkUrl } from '../../../model/linkUrl';
 })
 export class AssignLinkProjectComponent implements OnInit {
 
-  linkUrl:String;
+  
   @Input() linkUrlList: LinkUrl[] = [];
   @Output() onLinkUrlListUpdated = new EventEmitter<LinkUrl[]>();
   @Output() onClose = new EventEmitter();
+
+  linkUrl:String;
+  isLoading:Boolean = false;
+  validationResult: ValidationResult = {
+    hasError : false,
+    messageList: []
+  };
 
   constructor() { }
 
@@ -31,10 +38,28 @@ export class AssignLinkProjectComponent implements OnInit {
     return newLinkUrl;
   }
 
+  validate(url: String): ValidationResult{
+    let result: ValidationResult = {
+      hasError:false,
+      messageList: []
+    };
+
+    try {
+      let orginalUrlLink: URL = new URL(url.toString())  
+    } catch (error) {
+      result.hasError = true;
+      result.messageList.push("Enter a Valid Url");
+    }
+    return result;
+  }
+
   processLink(){
-    let newLinkUrl = this.getLinkInfo(this.linkUrl);
-    this.linkUrlList.push(newLinkUrl);
-    this.linkUrl = '';
+    this.validationResult = this.validate(this.linkUrl);
+    if(!this.validationResult.hasError){
+      let newLinkUrl = this.getLinkInfo(this.linkUrl);
+      this.linkUrlList.push(newLinkUrl);
+      this.linkUrl = '';
+    }
   }
 
   save(){
@@ -58,6 +83,14 @@ export class AssignLinkProjectComponent implements OnInit {
       }
     })
     
+  }
+
+  onKeyup(event: any) {
+    if(event.code =='Enter'){
+      this.processLink();
+      event.preventDefault();
+      event.stopPropagation();
+    }
   }
 
 

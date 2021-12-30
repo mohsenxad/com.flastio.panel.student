@@ -36,6 +36,23 @@ export class ProjectFileUploaderComponent implements OnInit {
     }
   }
 
+  
+
+  setDropable(){
+    console.log('init dropable in project');
+    
+    let dropContainer = document.getElementById("divProjectSummaryFileSelector");
+
+    dropContainer.ondragover = dropContainer.ondragenter = (evt) => {
+      evt.preventDefault();
+    };
+
+    dropContainer.ondrop = (evt) => {
+      this.handleFileInput(evt.dataTransfer.files)
+      evt.preventDefault();
+    };
+  }
+
   remove(): void{
     this.fileName = undefined;
     this.fileUrl = undefined;

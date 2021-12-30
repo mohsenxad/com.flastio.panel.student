@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { StudentService } from 'src/app/services/student/student.service';
 import { Student } from '../../../model/student';
 
 @Component({
@@ -12,7 +13,9 @@ export class StudentBannerComponent implements OnInit {
 
   isShareProfileModalVisible: Boolean = false;
   
-  constructor() { }
+  constructor(
+    private studentService: StudentService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -32,8 +35,8 @@ export class StudentBannerComponent implements OnInit {
   }
 
   openPublicView(){
-    let publicLinkUrl: string  = `https://v.flastio.com/${this.student._id.toString()}`;
-    window.open(publicLinkUrl);
+    let publicLinkUrl: String  = this.studentService.getSharableLink(this.student._id);
+    window.open(publicLinkUrl.toString());
   }
 
 

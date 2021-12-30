@@ -10,6 +10,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ShareProfileByLinkComponent implements OnInit {
    
   @Input() publicLinkUrl: String ;
+
+  isCopyed: Boolean = false;
   
   constructor() { }
 
@@ -19,6 +21,7 @@ export class ShareProfileByLinkComponent implements OnInit {
 
   copyToClipboard(){
     navigator.clipboard.writeText(this.publicLinkUrl.toString()).then().catch(e => console.error(e));
+    this.isCopyed = true;
   }
 
 }

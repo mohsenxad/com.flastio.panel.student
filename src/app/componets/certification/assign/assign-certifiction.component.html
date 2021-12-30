@@ -1,6 +1,6 @@
 <div class="main-modal">
   <form
-    class="popup" 
+    class="popup"
   >
   <loading
     *ngIf = "isLoading"
@@ -46,6 +46,8 @@
         </label>
         <input
           type="text"
+          id = 'txtOrganization'
+          name = 'txtOrganization'
           [(ngModel)] = "assignedCertification.organization"
           maxlength="200"
           placeholder="e.g., ASQ"

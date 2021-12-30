@@ -1,4 +1,4 @@
-<form #form="ngForm">
+<form>
   <button class="close-btn" (click)="close()">Close</button>
 
   <legend>Add Supporting Links</legend>
@@ -18,10 +18,14 @@
           id="txtLink"
           [(ngModel)]="linkUrl"
           placeholder="Enter link here …"
+          (keydown)="onKeyup($event)"
         />
         <button class="assign-link-add-btn" (click)="processLink()">Add</button>
       </li>
     </ul>
+    <validation-result
+      [validationResult] = 'validationResult'
+    ></validation-result>
   </fieldset>
   <ul *ngIf="linkUrlList && linkUrlList.length > 0">
     <li *ngFor="let linkUrl of linkUrlList">

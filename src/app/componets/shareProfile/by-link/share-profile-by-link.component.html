@@ -18,8 +18,15 @@
                 [value]="publicLinkUrl"
             >
         </li>
+        <!-- *ngIf="isCopyed" -->
+        <span
+            
+        >
+            Your portfolio URL copied.
+        </span>
         <button
             (click)="copyToClipboard()"
+            title="Click To Copy"
         >
             Copy
         </button>

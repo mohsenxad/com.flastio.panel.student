@@ -36,6 +36,20 @@ export class CertificationFileUploaderComponent implements OnInit {
     }
   }
 
+  setDropable(){
+    console.log('statr dropable');
+    let dropContainer = document.getElementById("divCertificationFileSelector");
+
+    dropContainer.ondragover = dropContainer.ondragenter = (evt) => {
+      evt.preventDefault();
+    };
+
+    dropContainer.ondrop = (evt) => {
+      this.handleFileInput(evt.dataTransfer.files)
+      evt.preventDefault();
+    };
+  }
+
   async handleFileInput(files: FileList) {
     this.isLoading = true;
     this.file = files.item(0);

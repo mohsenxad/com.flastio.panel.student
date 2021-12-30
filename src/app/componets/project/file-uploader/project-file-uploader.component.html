@@ -1,39 +1,43 @@
 
 <loading
-*ngIf="isLoading"
+  *ngIf="isLoading"
 ></loading>
-<div class="uploadfile-section"
-id="divCertificationFileSelector"
-name="divCertificationFileSelector"
-*ngIf="!isFileUploaded"
->
-<p>
-  Project Summary file
-</p>
-<span>
-  Drag your files here to upload
-</span>
-<label
-  for="divCertificationFileSelector"
->
-  or click to browse
-</label>
-<input
-  type="file"
-  id='certificationFile'
-  name='certificationFile'
-  (change)="handleFileInput($event.target.files)"
->
-</div>
+
 <div
-*ngIf="isFileUploaded"
+  class = "uploadfile-section"
+  id = "divProjectSummaryFileSelector"
+  name = "divProjectSummaryFileSelector"
+  *ngIf = "!isFileUploaded"
+  onload="setDropable()"
 >
-<p>
-    Project Summary File Uploaded
-</p>
-<button
-  (click)="remove()"
+  <p>
+    Project Summary file
+  </p>
+  <span>
+    Drag your files here to upload
+  </span>
+  <label
+    for="divCertificationFileSelector"
+  >
+    or click to browse
+  </label>
+  <input
+    type="file"
+    id='certificationFile'
+    name='certificationFile'
+    (change)="handleFileInput($event.target.files)"
+  >
+</div>
+
+<div
+  *ngIf="isFileUploaded"
 >
+  <p>
+      Project Summary File Uploaded
+  </p>
+  <button
+    (click)="remove()"
+  >
     Remove
-</button>
+  </button>
 </div>

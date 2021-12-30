@@ -36,6 +36,7 @@ export class SearchSkillComponent implements OnInit {
       !this.isLoading &&
       this.skillList &&
       this.skillList.length == 0 &&
+      this.skillKeyWord &&
       this.skillKeyWord.length >= this.keywordMinCharLengthToSearch
     ){
       return true;

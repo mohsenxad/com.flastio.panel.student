@@ -51,6 +51,7 @@ export class SearchCourseComponent implements OnInit {
       !this.isLoading &&
       this.courseList &&
       this.courseList.length == 0 &&
+      this.courseKeyWord &&
       this.courseKeyWord.length >= this.keywordMinCharLengthToSearch
     ){
       return true;

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Student } from 'src/app/model/student';
+import { StudentService } from 'src/app/services/student/student.service';
 
 @Component({
   selector: 'share-profile-panel',
@@ -15,10 +16,12 @@ export class ShareProfilePanelComponent implements OnInit {
   publicLinkUrl: String;
 
 
-  constructor() { }
+  constructor(
+    private studentService: StudentService
+  ) { }
 
   ngOnInit(): void {
-    this.publicLinkUrl = `https://v.flastio.com/${this.student._id.toString()}`
+    this.publicLinkUrl = this.studentService.getSharableLink(this.student._id);
   }
 
   changeView(viewTitle: String):void{

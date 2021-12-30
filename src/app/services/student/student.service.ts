@@ -82,7 +82,12 @@ export class StudentService {
         message
       )
     return result;
-  }  
+  } 
+
+
+  getSharableLink(studentId: String): String{
+    return `https://v.flastio.com/${studentId.toString()}`
+  }
     
     
   
