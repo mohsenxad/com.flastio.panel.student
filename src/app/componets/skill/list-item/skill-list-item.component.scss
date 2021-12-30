@@ -1,8 +1,25 @@
 .remove-skill-btn {
   border: none;
   background: none;
-  content: url(/assets/images/icn-general-add-green.svg);
+  content: url(/assets/images/icn-general-add-dark-blue.svg);
   display: inline-flex;
   margin-left: 8px;
   transform: rotate(45deg);
+}
+
+span {
+  margin: 2px;
+  border-radius: 8px;
+  background-color: rgba(63, 140, 255, 0.1);
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: center;
+  color: #3f8cff;
+  padding: 7px;
+  display: inline-flex;
+  align-items: center;
 }

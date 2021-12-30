@@ -73,7 +73,7 @@
         </div>
       </li>
       <li>
-        <label for="divAssignedSkill"> Project Assigned Skill List </label>
+        <!-- <label for="divAssignedSkill"> Project Assigned Skill List </label> -->
         <div id="divAssignedSkill">
           <ul
             *ngIf="projectBaseInfo && projectBaseInfo.skillList && projectBaseInfo.skillList.length > 0"
@@ -89,7 +89,7 @@
         </div>
       </li>
       <li>
-        <label for="slctYearCompleted">
+        <label for="slctYearCompleted" class="Year-Completed-label">
           Year Completed
         </label>
         <year-select
