@@ -1,13 +1,13 @@
-<svg width="20" height="21" viewBox="0 0 20 21" xmlns="http://www.w3.org/2000/svg">
+<svg width="19" height="20" viewBox="0 0 19 20" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <filter color-interpolation-filters="auto" id="a">
             <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.573954 0 0 0 0 0.573954 0 0 0 0 0.616225 0 0 0 1.000000 0"/>
         </filter>
     </defs>
-    <g transform="translate(-431 -2717)" filter="#fff" fill="none" fill-rule="evenodd">
-        <g transform="translate(431 2717)" fill="#fff" fill-rule="nonzero">
-            <rect x="1.25" y="17.51" width="17.5" height="2.5" rx="1"/>
-            <path d="M2.187 8.135c.07-.003.138-.01.207-.021l2.028 6.896h11.155l2.03-6.896c.067.01.136.018.205.02a2.187 2.187 0 1 0-2.187-2.187c.002.362.096.717.271 1.033l-3.085 3.085-1.701-5.993a2.187 2.187 0 1 0-2.22 0l-1.701 5.993L4.104 6.98c.175-.316.268-.671.271-1.033a2.187 2.187 0 1 0-2.188 2.188z"/>
+    <g transform="translate(-523 -2834)" filter="#ffffff" fill="none" fill-rule="evenodd">
+        <g fill="#FFF" fill-rule="nonzero">
+            <path d="M537.247 2847.642a1 1 0 0 1 1.55.84v1.29c0 1.27-.99 2.63-2.18 3.03l-3.19 1.06c-.56.19-1.47.19-2.02 0l-3.19-1.06c-1.2-.4-2.18-1.76-2.18-3.03v-1.3c0-.79.88-1.27 1.54-.84l2.06 1.34c.79.53 1.79.79 2.79.79s2-.26 2.79-.79l2.03-1.33z"/>
+            <path d="m540.398 2838.463-5.99-3.93c-1.08-.71-2.86-.71-3.94 0l-6.02 3.93c-1.93 1.25-1.93 4.08 0 5.34l1.6 1.04 4.42 2.88c1.08.71 2.86.71 3.94 0l4.39-2.88 1.37-.9v3.06c0 .41.34.75.75.75s.75-.34.75-.75v-4.92c.4-1.29-.01-2.79-1.27-3.62z"/>
         </g>
     </g>
 </svg>

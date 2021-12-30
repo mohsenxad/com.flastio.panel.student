@@ -1,15 +1,9 @@
 b {
-  padding: 6px 11px 5px 9px;
-  border-radius: 10px;
-  background-color: #fdc748;
-  font-size: 12px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  color: #fff;
-  margin: 16px 0 30px 0;
+  padding: 6px;
+  border-radius: 50%;
+  border: solid 2px #fff;
+  background-color: #3f8cff;
+  margin: 16px 0 0 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -17,8 +11,9 @@ b {
     content: "";
     background: url(/assets/images/premium-badge.svg);
     -webkit-writing-mode: vertical-lr;
-    margin-right: 8px;
+   
     width: 20px;
     height: 20px;
+    background-repeat: no-repeat;
   }
 }
