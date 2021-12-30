@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ProjectService } from 'src/app/services/project/project.service';
 
 import { Major } from '../../../model/major';
@@ -14,6 +14,7 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
   @Input() major:Major;
   @Input() projectList: Project[];
   @Input() isAddProjectVisible:Boolean = false;
+  @Output() onUpdated = new EventEmitter();
 
 
   isConfirmDeleteVisible: Boolean = false;
@@ -61,8 +62,6 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
   }
 
   changeEditedProject(project: Project){
-    console.log('here to update project');
-    
     this.projectList.forEach((currentProject:Project)=>{
       if(currentProject._id.toString() == project._id.toString()){
         currentProject.summeryFileUrl = project.baseInfo.summeryFileUrl;
@@ -75,6 +74,7 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
         currentProject.supportingFileList = project.supportingFileList;
         currentProject.contributorList = project.contributorList;
         currentProject.linkUrlList = project.linkUrlList;
+        this.onUpdated.emit();
       }
     })
   }
@@ -98,6 +98,7 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
       }
     });
     this.hideConfrimDelete();
+    this.onUpdated.emit();
   }
 
   changeIndex(index:Number){
@@ -109,6 +110,7 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
       this.projectList = [];
     }
     this.projectList.push(project);
+    this.onUpdated.emit();
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CertificationService } from 'src/app/services/certification/certification.service';
 import { AssignedCertification } from '../../../model/assignedCertification';
 
@@ -11,6 +11,7 @@ import { AssignedCertification } from '../../../model/assignedCertification';
 export class CertificationPanelComponent implements OnInit {
 
   @Input() assignedCertificationList: AssignedCertification[];
+  @Output() onUpdated = new EventEmitter();
 
   isAddCertificationModalVisible:Boolean = false;
   isEditCertificationModalVisible:Boolean = false;
@@ -55,6 +56,7 @@ export class CertificationPanelComponent implements OnInit {
       this.assignedCertificationList = [];
     }
     this.assignedCertificationList.push(assignedCertification);
+    this.onUpdated.emit();
   }
 
   editedAssignedCertification(assignedCertification:AssignedCertification){
@@ -64,6 +66,7 @@ export class CertificationPanelComponent implements OnInit {
         currentAssignedCertification.issuedDateMonth = assignedCertification.issuedDateMonth;
         currentAssignedCertification.issuedDateYear = assignedCertification.issuedDateYear;
         currentAssignedCertification.fileUrl = assignedCertification.fileUrl;
+        this.onUpdated.emit();
       }
     })
   }
@@ -86,6 +89,7 @@ export class CertificationPanelComponent implements OnInit {
       }
     });
     this.hideConfrimDeleteModal();
+    this.onUpdated.emit();
   }
 
   changeIndex(index:Number){
