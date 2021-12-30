@@ -55,16 +55,14 @@ form {
       &:nth-child(6) {
         border-radius: 8px;
         background-color: #f4f9fd;
-        // display: grid;
-        // grid-template-columns: 70% 30%;
+
         align-items: center;
         padding: 8px 20px 8px 16px;
       }
       &:nth-child(7) {
         border-radius: 8px;
         background-color: #f4f9fd;
-        // display: grid;
-        // grid-template-columns: 70% 30%;
+
         align-items: center;
         padding: 8px 20px 8px 16px;
       }
@@ -97,6 +95,7 @@ form {
       color: #3f8cff;
       display: flex;
       align-items: center;
+      cursor: pointer;
       &::before {
         content: url(/assets/images/icn-general-add-dark-blue.svg);
         margin-right: 4px;
@@ -133,6 +132,7 @@ form {
       width: 35%;
       opacity: 0;
       cursor: pointer;
+      display: none;
     }
   }
 }
@@ -170,7 +170,7 @@ form {
   content: "";
   height: 26px;
   width: 26px;
-  right: 4px;
+  left: 4px;
   bottom: 3px;
   background-color: white;
   -webkit-transition: 0.4s;
@@ -186,9 +186,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(-19px);
-  -ms-transform: translateX(-19px);
-  transform: translateX(-19px);
+  -webkit-transform: translateX(19px);
+  -ms-transform: translateX(19px);
+  transform: translateX(19px);
 }
 
 .slider.round {
@@ -241,8 +241,7 @@ input:checked + .slider:before {
   line-height: normal;
   letter-spacing: normal;
   color: #3f8cff;
-  float: right;
-  margin-top: 22px;
+
 }
 
 @media screen and (max-width: 992px) {
@@ -261,4 +260,9 @@ input:checked + .slider:before {
     margin-top: 32px;
     margin-bottom: 24px;
   }
+}
+.add-detail-student-btn-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
