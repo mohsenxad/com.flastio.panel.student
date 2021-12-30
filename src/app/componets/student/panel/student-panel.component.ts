@@ -33,6 +33,7 @@ export class StudentPanelComponent implements OnInit {
     this.student  = await this.studentService.getStudentInfo();
     this.localStorageService.setStudent(this.student);
     this.isLoading = false;
+
     let skillList = this.getSkillList(this.student);
     this.skillSetList = this.getSkillSetList(skillList);
     
@@ -77,6 +78,22 @@ export class StudentPanelComponent implements OnInit {
       }
     }
     return skillSetList;
+  }
+
+  onProjectListUpdated(){
+    this.getStudentInfo();
+  }
+
+  onCertificationListUpdated(){
+    this.getStudentInfo();
+  }
+
+  onRecommendationListUpdated(){
+
+  }
+
+  onWorkStyleListUpdated(){
+
   }
 
 
