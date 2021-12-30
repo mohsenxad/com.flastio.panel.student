@@ -24,7 +24,10 @@ export class SearchSkillComponent implements OnInit {
 
   onKeyup(event) {
     console.log(event);
-    if(this.skillKeyWord.length >= this.keywordMinCharLengthToSearch){
+    if(
+      this.skillKeyWord &&
+      this.skillKeyWord.length >= this.keywordMinCharLengthToSearch
+    ){
       this.search(this.skillKeyWord);
     }else{
       this.skillList =[];

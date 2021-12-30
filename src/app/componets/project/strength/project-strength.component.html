@@ -13,45 +13,19 @@
                     Details
                 </summary>
                 <ul>
-                    <li>
+                    <!-- <li>
                         <a href="#" class="iscompleted">
                             Personal Information
                         </a>
                         
-                    </li>
-                    <li>
-                        <a href="#">
-                            Project
-                        </a>
-                        
-                    </li>
-                    <li>
-                        <a href="#">
-                            Resume
-                        </a>
-                        
-                    </li>
-                    <li>
-                        <a href="#">
-                            Transcript
-                        </a>
-                        
-                    </li>
-                    <li>
-                        <a href="#">
-                            Certifications
-                        </a>
-                        
-                    </li>
-                    <li>
-                        <a href="#">
-                            Recommendations
-                        </a>
-                        
-                    </li>
-                    <li>
-                        <a href="#">
-                            Work Style
+                    </li> -->
+                    <li
+                        *ngFor="let item of itemList"
+                    >
+                        <a
+                            [ngClass]="{'iscompleted': item.isCompeleted}"
+                        >
+                            {{item.title}}
                         </a>
                         
                     </li>
