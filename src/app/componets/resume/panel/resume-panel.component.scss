@@ -120,3 +120,24 @@
   padding-right: 16px;
 }
 
+.resume-panel-request-feedback {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #3f8cff;
+  border: none;
+  background: none;
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::after {
+    content: url(/assets/images/resume-plane-request-feedback.svg);
+    -webkit-writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    margin-left: 8px;
+  }
+}
