@@ -5,13 +5,14 @@
     <fieldset>
       <ul>
         <li>
-          <label for="txtCourseKeyWord"> Type To Search in Course: </label>
+          <label for="txtCourseKeyWord"> Course title</label>
           <input
             type="text"
             name="txtCourseKeyWord"
             id="txtCourseKeyWord"
             [(ngModel)]="courseKeyWord"
             (keyup)="onKeyup($event)"
+            placeholder="Enter course title"
           />
         </li>
       </ul>
