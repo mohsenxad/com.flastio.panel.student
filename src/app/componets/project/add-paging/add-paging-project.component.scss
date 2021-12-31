@@ -9,17 +9,54 @@ ul {
   li {
     margin: 0 12px;
     cursor: pointer;
+    background-position: center !important;
+    display: flex;
+    background-repeat: no-repeat !important;
+    width: 25px;
+    text-indent: -9000px;
+    height: 25px;
+    position: relative;
+    content: "";
+
     &:nth-child(1) {
-      content: url(/assets/images/icn-general-attach-gray.svg);
+      background: url(/assets/images/icn-general-attach-gray.svg);
+    }
+    &:nth-child(1).isUploaded {
+      background: url(/assets/images/icn-general-attach-blue.svg);
     }
     &:nth-child(2) {
-      content: url(/assets/images/icn-general-addlink-gray.svg);
+      background: url(/assets/images/icn-general-addlink-gray.svg);
+    }
+    &:nth-child(2).isUploaded {
+      background: url(/assets/images/icn-general-addlink-blue.svg);
     }
     &:nth-child(3) {
-      content: url(/assets/images/icn-general-certificate-gray.svg);
+      background: url(/assets/images/icn-general-certificate-gray.svg);
+    }
+    &:nth-child(3).isUploaded {
+      background: url(/assets/images/icn-general-certificate-blue.svg);
     }
     &:nth-child(4) {
-      content: url(/assets/images/icn-general-team-gray.svg);
+      background: url(/assets/images/icn-general-team-gray.svg);
+    }
+    &:nth-child(4).isUploaded {
+      background: url(/assets/images/icn-general-team-blue.svg);
+    }
+
+    &:nth-child(1).isUploaded,
+    &:nth-child(2).isUploaded,
+    &:nth-child(3).isUploaded,
+    &:nth-child(4).isUploaded {
+      &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: #3f8cff;
+        border-radius: 50%;
+        position: absolute;
+        right: -6px;
+        top: -7px;
+      }
     }
   }
   label {
