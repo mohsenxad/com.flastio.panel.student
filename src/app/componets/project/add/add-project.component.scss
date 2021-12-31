@@ -236,6 +236,29 @@ details[open] summary::after {
 }
 
 .submit-btn {
+  padding: 12px 22px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #91929e;
+  transition: 0.5s;
+  float: right;
+  cursor: pointer;
+
+  &:hover {
+    border: solid 1px #91929e;
+    transition: 0.5s;
+  }
+}
+.cancel-btn {
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -252,33 +275,10 @@ details[open] summary::after {
   float: right;
   cursor: pointer;
   transition: 0.5s;
+  margin-left: 16px;
 
   &:hover {
     background-color: #3a81eb;
-    transition: 0.5s;
-  }
-}
-.cancel-btn {
-  padding: 12px 22px;
-  border-radius: 10px;
-  box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
-  border: solid 1px #d8e0f0;
-  background-color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #91929e;
-  transition: 0.5s;
-  margin-left: 16px;
-  float: right;
-  cursor: pointer;
-
-  &:hover {
-    border: solid 1px #91929e;
     transition: 0.5s;
   }
 }
