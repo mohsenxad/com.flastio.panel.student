@@ -55,20 +55,23 @@ export class AssignSupportingFileProjectComponent implements OnInit {
       remoteUrl:fileUrl
     };
     this.supportingFileList.push(newSupportingFile);
-    this.uploadFile(newSupportingFile, signedUploadUrl)
+    await this.uploadFile(newSupportingFile, signedUploadUrl)
     this.isLoading = false;
   }
 
  
-  uploadFile(supportingFile:SupportingFile, uploadPresignUrl: String){
-    this.isLoading = true;
+  async uploadFile(supportingFile:SupportingFile, uploadPresignUrl: String){
     const contentType = supportingFile.file.type;
-    this.projectService.upload(uploadPresignUrl,supportingFile.file, contentType)
-      .subscribe(data=>{
-        console.log('uploaded');
-        this.fileUploadCompelete(supportingFile._id);
-        this.isLoading = false;
-      });
+    await this.projectService
+    .upload(uploadPresignUrl,supportingFile.file, contentType)
+    .then(data=>{
+      console.log('uploaded');
+      this.fileUploadCompelete(supportingFile._id);
+    })
+    .catch(
+      err => {console.log(err);}
+    )
+      
   }
 
   fileUploadCompelete(fileId: String){

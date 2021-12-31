@@ -80,6 +80,14 @@ export class StudentPanelComponent implements OnInit {
     return skillSetList;
   }
 
+  onReumeUpdated(){
+    this.getStudentInfo();
+  }
+
+  onTranscriptUpdated(){
+    this.getStudentInfo();
+  }
+
   onProjectListUpdated(){
     this.getStudentInfo();
   }

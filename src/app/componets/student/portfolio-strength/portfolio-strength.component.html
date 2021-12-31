@@ -16,17 +16,31 @@
                 Details
             </summary>
             <ul>
-                <li>
+                <li
+                    *ngFor="let item of itemList"
+                >
+                    <a
+                        [href]="item.url"
+                        [ngClass]= "{ 'iscompleted' : item.isCompeleted }"
+                    >
+                        {{item.title}}
+                    </a>
+                    
+                </li>
+
+                
+                <!-- <li>
+                    
                     <a
                         href="/student/editDetail"
                     >
                         Personal Information
-                    </a>
+                    </a> -->
                     <!-- <a href="#" class="iscompleted">
                         Personal Information
                     </a> -->
                     
-                </li>
+                <!-- </li>
                 <li>
                     <a href="#">
                         Project
@@ -62,7 +76,7 @@
                         Work Style
                     </a>
                     
-                </li>
+                </li> -->
             </ul>
         </details>
     </dd>
@@ -71,7 +85,7 @@
     <progress
             id="strengthValue"
             [max] = "strengthMaxValue"
-            [value] = "strengthValue"
+            [value] = "calculate()"
         ></progress>
     
 </div>

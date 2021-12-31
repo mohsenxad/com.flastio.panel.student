@@ -35,10 +35,12 @@
         <resume-panel
             *ngIf = "student"
             [fileUrl] = "student.resumeFileUrl"
+            (onUpdated) = 'onReumeUpdated()'
         ></resume-panel>
         <transcript-panel
             *ngIf = "student"
             [fileUrl] = "student.transcriptFileUrl"
+            (onUpdated) = 'onTranscriptUpdated()'
         ></transcript-panel>
     </section>
 

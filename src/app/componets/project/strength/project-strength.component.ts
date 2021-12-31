@@ -67,6 +67,7 @@ export class ProjectStrengthComponent implements OnInit {
   }
 
   getCount(total : number, item: any ): number {
+    
     if(item.isCompeleted){
       return total +1; 
     }else{
@@ -76,6 +77,7 @@ export class ProjectStrengthComponent implements OnInit {
   }
 
   calculate(): Number{
+    this.setItemListStatus();
     let result : number = 0;
     this.setItemListStatus();
     result = this.itemList.reduce(this.getCount,0)

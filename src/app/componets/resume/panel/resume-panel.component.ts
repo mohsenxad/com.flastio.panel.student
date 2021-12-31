@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ResumeService } from 'src/app/services/resume/resume.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { ResumeService } from 'src/app/services/resume/resume.service';
 export class ResumePanelComponent implements OnInit {
 
   @Input() fileUrl: String;
+  @Output() onUpdated = new EventEmitter();
   
   
   transcriptFile: File ;
@@ -34,6 +35,7 @@ export class ResumePanelComponent implements OnInit {
     let signedUploadUr:String = response.presignedUrl;
     await this.uploadFile(signedUploadUr)
     this.isLoading = false;
+    this.onUpdated.emit();
   }
 
 
@@ -59,5 +61,6 @@ export class ResumePanelComponent implements OnInit {
     await this.resumeService.setTranscriptFile(undefined, undefined);
     this.fileUrl = undefined;
     this.isLoading = false;
+    this.onUpdated.emit();
   }
 }

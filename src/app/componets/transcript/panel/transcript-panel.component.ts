@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranscriptService } from 'src/app/services/transcript/transcript.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { TranscriptService } from 'src/app/services/transcript/transcript.servic
 export class TranscriptPanelComponent implements OnInit {
 
   @Input() fileUrl: String;
+  @Output() onUpdated = new EventEmitter();
 
   transcriptFile: File ;
   uniqFileName: String;
@@ -29,6 +30,7 @@ export class TranscriptPanelComponent implements OnInit {
     let signedUploadUrl: String = response.presignedUrl;
     await this.uploadFile(signedUploadUrl)
     this.isLoading = false;
+    this.onUpdated.emit();
   }
 
   async uploadFile(uploadPresignUrl: String){
@@ -52,6 +54,7 @@ export class TranscriptPanelComponent implements OnInit {
     await this.transcriptService.setTranscriptFile(undefined, undefined);
     this.fileUrl = undefined;
     this.isLoading = false;
+    this.onUpdated.emit();
   }
   
 }
