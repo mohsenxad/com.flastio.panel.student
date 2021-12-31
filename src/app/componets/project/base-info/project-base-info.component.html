@@ -34,7 +34,11 @@
       <li
         *ngIf="projectBaseInfo.projectType =='Related course'"
       >
+      <label for="txtCourseKeyWord"> Course title</label>
+
         <div id="divSelectCourse">
+          <label for="txtCompanyKeyWord"> Type To Search in Company: </label>
+
           <search-course
             [major] = "major"
             [selectedCourse] = "projectBaseInfo.course"
@@ -46,6 +50,8 @@
       <li
         *ngIf="projectBaseInfo.projectType=='Internship'"
       >
+      <label for="txtCompanyKeyWord"> Type To Search in Company: </label>
+
         <div id="divSelectCompany">
           <company-search
             [selectedCompany] = "projectBaseInfo.company"

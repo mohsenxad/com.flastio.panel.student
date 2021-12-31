@@ -72,6 +72,8 @@ form {
       color: #0a1629;
       display: flex;
       margin-left: 12px;
+      margin-bottom: 7px;
+      margin-top: 7px;
     }
     .Year-Completed-label {
       margin: 17px 0 0 12px;
@@ -85,7 +87,7 @@ form {
       padding: 13px 0 14px 0;
       display: block;
       width: 100%;
-      margin: 7px 0 27px 0;
+      margin: 0 0 27px 0;
       &::placeholder {
         font-size: 14px;
         font-weight: normal;
@@ -120,8 +122,8 @@ form {
   }
 }
 
-#divAssignedSkill{
-  ul{
+#divAssignedSkill {
+  ul {
     display: flex;
     flex-flow: wrap;
   }
