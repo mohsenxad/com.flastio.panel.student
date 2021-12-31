@@ -3,6 +3,7 @@
     <li
       *ngFor = "let pageTitle of pageTitleList"
       (click)="changePageTitle(pageTitle)"
+      [ngClass]="{'isUploaded': hadItem(pageTitle)}"
     >
       <input
         type="radio"
@@ -15,11 +16,6 @@
       <label [attr.for]="pageTitle">
         {{ pageTitle }}
       </label>
-      <span
-        *ngIf="hadItem(pageTitle)"
-      >
-        had Item
-      </span>
     </li>
   </ul>
 </nav>
