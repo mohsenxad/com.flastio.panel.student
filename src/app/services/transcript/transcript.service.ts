@@ -17,7 +17,7 @@ export class TranscriptService {
       this.studentId = this.localStorageService.getStudent()._id;
   }
 
-  upload( url: String, file:any, contentType: String): any{
+  async upload( url: String, file:any, contentType: String): Promise<any>{
     let body: any =file;
     var headers: HttpHeaders = new HttpHeaders(
       {
@@ -25,7 +25,7 @@ export class TranscriptService {
         "ContentType": contentType.toString()
       });
     return this.http
-      .put(url.toString(),body, {headers});
+      .put(url.toString(),body, {headers}).toPromise();
   }
 
   async getUploadUrl(){

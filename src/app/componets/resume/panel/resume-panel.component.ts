@@ -32,7 +32,7 @@ export class ResumePanelComponent implements OnInit {
     let response:any = await this.resumeService.getUploadUrl()
     this.uniqFileName = response.fileName.toString();
     let signedUploadUr:String = response.presignedUrl;
-    this.uploadFile(signedUploadUr)
+    await this.uploadFile(signedUploadUr)
     this.isLoading = false;
   }
 
@@ -40,13 +40,18 @@ export class ResumePanelComponent implements OnInit {
   async uploadFile(uploadPresignUrl: String){
     this.isLoading = true;
     const contentType = this.transcriptFile.type;
-    await this.resumeService.upload(uploadPresignUrl,this.transcriptFile, contentType)
-      .subscribe(data=>{
+    await this.resumeService
+      .upload(uploadPresignUrl,this.transcriptFile, contentType)
+      .then(data=>{
         console.log('uploaded');
         this.fileUrl = uploadPresignUrl.split('?')[0];
         this.resumeService.setTranscriptFile(this.uniqFileName, this.fileUrl);
         this.isLoading = false;
-      });
+      })
+      .catch(err => {
+        console.log(err);
+      })
+      
   }
 
   async remove(){
