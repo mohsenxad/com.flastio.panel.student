@@ -68,23 +68,25 @@ export class ProjectFileUploaderComponent implements OnInit {
 
     this.fileName = response.fileName.toString();
     this.fileUrl = signedUploadUr.split('?')[0];
-    this.uploadFile(signedUploadUr)
+    await this.uploadFile(signedUploadUr)
     this.isLoading = false;
   }
 
 
-  uploadFile(uploadPresignUrl: String){
+  async uploadFile(uploadPresignUrl: String){
     this.isLoading = true;
     const contentType = this.file.type;
-    this.projectService.upload(uploadPresignUrl,this.file, contentType)
-      .subscribe(data => {
-        console.log('uploaded');
-        this.isLoading = false;
-        this.isFileUploaded = true;
-        
-        this.onFileUploaded.emit({fileName:this.fileName,fileUrl:this.fileUrl})
-      });
-
+    await this.projectService.upload(uploadPresignUrl,this.file, contentType)
+    .then(data => {
+      console.log('uploaded');
+      this.isLoading = false;
+      this.isFileUploaded = true;
+      
+      this.onFileUploaded.emit({fileName:this.fileName,fileUrl:this.fileUrl})
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
 }

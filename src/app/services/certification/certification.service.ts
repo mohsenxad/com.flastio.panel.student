@@ -27,7 +27,7 @@ export class CertificationService {
     return result;
   }
 
-  upload( url: String, file:any, contentType: String): any{
+  async upload( url: String, file:any, contentType: String): Promise<any>{
     let body: any =file;
     var headers: HttpHeaders = new HttpHeaders(
       {
@@ -35,7 +35,8 @@ export class CertificationService {
         "ContentType": contentType.toString()
       });
     return this.http
-      .put(url.toString(),body, {headers});
+      .put(url.toString(),body, {headers})
+      .toPromise();
   }
 
 

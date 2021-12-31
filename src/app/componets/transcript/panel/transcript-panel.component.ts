@@ -27,20 +27,24 @@ export class TranscriptPanelComponent implements OnInit {
     let response:any = await this.transcriptService.getUploadUrl()
     this.uniqFileName = response.fileName.toString();
     let signedUploadUrl: String = response.presignedUrl;
-    this.uploadFile(signedUploadUrl)
+    await this.uploadFile(signedUploadUrl)
     this.isLoading = false;
   }
 
   async uploadFile(uploadPresignUrl: String){
     this.isLoading = true;
     const contentType = this.transcriptFile.type;
-    this.transcriptService.upload(uploadPresignUrl,this.transcriptFile, contentType)
-      .subscribe(data=>{
+    await this.transcriptService
+      .upload(uploadPresignUrl,this.transcriptFile, contentType)
+      .then(data=>{
         console.log('uploaded');
         this.fileUrl = uploadPresignUrl.split('?')[0];
         this.transcriptService.setTranscriptFile(this.uniqFileName, this.fileUrl);
         this.isLoading = false;
-      });
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   async remove(){
