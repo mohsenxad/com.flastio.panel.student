@@ -98,9 +98,6 @@ export class EditProjectComponent implements OnInit {
 
   changePage(pageTitle:String): void{
     this.pageTitle = pageTitle;
-    console.log(this.pageTitle);
-    console.log(this.project);
-    
   }
 
   goToGeneralView(){
@@ -108,8 +105,6 @@ export class EditProjectComponent implements OnInit {
   }
 
   updateLinkUrlList(linkUrlList: LinkUrl[]){
-    console.log('here to u[pdate');
-    
     this.project.linkUrlList = linkUrlList
   }
 
@@ -128,11 +123,11 @@ export class EditProjectComponent implements OnInit {
     this.project.baseInfo ={
       projectType:this.project.projectType,
       name:this.project.name,
-      description:this.project.description,
-      course:this.project.course,
+      description:this.project.description || undefined,
+      course:this.project.course || undefined,
       skillList:this.project.skillList,
       yearCompleted:this.project.yearCompleted,
-      summeryFileUrl:this.project.summeryFileUrl,
+      summeryFileUrl:this.project.summeryFileUrl || undefined,
 
     }
    
@@ -157,7 +152,7 @@ export class EditProjectComponent implements OnInit {
     }else{
       this.validationResult = validationResult;
     }
-  }
+  }س
 
   async save(){
     this.isLoading = true;
