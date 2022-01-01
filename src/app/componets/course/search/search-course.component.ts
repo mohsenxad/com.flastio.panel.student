@@ -68,14 +68,14 @@ export class SearchCourseComponent implements OnInit {
 
   selected(course:Course){
     this.selectedCourse = course;
-    this.onCourseSelected.emit(course);
+    this.onCourseSelected.emit(this.selectedCourse);
     this.courseKeyWord = '';
     this.courseList = [];
   }
 
   remove(){
     this.selectedCourse = undefined;
-    this.onCourseSelected.emit(undefined);
+    this.onCourseSelected.emit(this.selectedCourse);
   }
 
 }
