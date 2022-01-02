@@ -50,7 +50,7 @@ export class SearchCourseComponent implements OnInit {
     if(
       !this.isLoading &&
       this.courseList &&
-      this.courseList.length == 0 &&
+      !this.isInList(this.courseKeyWord,this.courseList) &&
       this.courseKeyWord &&
       this.courseKeyWord.length >= this.keywordMinCharLengthToSearch
     ){
@@ -58,6 +58,23 @@ export class SearchCourseComponent implements OnInit {
     }else{
       return false;
     }
+  }
+
+  isInList(courseKeyWord: String,courseList:Course[]):Boolean{
+    let result: Boolean = false;
+    let foundCourseWithName = courseList.find((currentCourse:Course) => {
+      if(currentCourse.name == courseKeyWord){
+        return currentCourse
+      }
+    })
+
+    if(foundCourseWithName){
+      result = true;
+    }
+
+    console.log(result);
+    
+    return result;
   }
 
   async search(keyword):Promise<void>{
