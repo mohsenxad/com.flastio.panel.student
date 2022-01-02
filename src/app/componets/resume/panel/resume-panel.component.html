@@ -40,13 +40,18 @@
             View resume
         </a>
         <button
-            (click)="remove()"
+            (click)="showConfrimDelete()"
         >
             Delete
         </button>
     </div>
-
+    <confirm-delete
+        *ngIf = "isConfirmDeleteVisible"
+        (onCancel) = "hideConfrimDelete()"
+        (onConfirm) = "confirmedDelete()"
+    ></confirm-delete>
 </div>
+
     <button class="resume-panel-request-feedback"
     *ngIf="fileUrl"
     >

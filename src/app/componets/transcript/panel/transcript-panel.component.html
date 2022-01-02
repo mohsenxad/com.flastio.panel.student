@@ -36,9 +36,16 @@
             View transcript
         </a>
         <button
-            (click)="remove()"
+            (click)="showConfrimDelete()"
         >
             Delete
         </button>
     </div>
+
+
+    <confirm-delete
+        *ngIf = "isConfirmDeleteVisible"
+        (onCancel) = "hideConfrimDelete()"
+        (onConfirm) = "confirmedDelete()"
+    ></confirm-delete>
 </div>

@@ -14,6 +14,7 @@ export class TranscriptPanelComponent implements OnInit {
   transcriptFile: File ;
   uniqFileName: String;
   isLoading:Boolean = false;
+  isConfirmDeleteVisible: Boolean = false;
   
 
   constructor(
@@ -49,12 +50,22 @@ export class TranscriptPanelComponent implements OnInit {
       })
   }
 
-  async remove(){
+  async confirmedDelete(){
     this.isLoading = true;
+    this.hideConfrimDelete();
     await this.transcriptService.setTranscriptFile(undefined, undefined);
     this.fileUrl = undefined;
     this.isLoading = false;
     this.onUpdated.emit();
   }
+  
+  hideConfrimDelete(){
+    this.isConfirmDeleteVisible = false;
+  }
+
+  showConfrimDelete(){
+    this.isConfirmDeleteVisible = true;
+  }
+
   
 }
