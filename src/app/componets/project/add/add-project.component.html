@@ -25,8 +25,20 @@
       [validationResult] = 'validationResult'
     ></validation-result>
 
-    <button class="cancel-btn" (click)="publish()">Publish</button>
-    <button class="submit-btn" (click)="draft()">Save draft</button>
+    <button
+      type="button"
+      class="cancel-btn"
+      (click)="publish()"
+    >
+      Publish
+    </button>
+    <button
+      type="button"
+      class="submit-btn"
+      (click)="draft()"
+    >
+      Save draft
+    </button>
 
     <add-paging-project
       [hadAttachment] = 'project.supportingFileList.length > 0'

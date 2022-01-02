@@ -32,9 +32,7 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
     console.log(changes);
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
   
 
   showAddProjectForm(){

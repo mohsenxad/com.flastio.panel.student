@@ -15,7 +15,7 @@ export class StudentPanelComponent implements OnInit {
 
   
   student : Student;
-  @Input() isAddProjectVisible:Boolean = false;
+  isAddProjectVisible:Boolean = false;
   isLoading: Boolean = false;
   skillSetList:SkillSet[];
 

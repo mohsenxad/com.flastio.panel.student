@@ -3,14 +3,15 @@
         Projects
     </h2>
     <project-list
-        *ngIf="projectList && projectList.length > 0"
+        *ngIf = "projectList && projectList.length > 0"
         [projectList] = "projectList"
         (onEdit) = "edit($event)"
         (onDelete) = "delete($event)"
         (onChangeIndex) = "changeIndex($event)"
     ></project-list>
 
-    <button class="main-add-btn"
+    <button
+        class = "main-add-btn"
         *ngIf = "projectList && projectList.length > 0"
         (click) = "showAddProjectForm()"
     >
