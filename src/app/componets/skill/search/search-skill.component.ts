@@ -38,14 +38,30 @@ export class SearchSkillComponent implements OnInit {
     if(
       !this.isLoading &&
       this.skillList &&
-      this.skillList.length == 0 &&
       this.skillKeyWord &&
-      this.skillKeyWord.length >= this.keywordMinCharLengthToSearch
+      this.skillKeyWord.length >= this.keywordMinCharLengthToSearch &&
+      !this.isInList(this.skillKeyWord, this.skillList)
+
     ){
       return true;
     }else{
       return false;
     }
+  }
+
+  isInList(skillKeyWord: String,majorList:Skill[]):Boolean{
+    let result: Boolean = false;
+    let foundSkillWithName = majorList.find((currentSkill:Skill) => {
+      if(currentSkill.name.trim().toLowerCase() == skillKeyWord.trim().toLowerCase()){
+        return currentSkill
+      }
+    })
+
+    if(foundSkillWithName){
+      result = true;
+    }
+
+    return result;
   }
 
   async search(keyword):Promise<void>{

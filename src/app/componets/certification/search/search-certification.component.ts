@@ -29,13 +29,28 @@ export class SearchCertificationComponent implements OnInit {
     if(
       !this.isLoading &&
       this.certificationList &&
-      this.certificationList.length == 0 &&
-      this.certificationKeyWord.length >= this.keywordMinCharLengthToSearch
+      this.certificationKeyWord.length >= this.keywordMinCharLengthToSearch &&
+      !this.isInList(this.certificationKeyWord, this.certificationList)
     ){
       return true;
     }else{
       return false;
     }
+  }
+
+  isInList(certificationKeyWord: String,certificationList:Certification[]):Boolean{
+    let result: Boolean = false;
+    let foundCertificatioinWithName = certificationList.find((currentCertification:Certification) => {
+      if(currentCertification.name.trim().toLowerCase() == certificationKeyWord.trim().toLowerCase()){
+        return currentCertification
+      }
+    })
+
+    if(foundCertificatioinWithName){
+      result = true;
+    }
+
+    return result;
   }
 
   onKeyup(event) {

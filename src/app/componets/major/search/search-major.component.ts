@@ -30,13 +30,28 @@ export class SearchMajorComponent implements OnInit {
     if(
       !this.isLoading &&
       this.majorList &&
-      this.majorList.length == 0 &&
-      this.majorKeyWord.length >= this.keywordMinCharLengthToSearch
+      this.majorKeyWord.length >= this.keywordMinCharLengthToSearch &&
+      !this.isInList(this.majorKeyWord,this.majorList)
     ){
       return true;
     }else{
       return false;
     }
+  }
+
+  isInList(courseKeyWord: String,majorList:Major[]):Boolean{
+    let result: Boolean = false;
+    let foundMajorWithName = majorList.find((currentMajor:Major) => {
+      if(currentMajor.name.trim().toLowerCase() == courseKeyWord.trim().toLowerCase()){
+        return currentMajor
+      }
+    })
+
+    if(foundMajorWithName){
+      result = true;
+    }
+
+    return result;
   }
 
   onKeyup(event) {

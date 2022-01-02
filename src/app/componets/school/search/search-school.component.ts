@@ -39,13 +39,28 @@ export class SearchSchoolComponent implements OnInit {
     if(
       !this.isLoading &&
       this.schoolList &&
-      this.schoolList.length == 0 &&
-      this.schoolKeyWord.length >= this.keywordMinCharLengthToSearch
+      this.schoolKeyWord.length >= this.keywordMinCharLengthToSearch &&
+      !this.isInList(this.schoolKeyWord, this.schoolList)
     ){
       return true;
     }else{
       return false;
     }
+  }
+
+  isInList(schoolKeyWord: String,schoolList:School[]):Boolean{
+    let result: Boolean = false;
+    let foundSchoolWithName = schoolList.find((currentSchool:School) => {
+      if(currentSchool.name.trim().toLowerCase() == schoolKeyWord.trim().toLowerCase()){
+        return currentSchool
+      }
+    })
+
+    if(foundSchoolWithName){
+      result = true;
+    }
+
+    return result;
   }
 
   async addSchool(){

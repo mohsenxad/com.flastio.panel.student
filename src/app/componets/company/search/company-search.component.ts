@@ -30,13 +30,29 @@ export class CompanySearchComponent implements OnInit {
     if(
       !this.isLoading &&
       this.companyList &&
-      this.companyList.length == 0 &&
-      this.companyKeyWord.length >= this.keywordMinCharLengthToSearch
+      this.companyKeyWord.length >= this.keywordMinCharLengthToSearch &&
+      !this.isInList(this.companyKeyWord, this.companyList)
     ){
       return true;
     }else{
       return false;
     }
+  }
+
+  isInList(companyKeyWord: String,companyList:Company[]):Boolean{
+    let result: Boolean = false;
+    let foundCompanyWithName = companyList.find((currentCompany:Company) => {
+      if(currentCompany.name.trim().toLowerCase() == companyKeyWord.trim().toLowerCase()){
+        return currentCompany
+      }
+    })
+
+    if(foundCompanyWithName){
+      result = true;
+    }
+
+    
+    return result;
   }
 
   onKeyup(event) {
