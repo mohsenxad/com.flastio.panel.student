@@ -1,25 +1,25 @@
 <dl>
   <dt>Name</dt>
-  <dd>
+  <dd class="project-name">
     {{ project.name }}
   </dd>
 
   <dt>Year Completed</dt>
-  <dd
+  <dd class="project-year-completed"
     *ngIf="project.yearCompleted"
   >
     {{ project.yearCompleted }}
   </dd>
 
   <dt>Course</dt>
-  <dd
+  <dd class="project-course"
     *ngIf="project.course"
   >
     {{ project.course.name }}
   </dd>
 
   <dt>Action Panel</dt>
-  <dd>
+  <dd class="project-action-panel">
     <project-action-panel
       (onEdit) = "edit()"
       (onDelete) = "delete()"
@@ -30,19 +30,19 @@
   >
     isPublished
   </dt>
-  <dd
+  <dd class="project-status"
     *ngIf="!project.isPublished"
   >
     Draft
   </dd>
-  <dd
+  <dd class="project-status"
     *ngIf="project.isPublished"
   >
     Published
   </dd>
 
   <dt>Description</dt>
-  <dd
+  <dd class="project-description"
     *ngIf="project.description"
   >
     {{ project.description }}

@@ -11,13 +11,17 @@
     Close
   </button>
   <legend>Add Certification</legend>
+  <p>Make sure to use the exact certification title
+     on your actual certificate. You can upload a picture
+      or a PDF version of your certificate issued by the 
+      institution you got certified through.</p>
   <fieldset
     [disabled] = "isLoading"
   >
     <ul>
       <li>
         <label for="divCertification">
-          Type To Search in Certifications:
+          Certificate name
         </label>
         <div id="divCertification" name="divCertification">
           <search-certification
@@ -68,7 +72,7 @@
       <button class="submit-btn"
         (click)="save()"
       >
-        Save
+      Add
       </button>
       <button class="cancel-btn"
       (click)="cancel()"
