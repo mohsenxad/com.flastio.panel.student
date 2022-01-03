@@ -51,6 +51,7 @@ export class ShareProfileByEmailComponent implements OnInit {
     if(this.currentEmail){
       this.emailList.push(this.currentEmail);
       this.currentEmail = '';
+      this.validationResult = this.validate(this.emailList, this.message);
     }
   }
 
