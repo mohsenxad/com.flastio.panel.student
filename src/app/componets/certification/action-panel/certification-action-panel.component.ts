@@ -40,4 +40,14 @@ export class CertificationActionPanelComponent implements OnInit {
     this.changeDisplayIndex(-1);
   }
 
+  close(){
+    console.log('closing');
+    
+    const details = document.getElementById("certification-action-panel-details");
+    console.log(details);
+    console.log(details.id);
+    
+    details.removeAttribute("open");
+  }
+
 }
