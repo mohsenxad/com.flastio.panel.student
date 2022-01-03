@@ -13,7 +13,7 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
 
   @Input() major:Major;
   @Input() projectList: Project[];
-  @Input() isAddProjectVisible:Boolean = false;
+  @Input() @Output() isAddProjectVisible:Boolean = false;
   @Output() onUpdated = new EventEmitter();
 
 

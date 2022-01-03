@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Project } from 'src/app/model/project';
 import { Skill } from 'src/app/model/skill';
 import { SkillSet } from 'src/app/model/skillSet';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { StudentService } from 'src/app/services/student/student.service';
 import { Student } from '../../../model/student';
+import { ProjectPanelComponent } from '../../project/panel/project-panel.component';
 
 @Component({
   selector: 'student-panel',
@@ -13,9 +14,10 @@ import { Student } from '../../../model/student';
 })
 export class StudentPanelComponent implements OnInit {
 
-  
+  @ViewChild('projectpanel') projectPanel:ProjectPanelComponent;
+
   student : Student;
-  isAddProjectVisible:Boolean = false;
+  @Input() @Output() isAddProjectVisible:Boolean = false;
   isLoading: Boolean = false;
   skillSetList:SkillSet[];
 
@@ -43,7 +45,8 @@ export class StudentPanelComponent implements OnInit {
   showAddProject(){
     console.log('show add project in student panel');
     
-    this.isAddProjectVisible = true;
+    //this.isAddProjectVisible = true;
+    this.projectPanel.showAddProjectForm();
   }
 
   getSkillList(student: Student):Skill[]{
