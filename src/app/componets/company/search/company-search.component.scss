@@ -79,11 +79,10 @@ form {
       background-color: #fff;
       padding: 15px;
       max-height: 200px;
-      position: absolute;
       z-index: 7;
       width: 100%;
-      top: -15px;
       list-style: none;
+      overflow-y: scroll;
     }
     li {
       font-size: 16px;
@@ -115,6 +114,7 @@ form {
       border: none;
       display: flex;
       align-items: center;
+      margin-bottom: 7px;
       &::before {
         content: "";
         background: url(/assets/images/icn-general-add-dark-blue.svg);
