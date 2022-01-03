@@ -7,11 +7,13 @@
       <ul>
         <li>
           <input
-            type="text"
+            type="search"
             name="txtCompanyKeyWord"
             id="txtCompanyKeyWord"
             [(ngModel)]="companyKeyWord"
-            (keyup)="onKeyup($event)"
+            (ngModelChange)="onKeyup($event)"
+            maxlength="200"
+            minlength="3"
           />
         </li>
       </ul>

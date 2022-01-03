@@ -6,11 +6,13 @@
       <ul>
         <li>
           <input
-            type="text"
+            type="search"
             name="txtCourseKeyWord"
             id="txtCourseKeyWord"
             [(ngModel)]="courseKeyWord"
-            (keyup)="onKeyup($event)"
+            (ngModelChange)="onKeyup($event)"
+            maxlength="200"
+            minlength="3"
             placeholder="Enter course title"
           />
         </li>

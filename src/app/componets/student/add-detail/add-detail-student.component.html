@@ -12,7 +12,9 @@
     [disabled]="isLoading"
   >
     <ul>
-      <li>
+      <li
+        *ngIf="!student.pictureFileUrl"
+      >
         <label for="pictureFile" class="file-label"> Add Profile Picture </label>
         <input
               type="file"
@@ -20,6 +22,20 @@
               name='pictureFile'
               (change)="handleFileInput($event.target.files)"
           >
+      </li>
+      <li
+        *ngIf="student.pictureFileUrl"
+      >
+        <img 
+          *ngIf="student.pictureFileUrl"
+          [src]="student.pictureFileUrl"
+          alt="image"
+        >
+        <button
+          (click)="removePicture()"
+        >
+          Remove
+        </button>
       </li>
       <li>
         <label for="txtCountryRegion"> Location </label>
@@ -93,6 +109,30 @@
           [selectedCollegeStatus]="student.collegeStatus"
           (onCollegeStatusSelected)="setCollegeStatus($event)"
         ></college-status-select>
+      </li>
+
+      <li
+        *ngIf="student.collegeStatus == 'Graduated'"
+      >
+        <label for="slcGraduationDate">
+          What is Your Graduation Date?
+        </label>
+        <div
+          id="slcGraduationDate"
+          name="slcGraduationDate"
+        >
+          <month-select
+            [selectedMonth] = 'student.graduationMonth'
+            (onMonthSelected) = 'selectedGraduationDateMonth($event)'
+          ></month-select>
+
+          <year-select2
+            [selectedYear] = 'student.graduationYear'
+            (onYearSelected) = 'selectedGraduationDateYear($event)'
+          ></year-select2>
+
+        </div>
+        
       </li>
 
       

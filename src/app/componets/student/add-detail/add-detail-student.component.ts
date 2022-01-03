@@ -60,27 +60,45 @@ export class AddDetailStudentComponent implements OnInit {
   }
 
   async handleFileInput(files: FileList) {
+    this.isLoading =true;
     this.profilePicture = files.item(0);
     let response:any = await this.studentService.getUploadUrl()
     let signedUploadUrl = response.presignedUrl;
+    await this.uploadFile(signedUploadUrl)
     this.student.pictureFileName = response.fileName.toString();
     this.student.pictureFileUrl = signedUploadUrl.split('?')[0];
-    this.uploadFile(signedUploadUrl)
+    this.isLoading =false;
   }
 
 
-  uploadFile(uploadPresignUrl: string){
-    this.isLoading = true;
-    const contentType = this.profilePicture.type;
+  async uploadFile(uploadPresignUrl: string){
+    const contentType = await this.profilePicture.type;
     this.studentService.upload(uploadPresignUrl,this.profilePicture, contentType)
-      .subscribe(data=>{
-        this.isLoading = false;
-        console.log('uploaded');
-      });
+    .then(data=>{
+      console.log('uploaded');
+    })
+    .catch(err => {
+      console.log(err);
+      
+    })
   }
 
   skip(){
     this.router.navigateByUrl('/student/panel')
+  }
+
+  removePicture(){
+    this.student.pictureFileName = undefined;
+    this.student.pictureFileUrl = undefined;
+  }
+
+  selectedGraduationDateMonth(issuedDateMonth: Number){
+    this.student.graduationMonth = issuedDateMonth;
+
+  }
+
+  selectedGraduationDateYear(issuedDateYear: Number){
+    this.student.graduationYear  = issuedDateYear;
   }
 
 }

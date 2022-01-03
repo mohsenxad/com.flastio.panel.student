@@ -14,7 +14,7 @@ export class StudentService {
     private http: HttpClient
   ) { }
 
-  upload( url: string, file:any, contentType: String): any{
+  async upload( url: string, file:any, contentType: String): Promise<any>{
     let body: any =file;
     var headers: HttpHeaders = new HttpHeaders(
       {
@@ -22,7 +22,8 @@ export class StudentService {
         "ContentType": contentType.toString()
       });
     return this.http
-      .put(url,body, {headers});
+      .put(url,body, {headers})
+      .toPromise();
   }
 
   async getUploadUrl():Promise<any>{
@@ -68,7 +69,9 @@ export class StudentService {
         student.isEthnicitySharable,
         student.collegeStatus,
         student.pictureFileName,
-        student.pictureFileUrl
+        student.pictureFileUrl,
+        student.graduationMonth,
+        student.graduationYear,
       )
     return result;
   }  

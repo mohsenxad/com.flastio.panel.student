@@ -8,11 +8,13 @@
                     Type To Search in Skill:
                 </label> -->
                 <input
-                    type = "text"
+                    type = "search"
                     name = "txtSkillKeyWord"
                     id = "txtSkillKeyWord"
                     [(ngModel)] = 'skillKeyWord'
-                    (keyup) = "onKeyup($event)"
+                    (ngModelChange)="onKeyup($event)"
+                    maxlength="200"
+                    minlength="3"
                 >
             </li>
         </ul>

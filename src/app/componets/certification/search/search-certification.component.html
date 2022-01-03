@@ -7,11 +7,11 @@
         <li>
 
           <input
-            type="text"
+            type="search"
             name="txtCertificationKeyWord"
             id="txtCertificationKeyWord"
             [(ngModel)]="certificationKeyWord"
-            (keyup)="onKeyup($event)"
+            (ngModelChange)="onKeyup($event)"
             placeholder="e.g., Six Sigma Yellow Belt"
             maxlength="200"
             minlength="3"

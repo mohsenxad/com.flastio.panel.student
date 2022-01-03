@@ -12,11 +12,13 @@
                         Type To Search in School:
                     </label>
                     <input
-                        type = "text"
+                        type = "search"
                         name = "txtSchoolKeyWord"
                         id = "txtSchoolKeyWord"
                         [(ngModel)] = 'schoolKeyWord'
-                        (keyup) = "onKeyup($event)"
+                        (ngModelChange)="onKeyup($event)"
+                        maxlength="200"
+                        minlength="3"
                     >
                 </li>
             </ul>
