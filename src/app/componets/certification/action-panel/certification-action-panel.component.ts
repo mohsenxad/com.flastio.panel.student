@@ -43,11 +43,23 @@ export class CertificationActionPanelComponent implements OnInit {
   close(){
     console.log('closing');
     
-    const details = document.getElementById("certification-action-panel-details");
-    console.log(details);
-    console.log(details.id);
+    // const details = document.getElementById("certification-action-panel-details");
+    // console.log(details);
+    // console.log(details.id);
     
-    details.removeAttribute("open");
+    // details.removeAttribute("open");
+
+    const details = document.querySelectorAll("details");
+
+    // Add the onclick listeners.
+    details.forEach((targetDetail) => {
+      targetDetail.addEventListener("click", () => {
+        // Close all the details that are not targetDetail.
+        details.forEach((detail) => {
+          detail.removeAttribute("open");
+        });
+      });
+    });
   }
 
 }
