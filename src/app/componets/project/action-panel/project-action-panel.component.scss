@@ -2,11 +2,17 @@ details {
   position: relative;
 }
 summary {
-  content: url(/assets/images/project-action.svg);
+  content: "";
+  background: url(/assets/images/project-action.svg);
+  background-repeat: no-repeat;
   display: flex;
   text-indent: -9000px;
   cursor: pointer;
-  margin-left: auto;
+  margin-left: -15px;
+  z-index: 4;
+  width: 20px;
+  height: 20px;
+  position: absolute;
 }
 ul {
   list-style: none;
@@ -21,6 +27,7 @@ ul {
   right: 0;
   top: 28px;
   overflow: hidden;
+  z-index: 4;
   li {
     button {
       border: none;
