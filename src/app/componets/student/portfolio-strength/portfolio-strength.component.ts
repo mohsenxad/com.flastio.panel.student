@@ -117,4 +117,15 @@ export class PortfolioStrengthComponent implements OnInit, OnChanges {
     return result;
   }
 
+  close(){
+    const details = document.querySelectorAll("details");
+    details.forEach((targetDetail) => {
+      targetDetail.addEventListener("click", () => {
+        details.forEach((detail) => {
+          detail.removeAttribute("open");
+        });
+      });
+    });
+  }
+
 }

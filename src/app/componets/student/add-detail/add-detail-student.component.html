@@ -10,13 +10,7 @@
 <form
   #form="ngForm"
 >
-  <!-- <a
-    class="close-btn"
-    href="/student/panel"
-  >
-      Close
-  </a> -->
-  <legend>Welcome Allen!</legend>
+  <legend>Welcome {{student.firstName}}!</legend>
   <p>Tell about yourself</p>
   <fieldset
     [disabled]="isLoading"
@@ -37,7 +31,7 @@
         *ngIf="student.pictureFileUrl"
       >
         <img 
-          *ngIf="student.pictureFileUrl"
+          *ngIf="student.pictureFileUrl && !isLoading"
           [src]="student.pictureFileUrl"
           alt="image"
           class="student-picture-FileUrl"
