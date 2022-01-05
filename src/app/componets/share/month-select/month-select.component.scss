@@ -32,6 +32,10 @@ select {
     no-repeat calc(100% - 10px) !important;
 }
 
+select:invalid{
+  color: gray;
+}
+
 option {
   font-size: 16px;
   color: #7d8592;

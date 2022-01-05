@@ -64,6 +64,23 @@ export class ProjectStrengthComponent implements OnInit {
         isCompeleted:this.projectBaseInfo.yearCompleted != undefined,
       }
     ]
+
+    if(this.projectBaseInfo.projectType == 'Related course'){
+      this.itemList.push({
+        title: 'Course title',
+        isCompeleted:this.projectBaseInfo.course != undefined,
+      })
+    };
+
+    if(this.projectBaseInfo.projectType == 'Internship'){
+      this.itemList.push({
+        title: 'Company’s name',
+        isCompeleted:this.projectBaseInfo.company != undefined,
+      })
+    };
+
+    // course 
+    // company
   }
 
   getCount(total : number, item: any ): number {
@@ -81,7 +98,7 @@ export class ProjectStrengthComponent implements OnInit {
     let result : number = 0;
     this.setItemListStatus();
     result = this.itemList.reduce(this.getCount,0)
-    return result*100/5;
+    return Math.floor(result*100/this.itemList.length);
   }
 
   close(){

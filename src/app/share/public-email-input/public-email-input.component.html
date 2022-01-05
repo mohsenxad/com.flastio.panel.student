@@ -4,7 +4,7 @@
     id="txtEmail"
     [(ngModel)] = 'email'
     placeholder = "Enter email Address"
-    (keyup)="onKeyup($event)"
+    (ngModelChange)="onKeyup($event)"
     maxlength="200"
     minlength="5"
 >

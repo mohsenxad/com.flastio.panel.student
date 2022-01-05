@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 
 
+
 @Component({
   selector: 'share-profile-by-link',
   templateUrl: './share-profile-by-link.component.html',
@@ -22,6 +23,11 @@ export class ShareProfileByLinkComponent implements OnInit {
   copyToClipboard(){
     navigator.clipboard.writeText(this.publicLinkUrl.toString()).then().catch(e => console.error(e));
     this.isCopyed = true;
+    setTimeout(()=>{
+      this.isCopyed = false;
+    },1700)
   }
+
+
 
 }

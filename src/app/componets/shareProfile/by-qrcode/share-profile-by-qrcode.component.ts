@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Student } from 'src/app/model/student';
 
 @Component({
   selector: 'share-profile-by-qrcode',
@@ -11,6 +10,22 @@ export class ShareProfileByQRCodeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  downloadQrCode(){
+    let qrElemetn: HTMLCollection = document.getElementsByTagName("ngx-qrcode");
+    if(qrElemetn){
+      let imageElement: any = qrElemetn[0].firstElementChild.firstElementChild;
+      var pom = document.createElement('a');
+      pom.setAttribute('href', imageElement.src);
+      pom.setAttribute('download', "qr.png");
+      pom.style.display = 'none';
+      document.body.appendChild(pom);
+      pom.click();
+      document.body.removeChild(pom);
+    }
+
   }
 
 }

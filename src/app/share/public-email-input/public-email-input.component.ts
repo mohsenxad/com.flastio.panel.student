@@ -50,9 +50,6 @@ export class PublicEmailInputComponent implements OnInit {
         validationResult.messageList.push("Enter Valid Email Address");
       }
     }
-    console.log('asdf');
-    console.log(validationResult);
-    
     
     return validationResult;
   }
