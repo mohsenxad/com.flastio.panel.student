@@ -50,6 +50,12 @@ export class AddDetailStudentComponent implements OnInit {
     this.student.collegeStatus = collegeStatus;
   }
 
+  async changeImage(){
+    this.isLoading = true;
+    this.student = await this.studentService.updateDetail(this.student);
+    this.localStorageService.setStudent(this.student);
+    this.isLoading = false;
+  }
 
   async save(){
     this.isLoading = true;
@@ -68,12 +74,13 @@ export class AddDetailStudentComponent implements OnInit {
     this.student.pictureFileName = response.fileName.toString();
     this.student.pictureFileUrl = signedUploadUrl.split('?')[0];
     this.isLoading =false;
+    this.changeImage();
   }
 
 
   async uploadFile(uploadPresignUrl: string){
-    const contentType = await this.profilePicture.type;
-    this.studentService.upload(uploadPresignUrl,this.profilePicture, contentType)
+    const contentType = this.profilePicture.type;
+    await this.studentService.upload(uploadPresignUrl,this.profilePicture, contentType)
     .then(data=>{
       console.log('uploaded');
     })
@@ -90,6 +97,7 @@ export class AddDetailStudentComponent implements OnInit {
   removePicture(){
     this.student.pictureFileName = undefined;
     this.student.pictureFileUrl = undefined;
+    this.changeImage();
   }
 
   selectedGraduationDateMonth(issuedDateMonth: Number){
