@@ -188,7 +188,6 @@ form {
         line-height: 1.5;
         letter-spacing: normal;
         color: #7d8592;
-
       }
     }
     input[type="checkbox"] {
@@ -335,4 +334,9 @@ input:checked + .slider:before {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.student-picture-FileUrl {
+  width: 64px;
+  height: 64px;
 }
