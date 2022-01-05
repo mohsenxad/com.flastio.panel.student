@@ -35,6 +35,7 @@ section {
   margin: 64px auto;
   &:first-child {
     margin-top: 0;
+    width: 61%;
   }
 }
 
@@ -70,6 +71,9 @@ student-header {
     margin: 0;
     padding: 0 16px;
     box-sizing: border-box;
+    &:first-child {
+      width: 100%;
+    }
   }
   .student-panel-main-body {
     margin-top: -250px;
