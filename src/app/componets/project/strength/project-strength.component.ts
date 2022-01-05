@@ -84,4 +84,15 @@ export class ProjectStrengthComponent implements OnInit {
     return result*100/5;
   }
 
+  close(){
+    const details = document.querySelectorAll("details");
+    details.forEach((targetDetail) => {
+      targetDetail.addEventListener("click", () => {
+        details.forEach((detail) => {
+          detail.removeAttribute("open");
+        });
+      });
+    });
+  }
+
 }
