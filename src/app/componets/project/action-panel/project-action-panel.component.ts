@@ -40,4 +40,15 @@ export class ProjectActionPanelComponent implements OnInit {
     this.changeDisplayIndex(-1);
   }
 
+  close(){
+    const details = document.querySelectorAll("details");
+    details.forEach((targetDetail) => {
+      targetDetail.addEventListener("click", () => {
+        details.forEach((detail) => {
+          detail.removeAttribute("open");
+        });
+      });
+    });
+  }
+
 }
