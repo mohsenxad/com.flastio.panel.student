@@ -34,6 +34,7 @@
           *ngIf="student.pictureFileUrl && !isLoading"
           [src]="student.pictureFileUrl"
           alt="image"
+          class="student-picture-FileUrl"
         >
         <button
           (click)="removePicture()"
