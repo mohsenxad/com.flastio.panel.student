@@ -8,6 +8,8 @@ select {
   width: 100%;
   margin: 7px 0 27px 0;
   box-sizing: border-box;
+  color: #7d8592;
+
   &::placeholder {
     font-size: 14px;
     font-weight: normal;
@@ -17,9 +19,6 @@ select {
     letter-spacing: normal;
     color: #7d8592;
   }
-}
-option[value=""][disabled] {
-  display: none;
 }
 
 select {
@@ -32,13 +31,10 @@ select {
     no-repeat calc(100% - 10px) !important;
 }
 
-select:invalid{
-  color: gray;
-}
-
 option {
   font-size: 16px;
   color: #7d8592;
   margin: 6px 0;
   padding: 0;
 }
+
