@@ -14,7 +14,9 @@ export class AssignCertifictionComponent implements OnInit {
   @Output() onAssignedCertificationAdded = new EventEmitter<AssignedCertification>();
   @Output() onClose = new EventEmitter();
 
-  assignedCertification: AssignedCertification = {};
+  assignedCertification: AssignedCertification = {
+    issuedDateMonth: 0
+  };
 
   certificationFile: File ;
   isLoading:Boolean = false;

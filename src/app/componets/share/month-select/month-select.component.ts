@@ -10,7 +10,6 @@ export class MonthSelectComponent implements OnInit {
   @Input() selectedMonth:Number;
   @Output() onMonthSelected = new EventEmitter<Number>();
 
-
   constructor() { }
 
   ngOnInit(): void {
