@@ -113,8 +113,24 @@ form {
       &:nth-child(1) {
         display: flex;
         align-items: center;
-        &::before {
-          content: url(/assets/images/profile-icon.svg);
+      }
+      .remove-picture{
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #f65160;
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+
+        &::before{
+          content: url(/assets/images/icn-general-delete-red.svg);
+          margin-right: 8px;
+          -webkit-writing-mode: vertical-rl;
         }
       }
       &:nth-child(4),
@@ -169,6 +185,7 @@ form {
       &::before {
         content: url(/assets/images/icn-general-add-dark-blue.svg);
         margin-right: 4px;
+        
       }
     }
     input {

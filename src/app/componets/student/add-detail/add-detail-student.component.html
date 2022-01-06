@@ -19,6 +19,7 @@
       <li
         *ngIf="!student.pictureFileUrl"
       >
+      <img src="/assets/images/profile-icon.svg" alt="images">
         <label for="pictureFile" class="file-label"> Add Profile Picture </label>
         <input
               type="file"
@@ -36,10 +37,10 @@
           alt="image"
           class="student-picture-FileUrl"
         >
-        <button
+        <button class="remove-picture"
           (click)="removePicture()"
         >
-          Remove
+         Delete image
         </button>
       </li>
       <li>
