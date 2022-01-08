@@ -65,9 +65,9 @@ export class ProjectStrengthComponent implements OnInit {
       }
     ]
 
-    if(this.projectBaseInfo.projectType == 'Related course'){
+    if(this.projectBaseInfo.projectType == 'Course Project'){
       this.itemList.push({
-        title: 'Course title',
+        title: 'Course Project',
         isCompeleted:this.projectBaseInfo.course != undefined,
       })
     };

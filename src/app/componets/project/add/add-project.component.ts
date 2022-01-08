@@ -24,11 +24,11 @@ export class AddProjectComponent implements OnInit {
 
   project :Project = {
     baseInfo:{
-      projectType : 'Related course',
+      projectType : 'Course Project',
       yearCompleted:2021,
       skillList:[],  
     },
-    projectType : 'Related course',
+    projectType : 'Course Project',
     yearCompleted:2021,
     skillList:[],
     linkUrlList:[],

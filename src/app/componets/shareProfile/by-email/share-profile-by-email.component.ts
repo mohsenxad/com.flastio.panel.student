@@ -65,7 +65,7 @@ export class ShareProfileByEmailComponent implements OnInit {
       this.emailList = [];
       this.message = '';
       this.validationResult.hasError = true;
-      this.validationResult.messageList.push("Your Profile Will be Shared!")
+      this.validationResult.messageList.push("Your profile is successfully shared")
     }
   }
 
