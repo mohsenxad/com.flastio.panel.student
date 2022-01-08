@@ -30,7 +30,9 @@
   <ul *ngIf="linkUrlList && linkUrlList.length > 0">
     <li *ngFor="let linkUrl of linkUrlList">
       <dl>
-        <div>
+        <div
+        (click)="viewLinkUrl(linkUrl)"
+        >
           <dt>Title</dt>
           <dd>
             {{ linkUrl.url }}

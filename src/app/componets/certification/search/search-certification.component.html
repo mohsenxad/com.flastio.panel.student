@@ -11,7 +11,8 @@
             name="txtCertificationKeyWord"
             id="txtCertificationKeyWord"
             [(ngModel)]="certificationKeyWord"
-            (ngModelChange)="onKeyup($event)"
+            (ngModelChange)="changed($event)"
+            (keypress)="onKeyup($event)"
             placeholder="e.g., Six Sigma Yellow Belt"
             maxlength="200"
             minlength="3"
@@ -26,6 +27,7 @@
     <div class="search-certification-result">
       <button
         *ngIf = 'isAddable()'
+        type="button"
         (click)="addCertification()"
       >
         Add {{ certificationKeyWord }}

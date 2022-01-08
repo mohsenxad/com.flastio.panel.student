@@ -11,15 +11,13 @@ export class SelectTypeProjectComponent implements OnInit, OnChanges {
   @Output() onProjectTypeSelected = new EventEmitter<String>();
 
   projectTypeList:String[] = [
-    'Related course',
+    'Course Project',
     'Extracurricular',
     'Internship',
   ];
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    
   }
 
   ngOnInit(): void {

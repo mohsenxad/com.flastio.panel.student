@@ -54,6 +54,18 @@ export class SearchCertificationComponent implements OnInit {
   }
 
   onKeyup(event) {
+    console.log(event);
+    if(
+      event.code == "Enter" &&
+      this.isAddable()
+    ){
+      this.addCertification();
+    }
+  }
+
+  changed(value){
+    console.log(value);
+    
     if(
       this.certificationKeyWord.length >= this.keywordMinCharLengthToSearch
     ){

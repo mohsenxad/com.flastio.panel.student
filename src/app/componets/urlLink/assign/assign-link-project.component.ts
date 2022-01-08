@@ -93,5 +93,11 @@ export class AssignLinkProjectComponent implements OnInit {
     }
   }
 
+  viewLinkUrl(linkUrl:LinkUrl):void{
+    console.log('viwing ...');
+    window.open(linkUrl.url.toString());
+    
+  }
+
 
 }
