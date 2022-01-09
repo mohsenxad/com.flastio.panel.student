@@ -46,5 +46,14 @@
         [monthNumber] = "assignedCertification.issuedDateMonth"
       ></month-label>
     </dd>
+
+    <dt
+      *ngIf="assignedCertification.organization"
+    >Organization</dt>
+    <dd
+      *ngIf="assignedCertification.organization"
+    >
+      {{assignedCertification.organization}}
+    </dd>
   </div>
 </dl>

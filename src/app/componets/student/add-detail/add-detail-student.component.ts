@@ -74,7 +74,6 @@ export class AddDetailStudentComponent implements OnInit {
     this.student.pictureFileName = response.fileName.toString();
     this.student.pictureFileUrl = signedUploadUrl.split('?')[0];
     this.isLoading =false;
-    this.changeImage();
   }
 
 
@@ -94,10 +93,21 @@ export class AddDetailStudentComponent implements OnInit {
     this.router.navigateByUrl('/student/panel')
   }
 
+  isChanged():Boolean{
+    console.log('herer to change');
+    
+    let localStorageStudent = this.localStorageService.getStudent();
+    if(this.student.pictureFileUrl != localStorageStudent.pictureFileUrl){
+      return true;
+    }else{
+      return false;
+    }
+    
+  }
+
   removePicture(){
     this.student.pictureFileName = undefined;
     this.student.pictureFileUrl = undefined;
-    this.changeImage();
   }
 
   selectedGraduationDateMonth(issuedDateMonth: Number){
