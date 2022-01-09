@@ -11,11 +11,22 @@
     {{ project.yearCompleted }}
   </dd>
 
-  <dt>Course</dt>
+  <dt
+    *ngIf="project.course"
+  >Course</dt>
   <dd class="project-course"
     *ngIf="project.course"
   >
-    {{ project.course.name }}
+    . {{ project.course.name }}
+  </dd>
+
+  <dt
+    *ngIf="project.company"
+  >Company</dt>
+  <dd class="project-course"
+    *ngIf="project.company"
+  >
+    . {{ project.company.name }}
   </dd>
 
   <dt>Action Panel</dt>

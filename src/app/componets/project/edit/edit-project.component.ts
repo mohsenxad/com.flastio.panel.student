@@ -125,6 +125,7 @@ export class EditProjectComponent implements OnInit {
       name:this.project.name,
       description:this.project.description || undefined,
       course:this.project.course || undefined,
+      company:this.project.company || undefined,
       skillList:this.project.skillList,
       yearCompleted:this.project.yearCompleted,
       summeryFileUrl:this.project.summeryFileUrl || undefined,
