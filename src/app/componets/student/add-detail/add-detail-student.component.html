@@ -1,4 +1,5 @@
 <section>
+  
   <div class="student-signup-img-section">
     <flastio-logo></flastio-logo>
     <h1>Use Flastio and land your dream job</h1>
@@ -7,159 +8,167 @@
       alt="images"
     />
   </div>
-<form
-  #form="ngForm"
->
-  <legend>Welcome {{student.firstName}}!</legend>
-  <p>Tell about yourself</p>
-  <fieldset
-    [disabled]="isLoading"
+
+  <form
+    #form="ngForm"
   >
-    <ul>
-      <li
-        *ngIf="!student.pictureFileUrl"
-      >
-      <img src="/assets/images/profile-icon.svg" alt="images">
-        <label for="pictureFile" class="file-label"> Add Profile Picture </label>
-        <input
-              type="file"
-              id='pictureFile'
-              name='pictureFile'
-              (change)="handleFileInput($event.target.files)"
+    <legend>Welcome {{student.firstName}}!</legend>
+    <p>Tell about yourself</p>
+    <fieldset
+      [disabled]="isLoading"
+    >
+      <ul>
+        <li
+          *ngIf="!student.pictureFileUrl"
+        >
+        <img src="/assets/images/profile-icon.svg" alt="images">
+          <label for="pictureFile" class="file-label"> Add Profile Picture </label>
+          <input
+                type="file"
+                id='pictureFile'
+                name='pictureFile'
+                (change)="handleFileInput($event.target.files)"
+            >
+        </li>
+        <li
+          *ngIf="student.pictureFileUrl"
+        >
+          <img 
+            *ngIf="student.pictureFileUrl && !isLoading"
+            [src]="student.pictureFileUrl"
+            alt="image"
+            class="student-picture-FileUrl"
           >
-      </li>
-      <li
-        *ngIf="student.pictureFileUrl"
-      >
-        <img 
-          *ngIf="student.pictureFileUrl && !isLoading"
-          [src]="student.pictureFileUrl"
-          alt="image"
-          class="student-picture-FileUrl"
-        >
-        <button class="remove-picture"
-          (click)="removePicture()"
-        >
-         Delete image
-        </button>
-      </li>
-      <li>
-        <label for="txtCountryRegion"> Location </label>
-        <country-region-select
-          id="txtCountryRegion"
-          [selectedCountryRegion]="student.countryRegion"
-          (onCountryRegionSelected)="setCountryRegion($event)"
-        ></country-region-select>
-      </li>
-      <li>
-        <label for="txtPostalCode"> Postal code </label>
-        <input
-          type="tel"
-          name="txtPostalCode"
-          id="txtPostalCode"
-          [(ngModel)]="student.postalCode"
-          placeholder="Enter your postal code"
-        />
-      </li>
-      <li>
-        <label for="slcGender"> Gender </label>
-        <gender-select
-          id="slcGender"
-          [selectedGender]="student.gender"
-          (onGenderSelected)="setGender($event)"
-        ></gender-select>
-      </li>
+          <button class="remove-picture"
+            (click)="removePicture()"
+          >
+          Delete image
+          </button>
+        </li>
+        <li>
+          <label for="txtCountryRegion"> Location </label>
+          <country-region-select
+            id="txtCountryRegion"
+            [selectedCountryRegion]="student.countryRegion"
+            (onCountryRegionSelected)="setCountryRegion($event)"
+          ></country-region-select>
+        </li>
+        <li>
+          <label for="txtPostalCode"> Postal code </label>
+          <input
+            type="tel"
+            name="txtPostalCode"
+            id="txtPostalCode"
+            [(ngModel)]="student.postalCode"
+            placeholder="Enter your postal code"
+          />
+        </li>
+        <li>
+          <label for="slcGender"> Gender </label>
+          <gender-select
+            id="slcGender"
+            [selectedGender]="student.gender"
+            (onGenderSelected)="setGender($event)"
+          ></gender-select>
+        </li>
 
-      <li>
-        <label for="slcEthnicity">
-          Ethnicity/Race
+        <li>
+          <label for="slcEthnicity">
+            Ethnicity/Race
+          </label>
+          <ethnicity-select
+            id="slcEthnicity"
+            [selectedEthnicity]="student.ethnicity"
+            (onEthnicitySelected)="setEthnicity($event)"
+          ></ethnicity-select>
+        </li>
+
+        <li>
+          <label class="switch" for="chkShareGender"> Share my gender with employers 
+          <input
+            type="checkbox"
+            name="chkShareGender"
+            id="chkShareGender"
+            [(ngModel)]="student.isGenderSharable"
+            checked
+          />
+          <span class="slider round"></span>
         </label>
-        <ethnicity-select
-          id="slcEthnicity"
-          [selectedEthnicity]="student.ethnicity"
-          (onEthnicitySelected)="setEthnicity($event)"
-        ></ethnicity-select>
-      </li>
+        </li>
 
-      <li>
-        <label class="switch" for="chkShareGender"> Share my gender with employers 
-        <input
-          type="checkbox"
-          name="chkShareGender"
-          id="chkShareGender"
-          [(ngModel)]="student.isGenderSharable"
-          checked
-        />
-        <span class="slider round"></span>
-      </label>
-      </li>
-
-      <li>
-        <label for="chkShareEthnicity" class="switch">
-          Share my ethnicity with employers
-        <input
-          type="checkbox"
-          name="chkShareEthnicity"
-          id="chkShareEthnicity"
-          [(ngModel)]="student.isEthnicitySharable"
-          checked
-        />
-        <span class="slider round"></span>
-      </label>
-
-      </li>
-      <li>
-        <label for="slcCollegeStatus">
-          Which Year of College Are You in?
+        <li>
+          <label for="chkShareEthnicity" class="switch">
+            Share my ethnicity with employers
+          <input
+            type="checkbox"
+            name="chkShareEthnicity"
+            id="chkShareEthnicity"
+            [(ngModel)]="student.isEthnicitySharable"
+            checked
+          />
+          <span class="slider round"></span>
         </label>
-        <college-status-select
-          id="slcCollegeStatus"
-          [selectedCollegeStatus]="student.collegeStatus"
-          (onCollegeStatusSelected)="setCollegeStatus($event)"
-        ></college-status-select>
-      </li>
 
-      <li
-        *ngIf="student.collegeStatus == 'Graduated'"
-      >
-        <label for="slcGraduationDate">
-          What is Your Graduation Date?
-        </label>
-        <div
-          id="slcGraduationDate"
-          name="slcGraduationDate"
+        </li>
+        <li>
+          <label for="slcCollegeStatus">
+            Which Year of College Are You in?
+          </label>
+          <college-status-select
+            id="slcCollegeStatus"
+            [selectedCollegeStatus]="student.collegeStatus"
+            (onCollegeStatusSelected)="setCollegeStatus($event)"
+          ></college-status-select>
+        </li>
+
+        <li
+          *ngIf="student.collegeStatus == 'Graduated'"
         >
-          <month-select
-            [selectedMonth] = 'student.graduationMonth'
-            (onMonthSelected) = 'selectedGraduationDateMonth($event)'
-          ></month-select>
+          <label for="slcGraduationDate">
+            What is Your Graduation Date?
+          </label>
+          <div
+            id="slcGraduationDate"
+            name="slcGraduationDate"
+          >
+            <month-select
+              [selectedMonth] = 'student.graduationMonth'
+              (onMonthSelected) = 'selectedGraduationDateMonth($event)'
+            ></month-select>
 
-          <year-select2
-            [selectedYear] = 'student.graduationYear'
-            (onYearSelected) = 'selectedGraduationDateYear($event)'
-          ></year-select2>
+            <year-select2
+              [selectedYear] = 'student.graduationYear'
+              (onYearSelected) = 'selectedGraduationDateYear($event)'
+            ></year-select2>
 
-        </div>
+          </div>
+          
+        </li>
+
         
-      </li>
 
-      
+        
+      </ul>
 
-      
-    </ul>
+      <div class="add-detail-student-btn-section">
+        <button class="add-detail-student-start"
+        (click)="save()"
+      >
+        Save
+      </button>
+      <button class="add-detail-student-skip"
+        (click)="skip()"
+      >
+        I will complete later
+      </button>
+      </div>
+    </fieldset>
+  </form>
 
-    <div class="add-detail-student-btn-section">
-      <button class="add-detail-student-start"
-      (click)="save()"
-    >
-      Save
-    </button>
-    <button class="add-detail-student-skip"
-      (click)="skip()"
-    >
-      I will complete later
-    </button>
-    </div>
-  </fieldset>
-</form>
+  <confirm-discard
+    *ngIf="confirmDicardIsVisible"
+    (onConfirm) = 'goToStudentPanel()'
+    (onCancel) = 'hideConfirmDiscardModal()'
+  ></confirm-discard>
+
 </section>
