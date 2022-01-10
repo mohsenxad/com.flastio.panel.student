@@ -14,6 +14,7 @@ export class AddDetailStudentComponent implements OnInit {
   profilePicture: File;
   student: Student;
   isLoading: Boolean = false;
+  confirmDicardIsVisible : Boolean = false;
   
   
 
@@ -90,18 +91,43 @@ export class AddDetailStudentComponent implements OnInit {
   }
 
   skip(){
+    if(this.isChanged()){
+      this.confirmDicardIsVisible = true;
+    }else{
+      this.goToStudentPanel();
+    }
+  }
+
+  goToStudentPanel(){
     this.router.navigateByUrl('/student/panel')
+  }
+
+  hideConfirmDiscardModal(){
+    this.confirmDicardIsVisible = false;
   }
 
   isChanged():Boolean{
     console.log('herer to change');
+    let result: Boolean = false;
     
     let localStorageStudent = this.localStorageService.getStudent();
-    if(this.student.pictureFileUrl != localStorageStudent.pictureFileUrl){
-      return true;
-    }else{
-      return false;
+
+    if(
+      this.student.pictureFileUrl != localStorageStudent.pictureFileUrl ||
+      this.student.countryRegion != localStorageStudent.countryRegion ||
+      this.student.postalCode != localStorageStudent.postalCode ||
+      this.student.gender != localStorageStudent.gender ||
+      this.student.ethnicity != localStorageStudent.ethnicity ||
+      this.student.isGenderSharable != localStorageStudent.isGenderSharable ||
+      this.student.isEthnicitySharable != localStorageStudent.isEthnicitySharable ||
+      this.student.collegeStatus != localStorageStudent.collegeStatus ||
+      this.student.graduationMonth != localStorageStudent.graduationMonth ||
+      this.student.graduationYear != localStorageStudent.graduationYear
+    ){
+      result = true;
     }
+
+    return result;
     
   }
 

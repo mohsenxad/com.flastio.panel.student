@@ -1,5 +1,5 @@
 <form>
-  <button class="close-btn" (click)="close()">Close</button>
+  <button class="close-btn" (click)="cancel()">Close</button>
 
   <legend>Add Supporting Links</legend>
 
@@ -27,8 +27,8 @@
       [validationResult] = 'validationResult'
     ></validation-result>
   </fieldset>
-  <ul *ngIf="linkUrlList && linkUrlList.length > 0">
-    <li *ngFor="let linkUrl of linkUrlList">
+  <ul *ngIf="localLinkUrlList && localLinkUrlList.length > 0">
+    <li *ngFor="let linkUrl of localLinkUrlList">
       <dl>
         <div
         (click)="viewLinkUrl(linkUrl)"
@@ -60,5 +60,11 @@
     <button class="submit-btn" (click)="save()">Save</button>
   </div>
   
+  <confirm-discard
+    *ngIf="confirmDicardIsVisible"
+    (onConfirm) = 'close()'
+    (onCancel) = 'hideConfirmDiscardModal()'
+  ></confirm-discard>
+
 </form>
 

@@ -14,16 +14,23 @@ export class AssignLinkProjectComponent implements OnInit {
   @Output() onLinkUrlListUpdated = new EventEmitter<LinkUrl[]>();
   @Output() onClose = new EventEmitter();
 
+  
+  
+  localLinkUrlList: LinkUrl[] = [];
   linkUrl:String;
   isLoading:Boolean = false;
   validationResult: ValidationResult = {
     hasError : false,
     messageList: []
   };
+  confirmDicardIsVisible: Boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.linkUrlList.forEach((currentLinkUrlLitItem: LinkUrl) => {
+      this.localLinkUrlList.push(currentLinkUrlLitItem);
+    })
   }
 
   getLinkInfo(url: String){
@@ -57,24 +64,42 @@ export class AssignLinkProjectComponent implements OnInit {
     this.validationResult = this.validate(this.linkUrl);
     if(!this.validationResult.hasError){
       let newLinkUrl = this.getLinkInfo(this.linkUrl);
-      this.linkUrlList.push(newLinkUrl);
+      this.localLinkUrlList.push(newLinkUrl);
       this.linkUrl = '';
     }
   }
 
   save(){
-    this.onLinkUrlListUpdated.emit(this.linkUrlList);
+    this.onLinkUrlListUpdated.emit(this.localLinkUrlList);
     this.onClose.emit();
+  }
+
+  cancel(){
+    if(this.isChanged()){
+      this.confirmDicardIsVisible = true;
+    }else{
+     this.close();
+    }
   }
 
   close(){
     this.onClose.emit();
   }
 
-  cancel(){
-    this.onLinkUrlListUpdated.emit([]);
-    this.onClose.emit();
+  isChanged():Boolean{
+    let result: Boolean = false;
+
+    if(this.localLinkUrlList.length != this.linkUrlList.length){
+      result = true;
+    }
+    //else{
+    //   this.linkUrlList.forEach((cuurentOrginalLinkUrl:LinkUrl) => {
+        
+    //   })
+    // }
+    return result;
   }
+
 
   remove(linkUrl:LinkUrl){
     this.linkUrlList = this.linkUrlList.filter((currentLinkUrl: LinkUrl) => {
@@ -83,6 +108,10 @@ export class AssignLinkProjectComponent implements OnInit {
       }
     })
     
+  }
+
+  hideConfirmDiscardModal(){
+    this.confirmDicardIsVisible = false;
   }
 
   onKeyup(event: any) {

@@ -94,10 +94,6 @@ export class AssignSupportingFileProjectComponent implements OnInit {
     this.onClose.emit();
   }
 
-  cancel(){
-    this.onSupportingFileListUpdated.emit([]);
-    this.onClose.emit();
-  }
 
   remove(supportingFile:SupportingFile){
     this.supportingFileList = this.supportingFileList.filter((currentFile) => {

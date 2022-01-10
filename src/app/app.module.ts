@@ -100,6 +100,7 @@ import { SkillsetPanelComponent } from './componets/skillSet/panel/skillset-pane
 import { EmptySkillsetComponent } from './componets/skillSet/empty/empty-skillset.component';
 import { ShareModule } from './share/share.module';
 import { AuthModule } from './auth/auth.module';
+import { ConfirmDiscardComponent } from './componets/share/confirm-discard/confirm-discard.component';
 
 
 
@@ -196,6 +197,7 @@ import { AuthModule } from './auth/auth.module';
     SkillsetListComponent,
     SkillsetListItemComponent,
     EmptySkillsetComponent,
+    ConfirmDiscardComponent,
   ],
   imports: [
     BrowserModule,
