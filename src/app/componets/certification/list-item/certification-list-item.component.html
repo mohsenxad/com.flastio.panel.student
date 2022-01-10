@@ -19,7 +19,7 @@
 
   <div>
     <dt>Name</dt>
-    <dd
+    <dd class="certification-name"
       *ngIf="assignedCertification.certification"
     >
       {{ assignedCertification.certification.name }}
@@ -35,13 +35,13 @@
     </dd>
 
     <dt>Issued Date Year</dt>
-    <dd>
+    <dd class="certification-date-year">
       {{ assignedCertification.issuedDateYear }}
   
     </dd>
 
     <dt>Issued Date Month</dt>
-    <dd>
+    <dd class="certification-date-month">
       <month-label
         [monthNumber] = "assignedCertification.issuedDateMonth"
       ></month-label>
@@ -50,7 +50,7 @@
     <dt
       *ngIf="assignedCertification.organization"
     >Organization</dt>
-    <dd
+    <dd class="certification-organization"
       *ngIf="assignedCertification.organization"
     >
       {{assignedCertification.organization}}
