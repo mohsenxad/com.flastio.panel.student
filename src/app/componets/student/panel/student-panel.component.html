@@ -35,6 +35,7 @@
         <resume-panel
             *ngIf = "student"
             [fileUrl] = "student.resumeFileUrl"
+            [isRequestedResumeFeedback] = "student.isRequestedResumeFeedback"
             (onUpdated) = 'onReumeUpdated()'
         ></resume-panel>
         <transcript-panel

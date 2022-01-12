@@ -50,10 +50,18 @@
         (onCancel) = "hideConfrimDelete()"
         (onConfirm) = "confirmedDelete()"
     ></confirm-delete>
+    <span
+        class="isCopyed"
+        *ngIf="isSent"            
+    >
+        Great, we'll email you expert suggestions to improve your resume within 24 hours
+    </span>
 </div>
 
-    <button class="resume-panel-request-feedback"
-    *ngIf="fileUrl"
+    <button
+        class="resume-panel-request-feedback"
+        *ngIf="fileUrl && !isRequestedResumeFeedback"
+        (click) = 'requestFeedback()'
     >
-    Request feedback from Flastio
+        Request feedback from Flastio
     </button>

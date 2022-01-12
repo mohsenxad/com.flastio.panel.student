@@ -9,6 +9,7 @@ import { ResumeService } from 'src/app/services/resume/resume.service';
 export class ResumePanelComponent implements OnInit {
 
   @Input() fileUrl: String;
+  @Input() isRequestedResumeFeedback: Boolean;
   @Output() onUpdated = new EventEmitter();
   
   
@@ -16,6 +17,7 @@ export class ResumePanelComponent implements OnInit {
   uniqFileName: String;
   isLoading:Boolean = false;
   isConfirmDeleteVisible: Boolean = false;
+  isSent:Boolean = false;
   
 
   constructor(
@@ -73,5 +75,16 @@ export class ResumePanelComponent implements OnInit {
 
   showConfrimDelete(){
     this.isConfirmDeleteVisible = true;
+  }
+
+  async requestFeedback(){
+    this.isLoading = true;
+    await this.resumeService.requestFeedback();
+    this.isSent = true;
+    setTimeout(()=>{
+      this.isSent = false;
+    },5500)
+    this.isRequestedResumeFeedback = true
+    this.isLoading = false;
   }
 }

@@ -61,17 +61,17 @@ export class StudentService {
     let result: Student  = await user.functions
       .updateStudentDetail(
         student._id.toString(),
-        student.countryRegion,
-        student.postalCode,
-        student.gender,
-        student.isGenderSharable,
-        student.ethnicity,
-        student.isEthnicitySharable,
-        student.collegeStatus,
-        student.pictureFileName,
-        student.pictureFileUrl,
-        student.graduationMonth,
-        student.graduationYear,
+        student.countryRegion || undefined,
+        student.postalCode || undefined,
+        student.gender || undefined,
+        student.isGenderSharable || undefined,
+        student.ethnicity || undefined,
+        student.isEthnicitySharable || undefined,
+        student.collegeStatus || undefined,
+        student.pictureFileName || undefined,
+        student.pictureFileUrl || undefined,
+        student.graduationMonth || undefined,
+        student.graduationYear || undefined,
       )
     return result;
   }  

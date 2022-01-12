@@ -14,14 +14,19 @@ export class AssignSupportingFileProjectComponent implements OnInit {
   @Output() onClose = new EventEmitter();
 
 
+  localSupportingFileList: SupportingFile[] = [];
   fileUrl: String;
   isLoading: Boolean = false;
+  confirmDicardIsVisible: Boolean = false;
 
   constructor(
     private projectService:ProjectService
   ) { }
 
   ngOnInit(): void {
+    this.supportingFileList.forEach((currentSupportingFileListItem: SupportingFile) => {
+      this.localSupportingFileList.push(currentSupportingFileListItem);
+    })
   }
 
   setDropable(){
@@ -54,7 +59,7 @@ export class AssignSupportingFileProjectComponent implements OnInit {
       file: currentSupportingFile,
       remoteUrl:fileUrl
     };
-    this.supportingFileList.push(newSupportingFile);
+    this.localSupportingFileList.push(newSupportingFile);
     await this.uploadFile(newSupportingFile, signedUploadUrl)
     this.isLoading = false;
   }
@@ -75,7 +80,7 @@ export class AssignSupportingFileProjectComponent implements OnInit {
   }
 
   fileUploadCompelete(fileId: String){
-    let foundSupportingFile : SupportingFile =this.supportingFileList.find((supportingFile:SupportingFile)=>{
+    let foundSupportingFile : SupportingFile =this.localSupportingFileList.find((supportingFile:SupportingFile)=>{
       if(supportingFile._id.toString() == fileId){
         return supportingFile;
       }
@@ -85,23 +90,49 @@ export class AssignSupportingFileProjectComponent implements OnInit {
     }
   }
 
+  isChanged():Boolean{
+    let result: Boolean = false;
+
+    if(this.localSupportingFileList.length != this.supportingFileList.length){
+      result = true;
+    }
+    //else{
+    //   this.linkUrlList.forEach((cuurentOrginalLinkUrl:LinkUrl) => {
+        
+    //   })
+    // }
+    return result;
+  }
+
   save(){
-    this.onSupportingFileListUpdated.emit(this.supportingFileList);
+    this.onSupportingFileListUpdated.emit(this.localSupportingFileList);
     this.onClose.emit();
+  }
+
+  cancel(){
+    if(this.isChanged()){
+      this.confirmDicardIsVisible = true;
+    }else{
+     this.close();
+    }
   }
 
   close(){
     this.onClose.emit();
   }
 
+  hideConfirmDiscardModal(){
+    this.confirmDicardIsVisible = false;
+  }
+
 
   remove(supportingFile:SupportingFile){
-    this.supportingFileList = this.supportingFileList.filter((currentFile) => {
+    this.localSupportingFileList = this.localSupportingFileList.filter((currentFile) => {
       if(currentFile._id.toString() != supportingFile._id.toString()){
         return currentFile;
       }
     })
-    this.onSupportingFileListUpdated.emit(this.supportingFileList);
+    this.onSupportingFileListUpdated.emit(this.localSupportingFileList);
   }
 
 }

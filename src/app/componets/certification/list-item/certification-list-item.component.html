@@ -34,18 +34,19 @@
       > </certification-action-panel>
     </dd>
 
-    <dt>Issued Date Year</dt>
-    <dd class="certification-date-year">
-      {{ assignedCertification.issuedDateYear }}
-  
-    </dd>
-
     <dt>Issued Date Month</dt>
     <dd class="certification-date-month">
       <month-label
         [monthNumber] = "assignedCertification.issuedDateMonth"
       ></month-label>
     </dd>
+    
+    <dt>Issued Date Year</dt>
+    <dd class="certification-date-year">
+      {{ assignedCertification.issuedDateYear }}
+    </dd>
+
+    
 
     <dt
       *ngIf="assignedCertification.organization"

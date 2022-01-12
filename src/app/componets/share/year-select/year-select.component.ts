@@ -10,7 +10,7 @@ export class YearSelectComponent implements OnInit {
   @Input() selectedYear:number;
   @Output() onYearSelected = new EventEmitter<number>();
 
-  yearList:number[] = [2017,2018,2019,2020,2021];
+  yearList:number[] = [2017,2018,2019,2020,2021,2022];
 
 
   constructor() { }

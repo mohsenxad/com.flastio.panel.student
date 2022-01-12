@@ -43,4 +43,10 @@ export class ResumeService {
       .setResumeFileName(this.studentId,resumeFileName, resumeFileUrl);
   }
 
+  async requestFeedback(){
+    const user: Realm.User = this.app.currentUser;
+    let result: any  = await user.functions
+      .requestResumeFeedback(this.studentId);
+  }
+
 }

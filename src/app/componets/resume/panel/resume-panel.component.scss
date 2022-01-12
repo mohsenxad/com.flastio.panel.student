@@ -7,6 +7,39 @@
   margin-bottom: 10px;
   height: 100%;
   position: relative;
+
+  span {
+    width: 30em;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 9;
+    transition: opacity .5s;
+    top: -20px;
+    right: -30px;
+    font-size: 14px;
+    visibility: hidden;
+    opacity: 0;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 3.7em;
+      left: 5em;
+      transform: rotate(270deg);
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent #555 transparent transparent;
+    }
+  }
+  span.isCopyed{
+    visibility: visible;
+    opacity: 1;
+  }
+
   div:nth-child(2) {
     position: relative;
     // display: none;

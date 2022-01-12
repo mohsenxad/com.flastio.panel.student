@@ -59,12 +59,42 @@ export class PortfolioStrengthComponent implements OnInit, OnChanges {
     }
   ];
 
+  isCompeletePesronalInforamtion(student : Student):Boolean{
+    let result:Boolean = true;
+
+    if(
+      !student.pictureFileUrl ||
+      !student.countryRegion ||
+      !student.postalCode ||
+      !student.gender ||
+      !student.ethnicity ||
+      !student.collegeStatus 
+    ){
+      result = false;
+    }
+
+    if(
+      student.collegeStatus &&
+      (
+        !student.graduationMonth ||
+        !student.graduationYear
+      )
+    ){
+      result = false;
+    }
+
+    //student.isGenderSharable
+    //student.isEthnicitySharable
+
+    return result;
+  }
+
 
   setItemListStatus(){
     this.itemList = [
       {
         title: 'Personal Information',
-        isCompeleted: false,
+        isCompeleted: this.isCompeletePesronalInforamtion(this.student),
         url: '/student/editDetail'
       },
       {
