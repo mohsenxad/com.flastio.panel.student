@@ -36,7 +36,7 @@
       <add-paging-project
         [hadAttachment] = 'project.supportingFileList.length > 0'
         [hadLinks] = 'project.linkUrlList.length > 0' 
-        [hadCertification] = 'false' 
+        [hadCertification] = 'project.assignedCertification'
         [hadTeam] = 'project.contributorList.length > 0' 
         (onPageTitleSelected)="changePage($event)"
       ></add-paging-project>
@@ -54,6 +54,20 @@
       (onSupportingFileListUpdated) = "updateSupportingFileList($event)"
       (onClose) = 'goToGeneralView($event)'
     ></assign-supporting-file-project>
+
+    <assign-certifiction
+      *ngIf="pageTitle == 'Certification' && !project.assignedCertification"
+      (onAssignedCertificationAdded) = 'updateCertification($event)'
+      (onClose) = 'goToGeneralView($event)'
+    ></assign-certifiction>
+    <div
+      *ngIf="pageTitle == 'Certification' && project.assignedCertification"
+    >
+      <certification-list-item
+        [assignedCertification] = 'project.assignedCertification'
+      ></certification-list-item>
+    </div>
+    
     <assign-contributor
       *ngIf = "pageTitle == 'Team'"
       [contributorList] = "project.contributorList"
