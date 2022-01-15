@@ -58,4 +58,11 @@
     (onDelete) = "delete()"
     (onChangeIndex) = "changeIndex($event)"
   > </certification-action-panel>
+
+  <button
+    *ngIf="assignedCertification.fileUrl"
+    (click) = 'view()'
+  >
+    View
+  </button>
 </div>

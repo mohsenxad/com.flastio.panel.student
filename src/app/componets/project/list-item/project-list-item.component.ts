@@ -42,7 +42,7 @@ export class ProjectListItemComponent implements OnInit {
   }
 
   getSummeryFileUrl():SafeResourceUrl {
-    let result: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.project.summeryFileUrl.toString());
+    let result: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(this.project.summeryFileUrl.toString());
     console.log(result);
     return result;
   }

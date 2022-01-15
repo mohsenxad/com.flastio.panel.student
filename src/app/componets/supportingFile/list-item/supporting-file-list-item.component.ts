@@ -25,4 +25,9 @@ export class SupportingFileListItemComponent implements OnInit {
     
   }
 
+  view(){
+    console.log('viwing ...');
+    window.open(this.supportingFile.remoteUrl.toString());
+  }
+
 }

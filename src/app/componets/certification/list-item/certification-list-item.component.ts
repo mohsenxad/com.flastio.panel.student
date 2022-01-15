@@ -30,4 +30,9 @@ export class CertificationListItemComponent implements OnInit {
     console.log('change  project index to ' + index.toString());
   }
 
+  view(){
+    console.log('viwing ...');
+    window.open(this.assignedCertification.fileUrl.toString());
+  }
+
 }
