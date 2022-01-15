@@ -25,15 +25,6 @@
       {{ assignedCertification.certification.name }}
     </dd>
 
-    <dt>Action Panel</dt>
-    <dd class="certification-action-panel">
-      <certification-action-panel
-        (onEdit) = "edit()"
-        (onDelete) = "delete()"
-        (onChangeIndex) = "changeIndex($event)"
-      > </certification-action-panel>
-    </dd>
-
     <dt>Issued Date Month</dt>
     <dd class="certification-date-month">
       <month-label
@@ -58,3 +49,13 @@
     </dd>
   </div>
 </dl>
+
+<div
+  class="certification-action-panel"
+>
+  <certification-action-panel
+    (onEdit) = "edit()"
+    (onDelete) = "delete()"
+    (onChangeIndex) = "changeIndex($event)"
+  > </certification-action-panel>
+</div>

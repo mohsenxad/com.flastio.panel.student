@@ -1,3 +1,4 @@
+import { AssignedCertification } from "./assignedCertification";
 import { Company } from "./company";
 import { Contributor } from "./contributor";
 import { Course } from "./course";
@@ -22,4 +23,5 @@ export interface Project {
     linkUrlList?: LinkUrl[],
     supportingFileList? :SupportingFile[],
     contributorList?: Contributor[],
+    assignedCertification?: AssignedCertification,
 }

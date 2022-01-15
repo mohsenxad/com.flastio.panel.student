@@ -60,6 +60,7 @@ export class ProjectService {
       project.linkUrlList,
       project.supportingFileList,
       project.contributorList,
+      project.assignedCertification
     );
     return result;
   }
@@ -82,6 +83,7 @@ export class ProjectService {
       project.linkUrlList,
       project.supportingFileList,
       project.contributorList,
+      project.assignedCertification
     );
     return result;
   }

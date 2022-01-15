@@ -59,9 +59,13 @@
     {{ project.description }}
   </dd>
 
-  <dt *ngIf="project.skillList && project.skillList.length > 0">Skills</dt>
+  <dt *ngIf="project.skillList && project.skillList.length > 0">
+    Skills
+  </dt>
   <dd *ngIf="project.skillList && project.skillList.length > 0">
-    <skill-list [skillList]="project.skillList"></skill-list>
+    <skill-list
+      [skillList]="project.skillList"
+    ></skill-list>
   </dd>
 
   <dt
@@ -112,6 +116,15 @@
       (onViewed) = 'viewLinkUrl($event)'
     ></link-url-list>
   </dd>
+
+  <dt *ngIf="project.assignedCertification">
+    Certification
+  </dt>
+  <dd *ngIf="project.assignedCertification">
+    <certification-list-item
+      [assignedCertification] = 'project.assignedCertification'
+    ></certification-list-item>
+  </dd>  
 
   <dt *ngIf="project.contributorList && project.contributorList.length > 0">
     Contributors

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AssignedCertification } from 'src/app/model/assignedCertification';
 import { ProjectBaseInfo } from 'src/app/model/projectBaseInfo';
 import { ValidationResult } from 'src/app/model/validationResult';
 import { ProjectService } from 'src/app/services/project/project.service';
@@ -133,6 +134,10 @@ export class AddProjectComponent implements OnInit {
 
   updateSupportingFileList(supportingFileList: SupportingFile[]){
     this.project.supportingFileList = supportingFileList
+  }
+
+  updateCertification(assignedCertification: AssignedCertification){
+    this.project.assignedCertification = assignedCertification
   }
 
  

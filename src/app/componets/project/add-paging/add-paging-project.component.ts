@@ -54,8 +54,6 @@ export class AddPagingProjectComponent implements OnInit {
   }
 
   changePageTitle(pageTitle:String){
-    console.log('asdfa');
-    
     this.onPageTitleSelected.emit(pageTitle);
   }
 }
