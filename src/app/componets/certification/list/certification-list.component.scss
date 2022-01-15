@@ -5,4 +5,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 48px;
+  li{
+    position: relative;
+  }
 }

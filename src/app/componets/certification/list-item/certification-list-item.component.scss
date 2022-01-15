@@ -46,7 +46,8 @@ dl {
       line-height: 1.31;
       letter-spacing: normal;
       color: #91929e;
-      margin-right: 3px;
+      margin-right: 20px;
+
     }
     .certification-date-month {
       font-size: 16px;
@@ -56,7 +57,7 @@ dl {
       line-height: 1.31;
       letter-spacing: normal;
       color: #91929e;
-      margin-right: 20px;
+      margin-right: 3px;
     }
     .certification-organization{
       font-size: 16px;
@@ -66,13 +67,15 @@ dl {
       line-height: 1.31;
       letter-spacing: normal;
       color: #91929e;
+      margin-right: 3px;
+
     }
   }
 }
 .certification-action-panel {
   position: absolute;
   right: 0;
-  top: 2px;
+  top: 4px;
 }
 .defult-image {
   width: 17px !important;
