@@ -4,8 +4,16 @@ ul {
   margin: 0 0 32px 0;
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  li{
+  gap: 35px;
+  li {
     position: relative;
+    padding: 16px;
+    transition: 0.5s all;
+    &:hover {
+      border-radius: 8px;
+      background-color: #f4f9fd;
+      transition: 0.5s all;
+    }
+
   }
 }
