@@ -12,6 +12,7 @@ export interface Student {
     lastName?:String,
     countryMobileNumberCode?:Number,
     mobileNumber?:String,
+    email?:String,
     school?: School,
     major?: Major,
     graduationMonth?:Number,

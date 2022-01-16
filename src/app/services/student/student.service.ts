@@ -91,6 +91,12 @@ export class StudentService {
   getSharableLink(studentId: String): String{
     return `https://v.flastio.com/home;sudentId=${studentId.toString()}`
   }
+
+  async search(studentKeyWord: String):Promise<Student[]>{
+    const user: Realm.User = this.app.currentUser;
+    let studentList: Student[]  = await user.functions.searchStudent(studentKeyWord);
+    return studentList;
+  }
     
     
   
