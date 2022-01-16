@@ -40,7 +40,7 @@ dl {
     padding: 0;
   }
 
-  .project-action-panel{
+  .project-action-panel {
     display: inline-flex;
     float: right;
     position: absolute;
@@ -76,7 +76,6 @@ dl {
     margin-top: 24px;
     margin-bottom: 16px;
     display: block;
-
   }
 }
 
@@ -124,4 +123,25 @@ dl {
       background-repeat: no-repeat;
     }
   }
+}
+.project-list-certification-list {
+  position: relative;
+  transition: 0.5s all;
+  padding: 16px !important;
+  &:hover {
+    border-radius: 8px;
+    background-color: #f4f9fd;
+    transition: 0.5s all;
+  }
+}
+.project-list-certification-list-title {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  color: #fd9a00;
+  margin: 24px 0 16px 0;
 }

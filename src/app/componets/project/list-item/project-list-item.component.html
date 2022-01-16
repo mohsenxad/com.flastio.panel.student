@@ -118,11 +118,11 @@
       (onViewed) = 'viewLinkUrl($event)'
     ></link-url-list>
   </dd>
-
-  <dt *ngIf="project.assignedCertification">
+ 
+  <dt *ngIf="project.assignedCertification" class="project-list-certification-list-title">
     Certification
   </dt>
-  <dd *ngIf="project.assignedCertification">
+  <dd *ngIf="project.assignedCertification" class="project-list-certification-list">
     <certification-list-item
       [assignedCertification] = 'project.assignedCertification'
     ></certification-list-item>
