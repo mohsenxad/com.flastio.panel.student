@@ -77,7 +77,12 @@
     class="project-image"
     *ngIf="project.summeryFileUrl"
   >
-    <img src="assets/images/project-sample.jpg" alt="images" />
+    <!-- <img src="assets/images/project-sample.jpg" alt="images" /> -->
+
+    <iframe
+      [src]='getSummeryFileIFrameUrl()'
+      scrolling="no"
+    ></iframe>
     <!-- <embed
       src = 'http://www.africau.edu/images/default/sample.pdf'
       type="application/pdf"
@@ -92,12 +97,12 @@
 
     ></iframe> -->
     <!-- <button>View Project Summary</button> -->
-    <a 
+    <!-- <a 
       [href] = "project.summeryFileUrl"
       target = "_blank"
     >
       View Project Summary
-    </a>
+    </a> -->
   </dd>
 
   

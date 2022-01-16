@@ -42,7 +42,17 @@ export class ProjectListItemComponent implements OnInit {
   }
 
   getSummeryFileUrl():SafeResourceUrl {
-    let result: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(this.project.summeryFileUrl.toString());
+    //let result: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(this.project.summeryFileUrl.toString());
+    let onlineServiceUrl = '//sharecad.org/cadframe/load?url='+this.project.summeryFileUrl;
+    let result: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(onlineServiceUrl);
+    console.log(result);
+    return result;
+  }
+
+  getSummeryFileIFrameUrl():SafeResourceUrl {
+    //let result: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(this.project.summeryFileUrl.toString());
+    let onlineServiceUrl = '//sharecad.org/cadframe/load?url='+this.project.summeryFileUrl;
+    let result: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(onlineServiceUrl);
     console.log(result);
     return result;
   }
