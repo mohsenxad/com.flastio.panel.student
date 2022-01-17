@@ -5,8 +5,10 @@
     <fieldset>
       <ul>
         <li>
-
-          <input
+          <university-email-input
+            (onSetEmail) = 'changed($event)'
+          ></university-email-input>
+          <!-- <input
             type="search"
             name="txtStudentKeyWord"
             id="txtStudentKeyWord"
@@ -15,8 +17,8 @@
             (keypress)="onKeyup($event)"
             placeholder="e.g., Six Sigma Yellow Belt"
             maxlength="200"
-            minlength="3"
-          />
+            minlength="3" 
+          />-->
         </li>
       </ul>
     </fieldset>
@@ -28,9 +30,9 @@
       <button
         *ngIf = 'isAddable()'
         type="button"
-        (click)="addStudent()"
+        (click)="inviteStudent()"
       >
-        Add {{ studentKeyWord }}
+        Invite {{ studentKeyWord }} to Flastio
       </button>
       <ul *ngIf="studentList && studentList.length > 0">
         <li

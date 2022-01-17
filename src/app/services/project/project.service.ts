@@ -71,19 +71,19 @@ export class ProjectService {
     let result: Project  = await user.functions.editProject(
       this.studentId,
       project._id.toString(),
-      project.baseInfo.summeryFileUrl,
-      project.baseInfo.projectType,
-      project.baseInfo.name,
-      project.baseInfo.course,
-      project.baseInfo.company,
-      project.baseInfo.description,
-      project.baseInfo.skillList,
-      project.baseInfo.yearCompleted,
-      project.isPublished,
-      project.linkUrlList,
-      project.supportingFileList,
-      project.contributorList,
-      project.assignedCertification
+      project.baseInfo.summeryFileUrl|| undefined,
+      project.baseInfo.projectType|| undefined,
+      project.baseInfo.name|| undefined,
+      project.baseInfo.course|| undefined,
+      project.baseInfo.company|| undefined,
+      project.baseInfo.description|| undefined,
+      project.baseInfo.skillList|| undefined,
+      project.baseInfo.yearCompleted|| undefined,
+      project.isPublished|| undefined,
+      project.linkUrlList|| undefined,
+      project.supportingFileList|| undefined,
+      project.contributorList|| undefined,
+      project.assignedCertification|| undefined,
     );
     return result;
   }

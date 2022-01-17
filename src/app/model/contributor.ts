@@ -1,6 +1,7 @@
+import { Student } from "./student";
+
 export interface Contributor {
     _id?: String,
-    name? : String,
-    email?: String,
+    student? :Student,
     role? : String,
 }

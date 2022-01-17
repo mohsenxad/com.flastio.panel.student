@@ -2,15 +2,30 @@
     <dt>
         Picture
     </dt>
-    <dd>
-        <img src="/assets/images/profile.webp" alt="images">
-    </dd>
+    <img 
+      *ngIf="!contributor.student.pictureFileUrl"
+      src="/assets/images/profile-icon.svg"
+      alt="image"
+    >
+    <img 
+      *ngIf="contributor.student.pictureFileUrl"
+      [src]="contributor.student.pictureFileUrl"
+      alt="image"
+    >
 
     <dt>
         Name
     </dt>
-    <dd>
-        {{contributor.name}}
+    <dd
+        *ngIf="contributor.student.firstName && contributor.student.lastName"
+    >
+        {{contributor.student.firstName}} {{contributor.student.lastName}}
+    </dd>
+
+    <dd
+        *ngIf="!contributor.student.firstName && !contributor.student.lastName && contributor.student.title"
+    >
+        {{contributor.student.title}}
     </dd>
 
     <dt>

@@ -11,6 +11,7 @@ export class SearchStudentComponent implements OnInit {
 
   @Input() selectedStudent: Student;
   @Output() onStudentSelected = new EventEmitter<Student>();
+  @Output() onInviteStudentWithEmailSelected = new EventEmitter<String>();
 
   studentKeyWord: String;
   studentList: Student[];
@@ -29,6 +30,7 @@ export class SearchStudentComponent implements OnInit {
     if(
       !this.isLoading &&
       this.studentList &&
+      this.studentKeyWord &&
       this.studentKeyWord.length >= this.keywordMinCharLengthToSearch &&
       !this.isInList(this.studentKeyWord, this.studentList)
     ){
@@ -59,7 +61,7 @@ export class SearchStudentComponent implements OnInit {
       event.code == "Enter" &&
       this.isAddable()
     ){
-      this.addCertification();
+      this.inviteStudent();
     }
   }
 
@@ -67,8 +69,10 @@ export class SearchStudentComponent implements OnInit {
     console.log(value);
     
     if(
-      this.studentKeyWord.length >= this.keywordMinCharLengthToSearch
+      value && 
+      value.length >= this.keywordMinCharLengthToSearch
     ){
+      this.studentKeyWord = value;
       this.search();
     }else{
       this.studentList = [];
@@ -88,14 +92,8 @@ export class SearchStudentComponent implements OnInit {
     this.studentList = [];
   }
 
-  async addCertification(){
-    // this.isLoading = true;
-    // let newStudent:Student  = await this.studentService.add(this.certificationKeyWord);
-    // this.selectedStudent = newStudent;
-    // this.onStudentSelected.emit(newStudent);
-    // this.studentKeyWord = '';
-    // this.studentList = [];
-    // this.isLoading = false;
+  inviteStudent(){
+    this.onInviteStudentWithEmailSelected.emit(this.studentKeyWord);
   }
 
   remove(){

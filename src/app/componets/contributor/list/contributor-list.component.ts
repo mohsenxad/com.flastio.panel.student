@@ -16,6 +16,8 @@ export class ContributorListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.contributorList);
+    
   }
 
   removeItem(contributor: Contributor){

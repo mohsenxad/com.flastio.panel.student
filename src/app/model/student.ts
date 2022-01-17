@@ -10,6 +10,7 @@ export interface Student {
     _id?: String,
     firstName?:String,
     lastName?:String,
+    title?:String,
     countryMobileNumberCode?:Number,
     mobileNumber?:String,
     email?:String,

@@ -49,10 +49,10 @@ export class UniversityEmailInputComponent implements OnInit {
         validationResult.messageList.push("Enter Valid Email Address");
       }
 
-      if(!email.endsWith(".edu")){
-        validationResult.hasError = true;
-        validationResult.messageList.push("Enter Valid University Email Address");
-      }
+      // if(!email.endsWith(".edu")){
+      //   validationResult.hasError = true;
+      //   validationResult.messageList.push("Enter Valid University Email Address");
+      // }
     }
     return validationResult;
   }

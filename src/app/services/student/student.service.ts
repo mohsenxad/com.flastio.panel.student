@@ -56,6 +56,17 @@ export class StudentService {
     return newStudent;
   }
 
+  
+  async invite(email:String, title: String): Promise<Student>{
+    const user: Realm.User = this.app.currentUser;
+    let newStudent: Student  = await user.functions
+      .inviteStudent(
+        title,
+        email
+      )
+    return newStudent;
+  }
+
   async updateDetail(student: Student):Promise<Student>{
     const user: Realm.User = this.app.currentUser;
     let result: Student  = await user.functions

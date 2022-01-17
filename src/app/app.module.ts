@@ -102,6 +102,8 @@ import { ShareModule } from './share/share.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfirmDiscardComponent } from './componets/share/confirm-discard/confirm-discard.component';
 import { SearchStudentComponent } from './componets/student/search/search-student.component';
+import { InviteStudentComponent } from './componets/student/invite/invite-student.component';
+
 
 
 
@@ -200,6 +202,7 @@ import { SearchStudentComponent } from './componets/student/search/search-studen
     EmptySkillsetComponent,
     ConfirmDiscardComponent,
     SearchStudentComponent,
+    InviteStudentComponent,
   ],
   imports: [
     BrowserModule,

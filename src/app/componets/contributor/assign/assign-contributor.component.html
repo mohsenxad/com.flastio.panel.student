@@ -13,31 +13,22 @@
       <ul>
         <li>
             <label
-                for="txtName"
-            >
-                Contributor name
-            </label>
-            <input
-                type="text"
-                name="txtName"
-                id="txtName"
-                [(ngModel)] = 'contributor.name'
-                placeholder = "Enter name of contributor"
-                minlength="3"
-                maxlength="200"
-            >
-        </li>
-
-        <li>
-            <label
                 for="txtEmail"
             >
                 Email
             </label>
-            <university-email-input
-                (onSetEmail) = 'setEamil($event)'
-            ></university-email-input>
-            <search-student></search-student>
+            <search-student
+                *ngIf="!isInviteFormVisible"
+                [selectedStudent] = 'contributor.student'
+                (onStudentSelected) = 'setStudent($event)'
+                (onInviteStudentWithEmailSelected)="showInviteStudentForm($event)"
+            ></search-student>
+            <invite-student
+                *ngIf="isInviteFormVisible"
+                [email] = 'inviteeEmail'
+                (onClose) = 'hideInviterStudnetForm()'
+                (onInvited) = 'setStudent($event)'
+            ></invite-student>
         </li>
 
         <li>
@@ -67,13 +58,21 @@
     </fieldset>
 
     <contributor-list
-        *ngIf = "contributorList && contributorList.length > 0"
-        [contributorList] = "contributorList"
+        *ngIf = "localContributorList && localContributorList.length > 0"
+        [contributorList] = "localContributorList"
         (onDeleted) = 'remove($event)'
     ></contributor-list>
 
   <div>
+    <validation-result
+      [validationResult] = 'validationResult'
+    ></validation-result>
     <button (click)="cancel()">Cancel</button>
     <button (click)="save()">Save</button>
   </div>
+  <confirm-discard
+    *ngIf="confirmDicardIsVisible"
+    (onConfirm) = 'close()'
+    (onCancel) = 'hideConfirmDiscardModal()'
+  ></confirm-discard>
   </form>
