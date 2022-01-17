@@ -25,6 +25,12 @@ export class AssignContributorComponent implements OnInit {
     hasError:false,
     messageList:[]
   }
+
+  
+  contributorValidationResult: ValidationResult = {
+    hasError:false,
+    messageList:[]
+  }
   
   constructor() { }
 
@@ -61,9 +67,39 @@ export class AssignContributorComponent implements OnInit {
     }
   }
 
+  validateContributor(contributor: Contributor): ValidationResult{
+    let validationResult: ValidationResult ={
+      hasError: false,
+      messageList: []
+    };
+
+    if (!contributor){
+      validationResult.hasError = true;
+      validationResult.messageList.push("Select or Invite Contributor first");
+    }
+
+    if (
+      contributor &&
+      !contributor.student
+    ){
+      validationResult.hasError = true;
+      validationResult.messageList.push("Select or Invite Contributor first");
+    }
+
+    return validationResult;
+  }
+
   add(){
-    this.localContributorList.push(this.contributor);
-    this.contributor = {};
+    console.log('here');
+    
+    let validationResult = this.validateContributor(this.contributor);
+    if(!validationResult.hasError){
+      this.localContributorList.push(this.contributor);
+      this.contributor = {};
+    }else{
+      this.contributorValidationResult = validationResult;
+    }
+    
   }
 
   remove(contributor: Contributor){

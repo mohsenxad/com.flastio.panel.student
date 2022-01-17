@@ -103,6 +103,8 @@ import { AuthModule } from './auth/auth.module';
 import { ConfirmDiscardComponent } from './componets/share/confirm-discard/confirm-discard.component';
 import { SearchStudentComponent } from './componets/student/search/search-student.component';
 import { InviteStudentComponent } from './componets/student/invite/invite-student.component';
+import { UploadingComponent } from './componets/share/uploading/uploading.component';
+
 
 
 
@@ -203,6 +205,7 @@ import { InviteStudentComponent } from './componets/student/invite/invite-studen
     ConfirmDiscardComponent,
     SearchStudentComponent,
     InviteStudentComponent,
+    UploadingComponent,
   ],
   imports: [
     BrowserModule,

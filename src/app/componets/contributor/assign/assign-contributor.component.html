@@ -48,7 +48,12 @@
             >
         </li>
 
+        <validation-result
+            [validationResult] = 'contributorValidationResult'
+        ></validation-result>
+
         <button
+            type="button"
             (click)="add()"
         >
             Add Contributor
@@ -56,6 +61,8 @@
 
       </ul>
     </fieldset>
+
+    
 
     <contributor-list
         *ngIf = "localContributorList && localContributorList.length > 0"
