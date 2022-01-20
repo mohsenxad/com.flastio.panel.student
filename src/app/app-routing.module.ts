@@ -10,6 +10,7 @@ import { LoginComponent } from './auth/componets/user/login/login.component';
 import { SingupComponent } from './auth/componets/user/singup/singup.component';
 import { WorkStyleTestComponent } from './componets/workStyle/test/work-style-test.component';
 import { AuthHomeComponent } from './auth/auth-home/auth-home.component';
+import { UpgradePlaneComponent } from './componets/plane/upgrade/upgrade-plane.component';
 
 const routes: Routes = [
   {path:'auth', component:AuthHomeComponent,
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path:'', redirectTo: 'auth/login', pathMatch:'full'},
   {path:'student/signup', component:StudentSignupComponent},
   {path:'student/editDetail', component:AddDetailStudentComponent},
+  {path:'upgrade', component:UpgradePlaneComponent},
   {path:'student/panel', component:StudentPanelComponent},
   {path:'workStyle/test', component:WorkStyleTestComponent},
   {path:'project/add', component:AddProjectComponent},

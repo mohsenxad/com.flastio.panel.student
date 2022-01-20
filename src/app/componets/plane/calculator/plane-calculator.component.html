@@ -1,0 +1,20 @@
+
+<label
+    for="chckIsAnnual"
+>
+    isAnnual
+</label>
+<input
+    id = 'chckIsAnnual'
+    name = 'chckIsAnnual'
+    type="checkbox"
+    [(ngModel)]="isAnnual"
+>
+
+<b>
+    ${{calculatePrice()}}    
+</b>
+
+<span>
+    /{{getDurationTitle()}}
+</span>

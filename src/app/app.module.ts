@@ -104,9 +104,8 @@ import { ConfirmDiscardComponent } from './componets/share/confirm-discard/confi
 import { SearchStudentComponent } from './componets/student/search/search-student.component';
 import { InviteStudentComponent } from './componets/student/invite/invite-student.component';
 import { UploadingComponent } from './componets/share/uploading/uploading.component';
-
-
-
+import { UpgradePlaneComponent } from './componets/plane/upgrade/upgrade-plane.component';
+import { PlaneCalculatorComponent } from './componets/plane/calculator/plane-calculator.component';
 
 
 
@@ -206,6 +205,8 @@ import { UploadingComponent } from './componets/share/uploading/uploading.compon
     SearchStudentComponent,
     InviteStudentComponent,
     UploadingComponent,
+    UpgradePlaneComponent,
+    PlaneCalculatorComponent,
   ],
   imports: [
     BrowserModule,
