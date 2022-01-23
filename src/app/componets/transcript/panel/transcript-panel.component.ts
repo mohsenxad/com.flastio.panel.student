@@ -12,7 +12,6 @@ export class TranscriptPanelComponent implements OnInit {
   @Input() transcript: Transcript;
   @Output() onUpdated = new EventEmitter();
 
-  transcriptFile: File ;
   isLoading:Boolean = false;
   isConfirmDeleteVisible: Boolean = false;
   trasncript:Transcript = {};
@@ -26,25 +25,23 @@ export class TranscriptPanelComponent implements OnInit {
 
   async handleFileInput(files: FileList) {
     this.isLoading = true;
-    this.transcriptFile = files.item(0);
+    let transcriptFile:File = files.item(0);
     let response:any = await this.transcriptService.getUploadUrl()
     let signedUploadUrl: String = response.presignedUrl;
     this.trasncript.fileName = response.fileName.toString();
-    await this.uploadFile(signedUploadUrl)
+    this.trasncript.fileExtention = transcriptFile.type;
+    await this.uploadFile(signedUploadUrl, transcriptFile)
     this.isLoading = false;
     this.onUpdated.emit();
   }
 
-  async uploadFile(uploadPresignUrl: String){
+  async uploadFile(uploadPresignUrl: String, transcriptFile: File){
     this.isLoading = true;
-    const contentType = this.transcriptFile.type;
-    this.trasncript.fileExtention = contentType;
-
     await this.transcriptService
-      .upload(uploadPresignUrl,this.transcriptFile, contentType)
+      .upload(uploadPresignUrl,transcriptFile, this.trasncript.fileExtention)
       .then(data=>{
         console.log('uploaded');
-        this.trasncript.fileUrl = uploadPresignUrl.split('?')[0];;
+        this.trasncript.fileUrl = uploadPresignUrl.split('?')[0];
         this.transcriptService.setTranscript(this.trasncript);
         this.isLoading = false;
       })
