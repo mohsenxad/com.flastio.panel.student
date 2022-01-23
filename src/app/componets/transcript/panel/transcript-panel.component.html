@@ -1,6 +1,6 @@
 <div class="transcript-body">
     <section
-        [ngClass]="{'header isUploaded':fileUrl}"
+        [ngClass]="{'header isUploaded':transcript}"
     >
         <h3>
             Transcript
@@ -10,7 +10,7 @@
         ></loading>
     </section>
     <form
-        *ngIf="!fileUrl"
+        *ngIf="!transcript"
     >
         <fieldset
             [disabled]="isLoading"
@@ -27,10 +27,10 @@
         
     </form>
     <div class="delete-section"
-        *ngIf="fileUrl"
+        *ngIf="transcript"
     >
         <a
-            [href]="fileUrl"
+            [href]="transcript.fileUrl"
             target="_blank"
         >
             View transcript

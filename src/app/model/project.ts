@@ -5,6 +5,7 @@ import { Course } from "./course";
 import { LinkUrl } from "./linkUrl";
 import { ProjectBaseInfo } from "./projectBaseInfo";
 import { Skill } from "./skill";
+import { Student } from "./student";
 import { SupportingFile } from "./supportingFile";
 
 export interface Project {

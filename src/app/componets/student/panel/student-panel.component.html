@@ -40,7 +40,7 @@
         ></resume-panel>
         <transcript-panel
             *ngIf = "student"
-            [fileUrl] = "student.transcriptFileUrl"
+            [transcript] = "student.transcript"
             (onUpdated) = 'onTranscriptUpdated()'
         ></transcript-panel>
     </section>

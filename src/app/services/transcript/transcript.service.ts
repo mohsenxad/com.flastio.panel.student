@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as Realm from "realm-web";
 import { LocalStorageService } from '../localStorage/local-storage.service';
+import { Transcript } from 'src/app/model/transcript';
 
 @Injectable({
   providedIn: 'root'
@@ -35,10 +36,10 @@ export class TranscriptService {
     return result;
   }
 
-  async setTranscriptFile(transcriptFileName: String, transcriptFileUrl: String){
+  async setTranscript(transcript:Transcript){
     const user: Realm.User = this.app.currentUser;
     let result: any  = await user.functions
-      .setTranscriptFileName(this.studentId,transcriptFileName, transcriptFileUrl);
+      .setTranscriptFileName(this.studentId,transcript);
   }
 
 }

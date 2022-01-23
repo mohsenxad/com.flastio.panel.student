@@ -109,7 +109,7 @@ export class PortfolioStrengthComponent implements OnInit, OnChanges {
       },
       {
         title: 'Transcript',
-        isCompeleted:(this.student.transcriptFileUrl && this.student.transcriptFileUrl != ''),
+        isCompeleted:(this.student.transcript),
         url: '#'
       },
       {

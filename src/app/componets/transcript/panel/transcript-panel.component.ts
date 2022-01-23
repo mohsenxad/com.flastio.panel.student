@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Transcript } from 'src/app/model/transcript';
 import { TranscriptService } from 'src/app/services/transcript/transcript.service';
 
 @Component({
@@ -8,13 +9,13 @@ import { TranscriptService } from 'src/app/services/transcript/transcript.servic
 })
 export class TranscriptPanelComponent implements OnInit {
 
-  @Input() fileUrl: String;
+  @Input() transcript: Transcript;
   @Output() onUpdated = new EventEmitter();
 
   transcriptFile: File ;
-  uniqFileName: String;
   isLoading:Boolean = false;
   isConfirmDeleteVisible: Boolean = false;
+  trasncript:Transcript = {};
   
 
   constructor(
@@ -27,8 +28,8 @@ export class TranscriptPanelComponent implements OnInit {
     this.isLoading = true;
     this.transcriptFile = files.item(0);
     let response:any = await this.transcriptService.getUploadUrl()
-    this.uniqFileName = response.fileName.toString();
     let signedUploadUrl: String = response.presignedUrl;
+    this.trasncript.fileName = response.fileName.toString();
     await this.uploadFile(signedUploadUrl)
     this.isLoading = false;
     this.onUpdated.emit();
@@ -37,12 +38,14 @@ export class TranscriptPanelComponent implements OnInit {
   async uploadFile(uploadPresignUrl: String){
     this.isLoading = true;
     const contentType = this.transcriptFile.type;
+    this.trasncript.fileExtention = contentType;
+
     await this.transcriptService
       .upload(uploadPresignUrl,this.transcriptFile, contentType)
       .then(data=>{
         console.log('uploaded');
-        this.fileUrl = uploadPresignUrl.split('?')[0];
-        this.transcriptService.setTranscriptFile(this.uniqFileName, this.fileUrl);
+        this.trasncript.fileUrl = uploadPresignUrl.split('?')[0];;
+        this.transcriptService.setTranscript(this.trasncript);
         this.isLoading = false;
       })
       .catch(err => {
@@ -53,8 +56,8 @@ export class TranscriptPanelComponent implements OnInit {
   async confirmedDelete(){
     this.isLoading = true;
     this.hideConfrimDelete();
-    await this.transcriptService.setTranscriptFile(undefined, undefined);
-    this.fileUrl = undefined;
+    await this.transcriptService.setTranscript(undefined);
+    this.trasncript.fileUrl = undefined;
     this.isLoading = false;
     this.onUpdated.emit();
   }

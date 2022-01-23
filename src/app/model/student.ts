@@ -4,6 +4,7 @@ import { Project } from "./project";
 import { Recommendation } from "./recommendation";
 import { School } from "./school";
 import { Skill } from "./skill";
+import { Transcript } from "./transcript";
 import { WorkStyle } from "./workStyle";
 
 export interface Student {
@@ -29,8 +30,7 @@ export interface Student {
     ethnicity?: String,
     isEthnicitySharable?: Boolean,
     collegeStatus? : String,
-    transcriptFileName? : String,
-    transcriptFileUrl? : String,
+    transcript?: Transcript,
     resumeFileName?: String,
     resumeFileUrl?: String,
     pictureFileName?: String,
