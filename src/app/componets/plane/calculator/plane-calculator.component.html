@@ -1,20 +1,22 @@
 
-<label
+<label class="switch"
     for="chckIsAnnual"
 >
     isAnnual
+    <input
+        id = 'chckIsAnnual'
+        name = 'chckIsAnnual'
+        type="checkbox"
+        [(ngModel)]="isAnnual"
+    >
+    <span class="slider round"></span>
 </label>
-<input
-    id = 'chckIsAnnual'
-    name = 'chckIsAnnual'
-    type="checkbox"
-    [(ngModel)]="isAnnual"
->
+
 
 <b>
     ${{calculatePrice()}}    
 </b>
 
-<span>
+<span class="get-duration-title">
     /{{getDurationTitle()}}
 </span>
