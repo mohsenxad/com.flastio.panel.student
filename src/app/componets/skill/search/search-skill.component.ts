@@ -49,9 +49,9 @@ export class SearchSkillComponent implements OnInit {
     }
   }
 
-  isInList(skillKeyWord: String,majorList:Skill[]):Boolean{
+  isInList(skillKeyWord: String,skillList:Skill[]):Boolean{
     let result: Boolean = false;
-    let foundSkillWithName = majorList.find((currentSkill:Skill) => {
+    let foundSkillWithName = skillList.find((currentSkill:Skill) => {
       if(currentSkill.name.trim().toLowerCase() == skillKeyWord.trim().toLowerCase()){
         return currentSkill
       }

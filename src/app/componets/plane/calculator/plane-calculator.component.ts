@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'plane-calculator',
@@ -7,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaneCalculatorComponent implements OnInit {
 
-  isAnnual: Boolean = false;
+  @Output() onSetPlane = new EventEmitter();
   duratiounTitle:String = 'Month';
+  isAnnual: Boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   calculatePrice():Number{
-    let result = 10.9;
+    let result = 4.99;
     if(this.isAnnual){
       result = 49.70;
     }
@@ -28,6 +30,10 @@ export class PlaneCalculatorComponent implements OnInit {
       result = "Year";
     }
     return result;
+  }
+
+  planeChanged(){
+    this.onSetPlane.emit(this.isAnnual);
   }
 
 }

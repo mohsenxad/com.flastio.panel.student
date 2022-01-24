@@ -8,6 +8,7 @@
         name = 'chckIsAnnual'
         type="checkbox"
         [(ngModel)]="isAnnual"
+        (ngModelChange)="planeChanged()"
     >
     <span class="slider round"></span>
 </label>

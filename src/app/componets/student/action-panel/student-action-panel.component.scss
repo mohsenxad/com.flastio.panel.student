@@ -51,7 +51,7 @@ ul {
       }
     }
     &:nth-child(2) {
-      button {
+      a {
         &::before {
           content: url(/assets/images/SAP-Upgrade-Plan.svg);
           padding-right: 16px;

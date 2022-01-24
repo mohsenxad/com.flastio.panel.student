@@ -72,7 +72,6 @@ export class CertificationFileUploaderComponent implements OnInit {
         console.log('uploaded');
         this.isLoading = false;
         this.isFileUploaded = true;
-        
         this.onFileUploaded.emit({fileName:this.fileName,fileUrl:this.fileUrl})
       })
       .catch(err => {
