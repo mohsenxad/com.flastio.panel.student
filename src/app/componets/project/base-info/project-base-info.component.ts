@@ -2,9 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Company } from 'src/app/model/company';
 import { Course } from 'src/app/model/course';
 import { Major } from 'src/app/model/major';
-import { Project } from 'src/app/model/project';
 import { ProjectBaseInfo } from 'src/app/model/projectBaseInfo';
 import { Skill } from 'src/app/model/skill';
+import { SummaryFile } from 'src/app/model/summaryFile';
 
 @Component({
   selector: 'project-base-info',
@@ -57,8 +57,8 @@ export class ProjectBaseInfoComponent implements OnInit {
     this.updateProjectBaseInfo();
   }
 
-  setSummaryFile(uploadResponse: any, fileUrl:String){
-    this.projectBaseInfo.summeryFileUrl = uploadResponse.fileUrl;
+  setSummaryFile(summaryFile: SummaryFile){
+    this.projectBaseInfo.summaryFile = summaryFile;
     this.updateProjectBaseInfo();
   }
 

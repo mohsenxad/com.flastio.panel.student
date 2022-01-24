@@ -1,0 +1,31 @@
+<div class="main-modal">
+    <section
+        class="popup"
+    >
+    <button
+        class="close-btn"
+        type="button"
+        (click)="close()"
+    >
+        close
+    </button>
+    
+    <a
+        [href]="fileUrl"
+        target="_blank"
+        download
+    >
+        download
+    </a>
+    <img
+        *ngIf="isImage"
+        [src] = 'fileUrl'
+    />
+    <iframe
+        *ngIf="isPdf"
+        [src] = 'getSummeryFileIFrameUrl()'
+    ></iframe>
+    </section>
+    
+</div>
+

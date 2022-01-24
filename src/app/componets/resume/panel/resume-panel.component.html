@@ -1,6 +1,6 @@
 <div class="resume-body">
     <section class="header"
-        [ngClass]="{'isUploaded':fileUrl}"
+        [ngClass]="{'isUploaded':resume}"
     >
         <h3>
             Resume
@@ -10,7 +10,7 @@
         ></loading>
     </section>
     <form
-        *ngIf="!fileUrl"
+        *ngIf="!resume"
     >
         <fieldset
             [disabled]="isLoading"
@@ -31,11 +31,10 @@
     </form>
     <div
         class="delete-section"
-        *ngIf="fileUrl"
+        *ngIf="resume"
     >
         <a
-            [href]="fileUrl"
-            target="_blank"
+            (click)="view()"
         >
             View resume
         </a>
@@ -50,6 +49,12 @@
         (onCancel) = "hideConfrimDelete()"
         (onConfirm) = "confirmedDelete()"
     ></confirm-delete>
+    <file-viwer
+        *ngIf="isViewFileVisible"
+        (onClose) = 'hideShowFileModal()'
+        [fileUrl]="resume.fileUrl"
+        [fileExtention]="resume.fileExtention"
+    ></file-viwer>
     <span
         class="isCopyed"
         *ngIf="isSent"            
@@ -60,7 +65,7 @@
 
     <button
         class="resume-panel-request-feedback"
-        *ngIf="fileUrl && !isRequestedResumeFeedback"
+        *ngIf="resume && resume.fileUrl && !resume.isRequestedFeedback"
         (click) = 'requestFeedback()'
     >
         Request feedback from Flastio

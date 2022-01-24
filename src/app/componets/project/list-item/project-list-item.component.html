@@ -1,32 +1,32 @@
 <dl>
   <dt>Name</dt>
   <dd class="project-name">
-    {{ project.name }}
+    {{ project.baseInfo.name }}
   </dd>
 
   <dt>Year Completed</dt>
   <dd class="project-year-completed"
-    *ngIf="project.yearCompleted"
+    *ngIf="project.baseInfo.yearCompleted"
   >
-    {{ project.yearCompleted }}
+    {{ project.baseInfo.yearCompleted }}
   </dd>
 
   <dt
-    *ngIf="project.course"
+    *ngIf="project.baseInfo.course"
   >Course</dt>
   <dd class="project-course"
-    *ngIf="project.course"
+    *ngIf="project.baseInfo.course"
   >
-    . {{ project.course.name }}
+    . {{ project.baseInfo.course.name }}
   </dd>
 
   <dt
-    *ngIf="project.company"
+    *ngIf="project.baseInfo.company"
   >Company</dt>
   <dd class="project-course"
-    *ngIf="project.company"
+    *ngIf="project.baseInfo.company"
   >
-    . {{ project.company.name }}
+    . {{ project.baseInfo.company.name }}
   </dd>
 
   <dt>Action Panel</dt>
@@ -54,51 +54,35 @@
 
   <dt>Description</dt>
   <dd class="project-description"
-    *ngIf="project.description"
+    *ngIf="project.baseInfo.description"
   >
-    {{ project.description }}
+    {{ project.baseInfo.description }}
   </dd>
 
-  <dt *ngIf="project.skillList && project.skillList.length > 0">
+  <dt *ngIf="project.baseInfo.skillList && project.baseInfo.skillList.length > 0">
     Skills
   </dt>
-  <dd *ngIf="project.skillList && project.skillList.length > 0">
+  <dd *ngIf="project.baseInfo.skillList && project.baseInfo.skillList.length > 0">
     <skill-list
-      [skillList]="project.skillList"
+      [skillList]="project.baseInfo.skillList"
     ></skill-list>
   </dd>
 
   <dt
-    *ngIf = "project.summeryFileUrl"
+    *ngIf = "project.baseInfo.summaryFile"
   >
     File Priveiw
   </dt>
   <dd
     class="project-image"
-    *ngIf="project.summeryFileUrl"
+    *ngIf="project.baseInfo.summaryFile"
   >
-    <img src="assets/images/project-sample.jpg" alt="images" />
-
-    <!-- <iframe
-      [src]='getSummeryFileIFrameUrl()'
-      scrolling="no"
-    ></iframe> -->
-    <!-- <embed
-      src = 'http://www.africau.edu/images/default/sample.pdf'
-      type="application/pdf"
-    > -->
-
-    <!-- <iframe
-      [src]='safeResourceUrl'
-      frameborder="0"
-      webkitallowfullscreen
-      mozallowfullscreen
-      allowfullscreen
-
-    ></iframe> -->
-    <!-- <button>View Project Summary</button> -->
+    <img
+      src="assets/images/project-sample.jpg"
+      alt="images"
+    />
     <a 
-      [href] = "project.summeryFileUrl"
+      [href] = "project.baseInfo.summaryFile"
       target = "_blank"
     >
       View Project Summary

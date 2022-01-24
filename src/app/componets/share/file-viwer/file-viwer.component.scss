@@ -1,0 +1,25 @@
+section {
+    position: relative;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 6px 58px 0 rgba(121, 145, 173, 0.2);
+    background-color: #fff;
+    width: 90%;
+    margin: 30px auto;
+ 
+    .close-btn {
+        background-color: #f4f9fd;
+        border-radius: 14px;
+        padding: 6px;
+        border: none;
+        content: url(/assets/images/left-arrow.svg);
+        -webkit-writing-mode: vertical-rl;
+        display: flex;
+        position: absolute;
+        top: 59px;
+        left: 22px;
+    }
+
+
+  }
+  

@@ -12,8 +12,8 @@
     <ul>
       <li>
         <project-file-uploader
-          [(fileUrl)] = 'projectBaseInfo.summeryFileUrl'
-          (onFileUploaded) = 'setSummaryFile($event,$event)'
+          [(summaryFile)] = 'projectBaseInfo.summaryFile'
+          (onFileUploaded) = 'setSummaryFile($event)'
         ></project-file-uploader>
       </li>
       <li

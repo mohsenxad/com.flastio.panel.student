@@ -13,7 +13,7 @@ export class ProjectStrengthComponent implements OnInit {
   strengthValue:Number = 0;
   strengthMaxValue:Number = 100;
 
-  itemList: any[]=[
+  itemList1: any[]=[
     {
       title: 'Project Summary file',
       isCompeleted: false,
@@ -41,11 +41,11 @@ export class ProjectStrengthComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setItemListStatus(){
-    this.itemList=[
+  getItemListStatus(){
+    let result=[
       {
         title: 'Project Summary file',
-        isCompeleted: (this.projectBaseInfo.summeryFileUrl != undefined && this.projectBaseInfo.summeryFileUrl.length >= 10),
+        isCompeleted: (this.projectBaseInfo.summaryFile),
       },
       {
         title: 'Project’s name',
@@ -66,21 +66,20 @@ export class ProjectStrengthComponent implements OnInit {
     ]
 
     if(this.projectBaseInfo.projectType == 'Course Project'){
-      this.itemList.push({
+      result.push({
         title: 'Course Project',
         isCompeleted:this.projectBaseInfo.course != undefined,
       })
     };
 
     if(this.projectBaseInfo.projectType == 'Internship'){
-      this.itemList.push({
+      result.push({
         title: 'Company’s name',
         isCompeleted:this.projectBaseInfo.company != undefined,
       })
     };
 
-    // course 
-    // company
+    return result;
   }
 
   getCount(total : number, item: any ): number {
@@ -94,11 +93,9 @@ export class ProjectStrengthComponent implements OnInit {
   }
 
   calculate(): Number{
-    this.setItemListStatus();
     let result : number = 0;
-    this.setItemListStatus();
-    result = this.itemList.reduce(this.getCount,0)
-    return Math.floor(result*100/this.itemList.length);
+    result = this.getItemListStatus().reduce(this.getCount,0)
+    return Math.floor(result*100/this.getItemListStatus().length);
   }
 
   close(){

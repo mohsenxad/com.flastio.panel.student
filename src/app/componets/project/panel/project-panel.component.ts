@@ -62,13 +62,7 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
   changeEditedProject(project: Project){
     this.projectList.forEach((currentProject:Project)=>{
       if(currentProject._id.toString() == project._id.toString()){
-        currentProject.summeryFileUrl = project.baseInfo.summeryFileUrl;
-        currentProject.projectType = project.baseInfo.projectType;
-        currentProject.name = project.baseInfo.name;
-        currentProject.course = project.baseInfo.course;
-        currentProject.company = project.baseInfo.company;
-        currentProject.description = project.baseInfo.description;
-        currentProject.skillList = project.baseInfo.skillList;
+        currentProject.baseInfo = project.baseInfo;
         currentProject.supportingFileList = project.supportingFileList;
         currentProject.contributorList = project.contributorList;
         currentProject.linkUrlList = project.linkUrlList;

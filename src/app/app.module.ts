@@ -106,6 +106,7 @@ import { InviteStudentComponent } from './componets/student/invite/invite-studen
 import { UploadingComponent } from './componets/share/uploading/uploading.component';
 import { UpgradePlaneComponent } from './componets/plane/upgrade/upgrade-plane.component';
 import { PlaneCalculatorComponent } from './componets/plane/calculator/plane-calculator.component';
+import { FileViwerComponent } from './componets/share/file-viwer/file-viwer.component';
 
 
 
@@ -207,6 +208,7 @@ import { PlaneCalculatorComponent } from './componets/plane/calculator/plane-cal
     UploadingComponent,
     UpgradePlaneComponent,
     PlaneCalculatorComponent,
+    FileViwerComponent,
   ],
   imports: [
     BrowserModule,

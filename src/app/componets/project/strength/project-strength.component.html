@@ -18,7 +18,7 @@
                 </summary>
                 <ul>
                      <li
-                        *ngFor="let item of itemList"
+                        *ngFor="let item of getItemListStatus()"
                     >
                         <a
                             [ngClass]="{'iscompleted': item.isCompeleted}"

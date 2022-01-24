@@ -2,6 +2,7 @@ import { AssignedCertification } from "./assignedCertification";
 import { Major } from "./major";
 import { Project } from "./project";
 import { Recommendation } from "./recommendation";
+import { Resume } from "./resume";
 import { School } from "./school";
 import { Skill } from "./skill";
 import { Transcript } from "./transcript";
@@ -31,12 +32,10 @@ export interface Student {
     isEthnicitySharable?: Boolean,
     collegeStatus? : String,
     transcript?: Transcript,
-    resumeFileName?: String,
-    resumeFileUrl?: String,
+    resume?:Resume,
     pictureFileName?: String,
     pictureFileUrl?: String,
     workStyleList?: WorkStyle[],
-    isRequestedResumeFeedback?:Boolean,
     requestedResumeFeedbackDate?: Date,
 
 }

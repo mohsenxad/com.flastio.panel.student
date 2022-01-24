@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Resume } from 'src/app/model/resume';
 import { ResumeService } from 'src/app/services/resume/resume.service';
 
 @Component({
@@ -8,49 +9,49 @@ import { ResumeService } from 'src/app/services/resume/resume.service';
 })
 export class ResumePanelComponent implements OnInit {
 
-  @Input() fileUrl: String;
-  @Input() isRequestedResumeFeedback: Boolean;
+
+  @Input() resume: Resume;
   @Output() onUpdated = new EventEmitter();
   
   
-  transcriptFile: File ;
-  uniqFileName: String;
   isLoading:Boolean = false;
   isConfirmDeleteVisible: Boolean = false;
+  isViewFileVisible: Boolean = false;
   isSent:Boolean = false;
   
 
   constructor(
     private resumeService:ResumeService,
   ) {}
-  
-
-    
 
   ngOnInit(): void {
+
   }
 
   async handleFileInput(files: FileList) {
     this.isLoading = true;
-    this.transcriptFile = files.item(0);
+    if(!this.resume){
+      this.resume = {}
+    }
+    let resumeFile: File = files.item(0);
     let response:any = await this.resumeService.getUploadUrl()
-    this.uniqFileName = response.fileName.toString();
-    let signedUploadUr:String = response.presignedUrl;
-    await this.uploadFile(signedUploadUr)
+    let signedUploadUrl:String = response.presignedUrl;
+    this.resume.fileName = response.fileName.toString();
+    this.resume.fileExtention = resumeFile.type;
+    await this.uploadFile(signedUploadUrl, resumeFile)
     this.isLoading = false;
     this.onUpdated.emit();
   }
 
 
-  async uploadFile(uploadPresignUrl: String){
+  async uploadFile(uploadPresignUrl: String, resumeFile: File){
     this.isLoading = true;
-    const contentType = this.transcriptFile.type;
     await this.resumeService
-      .upload(uploadPresignUrl,this.transcriptFile, contentType)
+      .upload(uploadPresignUrl, resumeFile, this.resume.fileExtention)
       .then(data=>{
         console.log('uploaded');
-        this.fileUrl = uploadPresignUrl.split('?')[0];
-        this.resumeService.setTranscriptFile(this.uniqFileName, this.fileUrl);
+        this.resume.fileUrl = uploadPresignUrl.split('?')[0];
+        this.resumeService.setTranscript(this.resume);
         this.isLoading = false;
       })
       .catch(err => {
@@ -62,10 +63,9 @@ export class ResumePanelComponent implements OnInit {
   async confirmedDelete(){
     this.isLoading = true;
     this.hideConfrimDelete();
-    await this.resumeService.setTranscriptFile(undefined, undefined);
-    this.fileUrl = undefined;
+    await this.resumeService.setTranscript(undefined);
+    this.resume = undefined;
     this.isLoading = false;
-    
     this.onUpdated.emit();
   }
   
@@ -79,12 +79,27 @@ export class ResumePanelComponent implements OnInit {
 
   async requestFeedback(){
     this.isLoading = true;
-    await this.resumeService.requestFeedback();
+    this.resume.isRequestedFeedback = true
+    await this.resumeService.setTranscript(this.resume);
+    //await this.resumeService.requestFeedback();
     this.isSent = true;
     setTimeout(()=>{
       this.isSent = false;
     },5500)
-    this.isRequestedResumeFeedback = true
+    
     this.isLoading = false;
+  }
+
+  view(){
+    let fileViwerAcceptableFileExtentionList: String[] = ['text/plain', 'image/png', 'application/pdf']
+    if(fileViwerAcceptableFileExtentionList.includes(this.resume.fileExtention)){
+      this.isViewFileVisible = true;
+    }else{
+      window.open(this.resume.fileUrl.toString(),'_blank');
+    }
+  }
+
+  hideShowFileModal(){
+    this.isViewFileVisible = false;
   }
 }

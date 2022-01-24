@@ -4,11 +4,9 @@ import { ProjectBaseInfo } from 'src/app/model/projectBaseInfo';
 import { ValidationResult } from 'src/app/model/validationResult';
 import { ProjectService } from 'src/app/services/project/project.service';
 import { Contributor } from '../../../model/contributor';
-import { Course } from '../../../model/course';
 import { LinkUrl } from '../../../model/linkUrl';
 import { Major } from '../../../model/major';
 import { Project } from '../../../model/project';
-import { Skill } from '../../../model/skill';
 import { SupportingFile } from '../../../model/supportingFile';
 
 @Component({
@@ -29,9 +27,6 @@ export class AddProjectComponent implements OnInit {
       yearCompleted:2021,
       skillList:[],  
     },
-    projectType : 'Course Project',
-    yearCompleted:2021,
-    skillList:[],
     linkUrlList:[],
     supportingFileList:[],
     contributorList:[],
@@ -58,7 +53,7 @@ export class AddProjectComponent implements OnInit {
       messageList: []
     };
 
-    if(!project.baseInfo.summeryFileUrl){
+    if(!project.baseInfo.summaryFile){
       result.hasError = true;
       result.messageList.push("Add Project Summary File");
     }

@@ -30,8 +30,7 @@
         *ngIf="transcript"
     >
         <a
-            [href]="transcript.fileUrl"
-            target="_blank"
+           (click)="view()"
         >
             View transcript
         </a>
@@ -48,4 +47,10 @@
         (onCancel) = "hideConfrimDelete()"
         (onConfirm) = "confirmedDelete()"
     ></confirm-delete>
+    <file-viwer
+        *ngIf="isViewFileVisible"
+        (onClose) = 'hideShowFileModal()'
+        [fileUrl]="transcript.fileUrl"
+        [fileExtention]="transcript.fileExtention"
+    ></file-viwer>
 </div>

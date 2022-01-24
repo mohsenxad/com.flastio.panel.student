@@ -29,12 +29,13 @@
  
   </dd>
   <dt>Major</dt>
-  <dd>
+  <dd
+    *ngIf="student.major"
+  >
     {{ student.major.name }} Student
-
     <school-status
-      [status] = 'student.collegeStatus'
-  ></school-status>
+        [status] = 'student.collegeStatus'
+    ></school-status>
   </dd>
   <dt>
     School Status
@@ -43,9 +44,10 @@
 
   </dd>
   <dt>School</dt>
-  <dd>
+  <dd
+    *ngIf="student.school"
+  >
     @{{ student.school.name }}
-    
   </dd>
 </dl>
 

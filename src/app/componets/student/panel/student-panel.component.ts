@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Project } from 'src/app/model/project';
 import { Skill } from 'src/app/model/skill';
 import { SkillSet } from 'src/app/model/skillSet';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
@@ -16,7 +15,9 @@ export class StudentPanelComponent implements OnInit {
 
   @ViewChild('projectpanel') projectPanel:ProjectPanelComponent;
 
-  student : Student;
+  student : Student ={
+    resume:{}
+  };
   @Input() @Output() isAddProjectVisible:Boolean = false;
   isLoading: Boolean = false;
   skillSetList:SkillSet[];
@@ -43,18 +44,17 @@ export class StudentPanelComponent implements OnInit {
   }
 
   showAddProject(){
-    console.log('show add project in student panel');
-    
-    //this.isAddProjectVisible = true;
     this.projectPanel.showAddProjectForm();
   }
 
   getSkillList(student: Student):Skill[]{
     let skillList : Skill[] =[];
-    for (let project of student.projectList) {
-      if(project.isPublished){
-        for (let skill of project.skillList) {
-          skillList.push(skill);
+    if(student.projectList){
+      for (let project of student.projectList) {
+        if(project.isPublished){
+          for (let skill of project.baseInfo.skillList) {
+            skillList.push(skill);
+          }
         }
       }
     }

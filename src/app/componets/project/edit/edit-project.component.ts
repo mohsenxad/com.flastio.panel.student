@@ -41,7 +41,7 @@ export class EditProjectComponent implements OnInit {
       messageList: []
     };
 
-    if(!project.baseInfo.summeryFileUrl){
+    if(!project.baseInfo.summaryFile){
       result.hasError = true;
       result.messageList.push("Add Project Summary File");
     }
@@ -118,21 +118,7 @@ export class EditProjectComponent implements OnInit {
 
  
 
-  ngOnInit(): void {
-    console.log(this.project);
-    this.project.baseInfo ={
-      projectType:this.project.projectType,
-      name:this.project.name,
-      description:this.project.description || undefined,
-      course:this.project.course || undefined,
-      company:this.project.company || undefined,
-      skillList:this.project.skillList,
-      yearCompleted:this.project.yearCompleted,
-      summeryFileUrl:this.project.summeryFileUrl || undefined,
-
-    }
-   
-  }
+  ngOnInit(): void {}
 
   draft(){
     this.project.isPublished = false;
@@ -153,7 +139,7 @@ export class EditProjectComponent implements OnInit {
     }else{
       this.validationResult = validationResult;
     }
-  }س
+  }
 
   async save(){
     this.isLoading = true;

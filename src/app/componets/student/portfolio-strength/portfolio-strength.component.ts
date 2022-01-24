@@ -104,7 +104,7 @@ export class PortfolioStrengthComponent implements OnInit, OnChanges {
       },
       {
         title: 'Resume',
-        isCompeleted: (this.student.resumeFileUrl && this.student.resumeFileUrl!= ''),
+        isCompeleted: (this.student.resume),
         url: '#'
       },
       {

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as Realm from "realm-web";
+import { Resume } from 'src/app/model/resume';
 import { LocalStorageService } from '../localStorage/local-storage.service';
 
 @Injectable({
@@ -37,10 +38,10 @@ export class ResumeService {
     return result;
   }
 
-  async setTranscriptFile(resumeFileName: String, resumeFileUrl: String){
+  async setTranscript(resume:Resume){
     const user: Realm.User = this.app.currentUser;
     let result: any  = await user.functions
-      .setResumeFileName(this.studentId,resumeFileName, resumeFileUrl);
+      .setResumeFileName(this.studentId,resume);
   }
 
   async requestFeedback(){

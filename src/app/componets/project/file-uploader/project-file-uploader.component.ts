@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SummaryFile } from 'src/app/model/summaryFile';
 import { ValidationResult } from 'src/app/model/validationResult';
 import { ProjectService } from 'src/app/services/project/project.service';
 
@@ -9,12 +10,8 @@ import { ProjectService } from 'src/app/services/project/project.service';
 })
 export class ProjectFileUploaderComponent implements OnInit {
 
-  @Input() fileUrl:String;
-  @Output() onFileUploaded = new EventEmitter<{fileName: String, fileUrl: String}>();
-
-  file: File ;
-  fileName: String;
-  
+  @Input() summaryFile:SummaryFile;
+  @Output() onFileUploaded = new EventEmitter<SummaryFile>();
 
   isFileUploaded:Boolean = false;
   isLoading:Boolean = false;
@@ -31,7 +28,7 @@ export class ProjectFileUploaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.fileUrl){
+    if(this.summaryFile){
       this.isFileUploaded = true;
     }
   }
@@ -54,35 +51,35 @@ export class ProjectFileUploaderComponent implements OnInit {
   }
 
   remove(): void{
-    this.fileName = undefined;
-    this.fileUrl = undefined;
+    this.summaryFile = undefined;
     this.isFileUploaded = false;
-    this.onFileUploaded.emit({fileName:this.fileName,fileUrl:this.fileUrl})
+    this.onFileUploaded.emit(this.summaryFile)
   }
 
   async handleFileInput(files: FileList) {
     this.isLoading = true;
-    this.file = files.item(0);
+    let localSummaryFile: File = files.item(0);
     let response:any = await this.projectService.getUploadUrl()
-    let signedUploadUr:String = response.presignedUrl;
-
-    this.fileName = response.fileName.toString();
-    this.fileUrl = signedUploadUr.split('?')[0];
-    await this.uploadFile(signedUploadUr)
+    let signedUploadUrl:String = response.presignedUrl;
+    if(!this.summaryFile){
+      this.summaryFile = {}
+    }
+    this.summaryFile.fileName = response.fileName.toString();
+    this.summaryFile.fileExtention = localSummaryFile.type;
+    await this.uploadFile(signedUploadUrl, localSummaryFile)
     this.isLoading = false;
   }
 
 
-  async uploadFile(uploadPresignUrl: String){
+  async uploadFile(uploadPresignUrl: String, localSummaryFile: File){
     this.isLoading = true;
-    const contentType = this.file.type;
-    await this.projectService.upload(uploadPresignUrl,this.file, contentType)
+    await this.projectService.upload(uploadPresignUrl,localSummaryFile, this.summaryFile.fileExtention)
     .then(data => {
       console.log('uploaded');
+      this.summaryFile.fileUrl = uploadPresignUrl.split('?')[0];
       this.isLoading = false;
       this.isFileUploaded = true;
-      
-      this.onFileUploaded.emit({fileName:this.fileName,fileUrl:this.fileUrl})
+      this.onFileUploaded.emit(this.summaryFile)
     })
     .catch(err => {
       console.log(err);

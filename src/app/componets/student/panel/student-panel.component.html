@@ -1,4 +1,4 @@
-    <loading
+<loading
     *ngIf = "isLoading"
 ></loading>
 <student-header
@@ -34,8 +34,7 @@
         </h2>
         <resume-panel
             *ngIf = "student"
-            [fileUrl] = "student.resumeFileUrl"
-            [isRequestedResumeFeedback] = "student.isRequestedResumeFeedback"
+            [resume] = "student.resume"
             (onUpdated) = 'onReumeUpdated()'
         ></resume-panel>
         <transcript-panel

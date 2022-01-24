@@ -14,9 +14,9 @@ export class TranscriptPanelComponent implements OnInit {
 
   isLoading:Boolean = false;
   isConfirmDeleteVisible: Boolean = false;
+  isViewFileVisible: Boolean = false;
   trasncript:Transcript = {};
   
-
   constructor(
     private transcriptService:TranscriptService,
   ) { }
@@ -54,7 +54,7 @@ export class TranscriptPanelComponent implements OnInit {
     this.isLoading = true;
     this.hideConfrimDelete();
     await this.transcriptService.setTranscript(undefined);
-    this.trasncript.fileUrl = undefined;
+    this.trasncript = undefined;
     this.isLoading = false;
     this.onUpdated.emit();
   }
@@ -67,5 +67,18 @@ export class TranscriptPanelComponent implements OnInit {
     this.isConfirmDeleteVisible = true;
   }
 
+  view(){
+    let fileViwerAcceptableFileExtentionList: String[] = ['text/plain', 'image/png', 'application/pdf']
+    if(fileViwerAcceptableFileExtentionList.includes(this.transcript.fileExtention)){
+      this.isViewFileVisible = true;
+    }else{
+      window.open(this.transcript.fileUrl.toString(),'_blank');
+    }
+  }
+
+  hideShowFileModal(){
+    this.isViewFileVisible = false;
+  }
+  
   
 }
