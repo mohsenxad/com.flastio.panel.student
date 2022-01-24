@@ -17,39 +17,43 @@ export class ProjectBaseInfoComponent implements OnInit {
   @Input() projectBaseInfo:ProjectBaseInfo;
   @Output() onSetBaseInfo = new EventEmitter<ProjectBaseInfo>();
 
-  fileUrl: String;
-  projectFile: File ;
-  uniqFileName: String;
-
-
+  localProjectBaseInfo:ProjectBaseInfo = {};
+  
   constructor() { }
 
   ngOnInit(): void {
+    this.localProjectBaseInfo.name = this.projectBaseInfo.name;
+    this.localProjectBaseInfo.projectType = this.projectBaseInfo.projectType;
+    this.localProjectBaseInfo.description = this.projectBaseInfo.description;
+    this.localProjectBaseInfo.relatedInternship = this.projectBaseInfo.relatedInternship;
+    this.localProjectBaseInfo.skillList = this.projectBaseInfo.skillList;
+    this.localProjectBaseInfo.summaryFile = this.projectBaseInfo.summaryFile;
+    this.localProjectBaseInfo.yearCompleted = this.projectBaseInfo.yearCompleted;
   }
 
   setCoursse(course:Course){
-    this.projectBaseInfo.course = course;
+    this.localProjectBaseInfo.course = course;
     this.updateProjectBaseInfo();
   }
 
   setCompany(company: Company){
-    this.projectBaseInfo.company = company;
+    this.localProjectBaseInfo.company = company;
     this.updateProjectBaseInfo();
   }
 
   removeCoursse(){
-    this.projectBaseInfo.course = undefined;
+    this.localProjectBaseInfo.course = undefined;
     this.updateProjectBaseInfo();
   }
 
 
   addSkill(skill:Skill){
-    this.projectBaseInfo.skillList.push(skill);
+    this.localProjectBaseInfo.skillList.push(skill);
     this.updateProjectBaseInfo();
   }
 
   removeSkillFromProject(skill:Skill){
-    this.projectBaseInfo.skillList = this.projectBaseInfo.skillList.filter((currentSkill)=>{
+    this.localProjectBaseInfo.skillList = this.localProjectBaseInfo.skillList.filter((currentSkill)=>{
       if(currentSkill._id.toString() != skill._id.toString()){
         return currentSkill;
       }
@@ -58,21 +62,21 @@ export class ProjectBaseInfoComponent implements OnInit {
   }
 
   setSummaryFile(summaryFile: SummaryFile){
-    this.projectBaseInfo.summaryFile = summaryFile;
+    this.localProjectBaseInfo.summaryFile = summaryFile;
     this.updateProjectBaseInfo();
   }
 
   setYearCompleted(year: number){
-    this.projectBaseInfo.yearCompleted = year;
+    this.localProjectBaseInfo.yearCompleted = year;
     this.updateProjectBaseInfo();
   }
   setProjectType(projectType: String){
-    this.projectBaseInfo.projectType = projectType;
+    this.localProjectBaseInfo.projectType = projectType;
     this.updateProjectBaseInfo();
   }
 
   updateProjectBaseInfo(){
-    this.onSetBaseInfo.emit(this.projectBaseInfo);
+    this.onSetBaseInfo.emit(this.localProjectBaseInfo);
   }
 
 }

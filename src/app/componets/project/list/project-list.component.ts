@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SummaryFile } from 'src/app/model/summaryFile';
 import { Project } from '../../../model/project';
 
 @Component({
@@ -12,6 +13,9 @@ export class ProjectListComponent implements OnInit {
   @Output() onEdit = new EventEmitter<Project>();
   @Output() onDelete = new EventEmitter<Project>();
   @Output() onChangeIndex = new EventEmitter<any>();
+
+  isViewFileVisible: Boolean = false;
+  currentViewingSummaryFile:SummaryFile;
   
   constructor() { }
 
@@ -28,6 +32,22 @@ export class ProjectListComponent implements OnInit {
 
   changeIndex(index:Number){
     console.log('change  project index to ' + index.toString());
+  }
+
+
+  viewSummaryFile(summaryFile:SummaryFile){
+    let fileViwerAcceptableFileExtentionList: String[] = ['text/plain', 'image/png', 'application/pdf']
+    if(fileViwerAcceptableFileExtentionList.includes(summaryFile.fileExtention)){
+      this.isViewFileVisible = true;
+      this.currentViewingSummaryFile = summaryFile;
+    }else{
+      window.open(summaryFile.fileUrl.toString(),'_blank');
+    }
+  }
+
+  hideShowFileModal(){
+    this.isViewFileVisible = false;
+    this.currentViewingSummaryFile = undefined;
   }
 
 }

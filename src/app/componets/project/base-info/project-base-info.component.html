@@ -12,12 +12,12 @@
     <ul>
       <li>
         <project-file-uploader
-          [(summaryFile)] = 'projectBaseInfo.summaryFile'
+          [summaryFile] = 'localProjectBaseInfo.summaryFile'
           (onFileUploaded) = 'setSummaryFile($event)'
         ></project-file-uploader>
       </li>
       <li
-        *ngIf="fileUrl"
+        *ngIf="localProjectBaseInfo.summaryFile"
       >
         Project Summary File Uploaded
       </li>
@@ -25,7 +25,7 @@
         <!-- <label for="slctProjectType"> Project Type </label> -->
         <select-type-project
           id="slctProjectType"
-          [(selectedProjectType)] = 'projectBaseInfo.projectType'
+          [(selectedProjectType)] = 'localProjectBaseInfo.projectType'
           (onProjectTypeSelected)="setProjectType($event)"
         ></select-type-project>
       </li>
@@ -35,12 +35,13 @@
           type="text"
           name="txtProjectName"
           id="txtProjectName"
-          [(ngModel)]="projectBaseInfo.name"
+          [(ngModel)]="localProjectBaseInfo.name"
           placeholder="Enter name of project"
+          (ngModelChange)="updateProjectBaseInfo()"
         />
       </li>
       <li
-        *ngIf="projectBaseInfo.projectType == 'Course Project'"
+        *ngIf="localProjectBaseInfo.projectType == 'Course Project'"
       >
         <label
           for="txtCourseKeyWord">
@@ -50,20 +51,20 @@
         <div id="divSelectCourse">
           <search-course
             [major] = "major"
-            [selectedCourse] = "projectBaseInfo.course"
+            [selectedCourse] = "localProjectBaseInfo.course"
             (onCourseSelected) = "setCoursse($event)"
           ></search-course>
         </div>
       </li>
 
       <li
-        *ngIf="projectBaseInfo.projectType=='Internship'"
+        *ngIf="localProjectBaseInfo.projectType=='Internship'"
       >
       <label for="txtCompanyKeyWord"> Company’s name</label>
 
         <div id="divSelectCompany">
           <company-search
-            [selectedCompany] = "projectBaseInfo.company"
+            [selectedCompany] = "localProjectBaseInfo.company"
             (onCompanySelected) = "setCompany($event)"
           ></company-search>
         </div>
@@ -77,23 +78,26 @@
           name="txtDescription"
           id="txtDescription"
           rows="5"
-          [(ngModel)]="projectBaseInfo.description"
+          [(ngModel)]="localProjectBaseInfo.description"
           placeholder="Brief description is recommended for projects"
+          (ngModelChange)="updateProjectBaseInfo()"
         ></textarea>
       </li>
       <li>
         <label for="divSkill"> Add Project topics </label>
         <div id="divSkill">
-          <search-skill (onSkillSelected)="addSkill($event)"></search-skill>
+          <search-skill
+            (onSkillSelected)="addSkill($event)"
+          ></search-skill>
         </div>
       </li>
       <li>
         <!-- <label for="divAssignedSkill"> Project Assigned Skill List </label> -->
         <div id="divAssignedSkill">
           <ul
-            *ngIf="projectBaseInfo && projectBaseInfo.skillList && projectBaseInfo.skillList.length > 0"
+            *ngIf="localProjectBaseInfo && localProjectBaseInfo.skillList && localProjectBaseInfo.skillList.length > 0"
           >
-            <li *ngFor="let skill of projectBaseInfo.skillList">
+            <li *ngFor="let skill of localProjectBaseInfo.skillList">
               <skill-list-item
                 [skill] = 'skill'
                 (onSkillDeleted) = 'removeSkillFromProject(skill)'
@@ -109,13 +113,13 @@
         </label>
         <year-select
           id="slctYearCompleted"
-          [(selectedYear)] = 'projectBaseInfo.yearCompleted'
+          [(selectedYear)] = 'localProjectBaseInfo.yearCompleted'
           (onYearSelected) = 'setYearCompleted($event)'
         ></year-select>
       </li>
       <li>
         <project-strength
-          [projectBaseInfo] = 'projectBaseInfo'
+          [projectBaseInfo] = 'localProjectBaseInfo'
         ></project-strength>
       </li>
     </ul>

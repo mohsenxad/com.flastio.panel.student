@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LinkUrl } from 'src/app/model/linkUrl';
+import { SummaryFile } from 'src/app/model/summaryFile';
 import { Project } from '../../../model/project';
 
 @Component({
@@ -14,6 +15,7 @@ export class ProjectListItemComponent implements OnInit {
   @Output() onEdit = new EventEmitter<Project>();
   @Output() onDelete = new EventEmitter<Project>();
   @Output() onChangeIndex = new EventEmitter<Number>();
+  @Output() onViewSummaryFile = new EventEmitter<SummaryFile>();
 
   constructor() { }
 
@@ -33,9 +35,11 @@ export class ProjectListItemComponent implements OnInit {
 
     
   viewLinkUrl(linkUrl:LinkUrl):void{
-    console.log('viwing ...');
     window.open(linkUrl.url.toString());
-    
+  }
+
+  viewSummaryFile():void{
+    this.onViewSummaryFile.emit(this.project.baseInfo.summaryFile);
   }
 
 }

@@ -23,8 +23,6 @@ export class EditProjectComponent implements OnInit {
 
 
   pageTitle: String = 'General';
-  attachmentFile: any;
-
   isLoading:Boolean = false;
   validationResult: ValidationResult = {
     hasError : false,
@@ -116,8 +114,6 @@ export class EditProjectComponent implements OnInit {
     this.project.supportingFileList = supportingFileList
   }
 
- 
-
   ngOnInit(): void {}
 
   draft(){
@@ -128,7 +124,6 @@ export class EditProjectComponent implements OnInit {
     }else{
       this.validationResult = validationResult;
     }
-    
   }
 
   publish(){
@@ -152,8 +147,6 @@ export class EditProjectComponent implements OnInit {
   setBaseInfo(baseInfo:ProjectBaseInfo){
     this.project.baseInfo = baseInfo;
   }
-
-
 
   close(){
     this.onClose.emit();

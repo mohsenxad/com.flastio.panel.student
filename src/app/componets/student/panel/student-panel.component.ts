@@ -15,9 +15,7 @@ export class StudentPanelComponent implements OnInit {
 
   @ViewChild('projectpanel') projectPanel:ProjectPanelComponent;
 
-  student : Student ={
-    resume:{}
-  };
+  student : Student;
   @Input() @Output() isAddProjectVisible:Boolean = false;
   isLoading: Boolean = false;
   skillSetList:SkillSet[];

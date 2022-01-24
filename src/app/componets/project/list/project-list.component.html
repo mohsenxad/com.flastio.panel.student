@@ -9,7 +9,14 @@
             (onEdit) = "edit($event)"
             (onDelete) = "delete($event)"
             (onChangeIndex) = "changeIndex($event)"
+            (onViewSummaryFile) = 'viewSummaryFile($event)'
         ></project-list-item>
     </li>
-    
 </ul>
+
+<file-viwer
+    *ngIf="isViewFileVisible && currentViewingSummaryFile"
+    (onClose) = 'hideShowFileModal()'
+    [fileUrl]="currentViewingSummaryFile.fileUrl"
+    [fileExtention]="currentViewingSummaryFile.fileExtention"
+></file-viwer>
