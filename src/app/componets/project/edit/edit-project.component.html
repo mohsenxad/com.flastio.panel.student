@@ -70,7 +70,9 @@
     
     <assign-contributor
       *ngIf = "pageTitle == 'Team'"
+      [studentRole] = 'project.role'
       [contributorList] = "project.contributorList"
+      (onStudentRoleUpdated) = 'updateStudentRole($event)'
       (onContributorListUpdated) = "updateContributorList($event)"
       (onClose) = 'goToGeneralView($event)'
     ></assign-contributor>

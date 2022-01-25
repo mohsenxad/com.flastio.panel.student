@@ -53,7 +53,8 @@ export class ProjectService {
       project.linkUrlList,
       project.supportingFileList,
       project.contributorList,
-      project.assignedCertification
+      project.assignedCertification,
+      project.role
     );
     return result;
   }
@@ -70,6 +71,7 @@ export class ProjectService {
       project.supportingFileList|| undefined,
       project.contributorList|| undefined,
       project.assignedCertification|| undefined,
+      project.role|| undefined,
     );
     return result;
   }

@@ -1,11 +1,35 @@
 <form>
-    <button class="close-btn" (click)="close()">Close</button>
+    <button
+        class="close-btn"
+        (click)="close()"
+    >
+        Close
+    </button>
   
     <legend>
         Add Contributors
     </legend>
   
     <fieldset>
+        <ul>
+            <li>
+                <label
+                    for="txtStudentRole"
+                >
+                    Your role
+                </label>
+                <input
+                    type="text"
+                    name="txtStudentRole"
+                    id="txtStudentRole"
+                    [(ngModel)] = 'localStudentRole'
+                    (ngModelChange)="studentRoleChanged()"
+                    placeholder = "Enter your contribution"
+                    minlength="3"
+                    maxlength="200"
+                >
+            </li>
+        </ul>
       <p>
         You can add as many contributors as you need to. The contributors will be notified upon submitting your project. It will enable them to consider uploading the project to their portfolio as well.
       </p>

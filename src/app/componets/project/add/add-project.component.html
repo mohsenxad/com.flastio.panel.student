@@ -63,12 +63,13 @@
   ></assign-supporting-file-project>
 
   <assign-certifiction
-    *ngIf="pageTitle == 'Certification' && !project.assignedCertification"
+    *ngIf = "pageTitle == 'Certification' && !project.assignedCertification"
     (onAssignedCertificationAdded) = 'updateCertification($event)'
     (onClose) = 'goToGeneralView($event)'
   ></assign-certifiction>
-  <div class="add-project-certification-list"
-    *ngIf="pageTitle == 'Certification' && project.assignedCertification"
+  <div
+    class = "add-project-certification-list"
+    *ngIf = "pageTitle == 'Certification' && project.assignedCertification"
   >
     <certification-list-item
       [assignedCertification] = 'project.assignedCertification'
@@ -76,7 +77,9 @@
   </div>
   <assign-contributor
     *ngIf = "pageTitle == 'Team'"
+    [studentRole] = 'project.role'
     [contributorList] = "project.contributorList"
+    (onStudentRoleUpdated) = 'updateStudentRole($event)'
     (onContributorListUpdated) = "updateContributorList($event)"
     (onClose) = 'goToGeneralView($event)'
   ></assign-contributor>

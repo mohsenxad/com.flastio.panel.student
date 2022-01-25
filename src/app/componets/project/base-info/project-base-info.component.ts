@@ -24,6 +24,8 @@ export class ProjectBaseInfoComponent implements OnInit {
   ngOnInit(): void {
     this.localProjectBaseInfo.name = this.projectBaseInfo.name;
     this.localProjectBaseInfo.projectType = this.projectBaseInfo.projectType;
+    this.localProjectBaseInfo.course = this.projectBaseInfo.course;
+    this.localProjectBaseInfo.company = this.projectBaseInfo.company;
     this.localProjectBaseInfo.description = this.projectBaseInfo.description;
     this.localProjectBaseInfo.relatedInternship = this.projectBaseInfo.relatedInternship;
     this.localProjectBaseInfo.skillList = this.projectBaseInfo.skillList;
@@ -32,6 +34,8 @@ export class ProjectBaseInfoComponent implements OnInit {
   }
 
   setCoursse(course:Course){
+    console.log('setCoruse in base info');
+    
     this.localProjectBaseInfo.course = course;
     this.updateProjectBaseInfo();
   }

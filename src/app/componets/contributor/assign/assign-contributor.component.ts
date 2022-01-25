@@ -12,11 +12,14 @@ export class AssignContributorComponent implements OnInit {
 
   
   @Input() contributorList: Contributor[] = [];
+  @Input() studentRole: String;
+  @Output() onStudentRoleUpdated = new EventEmitter<String>();
   @Output() onContributorListUpdated = new EventEmitter<Contributor[]>();
   @Output() onClose = new EventEmitter();
 
   contributor:Contributor = {};
   localContributorList :Contributor[] = [];
+  localStudentRole: String;
 
   isInviteFormVisible: Boolean = false;
   confirmDicardIsVisible: Boolean = false;
@@ -50,6 +53,7 @@ export class AssignContributorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.localStudentRole = this.studentRole;
     this.contributorList.forEach((currentContributorListItem: Contributor) => {
       this.localContributorList.push(currentContributorListItem);
     })
@@ -89,9 +93,11 @@ export class AssignContributorComponent implements OnInit {
     return validationResult;
   }
 
+  studentRoleChanged():void{
+    this.onStudentRoleUpdated.emit(this.localStudentRole);
+  }
+
   add(){
-    console.log('here');
-    
     let validationResult = this.validateContributor(this.contributor);
     if(!validationResult.hasError){
       this.localContributorList.push(this.contributor);

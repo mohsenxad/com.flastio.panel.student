@@ -123,6 +123,10 @@ export class AddProjectComponent implements OnInit {
     this.project.linkUrlList = linkUrlList
   }
 
+  updateStudentRole(studentRole: String):void{
+    this.project.role = studentRole
+  }
+
   updateContributorList(contributorList: Contributor[]){
     this.project.contributorList = contributorList
   }

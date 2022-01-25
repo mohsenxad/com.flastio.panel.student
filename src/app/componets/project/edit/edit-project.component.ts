@@ -106,6 +106,13 @@ export class EditProjectComponent implements OnInit {
     this.project.linkUrlList = linkUrlList
   }
 
+  updateStudentRole(studentRole: String):void{
+    console.log('studentRole');
+    console.log(studentRole);
+    
+    this.project.role = studentRole
+  }
+  
   updateContributorList(contributorList: Contributor[]){
     this.project.contributorList = contributorList
   }
@@ -145,6 +152,7 @@ export class EditProjectComponent implements OnInit {
   }
 
   setBaseInfo(baseInfo:ProjectBaseInfo){
+    console.log('settin baseInfo');
     this.project.baseInfo = baseInfo;
   }
 
