@@ -128,13 +128,12 @@
     <contributor-list [contributorList]="project.contributorList"></contributor-list>
   </dd>
 </dl>
-<div
+<div class="edit-publish-reject"
   *ngIf="project.isInvitedToContribution"
 >
   <button
     type="button"
     (click)="edit()"
-    class="edit-publish"
   >
     Edit & Publish
   </button>
