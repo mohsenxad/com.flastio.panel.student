@@ -1,3 +1,8 @@
+<u
+  *ngIf="project.isInvitedToContribution"
+>
+  {{project.creator.firstName}} {{project.creator.lastName}} added you to this project. You can edit & publish it in your portfolio.
+</u>
 <dl>
   <dt>Name</dt>
   <dd class="project-name">
@@ -123,11 +128,19 @@
     <contributor-list [contributorList]="project.contributorList"></contributor-list>
   </dd>
 </dl>
-<div>
+<div
+  *ngIf="project.isInvitedToContribution"
+>
   <button
     type="button"
     (click)="edit()"
   >
     Edit & Publish
+  </button>
+  <button
+    type = "button"
+    (click) = "delete()"
+  >
+    Reject
   </button>
 </div>
