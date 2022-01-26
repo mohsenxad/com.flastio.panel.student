@@ -145,3 +145,26 @@ dl {
   color: #fd9a00;
   margin: 24px 0 16px 0;
 }
+.edit-publish{
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #91929e;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  display: block;
+  width: 100%;
+  padding: 13px 0;
+  transition: 0.5s;
+
+  &:hover {
+    border: solid 1px #91929e;
+    transition: 0.5s;
+  }
+}
