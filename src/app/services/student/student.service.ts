@@ -41,7 +41,8 @@ export class StudentService {
   }
 
   async create(student:Student){
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let newStudent: Student  = await user.functions
       .addStudent(
         student.firstName,
