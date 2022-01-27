@@ -35,7 +35,7 @@ export class ConfirmEmailComponent implements OnInit {
       this.isLoading = true;
       this.userService.confirmUser(this.token,this.tokenId);
       this.isLoading = false;
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/auth/login');
     }
   }
 
