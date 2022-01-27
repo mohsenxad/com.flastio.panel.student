@@ -1,6 +1,23 @@
 dt {
   display: none;
 }
+u {
+  font-size: 14px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: #3f8cff;
+  text-decoration: none;
+  border-radius: 14px;
+  background-color: #f4f9fd;
+  padding: 13px 13px 8px 13px;
+  display: flex;
+  &::before{
+    content: url(/assets/images/icn-general-hint-blue.svg);
+    margin-right: 12px;
+  }
+}
 
 dl {
   position: relative;

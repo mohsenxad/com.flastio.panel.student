@@ -32,10 +32,17 @@
 }
 section {
   width: 52%;
-  margin: 64px auto;
+  margin: 54px auto;
+  border-bottom: 1px solid #e6ebf5;
+  padding-bottom: 48px;
   &:first-child {
     margin-top: 0;
     width: 61%;
+    border-bottom:  none;
+  }
+  &:last-child{
+    border-bottom:  none;
+
   }
 }
 
