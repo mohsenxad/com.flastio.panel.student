@@ -1,62 +1,62 @@
-section {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  flastio-logo {
-    margin: auto;
-    display: block;
-    width: 100%;
-    margin-left: 130px;
-    margin-top: 10px;
-  }
-  .student-signup-img-section {
-    background-color: #3f8cff;
-    height: 100%;
-  }
-  div {
-    a {
-      font-size: 30px;
-      font-weight: 200;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      margin-left: 130px;
-      margin-top: 50px;
-      &::before {
-        content: "";
-        width: 25px;
-        height: 25px;
-        border-radius: 8px;
-        background-color: #fff;
-        margin-right: 24px;
-      }
-    }
-    img {
-      width: 100%;
-      height: 540px;
-      margin-top: 55px;
-    }
-    h1 {
-      font-size: 40px;
-      margin-left: 130px;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.4;
-      letter-spacing: normal;
-      color: #fff;
-      margin: 0 auto;
-      padding: 0;
-      margin-left: 130px;
-      width: 70%;
-      margin-top: 40px;
-    }
-  }
-}
+// section {
+//   display: grid;
+//   grid-template-columns: 50% 50%;
+//   flastio-logo {
+//     margin: auto;
+//     display: block;
+//     width: 100%;
+//     margin-left: 130px;
+//     margin-top: 10px;
+//   }
+//   .student-signup-img-section {
+//     background-color: #3f8cff;
+//     height: 100%;
+//   }
+//   div {
+//     a {
+//       font-size: 30px;
+//       font-weight: 200;
+//       font-stretch: normal;
+//       font-style: normal;
+//       line-height: normal;
+//       letter-spacing: normal;
+//       color: #fff;
+//       text-decoration: none;
+//       display: flex;
+//       align-items: center;
+//       margin-left: 130px;
+//       margin-top: 50px;
+//       &::before {
+//         content: "";
+//         width: 25px;
+//         height: 25px;
+//         border-radius: 8px;
+//         background-color: #fff;
+//         margin-right: 24px;
+//       }
+//     }
+//     img {
+//       width: 100%;
+//       height: 540px;
+//       margin-top: 55px;
+//     }
+//     h1 {
+//       font-size: 40px;
+//       margin-left: 130px;
+//       font-weight: bold;
+//       font-stretch: normal;
+//       font-style: normal;
+//       line-height: 1.4;
+//       letter-spacing: normal;
+//       color: #fff;
+//       margin: 0 auto;
+//       padding: 0;
+//       margin-left: 130px;
+//       width: 70%;
+//       margin-top: 40px;
+//     }
+//   }
+// }
 form {
   margin: 0;
   padding: 0;
