@@ -92,7 +92,6 @@ export class StudentService {
     const user: Realm.User = this.app.currentUser;
     let result: Student  = await user.functions
       .share(
-        student._id.toString(),
         targetEmail,
         message
       )
