@@ -88,7 +88,7 @@ export class StudentService {
     return result;
   }  
 
-  async share(student: Student, targetEmail: String, message: String):Promise<Student>{
+  async share(targetEmail: String, message: String):Promise<Student>{
     const user: Realm.User = this.app.currentUser;
     let result: Student  = await user.functions
       .share(

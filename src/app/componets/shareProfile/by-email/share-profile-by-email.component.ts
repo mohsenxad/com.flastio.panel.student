@@ -60,7 +60,7 @@ export class ShareProfileByEmailComponent implements OnInit {
     if(!this.validationResult.hasError){
       // send message to email List
       this.emailList.forEach(async (currentEmail:String)=>{
-        await this.studentService.share(this.student,currentEmail, this.message)
+        await this.studentService.share(currentEmail, this.message)
       })
       this.emailList = [];
       this.message = '';

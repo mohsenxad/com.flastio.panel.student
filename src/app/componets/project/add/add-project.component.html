@@ -67,6 +67,9 @@
     (onAssignedCertificationAdded) = 'updateCertification($event)'
     (onClose) = 'goToGeneralView($event)'
   ></assign-certifiction>
+  <select-or-add-assigned-certification
+    *ngIf = "pageTitle == 'Certification' && !project.assignedCertification"
+  ></select-or-add-assigned-certification>
   <div
     class = "add-project-certification-list"
     *ngIf = "pageTitle == 'Certification' && project.assignedCertification"

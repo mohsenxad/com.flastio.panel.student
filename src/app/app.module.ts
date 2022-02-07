@@ -107,6 +107,8 @@ import { UploadingComponent } from './componets/share/uploading/uploading.compon
 import { UpgradePlaneComponent } from './componets/plane/upgrade/upgrade-plane.component';
 import { PlaneCalculatorComponent } from './componets/plane/calculator/plane-calculator.component';
 import { FileViwerComponent } from './componets/share/file-viwer/file-viwer.component';
+import { SelectAssignedCertificationComponent } from './componets/assignedCertification/select/select-assigned-certification.component';
+import { SelectOrAddAssignedCertificationComponent } from './componets/assignedCertification/select-or-add/select-or-add-assigned-certification.component';
 
 
 
@@ -209,6 +211,8 @@ import { FileViwerComponent } from './componets/share/file-viwer/file-viwer.comp
     UpgradePlaneComponent,
     PlaneCalculatorComponent,
     FileViwerComponent,
+    SelectAssignedCertificationComponent,
+    SelectOrAddAssignedCertificationComponent,
   ],
   imports: [
     BrowserModule,

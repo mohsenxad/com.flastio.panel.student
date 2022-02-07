@@ -20,7 +20,6 @@ export class RecommendationService {
   async request(recommendation: Recommendation): Promise<Recommendation>{
     const user: Realm.User = this.app.currentUser;
     let newRecommendation:Recommendation  = await user.functions.requestRecommendation(
-      this.studentId,
       recommendation.recommenderName,
       recommendation.recommenderPosition,
       recommendation.recommenderEmail,
