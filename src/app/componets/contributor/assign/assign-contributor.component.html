@@ -38,6 +38,7 @@
         <li>
             <label
                 for="txtEmail"
+                *ngIf="!isInviteFormVisible"
             >
                 Contributor Email
             </label>
@@ -47,7 +48,18 @@
                 (onStudentSelected) = 'setStudent($event)'
                 (onInviteStudentWithEmailSelected)="showInviteStudentForm($event)"
             ></search-student>
+        </li>
+
+        <li>
+            <label
+                for="cmpName"
+                *ngIf="isInviteFormVisible"
+            >
+                Contributor Name
+            </label>
             <invite-student
+                id="cmpName"
+                name="cmpName"
                 *ngIf="isInviteFormVisible"
                 [email] = 'inviteeEmail'
                 (onClose) = 'hideInviterStudnetForm()'
