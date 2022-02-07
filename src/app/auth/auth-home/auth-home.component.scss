@@ -1,6 +1,7 @@
 section {
   display: grid;
   grid-template-columns: 50% 50%;
+  min-height: 100vh;
   flastio-logo {
     margin: auto;
     display: block;
