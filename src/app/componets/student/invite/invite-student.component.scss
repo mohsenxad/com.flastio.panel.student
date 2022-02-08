@@ -1,0 +1,108 @@
+form {
+  fieldset {
+    margin: 0;
+    padding: 0;
+  }
+}
+legend {
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0a1629;
+}
+p {
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0a1629;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
+label {
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #0a1629;
+  display: block;
+  margin-bottom: 10px;
+  margin-left: 8px;
+}
+input {
+  border-radius: 14px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  padding: 15px 11px;
+  display: block;
+  width: 100%;
+  margin-bottom: 28px;
+
+  &::placeholder {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: #7d8592;
+    margin-left: 18px;
+  }
+}
+.cancel-btn {
+  padding: 12px 22px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #91929e;
+  transition: 0.5s;
+  float: right;
+  cursor: pointer;
+  &:hover {
+    border: solid 1px #91929e;
+    transition: 0.5s;
+  }
+}
+.invite-btn {
+  padding: 14px 31px;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px 0 rgb(63 140 255 / 26%);
+  background-color: #3f8cff;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  transition: 0.5s;
+  border: none;
+  float: right;
+  margin-left: 16px;
+
+  &:hover {
+    background-color: #3a81eb;
+    transition: 0.5s;
+  }
+}

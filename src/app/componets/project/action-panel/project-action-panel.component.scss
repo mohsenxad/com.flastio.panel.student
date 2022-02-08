@@ -6,7 +6,9 @@ summary {
   background: url(/assets/images/project-action.svg);
   background-repeat: no-repeat;
   display: flex;
-  text-indent: -9000px;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
   cursor: pointer;
   margin-left: -15px;
   z-index: 4;
