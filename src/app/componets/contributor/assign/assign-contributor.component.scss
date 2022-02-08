@@ -20,7 +20,7 @@ fieldset {
     line-height: 1.5;
     letter-spacing: normal;
     color: #0a1629;
-    margin: 39px 0 24px 0;
+    margin: 24px 0;
   }
 }
 legend {
@@ -32,12 +32,16 @@ legend {
   letter-spacing: normal;
   text-align: center;
   color: #0a1629;
+  margin-bottom: 39px;
 }
 
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  &:nth-child(1) {
+    padding: 0 8px;
+  }
   label {
     font-size: 14px;
     font-weight: bold;
@@ -82,7 +86,10 @@ ul {
     color: #91929e;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 8px 12px 8px 9px;
+    width: 100%;
+    margin-bottom: 43px;
     &::before {
       content: url(/assets/images/icn-general-add-blue.svg);
       margin-right: 10px;
@@ -117,9 +124,7 @@ ul {
 
 div {
   text-align: right;
-  border-top: 1px solid #e6ebf5;
   padding-top: 32px;
-  margin-top: 16px;
   button:first-of-type {
     padding: 12px 22px;
     border-radius: 10px;
@@ -164,3 +169,11 @@ div {
     }
   }
 }
+.contribution-section {
+  background-color: #f4f9fd;
+  border-top: 1px solid #e6ebf5;
+  border-bottom: 1px solid #e6ebf5;
+  margin: 0 -25px;
+  padding: 0 32px;
+}
+
