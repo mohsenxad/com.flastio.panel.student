@@ -37,6 +37,7 @@ body {
 html,
 body {
   font-family: NunitoSans, serif;
+  overflow-x: hidden;
 }
 
 button {
@@ -125,7 +126,6 @@ textarea {
   }
 }
 
-
 .main-details {
   position: fixed;
   top: 0;
@@ -133,4 +133,25 @@ textarea {
   bottom: 0;
   left: 0;
   z-index: 4;
+}
+form {
+  fieldset:disabled {
+    label {
+      color: #b2b8c2 !important;
+    }
+    input {
+      border: solid 1px #ced5e0 !important;
+      &::placeholder {
+        color: #b2b8c2 !important;
+      }
+    }
+    textarea {
+      border: solid 1px #ced5e0 !important;
+      color: #b2b8c2 !important;
+    }
+    button {
+      background-color: #ced5e0 !important;
+      color: #fff !important;
+    }
+  }
 }
