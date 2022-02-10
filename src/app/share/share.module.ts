@@ -5,6 +5,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { ValidationResultComponent } from './validation-result/validation-result.component';
 import { PublicEmailInputComponent } from './public-email-input/public-email-input.component';
 import { FormsModule } from '@angular/forms';
+import { UniversityEmailInputComponent } from './university-email-input/university-email-input.component';
 
 
 
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     LoadingComponent,
     ValidationResultComponent,
     PublicEmailInputComponent,
+    UniversityEmailInputComponent
   ],
   imports: [
     FormsModule,
@@ -26,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     ValidationResultComponent,
     PublicEmailInputComponent,
+    UniversityEmailInputComponent
   ]
 })
 export class ShareModule { }

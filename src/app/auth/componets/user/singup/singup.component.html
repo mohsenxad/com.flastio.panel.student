@@ -10,16 +10,16 @@
       >
         <ul>
           <li>
-            <label for="txtEmail"> Email Address </label>
-            <input
-              type="email"
-              name="txtEmail"
-              id="txtEmail"
-              placeholder="Enter your .edu email address"
-              [(ngModel)]="email"
-              maxlength="200"
-              minlength="3"
-            />
+            <label
+              for="cmpEmail"
+            >
+              Email Address
+            </label>
+            <university-email-input
+              id = "cmpEmail"
+              name = "cmpEmail"
+              (onSetEmail) = 'setEmail($event)'
+            ></university-email-input>
           </li>
           <li>
             <label for="txtPassword"> Password: </label>
@@ -29,8 +29,26 @@
               id="txtPassword"
               [(ngModel)]="password"
               placeholder="Enter your password"
-              maxlength="200"
-              minlength="3"
+              maxlength="500"
+              minlength="6"
+              required
+            />
+          </li>
+          <li>
+            <label
+              for="txtReEnterPassword"
+            >
+              Reenter Password:
+            </label>
+            <input
+              type="password"
+              name="txtReEnterPassword"
+              id="txtReEnterPassword"
+              [(ngModel)]="reEnterPassword"
+              placeholder="Reenter your password"
+              maxlength="50"
+              minlength="6"
+              required
             />
           </li>
         </ul>
@@ -38,7 +56,8 @@
           *ngIf="validationResult"
           [validationResult]="validationResult"
         ></validation-result>
-        <button class="student-signup-submit"
+        <button
+          class="student-signup-submit"
           (click)="signup()"
         >
             Signup
@@ -59,7 +78,23 @@
     <section
       *ngIf = 'isCheckMailVisible'
     >
-      Check Your email to confirm signup
+      <h2>
+        Confirm your email address
+      </h2>
+      <b>
+        A link was sent to {{email}}. It expires after an hour.
+      </b>
+      <p>
+        We have sent an email with a confirmation link to your email address. In order to complete the sign-up process, please click the confirmation link.
+      </p>
+      <p>
+        If you do not receive a confirmation email, please check your spam folder. Also, please verify that you entered a valid email address in our sign-up form.
+      </p>
+      <a
+        href = "/auth/signup"
+      >
+        Back to Sign up
+      </a>
     </section>
 
   

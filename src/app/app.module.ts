@@ -79,7 +79,6 @@ import { ShareProfilePanelComponent } from './componets/shareProfile/panel/share
 import { MobileNumberInputComponent } from './componets/share/mobile-number-input/mobile-number-input.component';
 
 import { ShareProfileSelectComponent } from './componets/shareProfile/select/share-profile-select.component';
-import { UniversityEmailInputComponent } from './componets/share/university-email-input/university-email-input.component';
 import { ProjectStrengthComponent } from './componets/project/strength/project-strength.component';
 import { WorkStyleTestComponent } from './componets/workStyle/test/work-style-test.component';
 import { CertificationFileUploaderComponent } from './componets/certification/file-uploader/certification-file-uploader.component';
@@ -185,7 +184,6 @@ import { SelectOrAddAssignedCertificationComponent } from './componets/assignedC
     ShareProfileByEmailComponent,
     ShareProfilePanelComponent,
     MobileNumberInputComponent,
-    UniversityEmailInputComponent,
     ShareProfileSelectComponent,
     ProjectStrengthComponent,
     WorkStyleTestComponent,
