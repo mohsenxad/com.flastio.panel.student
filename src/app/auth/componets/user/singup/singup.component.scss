@@ -164,8 +164,6 @@ form {
   }
 }
 
-
-
 @media screen and (max-width: 992px) {
   section {
     display: block;
@@ -203,5 +201,82 @@ form {
   }
   .student-signup-submit {
     width: 100%;
+  }
+}
+.confirm-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 70%;
+  margin: auto;
+  justify-content: center;
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0a1629;
+    padding: 0;
+    margin: 0 0 0 40px;
+  }
+  b {
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: #3f8cff;
+    border-radius: 14px;
+    background-color: #f4f9fd;
+    padding: 20px;
+    display: flex;
+    align-items: baseline;
+    margin: 32px 0 16px 0;
+    &::before {
+      content: url(/assets/images/icn-general-hint-blue.svg);
+      margin-right: 12px;
+      -webkit-writing-mode: vertical-rl;
+    }
+  }
+  p {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    padding: 0;
+    margin: 0;
+    &:first-of-type {
+      margin-bottom: 20px;
+    }
+  }
+  a {
+    padding: 13px 27px;
+    border-radius: 14px;
+    box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
+    background-color: #3f8cff;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    width: fit-content;
+    text-decoration: none;
+    margin-top: 24px;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: #3a81eb;
+      transition: 0.5s;
+    }
   }
 }
