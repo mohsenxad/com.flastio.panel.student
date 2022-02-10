@@ -17,7 +17,16 @@ export class AnalyticsSummaryComponent implements OnInit {
   }
 
   getProjectCount(): Number{
-    return this.student.projectList.length;
+    if(
+      this.student &&
+      this.student.projectList &&
+      this.student.projectList.length > 0
+    ){
+      return this.student.projectList.length;
+    }else{
+      return 0;
+    }
+    
   }
 
   getSkillCount():Number{
@@ -26,7 +35,16 @@ export class AnalyticsSummaryComponent implements OnInit {
     return skillSetList.length;
   }
   getCertificationCount():Number{
-    return this.student.assignedCertificationList.length;
+    if(
+      this.student &&
+      this.student.assignedCertificationList &&
+      this.student.assignedCertificationList.length > 0
+    ){
+      return this.student.assignedCertificationList.length;
+    }else{
+      return 0;
+    }
+    
   }
 
   getSkillList(student: Student):Skill[]{

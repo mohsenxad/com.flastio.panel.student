@@ -14,27 +14,30 @@
       </ul>
     </fieldset>
   </form>
+
   <loading
         *ngIf="isLoading"
-    ></loading>
-    <div class="search-certification-result">
-      <button
-        *ngIf = 'isAddable()'
-        type="button"
-        (click)="inviteStudent()"
+  ></loading>
+
+  <div class="search-certification-result">
+    <button
+      *ngIf = 'isAddable()'
+      type="button"
+      (click)="inviteStudent()"
+    >
+      Invite {{ studentKeyWord }} to Flastio
+    </button>
+    <ul *ngIf="studentList && studentList.length > 0">
+      <li
+        *ngFor="let student of studentList"
+        (click)="selected(student)"
       >
-        Invite {{ studentKeyWord }} to Flastio
-      </button>
-      <ul *ngIf="studentList && studentList.length > 0">
-        <li
-          *ngFor="let student of studentList"
-          (click)="selected(student)"
-        >
-          {{ student.email }}
-        </li>
-      </ul>
-    </div>
+        {{ student.email }}
+      </li>
+    </ul>
+  </div>
 </div>
+
 <div
   class="search-certification-result-section"
   *ngIf="selectedStudent"
