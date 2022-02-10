@@ -8,15 +8,14 @@ import { Student } from 'src/app/model/student';
 })
 export class StudentService {
 
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
 
   constructor(
     private http: HttpClient
   ) { }
 
   async upload( url: string, file:any, contentType: String): Promise<any>{
-    let body: any =file;
-    var headers: HttpHeaders = new HttpHeaders(
+    const body: any = file;
+    const headers: HttpHeaders = new HttpHeaders(
       {
         "conte": "application/x-www-form-urlencoded",
         "ContentType": contentType.toString()
@@ -27,8 +26,9 @@ export class StudentService {
   }
 
   async getUploadUrl():Promise<any>{
-    const user: Realm.User = this.app.currentUser;
-    let result: any  = await user.functions
+    let app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
+    const result: any  = await user.functions
       .getPictureUploadUrl({Bucket:"flastio"})
     return result;
   }
@@ -36,14 +36,14 @@ export class StudentService {
   async getStudentInfo(): Promise<Student>{
     const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
     const user: Realm.User = app.currentUser;
-    let student: Student = await user.functions.getStudent();
+    const student: Student = await user.functions.getStudent();
     return student;
   }
 
   async create(student:Student){
     const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
     const user: Realm.User = app.currentUser;
-    let newStudent: Student  = await user.functions
+    const newStudent: Student  = await user.functions
       .addStudent(
         student.firstName,
         student.lastName,
@@ -59,8 +59,9 @@ export class StudentService {
 
   
   async invite(email:String, title: String): Promise<Student>{
-    const user: Realm.User = this.app.currentUser;
-    let newStudent: Student  = await user.functions
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
+    const newStudent: Student  = await user.functions
       .inviteStudent(
         title,
         email
@@ -69,8 +70,9 @@ export class StudentService {
   }
 
   async updateDetail(student: Student):Promise<Student>{
-    const user: Realm.User = this.app.currentUser;
-    let result: Student  = await user.functions
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
+    const result: Student  = await user.functions
       .updateStudentDetail(
         student._id.toString(),
         student.countryRegion || undefined,
@@ -89,8 +91,9 @@ export class StudentService {
   }  
 
   async share(targetEmail: String, message: String):Promise<Student>{
-    const user: Realm.User = this.app.currentUser;
-    let result: Student  = await user.functions
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
+    const result: Student  = await user.functions
       .share(
         targetEmail,
         message
@@ -104,9 +107,16 @@ export class StudentService {
   }
 
   async search(studentKeyWord: String):Promise<Student[]>{
-    const user: Realm.User = this.app.currentUser;
-    let studentList: Student[]  = await user.functions.searchStudent(studentKeyWord);
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
+    const studentList: Student[]  = await user.functions.searchStudent(studentKeyWord);
     return studentList;
+  }
+
+  logout():void{
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
+    user.logOut();
   }
     
     

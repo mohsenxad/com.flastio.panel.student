@@ -1,7 +1,9 @@
 <div
   *ngIf="!selectedMajor"
 >
-  <form>
+  <form
+    autocomplete="off"
+  >
     <legend>Search Major</legend>
     <fieldset>
       <ul>
@@ -15,6 +17,7 @@
             (ngModelChange)="onKeyup($event)"
             maxlength="200"
             minlength="3"
+            autocomplete="off"
           />
         </li>
       </ul>

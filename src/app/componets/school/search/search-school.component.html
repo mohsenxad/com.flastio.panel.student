@@ -1,7 +1,9 @@
 <div
     *ngIf="!selectedSchool"
 >
-    <form>
+    <form
+        autocomplete="off"
+    >
         <legend>
             Search School
         </legend>
@@ -19,6 +21,7 @@
                         (ngModelChange)="onKeyup($event)"
                         maxlength="200"
                         minlength="3"
+                        autocomplete="off"
                     >
                 </li>
             </ul>

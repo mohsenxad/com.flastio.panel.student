@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SkillSet } from 'src/app/model/skillSet';
 
 @Component({
@@ -8,10 +8,15 @@ import { SkillSet } from 'src/app/model/skillSet';
 })
 export class SkillsetPanelComponent implements OnInit {
   @Input() skillSetList:SkillSet[];
+  @Output() onAddProjectClicked = new EventEmitter();
   
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showAddProjectForm(){
+    this.onAddProjectClicked.emit();
   }
 
 }

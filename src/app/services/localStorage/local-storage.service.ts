@@ -30,4 +30,8 @@ export class LocalStorageService {
     return result;
   }
 
+  logout(){
+    localStorage.clear();
+  }
+
 }

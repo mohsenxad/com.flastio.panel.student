@@ -1,7 +1,9 @@
 <div
   *ngIf = "!selectedCourse"
 >
-  <form>
+  <form
+    autocomplete="off"
+  >
     <fieldset>
       <ul>
         <li>
@@ -14,6 +16,7 @@
             maxlength="200"
             minlength="3"
             placeholder="Enter course title"
+            autocomplete="off"
           />
         </li>
       </ul>
@@ -28,7 +31,7 @@
       *ngIf = 'isAddable()'
       (click)="addCrurse()"
     >
-      add {{ courseKeyWord }} to {{ major.name }}
+      add {{ courseKeyWord }}
     </button>
     <ul *ngIf="courseList && courseList.length > 0">
       <li *ngFor="let course of courseList" (click)="selected(course)">

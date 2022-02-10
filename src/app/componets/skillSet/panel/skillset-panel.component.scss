@@ -14,10 +14,5 @@ h2 {
     margin-right: 9px;
     -webkit-writing-mode: vertical-rl;
   }
-  &::after {
-    content: url(/assets/images/icn-general-hint-dark.svg);
-    margin-left: 9px;
-    cursor: pointer;
-    -webkit-writing-mode: vertical-rl;
-  }
+
 }

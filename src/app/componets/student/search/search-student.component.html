@@ -1,24 +1,15 @@
 <div
   *ngIf="!selectedStudent"
 >
-  <form>
+  <form
+    autocomplete="off"
+  >
     <fieldset>
       <ul>
         <li>
           <university-email-input
             (onSetEmail) = 'changed($event)'
           ></university-email-input>
-          <!-- <input
-            type="search"
-            name="txtStudentKeyWord"
-            id="txtStudentKeyWord"
-            [(ngModel)]="studentKeyWord"
-            (ngModelChange)="changed($event)"
-            (keypress)="onKeyup($event)"
-            placeholder="e.g., Six Sigma Yellow Belt"
-            maxlength="200"
-            minlength="3" 
-          />-->
         </li>
       </ul>
     </fieldset>

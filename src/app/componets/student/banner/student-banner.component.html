@@ -9,7 +9,8 @@
         <li>
           <button
             (click) = 'showShareProfileModal()'  
-            title="Share" 
+            title="Share"
+            aria-label="Share"
           >
             Share
           </button>
@@ -17,7 +18,8 @@
         <li>
           <button
             (click) = 'openPublicView()' 
-            title="Public View" 
+            title = "Public View" 
+            aria-label = "Public View"
           >
             Public View
           </button>
@@ -40,5 +42,7 @@
   <portfolio-strength
     [student] = "student"
   ></portfolio-strength>
-  <analytics-summary></analytics-summary>
+  <analytics-summary
+    [student] = "student"
+  ></analytics-summary>
 </section>

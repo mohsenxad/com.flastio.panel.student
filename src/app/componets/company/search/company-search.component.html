@@ -1,7 +1,9 @@
 <div
   *ngIf="!selectedCompany"
 >
-  <form>
+  <form
+    autocomplete="off"
+  >
     <legend>Search Company</legend>
     <fieldset>
       <ul>
@@ -15,6 +17,7 @@
             maxlength="200"
             minlength="3"
             placeholder="Enter name of company"
+            autocomplete="off"
           />
         </li>
       </ul>
