@@ -65,7 +65,7 @@ dl {
       grid-area: 3;
       padding: 3px;
       margin-left: 8px;
-      &:empty{
+      &:empty {
         border: none;
       }
     }
@@ -110,5 +110,10 @@ dl {
         margin-left: 0;
       }
     }
+  }
+  dl dd:nth-child(4) student-plane {
+    left: -94px;
+    position: absolute;
+    top: -8px;
   }
 }

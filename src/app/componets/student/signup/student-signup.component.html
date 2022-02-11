@@ -39,6 +39,9 @@
           ></mobile-number-input>
         </li>
         <li class="student-signup-school">
+          <label for="txtSchoolKeyWord">
+            Type To Search in School:
+        </label>
           <div name="divSchool" id="divSchool">
             <search-school
               [selectedSchool] = 'student.school'
@@ -48,7 +51,8 @@
         </li>
 
         <li class="student-signup-major">
-          
+          <label for="txtMajorKeyWord"> Type To Search in Major: </label>
+
           <div name="divMajor" id="divMajor">
             <search-major
               [selectedMajor] = "student.major"
