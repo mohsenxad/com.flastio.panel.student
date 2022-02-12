@@ -1,6 +1,6 @@
 
     <form
-      *ngIf = 'isCheckMailVisible'
+      *ngIf = '!isCheckMailVisible'
     >
       <legend>
         Sign up
@@ -76,7 +76,7 @@
     </form>
 
     <section
-      *ngIf = '!isCheckMailVisible'
+      *ngIf = 'isCheckMailVisible'
       class="confirm-section"
     >
       <h2>

@@ -39,7 +39,7 @@ export class StudentSignupComponent implements OnInit {
   }
 
   onSetMobileNumber(mobileNumber: String):void{
-    console.log(mobileNumber);
+    this.student.countryMobileNumberCode = 1;
     this.student.mobileNumber = mobileNumber;
   }
 

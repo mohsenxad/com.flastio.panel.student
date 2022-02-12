@@ -5,6 +5,7 @@
     [(ngModel)] = 'email'
     placeholder = "Enter email Address"
     (ngModelChange)="onKeyup($event)"
+    (focusout) = "focuseout()"
     maxlength="200"
     minlength="5"
 >

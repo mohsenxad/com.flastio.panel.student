@@ -26,21 +26,25 @@
           />
         </li>
         <li class="student-signup-mobile">
-          <label for="txtMobileNumber"> Mobile Number </label>
-          <input
+          <label
+            for="txtMobileNumber"
+          >
+            Mobile Number
+          </label>
+          <!-- <input
             type="tel"
             name="txtCountryMobileNumberCode"
             id="txtCountryMobileNumberCode"
             [(ngModel)]="student.countryMobileNumberCode"
             maxlength="4"
-          />
+          /> -->
           <mobile-number-input
             (onSetMobileNumber) = 'onSetMobileNumber($event)'
           ></mobile-number-input>
         </li>
         <li class="student-signup-school">
           <label for="txtSchoolKeyWord">
-            Type To Search in School:
+            Your School
         </label>
           <div name="divSchool" id="divSchool">
             <search-school
@@ -51,7 +55,9 @@
         </li>
 
         <li class="student-signup-major">
-          <label for="txtMajorKeyWord"> Type To Search in Major: </label>
+          <label for="txtMajorKeyWord">
+            Major
+          </label>
 
           <div name="divMajor" id="divMajor">
             <search-major
@@ -63,7 +69,7 @@
           <label
             for="divGraduationDate"
           >
-            Graduation date
+            Anticipated graduation date
           </label>
           <div 
             id = 'divGraduationDate'

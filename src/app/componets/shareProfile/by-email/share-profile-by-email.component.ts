@@ -56,6 +56,7 @@ export class ShareProfileByEmailComponent implements OnInit {
   }
 
   send(){
+    this.addEmailToList();
     this.validationResult = this.validate(this.emailList, this.message);
     if(!this.validationResult.hasError){
       // send message to email List
