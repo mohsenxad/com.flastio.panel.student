@@ -14,7 +14,7 @@ export class YearSelect2Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    for (let currentYear = 1980; currentYear <= 2022 ; currentYear++) {
+    for (let currentYear = 1980; currentYear <= 2030 ; currentYear++) {
       this.yearList.push(currentYear)
     }
   }

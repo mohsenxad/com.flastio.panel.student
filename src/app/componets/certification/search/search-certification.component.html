@@ -1,7 +1,9 @@
 <div
   *ngIf="!selectedCertification"
 >
-  <form>
+  <form
+    autocomplete="off"
+  >
     <fieldset>
       <ul>
         <li>
@@ -16,6 +18,7 @@
             placeholder="e.g., Six Sigma Yellow Belt"
             maxlength="200"
             minlength="3"
+            autocomplete="off"
           />
         </li>
       </ul>
