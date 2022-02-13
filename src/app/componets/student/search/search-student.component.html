@@ -27,10 +27,12 @@
     >
       Invite {{ studentKeyWord }} to Flastio
     </button>
-    <ul *ngIf="studentList && studentList.length > 0">
+    <ul
+      *ngIf = "studentList && studentList.length > 0"
+    >
       <li
-        *ngFor="let student of studentList"
-        (click)="selected(student)"
+        *ngFor = "let student of studentList"
+        (click) = "selected(student)"
       >
         {{ student.email }}
       </li>
@@ -39,8 +41,8 @@
 </div>
 
 <div
-  class="search-certification-result-section"
-  *ngIf="selectedStudent"
+  class  = "search-certification-result-section"
+  *ngIf = "selectedStudent"
 >
   {{selectedStudent.email}}
   <button
