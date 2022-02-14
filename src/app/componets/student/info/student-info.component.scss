@@ -21,13 +21,9 @@ dl {
       grid-area: 1;
     }
     &:nth-child(4) {
-      position: relative;
-      grid-area: 1;
-      student-plane {
-        position: absolute;
-        right: 38px;
-        top: 8px;
-      }
+      position: absolute;
+      left: 89px;
+      top: 75px;
     }
     &:nth-child(6) {
       font-size: 24px;
