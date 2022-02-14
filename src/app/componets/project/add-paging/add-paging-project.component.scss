@@ -13,7 +13,9 @@ ul {
     display: flex;
     background-repeat: no-repeat !important;
     width: 25px;
-    text-indent: -9000px;
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
     height: 25px;
     position: relative;
     content: "";
