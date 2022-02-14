@@ -88,13 +88,9 @@ dl {
     }
     dd {
       &:nth-child(4) {
-        position: relative;
-        grid-area: 1;
-        student-plane {
-          position: absolute;
-          right: 6px;
-          top: -8px;
-        }
+        position: absolute;
+        top: 41px;
+        left: 59px;
       }
       &:nth-child(10) {
         display: flex;
@@ -107,9 +103,5 @@ dl {
       }
     }
   }
-  dl dd:nth-child(4) student-plane {
-    left: -94px;
-    position: absolute;
-    top: -8px;
-  }
+
 }
