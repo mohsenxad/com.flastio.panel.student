@@ -26,7 +26,7 @@ export class StudentService {
   }
 
   async getUploadUrl():Promise<any>{
-    let app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
     const user: Realm.User = app.currentUser;
     const result: any  = await user.functions
       .getPictureUploadUrl({Bucket:"flastio"})

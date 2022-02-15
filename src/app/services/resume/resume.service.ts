@@ -9,7 +9,6 @@ import { LocalStorageService } from '../localStorage/local-storage.service';
 })
 export class ResumeService {
 
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   studentId: String;
 
   constructor(
@@ -32,20 +31,23 @@ export class ResumeService {
   }
 
   async getUploadUrl(){
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result: any  = await user.functions
       .getResumeUploadUrl({Bucket:"flastio"})
     return result;
   }
 
   async setTranscript(resume:Resume){
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result: any  = await user.functions
       .setResumeFileName(this.studentId,resume);
   }
 
   async requestFeedback(){
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result: any  = await user.functions
       .requestResumeFeedback(this.studentId);
   }

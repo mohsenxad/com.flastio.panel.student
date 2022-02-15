@@ -10,7 +10,6 @@ import { Certification } from 'src/app/model/certification';
 })
 export class CertificationService {
 
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   studentId :String;
   
   constructor(
@@ -21,7 +20,8 @@ export class CertificationService {
   }
 
   async getUploadUrl(){
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result: any  = await user.functions
       .getCertificationUploadUrl({Bucket:"flastio"})
     return result;
@@ -41,7 +41,8 @@ export class CertificationService {
 
 
   async save(assignedCertification: AssignedCertification):Promise<AssignedCertification>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result:AssignedCertification  = await user.functions
       .assignCertification(
         this.studentId,
@@ -56,7 +57,8 @@ export class CertificationService {
   }
 
   async edit(assignedCertification: AssignedCertification):Promise<AssignedCertification>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result:AssignedCertification  = await user.functions
       .editAssignCertification(
         this.studentId,
@@ -72,7 +74,8 @@ export class CertificationService {
   }
 
   async remove(assignedCertification: AssignedCertification):Promise<any>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result:any  = await user.functions
       .removeCertification(
         this.studentId,
@@ -82,13 +85,15 @@ export class CertificationService {
   }
 
   async search(certificationKeyWord: String):Promise<Certification[]>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let certificationList: Certification[]  = await user.functions.searchCertification(certificationKeyWord);
     return certificationList;
   }
 
   async addCertification(name: String):Promise<Certification>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let newCertification:Certification  = await user.functions.addCertification(name);
     return newCertification;
   }

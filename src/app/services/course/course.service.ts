@@ -7,17 +7,18 @@ import { Course } from 'src/app/model/course';
 })
 export class CourseService {
 
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   constructor() { }
 
   async addCrurse(majorId: String,name: String): Promise<Course>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let newCurse:Course  = await user.functions.addCourse(majorId.toString(), name);
     return newCurse;
   }
 
   async search(majorId: String,keyword: String):Promise<Course[]>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let response: any  = await user.functions.searchCourse(majorId.toString(),keyword);
     let result:Course[] = [];
     if(

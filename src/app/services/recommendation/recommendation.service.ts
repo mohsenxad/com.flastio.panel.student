@@ -8,7 +8,6 @@ import { LocalStorageService } from '../localStorage/local-storage.service';
 })
 export class RecommendationService {
 
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   studentId :String;
 
   constructor(
@@ -18,7 +17,8 @@ export class RecommendationService {
   }
 
   async request(recommendation: Recommendation): Promise<Recommendation>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let newRecommendation:Recommendation  = await user.functions.requestRecommendation(
       recommendation.recommenderName,
       recommendation.recommenderPosition,

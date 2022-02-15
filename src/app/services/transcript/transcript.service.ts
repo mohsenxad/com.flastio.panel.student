@@ -9,8 +9,9 @@ import { Transcript } from 'src/app/model/transcript';
 })
 export class TranscriptService {
 
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+  
   studentId: String;
+
   constructor(
     private http: HttpClient,
     private localStorageService: LocalStorageService
@@ -30,14 +31,16 @@ export class TranscriptService {
   }
 
   async getUploadUrl(){
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result: any  = await user.functions
       .getTranscriptUploadUrl({Bucket:"flastio"})
     return result;
   }
 
   async setTranscript(transcript:Transcript){
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result: any  = await user.functions
       .setTranscriptFileName(this.studentId,transcript);
   }

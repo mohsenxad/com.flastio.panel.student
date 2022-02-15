@@ -7,17 +7,18 @@ import { Major } from 'src/app/model/major';
 })
 export class MajorService {
 
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   constructor() { }
 
   async search(keyword):Promise<Major[]>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let majorList: Major[]  = await user.functions.searchMajor(keyword);
     return majorList;
   }
 
   async add(name){
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let newMajor: Major = await user.functions.addMajor(name);
     return newMajor
   }

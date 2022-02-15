@@ -9,7 +9,6 @@ import { LocalStorageService } from '../localStorage/local-storage.service';
 })
 export class ProjectService {
 
-  app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
   studentId :String;
 
   constructor(
@@ -31,21 +30,24 @@ export class ProjectService {
   }
 
   async getUploadUrl(){
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result: any  = await user.functions
       .getProjectSupportingFileUploadUrl({Bucket:"flastio"})
     return result;
   }
 
   async getProjectUploadUrl(){
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result: any  = await user.functions
       .getProjectUploadUrl({Bucket:"flastio"})
     return result;
   }
 
   async add(project: Project): Promise<Project>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result: Project  = await user.functions.addProject(
       this.studentId,
       project.baseInfo,
@@ -61,7 +63,8 @@ export class ProjectService {
 
   
   async edit(project: Project): Promise<Project>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result: Project  = await user.functions.editProject(
       this.studentId,
       project._id.toString(),
@@ -77,7 +80,8 @@ export class ProjectService {
   }
 
   async remove(project: Project):Promise<any>{
-    const user: Realm.User = this.app.currentUser;
+    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
+    const user: Realm.User = app.currentUser;
     let result:any  = await user.functions
       .removeProject(
         this.studentId,
