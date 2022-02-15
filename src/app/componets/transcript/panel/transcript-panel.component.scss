@@ -74,7 +74,9 @@
   }
   button {
     content: url(/assets/images/delete.svg);
-    text-indent: -9000px;
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
     display: flex;
     padding: 5px;
     border-radius: 8px;
@@ -89,10 +91,7 @@
     }
   }
   input[type="file"] {
-    position: absolute;
-    top: 15px;
-    opacity: 0;
-    cursor: pointer;
+    display: none;
   }
 }
 

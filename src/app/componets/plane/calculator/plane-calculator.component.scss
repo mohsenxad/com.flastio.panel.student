@@ -3,7 +3,9 @@
   display: flex !important;
   height: 34px;
   align-items: center;
-  text-indent: -9000px;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
   margin-bottom: 32px;
   span {
     width: 51px;

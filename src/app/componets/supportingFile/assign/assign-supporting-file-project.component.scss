@@ -204,7 +204,9 @@ dl {
     button {
       margin: 0;
       content: url(/assets/images/delete.svg);
-      text-indent: -9000px;
+      text-indent: 200%;
+      white-space: nowrap;
+      overflow: hidden;
       display: flex;
       padding: 3px 5px;
       border-radius: 8px;

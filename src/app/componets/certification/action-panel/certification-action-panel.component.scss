@@ -43,7 +43,9 @@ ul {
         width: 42px;
         height: 28px;
         transition: 0.5s;
-        text-indent: -9000px;
+        text-indent: 200%;
+        white-space: nowrap;
+        overflow: hidden;
         background-repeat: no-repeat;
         background-position: center;
         &:hover {
@@ -62,7 +64,9 @@ ul {
         width: 42px;
         height: 28px;
         transition: 0.5s;
-        text-indent: -9000px;
+        text-indent: 200%;
+        white-space: nowrap;
+        overflow: hidden;
         background-repeat: no-repeat;
         background-position: center;
         &:hover {
@@ -80,7 +84,9 @@ ul {
         background: url(/assets/images/move-up.svg);
         width: 42px;
         height: 28px;
-        text-indent: -9000px;
+        text-indent: 200%;
+        white-space: nowrap;
+        overflow: hidden;
         background-repeat: no-repeat;
         background-position: center;
 
@@ -98,7 +104,9 @@ ul {
         background: url(/assets/images/move-up.svg);
         width: 42px;
         height: 28px;
-        text-indent: -9000px;
+        text-indent: 200%;
+        white-space: nowrap;
+        overflow: hidden;
         background-repeat: no-repeat;
         background-position: center;
         &:hover {
