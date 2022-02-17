@@ -159,11 +159,9 @@ export class AddProjectComponent implements OnInit {
 
   publish(){
     this.project.isPublished = true;
-    let validationResult = this.validatePublish(this.project);
-    if(!validationResult.hasError){
+    this.validationResult = this.validatePublish(this.project);
+    if(!this.validationResult.hasError){
       this.save();
-    }else{
-      this.validationResult = validationResult;
     }
   }
 

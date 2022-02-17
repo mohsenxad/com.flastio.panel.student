@@ -7,6 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class YearSelect2Component implements OnInit {
   @Input() selectedYear:Number;
+  @Input() fromYear:number;
+  @Input() toYear:number;
   @Output() onYearSelected = new EventEmitter<Number>();
 
   yearList : Number[] =  [1980,1981,1982,]
@@ -14,9 +16,17 @@ export class YearSelect2Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    for (let currentYear = 1980; currentYear <= 2030 ; currentYear++) {
-      this.yearList.push(currentYear)
+    this.yearList = this.generateYearList();
+  }
+
+  generateYearList():Number[]{
+    let yearList: Number[] = [];
+    let fromYear: number = this.fromYear || 1980;
+    let toYear: number = this.toYear || 2030;
+    for (let currentYear = toYear; currentYear >= fromYear ; currentYear--) {
+      yearList.push(currentYear)
     }
+    return yearList;
   }
 
   changeYear(){

@@ -3,6 +3,7 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 import { Student } from '../../../model/student';
 import { StudentService } from 'src/app/services/student/student.service';
 import { Router } from '@angular/router';
+import { ValidationResult } from 'src/app/model/validationResult';
 
 @Component({
   selector: 'add-detail-student',
@@ -15,7 +16,10 @@ export class AddDetailStudentComponent implements OnInit {
   student: Student;
   isLoading: Boolean = false;
   confirmDicardIsVisible : Boolean = false;
-  
+  validationResult: ValidationResult = {
+    hasError : false,
+    messageList: []
+  };
   
 
   constructor(
@@ -58,12 +62,69 @@ export class AddDetailStudentComponent implements OnInit {
     this.isLoading = false;
   }
 
+  validate(student: Student): ValidationResult{
+    let result: ValidationResult = {
+      hasError:false,
+      messageList: []
+    };
+
+    if(!student.countryRegion){
+      result.hasError = true;
+      result.messageList.push("Select Your Location");
+    }
+
+    if(!student.postalCode || student.postalCode.toString().trim() == ""){
+      result.hasError = true;
+      result.messageList.push("Enter Your Postal Code");
+    }
+
+    if(!student.gender){
+      result.hasError = true;
+      result.messageList.push("Select Your Gender");
+    }
+
+    if(!student.ethnicity){
+      result.hasError = true;
+      result.messageList.push("Select Your Ethnicity/Race");
+    }
+
+    if(!student.collegeStatus){
+      result.hasError = true;
+      result.messageList.push("Set Year of College");
+    }
+
+    if(
+      student.collegeStatus &&
+      student.collegeStatus == "Graduated" &&
+      !student.graduationMonth
+    ){
+      result.hasError = true;
+      result.messageList.push("Select Your Graduation Month");
+    }
+
+    if(
+      student.collegeStatus &&
+      student.collegeStatus == "Graduated" &&
+      !student.graduationYear
+    ){
+      result.hasError = true;
+      result.messageList.push("Select Your Graduation Year");
+    }
+
+
+    return result;
+  }
+
   async save(){
-    this.isLoading = true;
-    this.student = await this.studentService.updateDetail(this.student);
-    this.localStorageService.setStudent(this.student);
-    this.isLoading = false;
-    this.router.navigateByUrl('/student/panel')
+    this.validationResult = this.validate(this.student);
+    if(!this.validationResult.hasError){
+      this.isLoading = true;
+      this.student = await this.studentService.updateDetail(this.student);
+      this.localStorageService.setStudent(this.student);
+      this.isLoading = false;
+      this.router.navigateByUrl('/student/panel')
+    }
+    
   }
 
   async handleFileInput(files: FileList) {

@@ -9,14 +9,9 @@ import { LocalStorageService } from '../localStorage/local-storage.service';
 })
 export class ResumeService {
 
-  studentId: String;
-
   constructor(
-    private http: HttpClient,
-    private localStorageService: LocalStorageService
-  ) {
-    this.studentId = this.localStorageService.getStudent()._id;
-   }
+    private http: HttpClient
+  ) {}
 
    async upload( url: String, file:any, contentType: String): Promise<any>{
     let body: any =file;
@@ -42,14 +37,8 @@ export class ResumeService {
     const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
     const user: Realm.User = app.currentUser;
     let result: any  = await user.functions
-      .setResumeFileName(this.studentId,resume);
+      .setResumeFileName(resume);
   }
 
-  async requestFeedback(){
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let result: any  = await user.functions
-      .requestResumeFeedback(this.studentId);
-  }
 
 }

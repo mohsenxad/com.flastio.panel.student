@@ -2,17 +2,26 @@
   <form 
     #form="ngForm"
   >
-    <legend>Signup</legend>
+    <legend>
+      Your Information
+    </legend>
     <fieldset>
       <ul>
         <li>
-          <label for="txtFirstName"> First Name </label>
+          <label
+            for="txtFirstName"
+          >
+            First Name
+          </label>
           <input
             type="text"
             name="txtFirstName"
             id="txtFirstName"
             [(ngModel)]="student.firstName"
             placeholder="First Name"
+            minlength="1"
+            maxlength="200"
+            required
           />
         </li>
         <li>
@@ -23,6 +32,9 @@
             id="txtLastName"
             [(ngModel)]="student.lastName"
             placeholder="Last Name"
+            minlength="1"
+            maxlength="200"
+            required
           />
         </li>
         <li class="student-signup-mobile">
@@ -31,13 +43,6 @@
           >
             Mobile Number
           </label>
-          <!-- <input
-            type="tel"
-            name="txtCountryMobileNumberCode"
-            id="txtCountryMobileNumberCode"
-            [(ngModel)]="student.countryMobileNumberCode"
-            maxlength="4"
-          /> -->
           <mobile-number-input
             (onSetMobileNumber) = 'onSetMobileNumber($event)'
           ></mobile-number-input>
@@ -81,6 +86,8 @@
             ></month-select>
   
             <year-select2
+              [fromYear]="2010"
+              [toYear]="2030"
               [selectedYear] = 'student.graduationYear'
               (onYearSelected) = 'selectedGraduationYear($event)'
             ></year-select2>
@@ -88,8 +95,11 @@
           
         </li>
       </ul>
-      <button class="student-signup-submit"
+      <button
+        class="student-signup-submit"
         (click)="save()"
-      >Continue</button>
+      >
+        Continue
+      </button>
     </fieldset>
   </form>

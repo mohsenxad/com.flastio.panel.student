@@ -11,10 +11,9 @@
     Close
   </button>
   <legend>Add Certification</legend>
-  <p>Make sure to use the exact certification title
-     on your actual certificate. You can upload a picture
-      or a PDF version of your certificate issued by the 
-      institution you got certified through.</p>
+  <p>
+    Make sure to use the exact certification title on your actual certificate. You can upload a picture of your certificate issued by the institution you got certified through.
+  </p>
   <fieldset
     [disabled] = "isLoading"
   >
@@ -38,6 +37,8 @@
           ></month-select>
 
           <year-select2
+            [fromYear]="2010"
+            [toYear]="2022"
             [selectedYear] = 'assignedCertification.issuedDateYear'
             (onYearSelected) = 'selectedIssuedDateYear($event)'
           ></year-select2>

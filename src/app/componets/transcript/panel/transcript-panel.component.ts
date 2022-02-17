@@ -25,6 +25,9 @@ export class TranscriptPanelComponent implements OnInit {
 
   async handleFileInput(files: FileList) {
     this.isLoading = true;
+    if(!this.trasncript){
+      this.trasncript = {}
+    }
     let transcriptFile:File = files.item(0);
     let response:any = await this.transcriptService.getUploadUrl()
     let signedUploadUrl: String = response.presignedUrl;
