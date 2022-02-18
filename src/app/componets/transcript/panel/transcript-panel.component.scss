@@ -113,3 +113,15 @@
   padding-right: 16px;
 
 }
+
+@-moz-document url-prefix() {
+  .transcript-body{
+    button{
+      content: "";
+      background-image: url(/assets/images/delete.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 10px 1px !important;
+    }
+  }
+}

@@ -176,3 +176,15 @@
     margin-left: 8px;
   }
 }
+
+@-moz-document url-prefix() {
+  .resume-body{
+    button{
+      content: "";
+      background-image: url(/assets/images/delete.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 10px 1px !important;
+    }
+  }
+}
