@@ -156,3 +156,9 @@ form {
   }
 }
 
+
+@-moz-document url-prefix() {
+  button{
+    font-family: NunitoSans, serif !important;
+  }
+}

@@ -46,8 +46,15 @@ button {
   box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
   border: solid 1px #d8e0f0;
   background-color: #fff;
-  padding: 5px;
-  content: url(/assets/images/delete.svg);
+  content: "";
+  background-image: url(/assets/images/delete.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 10px 0px !important;
+  font: status-bar;
   display: flex;
   transition: 0.5s;
   cursor: pointer;
@@ -57,3 +64,4 @@ button {
     transition: 0.5s;
   }
 }
+
