@@ -58,17 +58,33 @@ ul {
     &:nth-child(2) {
       margin: 0 16px;
       button {
-        content: url(/assets/images/eye.svg);
-        padding: 13px;
+        content: "";
+        background-image: url(/assets/images/eye.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        text-indent: 200%;
+        white-space: nowrap;
+        overflow: hidden;
+        font: status-bar;
+        padding: 15px 0px;
+        font-size: x-small;
         display: flex;
         border: none;
-        background: none;
+        background-color: #fff;
+        border-radius: 10px;
       }
     }
     &:nth-child(1) {
       button {
-        content: url(/assets/images/share.svg);
-        padding: 11px;
+        content: "";
+        background-image: url(/assets/images/share.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        text-indent: 200%;
+        white-space: nowrap;
+        overflow: hidden;
+        font: status-bar;
+        padding: 15px 9px;
         border-radius: 10px;
         box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
         border: solid 1px #d8e0f0;

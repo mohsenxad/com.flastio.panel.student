@@ -46,7 +46,14 @@ form {
           border: none;
           background: none;
           display: flex;
-          content: url(/assets/images/icn-general-add-dark-blue.svg);
+          content: "";
+          background-image: url(/assets/images/icn-general-add-dark-blue.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          text-indent: 200%;
+          white-space: nowrap;
+          overflow: hidden;
+          font: status-bar;
           cursor: pointer;
         }
       }
@@ -98,8 +105,15 @@ dl {
   align-items: center;
 
   &::before {
-    content: url(/assets/images/icn-general-addlink.svg);
-    padding: 10px 10px 6px 10px;
+    content: "";
+    background-image: url(/assets/images/icn-general-addlink-green.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
+    font: status-bar;
+    padding: 20px;
     border-radius: 14px;
     background-color: rgba(21, 192, 230, 0.1);
     margin-right: 16px;
@@ -130,9 +144,16 @@ dl {
       background-color: red;
     }
     .assign-link-delete-btn {
-      content: url(/assets/images/delete.svg);
+      content: "";
+      background-image: url(/assets/images/delete.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      text-indent: 200%;
+      white-space: nowrap;
+      overflow: hidden;
+      font: status-bar;
       display: flex;
-      padding: 3px 5px;
+      padding: 11px 2px;
       border-radius: 8px;
       box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
       border: solid 1px #d8e0f0;

@@ -140,11 +140,6 @@ progress::-webkit-progress-value {
   border-radius: 8.5px;
 }
 
-progress::-moz-progress-bar {
-  background: #00b85c;
-  border-radius: 8.5px;
-}
-
 progress {
   border-radius: 20px;
 }
@@ -155,14 +150,18 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
   border-radius: 20px;
 }
-progress::-moz-progress-bar {
-  border-radius: 20px;
-  background: #e2e2ea;
-}
 
 details > summary {
   list-style: none;
 }
 details > summary::-webkit-details-marker {
   display: none;
+}
+progress::-webkit-progress-value {
+  background: #00b85c;
+  border-radius: 8.5px;
+}
+progress::-moz-progress-bar {
+  background: #00b85c;
+  border-radius: 20px;
 }

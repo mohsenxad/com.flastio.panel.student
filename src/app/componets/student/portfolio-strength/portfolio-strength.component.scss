@@ -71,6 +71,15 @@ progress::-moz-progress-bar {
   background: #e2e2ea;
 }
 
+progress::-webkit-progress-value {
+  background: #00b85c;
+  border-radius: 8.5px;
+}
+progress::-moz-progress-bar {
+  background: #00b85c;
+  border-radius: 20px;
+}
+
 details > summary {
   list-style: none;
 }

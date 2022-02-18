@@ -259,7 +259,14 @@ div {
   border-radius: 14px;
   padding: 10px;
   border: none;
-  content: url(/assets/images/icn-general-close.svg);
+  content: "";
+  background-image: url(/assets/images/icn-general-close.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+  font: status-bar;
   -webkit-writing-mode: vertical-rl;
   display: flex;
   position: absolute;
@@ -299,6 +306,6 @@ div {
   margin: 70px auto 20px auto;
   position: relative;
 }
-.main-modal{
+.main-modal {
   overflow: scroll;
 }

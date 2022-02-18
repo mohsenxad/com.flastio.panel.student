@@ -40,7 +40,14 @@ form {
       button {
         background: none;
         border: none;
-        content: url(/assets/images/icn-general-add-dark-blue.svg);
+        content: "";
+        background-image: url(/assets/images/icn-general-add-dark-blue.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        text-indent: 200%;
+        white-space: nowrap;
+        overflow: hidden;
+        font: status-bar;
         display: flex;
         transform: rotate(45deg);
       }
@@ -201,7 +208,14 @@ form {
   }
   .add-recipients-btn {
     position: absolute;
-    content: url(/assets/images/icn-general-add-dark-blue.svg);
+    content: "";
+    background-image: url(/assets/images/icn-general-add-dark-blue.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
+    font: status-bar;
     display: flex;
     top: 45px;
     right: 3px;

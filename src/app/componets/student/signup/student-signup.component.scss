@@ -92,12 +92,7 @@ form {
     gap: 15px;
     .student-signup-mobile {
       grid-column: span 2;
-      display: grid;
-      grid-template-columns: 20% 79%;
-      gap: 15px;
-      label {
-        grid-column: span 2;
-      }
+      display: block;
     }
     .student-signup-school {
       grid-column: span 2;

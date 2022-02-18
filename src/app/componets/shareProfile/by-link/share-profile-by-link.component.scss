@@ -15,12 +15,20 @@ section {
     }
     button {
       position: absolute;
-      top: 38px;
-      right: 18px;
-      content: url(/assets/images/copy-text-icon.svg);
+      top: 30px;
+      right: 28px;
+      content: "";
+      background-image: url(/assets/images/copy-text-icon.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      text-indent: 200%;
+      white-space: nowrap;
+      overflow: hidden;
+      font: status-bar;
       display: flex;
       border: none;
-      background: none;
+      background-color: #fff;
+      padding: 10px 0;
     }
     span {
       width: 10em;

@@ -49,29 +49,7 @@ form {
       }
     }
   }
-  // button {
-  //   border-radius: 14px;
-  //   box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
-  //   background-color: #3f8cff;
-  //   font-size: 16px;
-  //   font-weight: bold;
-  //   font-stretch: normal;
-  //   font-style: normal;
-  //   line-height: normal;
-  //   letter-spacing: normal;
-  //   color: #fff;
-  //   border: none;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   padding: 6px 28px 6px 28px;
-  //   cursor: pointer;
-  //   &::after {
-  //     content: url(/assets/images/icn-general-arrow-left-white.svg);
-  //     transform: rotate(180deg);
-  //     margin-left: 15px;
-  //   }
-  // }
+
   p {
     font-size: 14px;
     font-weight: normal;
@@ -172,10 +150,18 @@ form {
     align-items: center;
     button {
       border: none;
-      background: none;
-      content: url(/assets/images/icn-general-add-dark-blue.svg);
+      background-color: rgba(63, 140, 255, 0);
+      content: "";
+      background-image: url(/assets/images/icn-general-add-dark-blue.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      text-indent: 200%;
+      white-space: nowrap;
+      overflow: hidden;
+      font: status-bar;
       display: inline-flex;
-      margin-left: 8px;
+      margin-left: 0;
+      padding: 0;
       transform: rotate(45deg);
     }
   }

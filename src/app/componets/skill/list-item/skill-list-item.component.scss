@@ -1,9 +1,17 @@
 .remove-skill-btn {
   border: none;
   background: none;
-  content: url(/assets/images/icn-general-add-dark-blue.svg);
+  content: "";
+  background-image: url(/assets/images/icn-general-add-dark-blue.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+  font: status-bar;
   display: inline-flex;
-  margin-left: 8px;
+  margin-left: 0;
+  padding: 0;
   transform: rotate(45deg);
 }
 
