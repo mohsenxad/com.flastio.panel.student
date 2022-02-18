@@ -107,9 +107,16 @@ ul {
 .close-btn {
   background-color: #f4f9fd;
   border-radius: 50%;
-  padding: 10px;
+  padding: 11px 6px;
   border: none;
-  content: url(/assets/images/move-up.svg);
+  content: "";
+  background-image: url(/assets/images/move-up.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+  font: status-bar;
   -webkit-writing-mode: vertical-rl;
   display: flex;
   position: absolute;
@@ -119,7 +126,6 @@ ul {
   border: none;
   transform: rotate(-90deg);
   box-shadow: none;
-  padding: 5px;
 }
 
 div {
