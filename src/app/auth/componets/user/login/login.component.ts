@@ -19,7 +19,10 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   isLoading : Boolean = false;
-  validationResult: ValidationResult;
+  validationResult: ValidationResult = {
+    hasError : false,
+    messageList: []
+  };
 
   constructor(
     private router: Router,
@@ -33,6 +36,10 @@ export class LoginComponent implements OnInit {
     this.isLogedIn()
   }
 
+  setEmail(email){
+    this.email = email;
+  }
+
   isLogedIn(){
     let student: Student = this.localStorageService.getStudent();
     if(student){
@@ -41,33 +48,55 @@ export class LoginComponent implements OnInit {
   }
 
 
-  async signup():Promise<void> {
-    this.isLoading = true;
-    
-    try {
-      await this.userService.login(this.email, this.password); 
-      let student: Student = await this.studentService.getStudentInfo();
-      
-      if(student){
-        this.router.navigateByUrl('/student/panel');
-      }else{
-        this.router.navigateByUrl('/student/signup');
-      }
-      this.isLoading = false;
-    } catch (error) {
-      this.isLoading = false;
-      if(
-        error.statusCode == 401 &&
-        error.error == "invalid username/password"
-      ){
-        this.validationResult = {
-          hasError : true,
-          messageList: [error.error]
-        };
-      }
-      console.log(error);
-      
+  validate():ValidationResult{
+    let result: ValidationResult = {
+      hasError : false,
+      messageList: []
+    };
+
+    if(!this.email){
+      result.hasError = true;
+      result.messageList.push("Enter Email Address");
     }
+
+    if(!this.password){
+      result.hasError = true;
+      result.messageList.push("Enter Password");
+    }
+
+    return result;
+  }
+
+  async login():Promise<void> {
+    this.validationResult = this.validate();
+    if(!this.validationResult.hasError){
+      this.isLoading = true;
+      try {
+        await this.userService.login(this.email, this.password); 
+        let student: Student = await this.studentService.getStudentInfo();
+        
+        if(student){
+          this.router.navigateByUrl('/student/panel');
+        }else{
+          this.router.navigateByUrl('/student/signup');
+        }
+        this.isLoading = false;
+      } catch (error) {
+        this.isLoading = false;
+        if(
+          error.statusCode == 401 &&
+          error.error == "invalid username/password"
+        ){
+          this.validationResult = {
+            hasError : true,
+            messageList: [error.error]
+          };
+        }
+        console.log(error);
+        
+      }
+    }
+    
     
     
   }

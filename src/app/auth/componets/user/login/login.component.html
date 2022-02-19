@@ -1,55 +1,77 @@
-
   <form
-    #form="ngForm"
+    #form = "ngForm"
   >
     <legend>
       Login
     </legend>
     <fieldset
-      [disabled]="isLoading"
+      [disabled] = "isLoading"
     >
       <ul>
         <li>
-          <label for="txtEmail"> Email Address </label>
-          <input
-            type="email"
-            name="txtEmail"
-            id="txtEmail"
-            placeholder="Enter your .edu email address"
-            [(ngModel)]="email"
-            maxlength="200"
-            minlength="3"
-          />
+          <label
+            for = "txtEmail"
+          >
+            Email Address
+          </label>
+          <university-email-input
+            id = "cmpEmail"
+            name = "cmpEmail"
+            (onSetEmail) = 'setEmail($event)'
+          ></university-email-input>
         </li>
         <li>
-          <label for="txtPassword"> Password: </label>
+          <label
+            for = "txtPassword"
+          >
+            Password
+          </label>
           <input
-            type="password"
-            name="txtPassword"
-            id="txtPassword"
-            [(ngModel)]="password"
-            placeholder="Enter your password"
-            maxlength="200"
-            minlength="3"
+            type = "password"
+            name = "txtPassword"
+            id = "txtPassword"
+            [(ngModel)] = "password"
+            placeholder = "Enter your password"
+            maxlength = "200"
+            minlength = "3"
+            required
           />
         </li>
       </ul>
       <validation-result
-        *ngIf="validationResult"
-        [validationResult]="validationResult"
+        *ngIf = "validationResult"
+        [validationResult] = "validationResult"
       ></validation-result>
-      <button class="student-signup-submit "
-        (click)="signup()"
-      >Login</button>
+      <button
+        class = "student-signup-submit"
+        (click) = "login()"
+      >
+        Login
+      </button>
       <p>
         Go to 
-        <a href="/auth/signup">
+        <a
+          href = "/auth/signup"
+        >
           Signup
         </a>
       </p>
       <p>
-        By signing up, I agree to the Flastio <span>Privacy Policy</span> and
-        <span>Terms of Service.</span>
+        By signing up, I agree to the Flastio
+      <a
+        href = "https://www.flastio.com/privacy"
+        target = "_blank"
+      >
+        Privacy Policy
+      </a>
+      and
+      <a
+        href = "https://www.flastio.com/terms"
+        target = "_blank"
+      >
+        Terms of Service
+      </a>
+      .
       </p>
     </fieldset>
   </form>

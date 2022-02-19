@@ -1,114 +1,117 @@
-
-    <form
-      *ngIf = '!isCheckMailVisible'
-    >
-      <legend>
-        Sign up
-      </legend>
-      <fieldset
-        [disabled]="isLoading"
-      >
-        <ul>
-          <li>
-            <label
-              for="cmpEmail"
-            >
-              Email Address
-            </label>
-            <university-email-input
-              id = "cmpEmail"
-              name = "cmpEmail"
-              (onSetEmail) = 'setEmail($event)'
-            ></university-email-input>
-          </li>
-          <li>
-            <label for="txtPassword"> Password: </label>
-            <input
-              type="password"
-              name="txtPassword"
-              id="txtPassword"
-              [(ngModel)]="password"
-              placeholder="Enter your password"
-              maxlength="500"
-              minlength="6"
-              required
-            />
-          </li>
-          <li>
-            <label
-              for="txtReEnterPassword"
-            >
-              Reenter Password:
-            </label>
-            <input
-              type="password"
-              name="txtReEnterPassword"
-              id="txtReEnterPassword"
-              [(ngModel)]="reEnterPassword"
-              placeholder="Reenter your password"
-              maxlength="50"
-              minlength="6"
-              required
-            />
-          </li>
-        </ul>
-        <validation-result
-          *ngIf="validationResult"
-          [validationResult]="validationResult"
-        ></validation-result>
-        <button
-          class="student-signup-submit"
-          (click)="signup()"
+<form
+  *ngIf = '!isCheckMailVisible'
+>
+  <legend>
+    Sign up
+  </legend>
+  <fieldset
+    [disabled] = "isLoading"
+  >
+    <ul>
+      <li>
+        <label
+          for = "cmpEmail"
         >
-            Signup
-        </button>
-        <p>
-          Go to 
-          <a href="/auth/login">
-            Login    
-        </a>
-        </p>
-        <p>
-          By signing up, I agree to the Flastio
-          <a
-            href="https://www.flastio.com/privacy"
-            target="_blank"
-          >
-            Privacy Policy
-          </a>
-          and
-          <a
-            href="https://www.flastio.com/terms"
-            target="_blank"
-          >
-            Terms of Service
-          </a>
-          .
-        </p>
-      </fieldset>
-    </form>
-
-    <section
-      *ngIf = 'isCheckMailVisible'
-      class="confirm-section"
+          Email Address:
+        </label>
+        <university-email-input
+          id = "cmpEmail"
+          name = "cmpEmail"
+          (onSetEmail) = 'setEmail($event)'
+        ></university-email-input>
+      </li>
+      <li>
+        <label
+          for="txtPassword"
+        >
+          Password:
+        </label>
+        <input
+          type="password"
+          name="txtPassword"
+          id="txtPassword"
+          [(ngModel)]="password"
+          placeholder="Enter your password"
+          maxlength="500"
+          minlength="6"
+          required
+        />
+      </li>
+      <li>
+        <label
+          for="txtReEnterPassword"
+        >
+          Reenter Password:
+        </label>
+        <input
+          type="password"
+          name="txtReEnterPassword"
+          id="txtReEnterPassword"
+          [(ngModel)]="reEnterPassword"
+          placeholder="Reenter your password"
+          maxlength="50"
+          minlength="6"
+          required
+        />
+      </li>
+    </ul>
+    <validation-result
+      *ngIf="validationResult"
+      [validationResult]="validationResult"
+    ></validation-result>
+    <button
+      class="student-signup-submit"
+      (click)="signup()"
     >
-      <h2>
-        Confirm your email address
-      </h2>
-      <b>
-        A link was sent to {{email}}. It expires after an hour.
-      </b>
-      <p>
-        We have sent an email with a confirmation link to your email address. In order to complete the sign-up process, please click the confirmation link.
-      </p>
-      <p>
-        If you do not receive a confirmation email, please check your spam folder. Also, please verify that you entered a valid email address in our sign-up form.
-      </p>
+        Signup
+    </button>
+    <p>
+      Go to 
       <a
-        href = "/auth/signup"
+        href="/auth/login"
       >
-        Back to Sign up
+        Login
       </a>
-    </section>
+    </p>
+    <p>
+      By signing up, I agree to the Flastio
+      <a
+        href = "https://www.flastio.com/privacy"
+        target = "_blank"
+      >
+        Privacy Policy
+      </a>
+      and
+      <a
+        href = "https://www.flastio.com/terms"
+        target = "_blank"
+      >
+        Terms of Service
+      </a>
+      .
+    </p>
+  </fieldset>
+</form>
 
-  
+<section
+  *ngIf = 'isCheckMailVisible'
+  class = "confirm-section"
+>
+  <h2>
+    Confirm your email address
+  </h2>
+  <b>
+    A link was sent to {{email}}. It expires after an hour.
+  </b>
+  <p>
+    We have sent an email with a confirmation link to your email address. In order to complete the sign-up process, please click the confirmation link.
+  </p>
+  <p>
+    If you do not receive a confirmation email, please check your spam folder. Also, please verify that you entered a valid email address in our sign-up form.
+  </p>
+  <a
+    href = "/auth/signup"
+  >
+    Back to Sign up
+  </a>
+</section>

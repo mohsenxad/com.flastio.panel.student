@@ -9,7 +9,16 @@
             name = 'dtlProfile'
         >
             <summary>
-                Profile
+                <img 
+                    *ngIf="!student.pictureFileUrl"
+                    src="/assets/images/profile-icon.svg"
+                    alt="image"
+                >
+                <img 
+                    *ngIf="student.pictureFileUrl"
+                    [src]="student.pictureFileUrl"
+                    alt="image"
+                >
             </summary>
             <student-modal-banner
                 [student] = 'student'
