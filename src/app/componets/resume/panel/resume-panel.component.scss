@@ -110,7 +110,11 @@
     }
   }
   button {
-    content: url(/assets/images/delete.svg);
+    content: "";
+    background-image: url(/assets/images/delete.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 10px 1px !important;
     text-indent: 200%;
     white-space: nowrap;
     overflow: hidden;
@@ -177,14 +181,4 @@
   }
 }
 
-@-moz-document url-prefix() {
-  .resume-body{
-    button{
-      content: "";
-      background-image: url(/assets/images/delete.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      padding: 10px 1px !important;
-    }
-  }
-}
+

@@ -31,7 +31,14 @@ div {
           position: absolute;
           top: 38px;
           right: 18px;
-          content: url(/assets/images/copy-text-icon.svg);
+          content: "";
+          background-image:url(/assets/images/copy-text-icon.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          text-indent: 200%;
+          white-space: nowrap;
+          overflow: hidden;
+          font: status-bar;
           display: flex;
           border: none;
           background: none;
@@ -142,12 +149,19 @@ div {
           }
           .add-recipients-btn {
             position: absolute;
-            content: url(/assets/images/icn-general-add-dark-blue.svg);
+            content: "";
+            background-image: url(/assets/images/icn-general-add-dark-blue.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            text-indent: 200%;
+            white-space: nowrap;
+            overflow: hidden;
+            font: status-bar;
             display: flex;
             top: 40px;
             right: 13px;
             border: none;
-            background: none;
+            background-color: rgba(0,0,0,0);
           }
         }
         ol {
@@ -178,7 +192,14 @@ div {
             button {
               background: none;
               border: none;
-              content: url(/assets/images/icn-general-add-dark-blue.svg);
+              content: "";
+              background-image: url(/assets/images/icn-general-add-dark-blue.svg);
+              background-position: center;
+              background-repeat: no-repeat;
+              text-indent: 200%;
+              white-space: nowrap;
+              overflow: hidden;
+              font: status-bar;
               display: flex;
               transform: rotate(45deg);
             }

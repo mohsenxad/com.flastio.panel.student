@@ -151,7 +151,14 @@ form {
   background-color: #f4f9fd;
   border: none;
   border-radius: 14px;
-  content: url(/assets/images/icn-general-close.svg);
+  content: "";
+  background-image:url(/assets/images/icn-general-close.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+  font: status-bar;
   -webkit-writing-mode: vertical-rl;
   display: flex;
   float: right;

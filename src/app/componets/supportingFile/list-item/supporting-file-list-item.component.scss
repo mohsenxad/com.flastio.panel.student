@@ -28,6 +28,7 @@ dl {
       color: #0a1629;
       display: flex;
       align-items: flex-start;
+      width: 350px;
   
     }
     &:nth-child(4) {
@@ -38,7 +39,6 @@ dl {
       line-height: normal;
       letter-spacing: normal;
       color: #91929e;
-      margin: -13px 0 0 0;
       grid-column-start: 2;
     }
     &:nth-child(6){
