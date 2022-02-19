@@ -39,6 +39,25 @@ ul {
     }
   }
 }
+input[type=search] {
+  border-radius: 14px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  padding: 13px 0 14px 0;
+  display: block;
+  width: 100%;
+  margin: 0 0 27px 0;
+  &::placeholder {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #7d8592;
+  }
+}
 button {
   font-size: 14px;
   font-weight: bold;
@@ -94,7 +113,7 @@ button {
     padding: 8px;
     cursor: pointer;
     transition: 0.5s;
-    &:hover{
+    &:hover {
       border-radius: 14px;
       background-color: rgba(63, 140, 255, 0.12);
       transition: 0.5s;
