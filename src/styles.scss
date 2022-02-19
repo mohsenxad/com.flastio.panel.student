@@ -155,10 +155,29 @@ form {
     }
   }
 }
-
+a {
+  text-decoration: none;
+}
 
 @-moz-document url-prefix() {
-  button{
+  button {
     font-family: NunitoSans, serif !important;
   }
+}
+
+input:focus {
+  outline: none !important;
+  border-color: #3f8cff !important;
+  box-shadow: 0px 0px 3px -1px #3f8cff !important;
+}
+textarea:focus {
+  outline: none !important;
+  border-color: #3f8cff !important;
+  box-shadow: 0px 0px 3px -1px #3f8cff !important;
+}
+
+select:focus {
+  outline: none !important;
+  border-color: #3f8cff !important;
+  box-shadow: 0px 0px 3px -1px #3f8cff !important;
 }
