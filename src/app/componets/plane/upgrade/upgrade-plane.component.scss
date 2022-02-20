@@ -1,3 +1,19 @@
+.upgrade-back-btn{
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  &::before{
+    content: url(/assets/images/icn-general-arrow-left-white.svg);
+    -webkit-writing-mode: vertical-rl;
+  }
+}
 h1 {
   font-size: 36px;
   font-weight: bold;
@@ -6,8 +22,8 @@ h1 {
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
-  color: #000;
-  margin: 50px 0 0 0;
+  color: #fff;
+  margin: -40px 0 0 0;
   padding: 0;
 }
 p {
@@ -18,7 +34,7 @@ p {
   line-height: 1.33;
   letter-spacing: normal;
   text-align: center;
-  color: #000;
+  color: #fff;
   margin: 16px 0 51px 0;
   padding: 0;
 }
