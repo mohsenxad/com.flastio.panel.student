@@ -13,6 +13,7 @@
   &::before {
     content: url(/assets/images/icn-general-arrow-left-white.svg);
     -webkit-writing-mode: vertical-rl;
+    margin-right: 4px;
   }
 }
 h1 {
