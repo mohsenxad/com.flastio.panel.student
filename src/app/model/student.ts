@@ -37,5 +37,6 @@ export interface Student {
     pictureFileUrl?: String,
     workStyleList?: WorkStyle[],
     requestedResumeFeedbackDate?: Date,
+    isPremium? : Boolean,
 
 }

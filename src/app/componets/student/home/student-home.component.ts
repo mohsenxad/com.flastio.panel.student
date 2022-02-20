@@ -4,14 +4,15 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 import { StudentService } from 'src/app/services/student/student.service';
 
 @Component({
-  selector: 'upgrade-plane',
-  templateUrl: './upgrade-plane.component.html',
-  styleUrls: ['./upgrade-plane.component.scss']
+  selector: 'app-student-home',
+  templateUrl: './student-home.component.html',
+  styleUrls: ['./student-home.component.scss']
 })
-export class UpgradePlaneComponent implements OnInit {
+export class StudentHomeComponent implements OnInit {
 
   student : Student;
   isLoading: Boolean = false;
+
   constructor(
     private localStorageService: LocalStorageService,
     private studentService: StudentService
@@ -26,22 +27,6 @@ export class UpgradePlaneComponent implements OnInit {
     this.student  = await this.studentService.getStudentInfo();
     this.localStorageService.setStudent(this.student);
     this.isLoading = false;
-  }
-
-  isAnnual:Boolean = true;
-
-  goToPayment():void{
-    console.log(this.isAnnual);
-    
-    let paymentLink = 'https://buy.stripe.com/cN215J8Li5NX1H26oq';
-    if(this.isAnnual){
-      paymentLink = 'https://buy.stripe.com/bIYg0D4v22BL71m7sv';
-    }
-    window.open(paymentLink);
-  }
-
-  setPlane(isAnnual: Boolean):void{
-    this.isAnnual = isAnnual;
   }
 
 }

@@ -1,4 +1,13 @@
 <!-- <b>
     Free
 </b> -->
-<b></b>
+<b
+    *ngIf="isPremium"
+>
+    Premium
+</b>
+<b
+    *ngIf="!isPremium"
+>
+    Free
+</b>

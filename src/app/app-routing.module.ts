@@ -11,9 +11,12 @@ import { SingupComponent } from './auth/componets/user/singup/singup.component';
 import { WorkStyleTestComponent } from './componets/workStyle/test/work-style-test.component';
 import { AuthHomeComponent } from './auth/auth-home/auth-home.component';
 import { UpgradePlaneComponent } from './componets/plane/upgrade/upgrade-plane.component';
+import { StudentHomeComponent } from './componets/student/home/student-home.component';
 
 const routes: Routes = [
-  {path:'auth', component:AuthHomeComponent,
+  {
+    path:'auth',
+    component: AuthHomeComponent,
     children:[
       {
         path: 'signup', 
@@ -38,10 +41,37 @@ const routes: Routes = [
   //{path:'confirmEmail', component:ConfirmEmailComponent},
   //{path:'login', component:LoginComponent},
   {path:'', redirectTo: 'auth/login', pathMatch:'full'},
-  {path:'student/signup', component:StudentSignupComponent},
-  {path:'student/editDetail', component:AddDetailStudentComponent},
-  {path:'upgrade', component:UpgradePlaneComponent},
-  {path:'student/panel', component:StudentPanelComponent},
+  {
+    path: 'student',
+    component: StudentHomeComponent,
+    children:[
+      {
+        path:'panel',
+        component: StudentPanelComponent
+      },
+      {
+        path:'signup',
+        component: StudentSignupComponent
+      },
+      {
+        path:'editDetail',
+        component: AddDetailStudentComponent
+      },
+      {
+        path:'upgrade',
+        component: UpgradePlaneComponent
+      },
+      {
+        path: '',
+        redirectTo: 'panel',
+        pathMatch: 'full'
+      },
+    ]
+  },
+  // {path:'student/signup', component:StudentSignupComponent},
+  // {path:'student/editDetail', component:AddDetailStudentComponent},
+  // {path:'student/upgrade', component:UpgradePlaneComponent},
+  // {path:'student/panel', },
   {path:'workStyle/test', component:WorkStyleTestComponent},
   {path:'project/add', component:AddProjectComponent},
   {path:'certification/assign', component:AssignCertifictionComponent},

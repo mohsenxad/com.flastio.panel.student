@@ -52,11 +52,11 @@ export class PortfolioStrengthComponent implements OnInit, OnChanges {
       isCompeleted:false,
       url: '#'
     },
-    {
-      title: 'Work Style',
-      isCompeleted:false,
-      url: '#'
-    }
+    // {
+    //   title: 'Work Style',
+    //   isCompeleted:false,
+    //   url: '#'
+    // }
   ];
 
   isCompeletePesronalInforamtion(student : Student):Boolean{

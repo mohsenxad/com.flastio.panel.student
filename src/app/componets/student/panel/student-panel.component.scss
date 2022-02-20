@@ -68,9 +68,7 @@ student-header {
   height: 352px;
   padding-top: 40px;
 }
-.student-panel-main-body {
-  margin-top: -200px;
-}
+
 
 @media screen and (max-width: 992px) {
   section {
@@ -81,9 +79,6 @@ student-header {
     &:first-child {
       width: 100%;
     }
-  }
-  .student-panel-main-body {
-    margin-top: -250px;
   }
   #secResumeAndTranscript {
     display: flex;

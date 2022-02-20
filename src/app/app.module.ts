@@ -108,6 +108,7 @@ import { PlaneCalculatorComponent } from './componets/plane/calculator/plane-cal
 import { FileViwerComponent } from './componets/share/file-viwer/file-viwer.component';
 import { SelectAssignedCertificationComponent } from './componets/assignedCertification/select/select-assigned-certification.component';
 import { SelectOrAddAssignedCertificationComponent } from './componets/assignedCertification/select-or-add/select-or-add-assigned-certification.component';
+import { StudentHomeComponent } from './componets/student/home/student-home.component';
 
 
 
@@ -211,6 +212,7 @@ import { SelectOrAddAssignedCertificationComponent } from './componets/assignedC
     FileViwerComponent,
     SelectAssignedCertificationComponent,
     SelectOrAddAssignedCertificationComponent,
+    StudentHomeComponent,
   ],
   imports: [
     BrowserModule,

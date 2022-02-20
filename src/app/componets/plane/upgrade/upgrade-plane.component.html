@@ -1,39 +1,57 @@
 
+<a
+    href="/student/panel"
+>
+    Back to portfolio
+</a>
 <h1>
     Upgrade Plan
 </h1>
 <p>
     Level up your career with Flastio Pro
 </p>
+<loading
+    *ngIf = "isLoading"
+></loading>
 <main>
     <section>
         <h2>
             Free
         </h2>
-        <u>
+        <u
+            *ngIf="!isLoading && !student.isPremium"
+        >
             Your Current Plan
         </u>
-        <student-plane>
+        <student-plane
+            [isPremium] = 'false'
+        >
         </student-plane>
         <p>
-            Upgrade your social portfolio with a stunning profile & enhanced shots.
+            Build your professional portfolio, and get expert feedback on it as you progress through your educational journey
         </p>
     
         <ul>
             <li>
-                Lorem ipsum dolor sit amet
+                Upload your projects and supporting documents
             </li>
             <li>
-                Lorem ipsum dolor sit amet
+                Upload your resume
             </li>
             <li>
-                Lorem ipsum dolor sit amet
+                Upload your transcript
             </li>
             <li>
-                Lorem ipsum dolor sit amet
+                Upload your professional certifications
             </li>
             <li>
-                Lorem ipsum dolor sit amet
+                Receive expert feedback on your projects, resume, and videos
+            </li>
+            <li>
+                Request & showcase recommendation letters and testimonials
+            </li>
+            <li>
+                Basic analytics of your portfolio performance
             </li>
         </ul>
     </section>
@@ -42,45 +60,53 @@
         <h2>
             Premium
         </h2>
-        <u>
+        <u
+            *ngIf="!isLoading && student.isPremium"
+        >
             Your Current Plan
         </u>
-        <student-plane>
+        <student-plane
+            [isPremium] = 'true'
+        >
         </student-plane>
         <p>
-            Upgrade your social portfolio with a stunning profile & enhanced shots.
+            Upgrade to premium, share your portfolio with employers, and land your dream internship/job
         </p>
 
         <plane-calculator
             (onSetPlane) = 'setPlane($event)'
         ></plane-calculator>
     
+        <b>
+            All the Free features, plus:
+        </b>
         <ul>
             <li>
-                Lorem ipsum dolor sit amet
+                Sharable link to your portfolio
             </li>
             <li>
-                Lorem ipsum dolor sit amet
+                Allow employers to contact you via Flastio
             </li>
             <li>
-                Lorem ipsum dolor sit amet
+                Access to virtual mock interviews to prepare for the actual ones
             </li>
             <li>
-                Lorem ipsum dolor sit amet
+                Receive expert coaching on your educational roadmap towards your dream job
             </li>
             <li>
-                Lorem ipsum dolor sit amet
+                Advanced analytics and actionable insights
             </li>
         </ul>
         <button
+            *ngIf="!isLoading && !student.isPremium"
             type="button"
             (click)="goToPayment()"
         >
-            Get Started
+            Upgrade
         </button>
     </section>
 </main>
 
 <p class="footer">
-    Your downgrade or cancelation request becomes effective at the end of the billing period based on the plan you select (monthly vs. annual)
+    You can always downgrade to the Free tier. Your downgrade or cancelation request becomes effective at the end of the billing period based on the plan you select (monthly vs. annual)
 </p>

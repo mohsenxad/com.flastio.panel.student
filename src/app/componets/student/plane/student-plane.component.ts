@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StudentPlaneComponent implements OnInit {
 
-  @Input() planType: String;
+  @Input() isPremium: Boolean;
 
   constructor() { }
 
