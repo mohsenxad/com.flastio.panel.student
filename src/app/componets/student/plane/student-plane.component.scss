@@ -1,4 +1,24 @@
-b {
+.premium {
+  padding: 6px;
+  border-radius: 50%;
+  border: solid 2px #fff;
+  background-color: #ffc018;
+  margin: 16px 0 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-indent: -90000px;
+  overflow: hidden;
+  &::before {
+    content: "";
+    background: url(/assets/images/king-icon.svg);
+    -webkit-writing-mode: vertical-lr;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+  }
+}
+.free {
   padding: 6px;
   border-radius: 50%;
   border: solid 2px #fff;
@@ -7,11 +27,12 @@ b {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-indent: -90000px;
+  overflow: hidden;
   &::before {
     content: "";
     background: url(/assets/images/premium-badge.svg);
     -webkit-writing-mode: vertical-lr;
-   
     width: 20px;
     height: 20px;
     background-repeat: no-repeat;

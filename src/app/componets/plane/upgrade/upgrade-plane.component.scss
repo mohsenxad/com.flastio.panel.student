@@ -1,4 +1,4 @@
-.upgrade-back-btn{
+.upgrade-back-btn {
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
@@ -9,10 +9,8 @@
   color: #fff;
   display: flex;
   align-items: center;
-  position: absolute;
-  top: 5%;
-  right: 30%;
-  &::before{
+  margin-left: 20px;
+  &::before {
     content: url(/assets/images/icn-general-arrow-left-white.svg);
     -webkit-writing-mode: vertical-rl;
   }
@@ -39,6 +37,20 @@ p {
   text-align: center;
   color: #fff;
   margin: 16px 0 51px 0;
+  padding: 0;
+}
+.list-title {
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #0a1629;
+  display: block;
+  width: 200px;
+  margin-top: 32px;
+  margin-bottom: 0;
   padding: 0;
 }
 main {
@@ -132,7 +144,7 @@ main {
       ul {
         grid-column: span 3;
       }
-      
+
       student-plane {
         margin: -16px 0 0 auto;
       }
@@ -145,7 +157,7 @@ main {
         margin: -16px 0 0 auto;
         grid-column-start: 3;
       }
-      plane-calculator{
+      plane-calculator {
         grid-column: span 3;
       }
       button {
@@ -167,19 +179,18 @@ main {
         margin: 32px 0 0 0;
         grid-column: span 3;
       }
-      p{
+      p {
         margin: 24px 0 32px 0;
         grid-column: span 3;
-
       }
-      ul{
+      ul {
         grid-column: span 3;
         margin-top: 32px;
       }
     }
   }
 }
-.footer{
+.footer {
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
@@ -190,5 +201,5 @@ main {
   color: #0a1629;
   display: block;
   width: 50%;
-  margin:49px auto 40px auto;
+  margin: 49px auto 40px auto;
 }
