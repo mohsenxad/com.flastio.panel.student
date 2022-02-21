@@ -4,70 +4,98 @@
   {{project.creator.firstName}} {{project.creator.lastName}} added you to this project. You can edit & publish it in your portfolio.
 </u>
 <dl>
-  <dt>Name</dt>
-  <dd class="project-name">
+
+  <dt>
+    Name
+  </dt>
+  <dd
+    class = "project-name"
+  >
     {{ project.baseInfo.name }}
   </dd>
 
-  <dt>Year Completed</dt>
-  <dd class="project-year-completed"
-    *ngIf="project.baseInfo.yearCompleted"
+  <dt>
+    Year Completed
+  </dt>
+  <dd
+    class = "project-year-completed"
+    *ngIf = "project.baseInfo.yearCompleted"
   >
     {{ project.baseInfo.yearCompleted }}
   </dd>
 
   <dt
-    *ngIf="project.baseInfo.course"
-  >Course</dt>
-  <dd class="project-course"
-    *ngIf="project.baseInfo.course"
+    *ngIf = "project.baseInfo.course"
+  >
+    Course
+  </dt>
+  <dd
+    class = "project-course"
+    *ngIf = "project.baseInfo.course"
   >
     . {{ project.baseInfo.course.name }}
   </dd>
 
   <dt
-    *ngIf="project.baseInfo.company"
-  >Company</dt>
-  <dd class="project-course"
-    *ngIf="project.baseInfo.company"
+    *ngIf= "project.baseInfo.company"
+  >
+    Company
+  </dt>
+  <dd
+    class = "project-course"
+    *ngIf = "project.baseInfo.company"
   >
     . {{ project.baseInfo.company.name }}
   </dd>
 
-  <dt>Action Panel</dt>
-  <dd class="project-action-panel">
+  <dt>
+    Action Panel
+  </dt>
+  <dd
+    class="project-action-panel"
+  >
     <project-action-panel
       (onEdit) = "edit()"
       (onDelete) = "delete()"
       (onChangeIndex) = "changeIndex($event)"
-    > </project-action-panel>
+    ></project-action-panel>
   </dd>
-  <dt
-  >
+
+  <dt>
+    project Type
+  </dt>
+  <dd>
+    {{project.baseInfo.projectType}}
+  </dd>
+
+  <dt>
     isPublished
   </dt>
-  <dd class="project-status"
+  <dd
+    class="project-status"
     *ngIf="!project.isPublished"
   >
     Draft
   </dd>
-  <dd class="project-status"
-    *ngIf="project.isPublished"
-  >
-    Published
-  </dd>
 
-  <dt>Description</dt>
-  <dd class="project-description"
-    *ngIf="project.baseInfo.description"
+  <dt>
+    Description
+  </dt>
+  <dd
+    class = "project-description"
+    *ngIf = "project.baseInfo.description"
   >
     {{ project.baseInfo.description }}
   </dd>
 
-  <dt *ngIf="project.baseInfo.skillList && project.baseInfo.skillList.length > 0">
+  <dt
+    *ngIf = "project.baseInfo.skillList && project.baseInfo.skillList.length > 0"
+  >
     Skills
   </dt>
-  <dd *ngIf="project.baseInfo.skillList && project.baseInfo.skillList.length > 0">
+  <dd
+    *ngIf = "project.baseInfo.skillList && project.baseInfo.skillList.length > 0"
+  >
     <skill-list
       [skillList]="project.baseInfo.skillList"
     ></skill-list>
@@ -79,57 +107,79 @@
     File Priveiw
   </dt>
   <dd
-    class="project-image"
-    *ngIf="project.baseInfo.summaryFile"
+    class = "project-image"
+    *ngIf = "project.baseInfo.summaryFile"
   >
     <img
-      src="assets/images/project-sample.jpg"
-      alt="images"
+      src = "assets/images/project-sample.jpg"
+      alt = "images"
     />
     <a 
-      (click)="viewSummaryFile()"
+      (click) = "viewSummaryFile()"
     >
       View Project Summary
     </a>
   </dd>
 
   
-  <dt *ngIf="project.supportingFileList && project.supportingFileList.length > 0">
+  <dt
+    *ngIf = "project.supportingFileList && project.supportingFileList.length > 0"
+  >
     Project supporting files
   </dt>
-  <dd *ngIf="project.supportingFileList && project.supportingFileList.length > 0">
+  <dd
+    *ngIf = "project.supportingFileList && project.supportingFileList.length > 0"
+  >
     <supporting-file-panel
-      [supportingFileList]="project.supportingFileList"
+      [supportingFileList] = "project.supportingFileList"
     ></supporting-file-panel>
   </dd>
-  <dt *ngIf="project.linkUrlList && project.linkUrlList.length > 0">
+
+  <dt
+    *ngIf = "project.linkUrlList && project.linkUrlList.length > 0"
+  >
     Project supporting links
   </dt>
-  <dd *ngIf="project.linkUrlList && project.linkUrlList.length > 0">
+  <dd
+    *ngIf = "project.linkUrlList && project.linkUrlList.length > 0"
+  >
     <link-url-list
-      [linkUrlList]="project.linkUrlList"
+      [linkUrlList] = "project.linkUrlList"
       (onViewed) = 'viewLinkUrl($event)'
     ></link-url-list>
   </dd>
  
-  <dt *ngIf="project.assignedCertification" class="project-list-certification-list-title">
+  <dt
+    *ngIf = "project.assignedCertification"
+    class = "project-list-certification-list-title"
+  >
     Certification
   </dt>
-  <dd *ngIf="project.assignedCertification" class="project-list-certification-list">
+  <dd
+    *ngIf = "project.assignedCertification"
+    class = "project-list-certification-list"
+  >
     <certification-list-item
       [assignedCertification] = 'project.assignedCertification'
     ></certification-list-item>
   </dd>  
 
-  <dt *ngIf="project.contributorList && project.contributorList.length > 0">
+  <dt
+    *ngIf = "project.contributorList && project.contributorList.length > 0"
+  >
     Contributors
   </dt>
-  <dd *ngIf="project.contributorList && project.contributorList.length > 0">
-    <contributor-list [contributorList]="project.contributorList"></contributor-list>
+  <dd
+    *ngIf = "project.contributorList && project.contributorList.length > 0"
+  >
+    <contributor-list
+      [contributorList] = "project.contributorList"
+    ></contributor-list>
   </dd>
 </dl>
-<div class="edit-publish-reject"
-  *ngIf="project.isInvitedToContribution"
+<div
+  class = "edit-publish-reject"
+  *ngIf = "project.isInvitedToContribution"
 >
   <button
     type="button"

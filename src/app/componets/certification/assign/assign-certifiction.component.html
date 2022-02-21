@@ -37,8 +37,8 @@
           ></month-select>
 
           <year-select2
-            [fromYear]="2010"
-            [toYear]="2022"
+            [fromYear] = "2010"
+            [toYear] = "2022"
             [selectedYear] = 'assignedCertification.issuedDateYear'
             (onYearSelected) = 'selectedIssuedDateYear($event)'
           ></year-select2>
