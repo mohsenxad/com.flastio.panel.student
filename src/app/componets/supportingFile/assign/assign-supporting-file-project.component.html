@@ -1,5 +1,11 @@
 <form>
-    <button class="close-btn" (click)="close()">Close</button>
+
+    <button
+      class = "close-btn"
+      (click) = "cancel()"
+    >
+      Close
+    </button>
   
     <legend>
         Add Supporting Files
@@ -33,33 +39,47 @@
       </ul>
     </fieldset>
       
-  <ul *ngIf="localSupportingFileList && localSupportingFileList.length > 0">
-    <li *ngFor="let supportingFile of localSupportingFileList">
+  <ul
+    *ngIf = "localSupportingFileList && localSupportingFileList.length > 0"
+  >
+    <li
+      *ngFor = "let supportingFile of localSupportingFileList"
+    >
       <dl>
         <div>
-          <dt>Title</dt>
+
+          <dt>
+            Title
+          </dt>
           <dd>
             {{ supportingFile.title }}
           </dd>
   
-          <dt>Size</dt>
+          <dt>
+            Size
+          </dt>
           <dd>
             {{ supportingFile.size }}
           </dd>
 
-          <dt>Uploaded</dt>
+          <dt>
+            Uploaded
+          </dt>
           <dd
-            *ngIf="!supportingFile.isUploadComeplete"
+            *ngIf = "!supportingFile.isUploadComeplete"
           >
             Uploading ...
           </dd>
           <dd
-            *ngIf="supportingFile.isUploadComeplete"
+            *ngIf = "supportingFile.isUploadComeplete"
           >
             {{this.supportingFile.file.type}}
           </dd>
+
         </div>
-        <dt>Delete</dt>
+        <dt>
+          Delete
+        </dt>
         <dd>
           <button
             (click) = "remove(supportingFile)"
@@ -71,13 +91,23 @@
     </li>
   </ul>
   
-  <div class="assign-supporting-file-submit-section">
-    <button (click)="cancel()">Cancel</button>
-    <button (click)="save()">Save</button>
+  <div
+    class = "assign-supporting-file-submit-section"
+  >
+    <button
+    (click) = "cancel()"
+    >
+      Cancel
+    </button>
+    <button
+      (click) = "save()"
+    >
+      Save
+    </button>
   </div>
 
   <confirm-discard
-    *ngIf="confirmDicardIsVisible"
+    *ngIf = "confirmDicardIsVisible"
     (onConfirm) = 'close()'
     (onCancel) = 'hideConfirmDiscardModal()'
   ></confirm-discard>

@@ -122,11 +122,11 @@ export class PortfolioStrengthComponent implements OnInit, OnChanges {
         isCompeleted:(this.student.recommendationList && this.student.recommendationList.length > 0),
         url: '#'
       },
-      {
-        title: 'Work Style',
-        isCompeleted:false,
-        url: '#'
-      }
+      // {
+      //   title: 'Work Style',
+      //   isCompeleted:false,
+      //   url: '#'
+      // }
     ];
     
   }

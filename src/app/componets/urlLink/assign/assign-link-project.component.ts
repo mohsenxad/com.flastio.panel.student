@@ -102,7 +102,7 @@ export class AssignLinkProjectComponent implements OnInit {
 
 
   remove(linkUrl:LinkUrl){
-    this.linkUrlList = this.linkUrlList.filter((currentLinkUrl: LinkUrl) => {
+    this.localLinkUrlList = this.localLinkUrlList.filter((currentLinkUrl: LinkUrl) => {
       if(currentLinkUrl.url != linkUrl.url){
         return currentLinkUrl;
       }
