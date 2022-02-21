@@ -32,7 +32,7 @@ export class EditProjectComponent implements OnInit {
   constructor(
     private projectService:ProjectService
   ) {}
-
+  
   validatePublish(project: Project): ValidationResult{
     let result: ValidationResult = {
       hasError:false,
@@ -41,39 +41,62 @@ export class EditProjectComponent implements OnInit {
 
     if(!project.baseInfo.summaryFile){
       result.hasError = true;
-      result.messageList.push("Add Project Summary File");
+      result.messageList.push("Summary File");
     }
 
     if(!project.baseInfo.name || project.baseInfo.name == ""){
       result.hasError = true;
-      result.messageList.push("Add Project Name");
+      result.messageList.push("Project Name");
     }
 
-    if(project.baseInfo.name && project.baseInfo.name != "" && project.baseInfo.name.length < 5){
+    if(
+      project.baseInfo.name &&
+      project.baseInfo.name != "" &&
+      project.baseInfo.name.length < 5
+    ){
       result.hasError = true;
       result.messageList.push("Project Name should be more than 5 charachter");
     }
 
     if(!project.baseInfo.description || project.baseInfo.description == ""){
       result.hasError = true;
-      result.messageList.push("Add Project Description");
+      result.messageList.push("Project Description");
     }
 
-    if(project.baseInfo.description && project.baseInfo.description != "" && project.baseInfo.description.length < 10){
+    if(
+      project.baseInfo.description &&
+      project.baseInfo.description != "" &&
+      project.baseInfo.description.length < 10
+    ){
       result.hasError = true;
       result.messageList.push("Project Description should be more than 10 charachter");
     }
 
-    if(!project.baseInfo.yearCompleted){
+    if(
+      project.baseInfo.projectType == 'Course Project' &&
+      !project.baseInfo.course
+    ){
       result.hasError = true;
-      result.messageList.push("Select Project Year of Completed");
+      result.messageList.push("Course");
     }
 
     if(
-      result.hasError &&
-      project.baseInfo.name
+      project.baseInfo.projectType == 'Internship' &&
+      !project.baseInfo.company
     ){
-      result.messageList.unshift("You Can Draft This Project or Fillup the bellow Items");
+      result.hasError = true;
+      result.messageList.push("Company");
+    }
+
+    if(!project.baseInfo.yearCompleted){
+      result.hasError = true;
+      result.messageList.push("Year of Completed");
+    }
+
+    if(
+      result.hasError
+    ){
+      result.messageList.unshift("The following field(s) are required. You can't publish your project without completing them.");
     }
 
 
@@ -88,7 +111,13 @@ export class EditProjectComponent implements OnInit {
 
     if(!project.baseInfo.name || project.baseInfo.name == ""){
       result.hasError = true;
-      result.messageList.push("Add Project Name");
+      result.messageList.push("Project's name");
+    }
+
+    if(
+      result.hasError
+    ){
+      result.messageList.unshift("The following field is required for saving a project as a draft.");
     }
 
     return result;
