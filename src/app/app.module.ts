@@ -212,7 +212,7 @@ import { StudentHomeComponent } from './componets/student/home/student-home.comp
     FileViwerComponent,
     SelectAssignedCertificationComponent,
     SelectOrAddAssignedCertificationComponent,
-    StudentHomeComponent,
+    StudentHomeComponent
   ],
   imports: [
     BrowserModule,

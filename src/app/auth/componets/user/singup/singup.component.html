@@ -22,37 +22,27 @@
       </li>
       <li>
         <label
-          for="txtPassword"
-        >
-          Password:
-        </label>
-        <input
-          type="password"
-          name="txtPassword"
-          id="txtPassword"
-          [(ngModel)]="password"
-          placeholder="Enter your password"
-          maxlength="500"
-          minlength="6"
-          required
-        />
+            for = "cmpPassword"
+          >
+            Password
+          </label>
+          <password-input
+            id = "cmpPassword"
+            name = "cmpPassword"
+            (onSetPassword)="setPassword($event)"
+          ></password-input>
       </li>
       <li>
         <label
-          for="txtReEnterPassword"
+          for="cmpReEnterPassword"
         >
           Reenter Password:
         </label>
-        <input
-          type="password"
-          name="txtReEnterPassword"
-          id="txtReEnterPassword"
-          [(ngModel)]="reEnterPassword"
-          placeholder="Reenter your password"
-          maxlength="50"
-          minlength="6"
-          required
-        />
+        <password-input
+            id = "cmpReEnterPassword"
+            name = "cmpReEnterPassword"
+            (onSetPassword)="setReEnterPassword($event)"
+          ></password-input>
       </li>
     </ul>
     <validation-result

@@ -32,6 +32,14 @@ export class SingupComponent implements OnInit {
     this.email = email;
   }
 
+  setPassword(password:string):void{
+    this.password = password;
+  }
+
+  setReEnterPassword(reEnterPassword:string):void{
+    this.reEnterPassword = reEnterPassword;
+  }
+
   validate():ValidationResult{
     let result: ValidationResult = {
       hasError : false,

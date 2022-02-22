@@ -5,6 +5,7 @@ import { ConfirmEmailComponent } from './componets/user/confirm-email/confirm-em
 import { AuthHomeComponent } from './auth-home/auth-home.component';
 import { ShareModule } from '../share/share.module';
 import { RouterModule } from '@angular/router';
+import { PasswordInputComponent } from './componets/share/password-input/password-input.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     SingupComponent,
     ConfirmEmailComponent,
-    AuthHomeComponent
+    AuthHomeComponent,
+    PasswordInputComponent
   ],
   imports: [
     ShareModule,

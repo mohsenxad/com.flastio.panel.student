@@ -36,8 +36,12 @@ export class LoginComponent implements OnInit {
     this.isLogedIn()
   }
 
-  setEmail(email){
+  setEmail(email:string):void{
     this.email = email;
+  }
+
+  setPassword(password:string):void{
+    this.password = password;
   }
 
   isLogedIn(){
