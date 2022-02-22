@@ -10,9 +10,11 @@
   overflow: hidden;
   font: status-bar;
   display: inline-flex;
-  margin-left: 0;
+  margin-left: 8px;
   padding: 0;
   transform: rotate(45deg);
+  width: 16px;
+  height: 16px;
 }
 
 span {
