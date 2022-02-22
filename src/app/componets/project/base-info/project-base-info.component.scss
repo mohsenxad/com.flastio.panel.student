@@ -29,10 +29,9 @@ form {
     line-height: normal;
     letter-spacing: normal;
     color: #0a1629;
-    display: block;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     margin-bottom: 27px;
-    text-align: -webkit-center;
   }
   summary {
     font-size: 18px;
@@ -47,7 +46,6 @@ form {
     cursor: pointer;
     margin-bottom: 20px;
     outline: none;
-
 
     &::after {
       content: url(/assets/images/icn-general-arrow-down-blue.svg);
@@ -125,10 +123,9 @@ form {
 }
 summary::marker,
 summary::-webkit-details-marker {
-   color: transparent;
-   display: none;
-   outline: none;
-
+  color: transparent;
+  display: none;
+  outline: none;
 }
 
 #divAssignedSkill {
@@ -139,13 +136,22 @@ summary::-webkit-details-marker {
 }
 
 details[open] {
-  summary{
+  summary {
     &::after {
       content: url(/assets/images/icn-general-arrow-down-blue.svg);
       margin-left: 15px;
       -webkit-writing-mode: vertical-rl;
       transition: 0.5s;
       transform: rotate(180deg);
+    }
+  }
+}
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    form {
+      summary {
+        display: block;
+      }
     }
   }
 }
