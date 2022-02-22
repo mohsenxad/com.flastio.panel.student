@@ -19,10 +19,11 @@ form {
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    text-align: center;
     color: #0a1629;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
   }
   p {
     font-size: 16px;
