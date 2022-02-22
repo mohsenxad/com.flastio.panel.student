@@ -16,7 +16,7 @@ export class PasswordInputComponent implements OnInit {
     messageList: []
   };
 
-  simplePasswordList : string[] = ['123123','123456','qweqwe','qwerty','password']
+  simplePasswordList : string[] = ['123123','qweqwe','qwerty','password']
 
   constructor() { }
 
