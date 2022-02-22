@@ -19,10 +19,10 @@ form {
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    text-align: center;
     color: #0a1629;
     margin-bottom: 39px;
-    text-align: -webkit-center;
+    display: flex;
+    justify-content: center;
 
   }
   p {
@@ -42,7 +42,7 @@ form {
         .assign-link-add-btn {
           position: absolute;
           right: 15px;
-          top: 20px;
+          top: 25px;
           margin: 0;
           padding: 0;
           border: none;
@@ -200,7 +200,7 @@ dl {
 .assign-link-btn-section {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   border-top: 1px solid #e6ebf5;
   padding-top: 32px;
 

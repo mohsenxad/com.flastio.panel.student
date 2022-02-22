@@ -14,9 +14,9 @@ form {
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    text-align: center;
     color: #0a1629;
-    text-align: -webkit-center;
+    display: flex;
+    justify-content: center;
   }
   .close-btn {
     background-color: #f4f9fd;
@@ -242,5 +242,5 @@ dl {
 .assign-supporting-file-submit-section {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
