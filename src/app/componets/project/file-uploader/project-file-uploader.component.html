@@ -26,17 +26,19 @@
     id='certificationFile'
     name='certificationFile'
     (change)="handleFileInput($event.target.files)"
+    [disabled]="isLoading"
   >
 </div>
 
 <div
   *ngIf="isFileUploaded"
 >
-  <p>
-      Project Summary File Uploaded
-  </p>
+  <u>
+    Project Summary File Uploaded
+  </u>
   <button
-    (click)="remove()"
+    class = "remove-picture"
+    (click) = "remove()"
   >
     Remove
   </button>
