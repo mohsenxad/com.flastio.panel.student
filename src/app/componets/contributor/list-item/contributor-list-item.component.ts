@@ -9,17 +9,14 @@ import { Contributor } from '../../../model/contributor';
 export class ContributorListItemComponent implements OnInit {
 
   @Input() contributor:Contributor;
+  @Input() isRemovable:Boolean;
   @Output() onDeleted = new EventEmitter<Contributor>();
 
-  isRemovable:Boolean = false;
+  
 
   constructor() { }
 
-  ngOnInit(): void {
-    if(this.onDeleted.observers.length > 0){
-      this.isRemovable = true;
-    }
-  }
+  ngOnInit(): void {}
 
   remove(){
     this.onDeleted.emit(this.contributor);

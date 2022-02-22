@@ -98,6 +98,7 @@
 
     <contributor-list
         *ngIf = "localContributorList && localContributorList.length > 0"
+        [isRemovable] = 'true'
         [contributorList] = "localContributorList"
         (onDeleted) = 'remove($event)'
     ></contributor-list>

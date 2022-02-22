@@ -173,6 +173,7 @@
     *ngIf = "project.contributorList && project.contributorList.length > 0"
   >
     <contributor-list
+      [isRemovable] = 'false'
       [contributorList] = "project.contributorList"
     ></contributor-list>
   </dd>

@@ -10,6 +10,7 @@ import { Contributor } from '../../../model/contributor';
 export class ContributorListComponent implements OnInit {
 
   @Input() contributorList:Contributor[];
+  @Input() isRemovable:Boolean;
   @Output() onDeleted = new EventEmitter<Contributor>();
 
 

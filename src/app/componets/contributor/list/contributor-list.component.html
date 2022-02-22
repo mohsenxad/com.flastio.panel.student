@@ -4,6 +4,7 @@
     >
         <contributor-list-item
             (onDeleted) = 'removeItem($event)'
+            [isRemovable] = 'isRemovable'
             [contributor]="contributor"
         ></contributor-list-item>
     </li>
