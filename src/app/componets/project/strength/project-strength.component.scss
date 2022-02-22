@@ -55,6 +55,7 @@
           left: 8px;
           cursor: pointer;
           color: rgba(0,0,0,0);
+          outline: none;
         }
         ul {
           list-style: none;
@@ -172,4 +173,11 @@ progress::-webkit-progress-value {
 progress::-moz-progress-bar {
   background: #00b85c;
   border-radius: 20px;
+}
+
+summary::marker,
+summary::-webkit-details-marker {
+  color: transparent;
+  display: none;
+  outline: none;
 }

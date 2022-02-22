@@ -106,6 +106,8 @@ details {
     position: absolute;
     top: -8px;
     z-index: 4;
+    outline: none;
+
   }
   ul {
     list-style: none;
@@ -165,4 +167,11 @@ details {
       }
     }
   }
+}
+
+summary::marker,
+summary::-webkit-details-marker {
+  color: transparent;
+  display: none;
+  outline: none;
 }
