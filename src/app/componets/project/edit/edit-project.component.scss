@@ -35,6 +35,8 @@ form {
     color: #0a1629;
     display: block;
     text-align: center;
+    text-align: -webkit-center;
+
   }
   summary {
     font-size: 18px;
@@ -138,6 +140,8 @@ details[open] summary::after {
   background-color: rgba(0, 112, 255, 0.05);
   padding: 50px;
   text-align: center;
+  text-align: -webkit-center;
+
   div {
     position: relative;
   }

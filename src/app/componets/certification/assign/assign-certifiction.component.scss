@@ -33,6 +33,8 @@ ul {
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
+  text-align: -webkit-center;
+
   color: #fff;
   padding: 14px 31px;
   border-radius: 14px;
@@ -62,6 +64,8 @@ ul {
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
+  text-align: -webkit-center;
+
   color: #91929e;
   transition: 0.5s;
   float: right;
@@ -123,6 +127,8 @@ form {
     line-height: normal;
     letter-spacing: normal;
     text-align: center;
+    text-align: -webkit-center;
+
     color: #0a1629;
   }
   p {

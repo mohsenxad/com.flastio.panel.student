@@ -32,6 +32,7 @@ form {
     display: block;
     text-align: center;
     margin-bottom: 27px;
+    text-align: -webkit-center;
   }
   summary {
     font-size: 18px;
@@ -45,6 +46,8 @@ form {
     align-items: center;
     cursor: pointer;
     margin-bottom: 20px;
+    outline: none;
+
 
     &::after {
       content: url(/assets/images/icn-general-arrow-down-blue.svg);
@@ -119,6 +122,13 @@ form {
       }
     }
   }
+}
+summary::marker,
+summary::-webkit-details-marker {
+   color: transparent;
+   display: none;
+   outline: none;
+
 }
 
 #divAssignedSkill {
