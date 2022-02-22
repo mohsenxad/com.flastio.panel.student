@@ -72,20 +72,6 @@ export class AddProjectComponent implements OnInit {
       result.messageList.push("Project Name should be more than 5 charachter");
     }
 
-    if(!project.baseInfo.description || project.baseInfo.description == ""){
-      result.hasError = true;
-      result.messageList.push("Project Description");
-    }
-
-    if(
-      project.baseInfo.description &&
-      project.baseInfo.description != "" &&
-      project.baseInfo.description.length < 10
-    ){
-      result.hasError = true;
-      result.messageList.push("Project Description should be more than 10 charachter");
-    }
-
     if(
       project.baseInfo.projectType == 'Course Project' &&
       !project.baseInfo.course
@@ -101,6 +87,30 @@ export class AddProjectComponent implements OnInit {
       result.hasError = true;
       result.messageList.push("Company");
     }
+
+    if(!project.baseInfo.description || project.baseInfo.description == ""){
+      result.hasError = true;
+      result.messageList.push("Project Description");
+    }
+
+    if(
+      project.baseInfo.description &&
+      project.baseInfo.description != "" &&
+      project.baseInfo.description.length < 10
+    ){
+      result.hasError = true;
+      result.messageList.push("Project Description should be more than 10 charachter");
+    }
+
+    if(
+      !project.baseInfo.skillList ||
+      project.baseInfo.skillList.length == 0
+    ){
+      result.hasError = true;
+      result.messageList.push("Project Topics");
+    }
+
+    
 
     if(!project.baseInfo.yearCompleted){
       result.hasError = true;

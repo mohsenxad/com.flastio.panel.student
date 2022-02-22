@@ -14,13 +14,6 @@ export class PortfolioStrengthComponent implements OnInit, OnChanges {
     this.calculate();
   }
 
-  strengthValue:Number;
-  strengthMaxValue:Number = 7;
-  strengthTitle:String;
-
-  ngOnInit(): void {
-  }
-
   itemList: any[]=[
     {
       title: 'Personal Information',
@@ -58,6 +51,15 @@ export class PortfolioStrengthComponent implements OnInit, OnChanges {
     //   url: '#'
     // }
   ];
+
+  strengthValue:Number;
+  strengthMaxValue:Number = this.itemList.length;
+  strengthTitle:String;
+
+  ngOnInit(): void {
+  }
+
+  
 
   isCompeletePesronalInforamtion(student : Student):Boolean{
     let result:Boolean = true;
