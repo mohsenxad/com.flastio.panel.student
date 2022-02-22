@@ -122,7 +122,8 @@ export class AddDetailStudentComponent implements OnInit {
       this.student = await this.studentService.updateDetail(this.student);
       this.localStorageService.setStudent(this.student);
       this.isLoading = false;
-      this.router.navigateByUrl('/student/panel')
+      //this.router.navigateByUrl('/student/panel')
+      window.location.replace('/student');
     }
     
   }
