@@ -189,3 +189,7 @@ select:focus {
   border-color: #3f8cff !important;
   box-shadow: 0px 0px 3px -1px #3f8cff !important;
 }
+
+input[type=search]{
+  -webkit-appearance: none;
+}

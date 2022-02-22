@@ -13,12 +13,23 @@ u {
   background-color: #f4f9fd;
   padding: 13px 13px 8px 13px;
   display: flex;
-  &::before{
+  &::before {
     content: url(/assets/images/icn-general-hint-blue.svg);
     margin-right: 12px;
   }
 }
-
+.contributors-title {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #0a1629;
+  padding: 0;
+  margin: 32px 0 0 0;
+}
 dl {
   position: relative;
   dd {
