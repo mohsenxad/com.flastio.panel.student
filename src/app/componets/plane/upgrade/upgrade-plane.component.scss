@@ -204,3 +204,11 @@ main {
   width: 50%;
   margin: 49px auto 40px auto;
 }
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    main section:nth-child(1) {
+      margin-right: 24px;
+    }
+  }
+}

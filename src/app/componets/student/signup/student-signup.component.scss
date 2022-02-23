@@ -64,7 +64,12 @@ form {
   height: 100%;
   display: flex;
   flex-direction: column;
-
+  width: 60%;
+  margin: 0 auto 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 16px 32px 0 rgb(209 213 219 / 24%);
+  box-sizing: border-box;
+  padding: 70px;
   legend {
     font-size: 24px;
     font-weight: bold;
@@ -74,12 +79,12 @@ form {
     letter-spacing: normal;
     text-align: center;
     color: #0a1629;
-    margin-top: 130px;
+    margin-top: 10px;
     margin-bottom: 50px;
   }
   fieldset {
     border: none;
-    width: 70%;
+    width: 100%;
     margin: auto;
     padding: 0;
   }

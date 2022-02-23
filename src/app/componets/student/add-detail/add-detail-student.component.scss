@@ -1,6 +1,11 @@
 section {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  border-radius: 8px;
+  box-shadow: 0 16px 32px 0 rgb(209 213 219 / 24%);
+  background-color: #fff;
+  padding: 32px;
+  width: 60%;
+  margin:0 auto 30px auto;
+
   flastio-logo {
     margin: auto;
     display: block;
@@ -58,10 +63,8 @@ section {
   }
 }
 form {
-  background-color: #fff;
-  padding: 24px;
-  width: 70%;
-  margin: auto;
+
+  width: 100%;
 
   fieldset {
     border: none;
@@ -88,7 +91,6 @@ form {
     line-height: normal;
     letter-spacing: normal;
     color: #7d8592;
-    margin-top: 100px;
   }
   p {
     font-size: 24px;

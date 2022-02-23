@@ -183,3 +183,11 @@ div {
   padding: 0 32px;
 }
 
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    legend {
+      display: block;
+      margin: 10px auto 24px auto;
+    }
+  }
+}

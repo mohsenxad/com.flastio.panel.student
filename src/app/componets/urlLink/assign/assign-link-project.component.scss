@@ -195,6 +195,7 @@ dl {
   transform: rotate(-90deg);
   box-shadow: none;
   margin-top: 0;
+  width: 40px;
 }
 
 .assign-link-btn-section {
@@ -248,6 +249,17 @@ dl {
     &:hover {
       border: solid 1px #91929e;
       transition: 0.5s;
+    }
+  }
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    form {
+      legend{
+        display: block;
+        margin: 10px auto 24px auto;
+      }
     }
   }
 }

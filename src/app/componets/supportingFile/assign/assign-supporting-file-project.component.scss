@@ -42,6 +42,7 @@ form {
     transform: rotate(-90deg);
     box-shadow: none;
     margin-top: 0;
+    width: 40px;
   }
 
   fieldset {
@@ -243,4 +244,15 @@ dl {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    form {
+      legend {
+        display: block;
+        margin: 10px auto 24px auto;
+      }
+    }
+  }
 }
