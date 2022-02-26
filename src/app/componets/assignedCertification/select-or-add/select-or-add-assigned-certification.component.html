@@ -55,9 +55,18 @@
         <div
             *ngIf = "assignedCertification"
         >
-            <certification-list-item
-                [assignedCertification] = 'assignedCertification'
-            ></certification-list-item>
+            <section>
+                <certification-list-item
+                    [assignedCertification] = 'assignedCertification'
+                ></certification-list-item>
+                <button
+                    type = "button"
+                    (click)="remove()"
+                >
+                    Remove
+                </button>
+            </section>
+            
 
             <div class="btn-section">
                 <button class="submit-btn"
