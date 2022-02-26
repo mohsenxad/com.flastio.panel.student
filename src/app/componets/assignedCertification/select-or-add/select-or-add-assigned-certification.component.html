@@ -2,12 +2,53 @@
     <div
         class="popup"
     >
-    <select-assigned-certification>
+
+    <div>
+        <ul>
+            <li>
+                <label
+                    for = "rdExistingCertification"
+                >
+                    From existing certifications
+                </label>
+                <input
+                    type = "radio"
+                    id = 'rdExistingCertification'
+                    name = "actionType"
+                    value = "Existing"
+                    (change) = "changed('Existing')"
+                >
+            </li>
+            <li>
+                <label
+                    for="rdNewCertification"
+                >
+                    From existing certifications
+                </label>
+                <input
+                    type = "radio"
+                    id = "rdNewCertification" 
+                    name = "actionType"
+                    value = "New"
+                    (change) = "changed('New')"
+                >
+            </li>
+        </ul>
         
-    </select-assigned-certification>
-    <assign-certifiction
+    </div>
+
+    <section>
+        <select-assigned-certification
+            *ngIf = "actionType == 'Existing'"
+        >
+        </select-assigned-certification>
+
+        <assign-certifiction
+            *ngIf = "actionType == 'New'"
+        ></assign-certifiction>
         
-    ></assign-certifiction>
+    </section>
+    
     </div>
     
 </div>
