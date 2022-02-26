@@ -1,12 +1,12 @@
 <select
-    name="slctAssignedCertification"
-    id="slctAssignedCertification"
-    [(ngModel)]="selectedAssignedCertification"
-    (change)="changeAssingedCertification()"
+    name = "slctAssignedCertification"
+    id = "slctAssignedCertification"
+    [(ngModel)] = "selectedAssignedCertificationId"
+    (ngModelChange) = "changeAssingedCertification()"
 >
     <option
-        *ngFor="let assignedCertification of assignedCertificationList"
-        [value]="assignedCertification._id"
+        *ngFor = "let assignedCertification of assignedCertificationList"
+        [value] = "assignedCertification._id"
     >
         {{assignedCertification.certification.name}}
     </option>

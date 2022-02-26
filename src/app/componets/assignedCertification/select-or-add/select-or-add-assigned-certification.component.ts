@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AssignedCertification } from 'src/app/model/assignedCertification';
 
 @Component({
   selector: 'select-or-add-assigned-certification',
@@ -7,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectOrAddAssignedCertificationComponent implements OnInit {
 
+  @Output() onAssignedCertificationAdded = new EventEmitter<AssignedCertification>();
+  @Output() onClose = new EventEmitter();
+
+  assignedCertification: AssignedCertification
+  
   constructor() { }
 
   actionType:String = 'Existing';
@@ -16,6 +22,19 @@ export class SelectOrAddAssignedCertificationComponent implements OnInit {
 
   changed(actionType: String):void{
     this.actionType = actionType
+  }
+
+  setAssignedCertification(assignedCertification: AssignedCertification): void{
+    console.log(assignedCertification);
+    this.assignedCertification = assignedCertification;
+  }
+
+  save(){
+    this.onAssignedCertificationAdded.emit(this.assignedCertification);
+  }
+
+  close(){
+    this.onClose.emit();
   }
 
 }

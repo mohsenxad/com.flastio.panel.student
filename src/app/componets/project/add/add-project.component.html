@@ -62,22 +62,17 @@
     (onClose) = 'goToGeneralView($event)'
   ></assign-supporting-file-project>
 
-  <assign-certifiction
+  <!-- <assign-certifiction
     *ngIf = "pageTitle == 'Certification' && !project.assignedCertification"
     (onAssignedCertificationAdded) = 'updateCertification($event)'
     (onClose) = 'goToGeneralView($event)'
-  ></assign-certifiction>
+  ></assign-certifiction> -->
   <select-or-add-assigned-certification
     *ngIf = "pageTitle == 'Certification' && !project.assignedCertification"
+    (onAssignedCertificationAdded) = 'updateCertification($event)'
+    (onClose) = 'goToGeneralView($event)'
   ></select-or-add-assigned-certification>
-  <div
-    class = "add-project-certification-list"
-    *ngIf = "pageTitle == 'Certification' && project.assignedCertification"
-  >
-    <certification-list-item
-      [assignedCertification] = 'project.assignedCertification'
-    ></certification-list-item>
-  </div>
+  
   <assign-contributor
     *ngIf = "pageTitle == 'Team'"
     [studentRole] = 'project.role'

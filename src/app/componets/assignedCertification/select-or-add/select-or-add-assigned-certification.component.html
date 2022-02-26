@@ -3,51 +3,75 @@
         class="popup"
     >
 
-    <div>
-        <ul>
-            <li>
-                <label
-                    for = "rdExistingCertification"
-                >
-                    From existing certifications
-                </label>
-                <input
-                    type = "radio"
-                    id = 'rdExistingCertification'
-                    name = "actionType"
-                    value = "Existing"
-                    (change) = "changed('Existing')"
-                >
-            </li>
-            <li>
-                <label
-                    for="rdNewCertification"
-                >
-                    From existing certifications
-                </label>
-                <input
-                    type = "radio"
-                    id = "rdNewCertification" 
-                    name = "actionType"
-                    value = "New"
-                    (change) = "changed('New')"
-                >
-            </li>
-        </ul>
-        
-    </div>
-
-    <section>
-        <select-assigned-certification
-            *ngIf = "actionType == 'Existing'"
+        <div
+            *ngIf = "!assignedCertification"
         >
-        </select-assigned-certification>
+            <ul>
+                <li>
+                    <label
+                        for = "rdExistingCertification"
+                    >
+                        From existing certifications
+                    </label>
+                    <input
+                        type = "radio"
+                        id = 'rdExistingCertification'
+                        name = "actionType"
+                        value = "Existing"
+                        (change) = "changed('Existing')"
+                    >
+                </li>
+                <li>
+                    <label
+                        for="rdNewCertification"
+                    >
+                        From existing certifications
+                    </label>
+                    <input
+                        type = "radio"
+                        id = "rdNewCertification" 
+                        name = "actionType"
+                        value = "New"
+                        (change) = "changed('New')"
+                    >
+                </li>
+            </ul>
 
-        <assign-certifiction
-            *ngIf = "actionType == 'New'"
-        ></assign-certifiction>
+            <section>
+                <select-assigned-certification
+                    *ngIf = "actionType == 'Existing'"
+                    (onAssignedCertificationSelected) = 'setAssignedCertification($event)'
+                >
+                </select-assigned-certification>
+    
+                <assign-certifiction
+                    *ngIf = "actionType == 'New'"
+                    (onAssignedCertificationAdded) = 'setAssignedCertification($event)'
+                ></assign-certifiction>
+                
+            </section>
+        </div>
         
-    </section>
+        <div
+            *ngIf = "assignedCertification"
+        >
+            <certification-list-item
+                [assignedCertification] = 'assignedCertification'
+            ></certification-list-item>
+
+            <div class="btn-section">
+                <button class="submit-btn"
+                  (click)="save()"
+                >
+                    Add
+                </button>
+                <button class="cancel-btn"
+                  (click)="cancel()"
+                >
+                  Cancel
+                </button>
+            </div>
+        </div>
     
     </div>
     
