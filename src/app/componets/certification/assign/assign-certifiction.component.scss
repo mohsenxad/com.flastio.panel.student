@@ -77,7 +77,7 @@ ul {
     transition: 0.5s;
   }
 }
-.btn-section{
+.btn-section {
   border-top: 1px solid #e6ebf5;
   padding-top: 32px;
   margin-top: 48px;
@@ -127,8 +127,6 @@ form {
     line-height: normal;
     letter-spacing: normal;
     text-align: center;
-    text-align: -webkit-center;
-
     color: #0a1629;
   }
   p {
@@ -163,6 +161,7 @@ form {
   position: absolute;
   right: 17px;
   top: 12px;
+  width: 40px;
 }
 
 .main-modal {
@@ -177,4 +176,15 @@ year-select2 {
 }
 #txtOrganization {
   margin-top: 7px;
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    form {
+      legend {
+        display: block !important;
+        margin: 0 auto 0 auto !important;
+      }
+    }
+  }
 }

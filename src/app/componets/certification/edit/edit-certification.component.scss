@@ -70,7 +70,6 @@ ul {
   color: #91929e;
   transition: 0.5s;
   float: right;
-  transition: 0.5s;
   cursor: pointer;
 
   &:hover {
@@ -158,6 +157,8 @@ form {
   position: absolute;
   right: 17px;
   top: 12px;
+  width: 40px;
+
 }
 
 .main-modal {
@@ -172,4 +173,16 @@ year-select2 {
 }
 #txtOrganization {
   margin-top: 7px;
+}
+
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    form {
+      legend {
+        display: block !important;
+        margin: 0 auto 0 auto !important;
+      }
+    }
+  }
 }
