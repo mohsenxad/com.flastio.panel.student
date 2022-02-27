@@ -9,6 +9,7 @@
         Close
     </button>
         <legend>Add Certification</legend>
+        <p>Make sure to use the exact certification title on your actual certificate. You can upload a picture or a PDF version of your certificate issued by the institution you got certified through.</p>
         <div
             *ngIf = "!assignedCertification"
         >
@@ -72,6 +73,7 @@
         
         <div
             *ngIf = "assignedCertification"
+            class="assignedCertification-list"
         >
             <section>
                 <certification-list-item

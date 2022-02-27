@@ -4,7 +4,7 @@
 .modal-body {
   position: relative;
   z-index: 5;
-  width: 70%;
+  width: 50%;
   margin: 32px auto;
   padding: 32px 32px 40px 32px;
   border-radius: 8px;
@@ -71,6 +71,46 @@
     letter-spacing: normal;
     color: #0a1629;
     display: block;
-    margin-left:10px;
+    margin-left: 10px;
+  }
+}
+.close-btn {
+  background-color: #f4f9fd;
+  border-radius: 50%;
+  border: none;
+  -webkit-writing-mode: vertical-rl;
+  display: flex;
+  padding: 11px 6px;
+  content: "";
+  background-image: url(/assets/images/move-up.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+  font: status-bar;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border: none;
+  transform: rotate(-90deg);
+  box-shadow: none;
+  margin-top: 0;
+  width: 40px;
+}
+.assignedCertification-list{
+  position: relative;
+}
+
+
+
+
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    legend {
+      display: block !important;
+      margin: 27px auto 39px auto !important;
+    }
   }
 }
