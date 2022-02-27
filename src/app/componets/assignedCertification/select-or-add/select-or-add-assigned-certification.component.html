@@ -1,18 +1,14 @@
 <div class="main-modal">
     <div
-        class="popup"
+        class="popup modal-body"
     >
-
+        <legend>Add Certification</legend>
+        <p>Make sure to use the exact certification title on your actual certificate. You can upload a picture or a PDF version of your certificate issued by the institution you got certified through.</p>
         <div
             *ngIf = "!assignedCertification"
         >
             <ul>
                 <li>
-                    <label
-                        for = "rdExistingCertification"
-                    >
-                        From existing certifications
-                    </label>
                     <input
                         type = "radio"
                         id = 'rdExistingCertification'
@@ -20,13 +16,13 @@
                         value = "Existing"
                         (change) = "changed('Existing')"
                     >
-                </li>
-                <li>
                     <label
-                        for="rdNewCertification"
+                    for = "rdExistingCertification"
                     >
                         From existing certifications
                     </label>
+                </li>
+                <li>
                     <input
                         type = "radio"
                         id = "rdNewCertification" 
@@ -34,10 +30,16 @@
                         value = "New"
                         (change) = "changed('New')"
                     >
+                    <label
+                    for="rdNewCertification"
+                    >
+                         Add new certification
+                    </label>
                 </li>
             </ul>
 
-            <section>
+            <section class="select-assigned-certification">
+                <label for="slctAssignedCertification">Select from existing certifications</label>
                 <select-assigned-certification
                     *ngIf = "actionType == 'Existing'"
                     (onAssignedCertificationSelected) = 'setAssignedCertification($event)'

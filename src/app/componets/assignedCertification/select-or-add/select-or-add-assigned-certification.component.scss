@@ -1,3 +1,76 @@
 .main-modal {
-    overflow-y: scroll;
+  overflow-y: scroll;
+}
+.modal-body {
+  position: relative;
+  z-index: 5;
+  width: 70%;
+  margin: 32px auto;
+  padding: 32px 32px 40px 32px;
+  border-radius: 8px;
+  box-shadow: 0 6px 58px 0 rgb(121 145 173 / 20%);
+  background-color: #fff;
+  legend {
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #0a1629;
+    margin: 27px auto 39px auto;
   }
+  p {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+    list-style: none;
+    margin: 32px 0 0 0;
+    padding: 0 0 10px 0;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #e6ebf5;
+    label {
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #7d8592;
+      cursor: pointer;
+      padding: 0 25px 10px 25px;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    input[type="radio"]:checked + label {
+      color: #3f8cff;
+      border-bottom: 3px solid #3f8cff;
+      border-radius: 1.5px;
+    }
+  }
+}
+.select-assigned-certification {
+  margin-top: 32px;
+  label {
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    display: block;
+    margin-left:10px;
+  }
+}
