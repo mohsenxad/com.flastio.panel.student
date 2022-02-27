@@ -1,0 +1,48 @@
+<form>
+    <legend>
+        You can add as many contributors as you need to. The contributors will be notified upon submitting your project. It will enable them to consider uploading the project to their portfolio as well.
+    </legend>
+  
+    <fieldset>
+      <ul class="contribution-section">
+            <li>
+                <select-or-add-student
+                [student] = "contributor.student"
+                (onStudentSelected) = 'setStudent($event)'
+                ></select-or-add-student>
+            </li>
+            <li
+                *ngIf = "contributor.student"
+            >
+                <label
+                    for="txtRole"
+                >
+                Specific contribution
+                </label>
+                <input
+                    type="text"
+                    name="txtRole"
+                    id="txtRole"
+                    [(ngModel)] = 'contributor.role'
+                    placeholder = "e.g., Original draft preparation"
+                    minlength="3"
+                    maxlength="200"
+                    required
+                >
+            </li>
+
+            <validation-result
+                [validationResult] = 'contributorValidationResult'
+            ></validation-result>
+
+        <button
+            *ngIf = "contributor.student"
+            type = "button"
+            (click) = "add()"
+        >
+            Confirm Contributor
+        </button>
+
+      </ul>
+    </fieldset>
+  </form>

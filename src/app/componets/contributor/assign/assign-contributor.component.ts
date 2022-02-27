@@ -37,20 +37,6 @@ export class AssignContributorComponent implements OnInit {
   
   constructor() { }
 
-  showInviteStudentForm(email:String):void{
-    this.inviteeEmail = email;
-    this.isInviteFormVisible = true;
-  }
-
-  hideInviterStudnetForm(){
-    this.inviteeEmail = undefined;
-    this.isInviteFormVisible = false;
-  }
-
-  setStudent(student: Student):void{
-    this.contributor.student = student;
-    this.hideInviterStudnetForm();
-  }
 
   ngOnInit(): void {
     this.localStudentRole = this.studentRole;
@@ -71,41 +57,9 @@ export class AssignContributorComponent implements OnInit {
     }
   }
 
-  validateContributor(contributor: Contributor): ValidationResult{
-    let validationResult: ValidationResult ={
-      hasError: false,
-      messageList: []
-    };
-
-    if (!contributor){
-      validationResult.hasError = true;
-      validationResult.messageList.push("Select or Invite Contributor first");
-    }
-
-    if (
-      contributor &&
-      !contributor.student
-    ){
-      validationResult.hasError = true;
-      validationResult.messageList.push("Select or Invite Contributor first");
-    }
-
-    return validationResult;
-  }
 
   studentRoleChanged():void{
     this.onStudentRoleUpdated.emit(this.localStudentRole);
-  }
-
-  add(){
-    let validationResult = this.validateContributor(this.contributor);
-    if(!validationResult.hasError){
-      this.localContributorList.push(this.contributor);
-      this.contributor = {};
-    }else{
-      this.contributorValidationResult = validationResult;
-    }
-    
   }
 
   remove(contributor: Contributor){
@@ -156,6 +110,10 @@ export class AssignContributorComponent implements OnInit {
 
   hideConfirmDiscardModal(){
     this.confirmDicardIsVisible = false;
+  }
+
+  addContributorToList(addedContributor: Contributor):void{
+    this.localContributorList.push(addedContributor)
   }
 }
 

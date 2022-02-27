@@ -110,6 +110,9 @@ import { SelectAssignedCertificationComponent } from './componets/assignedCertif
 import { SelectOrAddAssignedCertificationComponent } from './componets/assignedCertification/select-or-add/select-or-add-assigned-certification.component';
 import { StudentHomeComponent } from './componets/student/home/student-home.component';
 import { AddAssingedCertificationComponent } from './componets/assignedCertification/add/add-assinged-certification.component';
+import { SelectOrAddContributorComponent } from './componets/contributor/select-or-add/select-or-add-contributor.component';
+import { SelectOrAddStudentComponent } from './componets/student/select-or-add/select-or-add-student.component';
+
 
 
 
@@ -215,7 +218,9 @@ import { AddAssingedCertificationComponent } from './componets/assignedCertifica
     SelectAssignedCertificationComponent,
     SelectOrAddAssignedCertificationComponent,
     StudentHomeComponent,
-    AddAssingedCertificationComponent
+    AddAssingedCertificationComponent,
+    SelectOrAddContributorComponent,
+    SelectOrAddStudentComponent
   ],
   imports: [
     BrowserModule,

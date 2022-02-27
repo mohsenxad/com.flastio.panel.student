@@ -1,0 +1,34 @@
+<form>
+    <fieldset>
+      <ul class="contribution-section">
+
+        <li>
+            <label
+                for="txtEmail"
+                *ngIf="!isInviteFormVisible"
+            >
+                Contributor Email
+            </label>
+            <search-student
+                *ngIf="!isInviteFormVisible"
+                [selectedStudent] = 'student'
+                (onStudentSelected) = 'setStudent($event)'
+                (onInviteStudentWithEmailSelected)="showInviteStudentForm($event)"
+            ></search-student>
+        </li>
+
+        <li
+            *ngIf = "isInviteFormVisible"
+        >
+            <invite-student
+                id="cmpName"
+                name="cmpName"
+                [email] = 'inviteeEmail'
+                (onClose) = 'hideInviterStudnetForm()'
+                (onInvited) = 'setStudent($event)'
+            ></invite-student>
+        </li>
+
+      </ul>
+    </fieldset>
+  </form>

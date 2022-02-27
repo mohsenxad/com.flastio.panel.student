@@ -30,70 +30,10 @@
                 >
             </li>
         </ul>
-
-      <ul class="contribution-section">
-        <li> 
-            <p>
-              You can add as many contributors as you need to. The contributors will be notified upon submitting your project. It will enable them to consider uploading the project to their portfolio as well.
-            </p>
-        </li>
-        <li>
-            <label
-                for="txtEmail"
-                *ngIf="!isInviteFormVisible"
-            >
-                Contributor Email
-            </label>
-            <search-student
-                *ngIf="!isInviteFormVisible"
-                [selectedStudent] = 'contributor.student'
-                (onStudentSelected) = 'setStudent($event)'
-                (onInviteStudentWithEmailSelected)="showInviteStudentForm($event)"
-            ></search-student>
-        </li>
-
-        <li>
-            <invite-student
-                id="cmpName"
-                name="cmpName"
-                *ngIf="isInviteFormVisible"
-                [email] = 'inviteeEmail'
-                (onClose) = 'hideInviterStudnetForm()'
-                (onInvited) = 'setStudent($event)'
-            ></invite-student>
-        </li>
-
-        <li>
-            <label
-                for="txtRole"
-            >
-            Specific contribution
-            </label>
-            <input
-                type="text"
-                name="txtRole"
-                id="txtRole"
-                [(ngModel)] = 'contributor.role'
-                placeholder = "e.g., Original draft preparation"
-                minlength="3"
-                maxlength="200"
-            >
-        </li>
-
-        <validation-result
-            [validationResult] = 'contributorValidationResult'
-        ></validation-result>
-
-        <button
-            type="button"
-            (click)="add()"
-        >
-            Confirm Contributor
-        </button>
-
-      </ul>
+        <select-or-add-contributor
+            (onContributorAdded)="addContributorToList($event)"
+        ></select-or-add-contributor>
     </fieldset>
-
     
 
     <contributor-list
@@ -103,16 +43,16 @@
         (onDeleted) = 'remove($event)'
     ></contributor-list>
 
-  <div>
-    <validation-result
-      [validationResult] = 'validationResult'
-    ></validation-result>
-    <button (click)="cancel()">Cancel</button>
-    <button (click)="save()">Save</button>
-  </div>
-  <confirm-discard
-    *ngIf="confirmDicardIsVisible"
-    (onConfirm) = 'close()'
-    (onCancel) = 'hideConfirmDiscardModal()'
-  ></confirm-discard>
+    <div>
+        <validation-result
+        [validationResult] = 'validationResult'
+        ></validation-result>
+        <button (click)="cancel()">Cancel</button>
+        <button (click)="save()">Save</button>
+    </div>
+    <confirm-discard
+        *ngIf="confirmDicardIsVisible"
+        (onConfirm) = 'close()'
+        (onCancel) = 'hideConfirmDiscardModal()'
+    ></confirm-discard>
   </form>
