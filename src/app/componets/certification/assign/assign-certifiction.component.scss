@@ -177,6 +177,15 @@ year-select2 {
 #txtOrganization {
   margin-top: 7px;
 }
+.modal-body {
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 6px 58px 0 rgba(121, 145, 173, 0.2);
+  background-color: #fff;
+  width: 50%;
+  margin: 15px auto 0 auto;
+  position: relative;
+}
 
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
