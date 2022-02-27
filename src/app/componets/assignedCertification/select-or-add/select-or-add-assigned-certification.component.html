@@ -44,10 +44,12 @@
                 >
                 </select-assigned-certification>
     
-                <assign-certifiction
+
+                <add-assinged-certification
                     *ngIf = "actionType == 'New'"
-                    (onAssignedCertificationAdded) = 'setAssignedCertification($event)'
-                ></assign-certifiction>
+                    (onAssignedCertificationAdded) = 'save($event)'
+                    (onClose) = 'cancel()'
+                ></add-assinged-certification>
                 
             </section>
         </div>

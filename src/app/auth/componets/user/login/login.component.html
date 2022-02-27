@@ -44,10 +44,13 @@
       >
         Login
       </button>
+      <loading
+        *ngIf = 'isLoading'
+      ></loading>
       <p>
         Go to 
         <a
-          href = "/auth/signup"
+          routerLink = '/auth/signup'
         >
           Signup
         </a>

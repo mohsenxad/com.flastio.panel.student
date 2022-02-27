@@ -1,88 +1,13 @@
 <div class="main-modal">
-  <form
-    class="popup"
-  >
-  <loading
-    *ngIf = "isLoading"
-  ></loading>
-  <button class="close-btn"
-    (click)="close()"
+  <button
+    class = "close-btn"
+    (click) = "close()"
   >
     Close
   </button>
-  <legend>Add Certification</legend>
-  <p>
-    Make sure to use the exact certification title on your actual certificate. You can upload a picture of your certificate issued by the institution you got certified through.
-  </p>
-  <fieldset
-    [disabled] = "isLoading"
-  >
-    <ul>
-      <li>
-        <label for="divCertification">
-          Certificate name
-        </label>
-        <div id="divCertification" name="divCertification">
-          <search-certification
-            (onCertificationSelected)="onCertificationSet($event)"
-          ></search-certification>
-        </div>
-      </li>
-      <li>
-        <label for="divDateIssued"> Date issued </label>
-        <div id="divDateIssued" name="divDateIssued">
-          <month-select
-            [selectedMonth] = 'assignedCertification.issuedDateMonth'
-            (onMonthSelected) = 'selectedIssuedDateMonth($event)'
-          ></month-select>
-
-          <year-select2
-            [fromYear] = "2010"
-            [toYear] = "2022"
-            [selectedYear] = 'assignedCertification.issuedDateYear'
-            (onYearSelected) = 'selectedIssuedDateYear($event)'
-          ></year-select2>
-
-        </div>
-      </li>
-      <li>
-        <label
-          for="txtOrganization"
-        >
-          Organization
-        </label>
-        <input
-          type="text"
-          id = 'txtOrganization'
-          name = 'txtOrganization'
-          [(ngModel)] = "assignedCertification.organization"
-          maxlength="200"
-          placeholder="e.g., ASQ"
-        >
-      </li>
-      <li>
-        <certification-file-uploader
-          (onFileUploaded) = 'setCertificationFile($event,$event)'
-        ></certification-file-uploader>
-      </li>
-    </ul>
-    <validation-result
-      [validationResult] = 'validationResult'
-    ></validation-result>
-    <div class="btn-section">
-      <button class="submit-btn"
-        (click)="save()"
-      >
-      Add
-      </button>
-      <button class="cancel-btn"
-        (click)="cancel()"
-      >
-        Cancel
-      </button>
-    </div>
-    
-  </fieldset>
-</form>
+  <add-assinged-certification
+    (onAssignedCertificationAdded) = 'saved()'
+    (onClose) = 'cancel()'
+  ></add-assinged-certification>
 
 </div>

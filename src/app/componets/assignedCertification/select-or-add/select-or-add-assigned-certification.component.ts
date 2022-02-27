@@ -29,8 +29,9 @@ export class SelectOrAddAssignedCertificationComponent implements OnInit {
     this.assignedCertification = assignedCertification;
   }
 
-  save(){
-    this.onAssignedCertificationAdded.emit(this.assignedCertification);
+  save(assignedCertification: AssignedCertification){
+    this.onAssignedCertificationAdded.emit(assignedCertification);
+    this.onClose.emit();
   }
 
   close(){

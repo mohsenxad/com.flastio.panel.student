@@ -1,15 +1,15 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Certification } from '../../../model/certification';
-import { AssignedCertification } from '../../../model/assignedCertification';
-import { CertificationService } from 'src/app/services/certification/certification.service';
+import { AssignedCertification } from 'src/app/model/assignedCertification';
+import { Certification } from 'src/app/model/certification';
 import { ValidationResult } from 'src/app/model/validationResult';
+import { CertificationService } from 'src/app/services/certification/certification.service';
 
 @Component({
-  selector: 'assign-certifiction',
-  templateUrl: './assign-certifiction.component.html',
-  styleUrls: ['./assign-certifiction.component.scss']
+  selector: 'add-assinged-certification',
+  templateUrl: './add-assinged-certification.component.html',
+  styleUrls: ['./add-assinged-certification.component.scss']
 })
-export class AssignCertifictionComponent implements OnInit {
+export class AddAssingedCertificationComponent implements OnInit {
 
   @Output() onAssignedCertificationAdded = new EventEmitter<AssignedCertification>();
   @Output() onClose = new EventEmitter();
@@ -102,11 +102,6 @@ export class AssignCertifictionComponent implements OnInit {
   }
 
   close(){
-    this.onClose.emit();
-  }
-
-  saved(){
-    this.onAssignedCertificationAdded.emit(this.assignedCertification);
     this.onClose.emit();
   }
 

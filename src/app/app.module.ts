@@ -109,6 +109,8 @@ import { FileViwerComponent } from './componets/share/file-viwer/file-viwer.comp
 import { SelectAssignedCertificationComponent } from './componets/assignedCertification/select/select-assigned-certification.component';
 import { SelectOrAddAssignedCertificationComponent } from './componets/assignedCertification/select-or-add/select-or-add-assigned-certification.component';
 import { StudentHomeComponent } from './componets/student/home/student-home.component';
+import { AddAssingedCertificationComponent } from './componets/assignedCertification/add/add-assinged-certification.component';
+
 
 
 
@@ -212,7 +214,8 @@ import { StudentHomeComponent } from './componets/student/home/student-home.comp
     FileViwerComponent,
     SelectAssignedCertificationComponent,
     SelectOrAddAssignedCertificationComponent,
-    StudentHomeComponent
+    StudentHomeComponent,
+    AddAssingedCertificationComponent
   ],
   imports: [
     BrowserModule,
