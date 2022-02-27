@@ -2,8 +2,13 @@
     <div
         class="popup modal-body"
     >
+    <button
+        class = "close-btn"
+        (click) = "close()"
+    >
+        Close
+    </button>
         <legend>Add Certification</legend>
-        <p>Make sure to use the exact certification title on your actual certificate. You can upload a picture or a PDF version of your certificate issued by the institution you got certified through.</p>
         <div
             *ngIf = "!assignedCertification"
         >
@@ -15,6 +20,7 @@
                         name = "actionType"
                         value = "Existing"
                         (change) = "changed('Existing')"
+                        [checked]= "actionType == 'Existing'"
                     >
                     <label
                     for = "rdExistingCertification"
@@ -29,6 +35,7 @@
                         name = "actionType"
                         value = "New"
                         (change) = "changed('New')"
+                        [checked]= "actionType == 'New'"
                     >
                     <label
                     for="rdNewCertification"
@@ -38,22 +45,29 @@
                 </li>
             </ul>
 
-            <section class="select-assigned-certification">
-                <label for="slctAssignedCertification">Select from existing certifications</label>
+            <section
+                class="select-assigned-certification"
+                *ngIf = "actionType == 'Existing'"
+            >
+                <label
+                    for = "slctAssignedCertification"
+                >
+                    Select from existing certifications
+                </label>
                 <select-assigned-certification
-                    *ngIf = "actionType == 'Existing'"
+                    
                     (onAssignedCertificationSelected) = 'setAssignedCertification($event)'
                 >
                 </select-assigned-certification>
-    
-
-                <add-assinged-certification
-                    *ngIf = "actionType == 'New'"
-                    (onAssignedCertificationAdded) = 'save($event)'
-                    (onClose) = 'cancel()'
-                ></add-assinged-certification>
-                
             </section>
+
+            <add-assinged-certification
+                *ngIf = "actionType == 'New'"
+                (onAssignedCertificationAdded) = 'save($event)'
+                (onClose) = 'cancel()'
+            ></add-assinged-certification>
+                
+            
         </div>
         
         <div
