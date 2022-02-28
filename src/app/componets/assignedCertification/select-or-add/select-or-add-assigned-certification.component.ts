@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AssignedCertification } from 'src/app/model/assignedCertification';
 
 @Component({
@@ -7,30 +7,33 @@ import { AssignedCertification } from 'src/app/model/assignedCertification';
   styleUrls: ['./select-or-add-assigned-certification.component.scss']
 })
 export class SelectOrAddAssignedCertificationComponent implements OnInit {
-
+  
+  @Input() assignedCertification: AssignedCertification
   @Output() onAssignedCertificationAdded = new EventEmitter<AssignedCertification>();
   @Output() onClose = new EventEmitter();
 
-  assignedCertification: AssignedCertification
   
   constructor() { }
 
   actionType:String = 'Existing';
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   changed(actionType: String):void{
     this.actionType = actionType
   }
 
   setAssignedCertification(assignedCertification: AssignedCertification): void{
-    console.log(assignedCertification);
     this.assignedCertification = assignedCertification;
   }
 
-  save(assignedCertification: AssignedCertification){
-    this.onAssignedCertificationAdded.emit(assignedCertification);
+  setAssignedCertificationAndSave(assignedCertification: AssignedCertification): void{
+    this.assignedCertification = assignedCertification;
+    this.save();
+  }
+
+  save(){
+    this.onAssignedCertificationAdded.emit(this.assignedCertification);
     this.onClose.emit();
   }
 

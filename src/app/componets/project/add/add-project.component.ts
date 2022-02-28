@@ -175,6 +175,8 @@ export class AddProjectComponent implements OnInit {
   }
 
   updateCertification(assignedCertification: AssignedCertification){
+    console.log('hew hweh ew on updateCertification');
+    
     this.project.assignedCertification = assignedCertification
   }
 

@@ -56,7 +56,6 @@
                     Select from existing certifications
                 </label>
                 <select-assigned-certification
-                    
                     (onAssignedCertificationSelected) = 'setAssignedCertification($event)'
                 >
                 </select-assigned-certification>
@@ -64,8 +63,8 @@
 
             <add-assinged-certification
                 *ngIf = "actionType == 'New'"
-                (onAssignedCertificationAdded) = 'save($event)'
-                (onClose) = 'cancel()'
+                (onAssignedCertificationAdded) = 'setAssignedCertificationAndSave($event)'
+                (onClose) = 'close()'
             ></add-assinged-certification>
                 
             
@@ -73,11 +72,12 @@
         
         <div
             *ngIf = "assignedCertification"
-            class="assignedCertification-list"
+            class = "assignedCertification-list"
         >
             <section>
                 <certification-list-item
                     [assignedCertification] = 'assignedCertification'
+                    [isActionable] = 'false'
                 ></certification-list-item>
                 <button
                     type = "button"

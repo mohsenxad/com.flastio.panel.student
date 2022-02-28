@@ -9,9 +9,11 @@ import { AssignedCertification } from '../../../model/assignedCertification';
 export class CertificationListItemComponent implements OnInit {
 
   @Input() assignedCertification: AssignedCertification;
+  @Input() isActionable:Boolean;
   @Output() onEdit = new EventEmitter<AssignedCertification>();
   @Output() onDelete = new EventEmitter<AssignedCertification>();
   @Output() onChangeIndex = new EventEmitter<Number>();
+
 
   constructor() { }
 

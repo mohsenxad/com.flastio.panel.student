@@ -50,25 +50,22 @@
   </form>
   
   <assign-link-project
-    *ngIf="pageTitle == 'Links'"
+    *ngIf = "pageTitle == 'Links'"
     [linkUrlList]="project.linkUrlList"
     (onLinkUrlListUpdated) = "updateLinkUrlList($event)"
     (onClose) = 'goToGeneralView($event)'
   ></assign-link-project>
   <assign-supporting-file-project
-    *ngIf="pageTitle == 'Attachment'"
+    *ngIf = "pageTitle == 'Attachment'"
     [supportingFileList] = "project.supportingFileList"
     (onSupportingFileListUpdated) = "updateSupportingFileList($event)"
     (onClose) = 'goToGeneralView($event)'
   ></assign-supporting-file-project>
 
-  <!-- <assign-certifiction
-    *ngIf = "pageTitle == 'Certification' && !project.assignedCertification"
-    (onAssignedCertificationAdded) = 'updateCertification($event)'
-    (onClose) = 'goToGeneralView($event)'
-  ></assign-certifiction> -->
+ 
   <select-or-add-assigned-certification
-    *ngIf = "pageTitle == 'Certification' && !project.assignedCertification"
+    *ngIf = "pageTitle == 'Certification'"
+    [assignedCertification] = 'project.assignedCertification'
     (onAssignedCertificationAdded) = 'updateCertification($event)'
     (onClose) = 'goToGeneralView($event)'
   ></select-or-add-assigned-certification>

@@ -3,6 +3,7 @@
   <certification-list
     *ngIf = "assignedCertificationList && assignedCertificationList.length > 0"
     [assignedCertificationList]="assignedCertificationList"
+    [isActionable] = 'isActionable'
     (onEdit) = "edit($event)"
     (onDelete) = "delete($event)"
     (onChangeIndex) = "changeIndex($event)"

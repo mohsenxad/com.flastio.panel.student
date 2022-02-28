@@ -52,6 +52,7 @@
 
 <div
   class="certification-action-panel"
+  *ngIf = 'isActionable'
 >
   <certification-action-panel
     (onEdit) = "edit()"

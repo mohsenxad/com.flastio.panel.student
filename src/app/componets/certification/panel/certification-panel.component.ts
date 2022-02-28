@@ -11,6 +11,7 @@ import { AssignedCertification } from '../../../model/assignedCertification';
 export class CertificationPanelComponent implements OnInit {
 
   @Input() assignedCertificationList: AssignedCertification[];
+  @Input() isActionable:Boolean;
   @Output() onUpdated = new EventEmitter();
 
   isAddCertificationModalVisible:Boolean = false;

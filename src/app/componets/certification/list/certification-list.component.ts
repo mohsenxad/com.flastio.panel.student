@@ -10,6 +10,7 @@ import { AssignedCertification } from '../../../model/assignedCertification';
 export class CertificationListComponent implements OnInit {
 
   @Input() assignedCertificationList: AssignedCertification[];
+  @Input() isActionable:Boolean;
   @Output() onEdit = new EventEmitter<AssignedCertification>();
   @Output() onDelete = new EventEmitter<AssignedCertification>();
   @Output() onChangeIndex = new EventEmitter<any>();

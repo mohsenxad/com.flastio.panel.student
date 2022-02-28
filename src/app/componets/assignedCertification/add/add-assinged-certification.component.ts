@@ -77,16 +77,13 @@ export class AddAssingedCertificationComponent implements OnInit {
   }
 
   async save(){
-    let validationResult = this.validate(this.assignedCertification);
+    this.validationResult = this.validate(this.assignedCertification);
     
-    if(!validationResult.hasError){
+    if(!this.validationResult.hasError){
       this.isLoading = true;
       this.assignedCertification = await this.certificationService.save(this.assignedCertification);
       this.isLoading = false;
       this.onAssignedCertificationAdded.emit(this.assignedCertification);
-      this.onClose.emit();
-    }else{
-      this.validationResult = validationResult;
     }
     
   }

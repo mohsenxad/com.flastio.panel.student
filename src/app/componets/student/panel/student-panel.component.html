@@ -53,6 +53,7 @@
         <certification-panel
             *ngIf = "student"
             [assignedCertificationList] = 'student.assignedCertificationList'
+            [isActionable] = 'true'
             (onUpdated) = 'onCertificationListUpdated()'
         ></certification-panel>
     </section>
