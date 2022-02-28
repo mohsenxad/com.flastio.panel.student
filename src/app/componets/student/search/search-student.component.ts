@@ -97,8 +97,6 @@ export class SearchStudentComponent implements OnInit {
   }
 
   remove(){
-    console.log('here to remove');
-    
     this.selectedStudent = undefined;
     this.onStudentSelected.emit(this.selectedStudent);
   }

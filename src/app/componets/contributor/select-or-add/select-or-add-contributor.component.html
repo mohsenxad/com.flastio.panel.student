@@ -4,29 +4,33 @@
     </legend>
   
     <fieldset>
-      <ul class="contribution-section">
+        <ul
+            class = "contribution-section"
+        >
+
             <li>
                 <select-or-add-student
-                [student] = "contributor.student"
-                (onStudentSelected) = 'setStudent($event)'
+                    [student] = "contributor.student"
+                    (onStudentSelected) = 'setStudent($event)'
                 ></select-or-add-student>
             </li>
+            
             <li
                 *ngIf = "contributor.student"
             >
                 <label
-                    for="txtRole"
+                    for = "txtRole"
                 >
-                Specific contribution
+                    Specific contribution
                 </label>
                 <input
-                    type="text"
-                    name="txtRole"
-                    id="txtRole"
+                    type = "text"
+                    name = "txtRole"
+                    id = "txtRole"
                     [(ngModel)] = 'contributor.role'
                     placeholder = "e.g., Original draft preparation"
-                    minlength="3"
-                    maxlength="200"
+                    minlength = "3"
+                    maxlength = "200"
                     required
                 >
             </li>
@@ -35,14 +39,14 @@
                 [validationResult] = 'contributorValidationResult'
             ></validation-result>
 
-        <button
-            *ngIf = "contributor.student"
-            type = "button"
-            (click) = "add()"
-        >
-            Confirm Contributor
-        </button>
+            <button
+                *ngIf = "contributor.student"
+                type = "button"
+                (click) = "add()"
+            >
+                Confirm Contributor
+            </button>
 
-      </ul>
+        </ul>
     </fieldset>
-  </form>
+</form>

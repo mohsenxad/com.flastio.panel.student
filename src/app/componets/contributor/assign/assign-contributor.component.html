@@ -14,24 +14,25 @@
         <ul>
             <li>
                 <label
-                    for="txtStudentRole"
+                    for = "txtStudentRole"
                 >
-                    Your contribution *
+                    Your contribution
                 </label>
                 <input
-                    type="text"
-                    name="txtStudentRole"
-                    id="txtStudentRole"
+                    type = "text"
+                    name = "txtStudentRole"
+                    id = "txtStudentRole"
                     [(ngModel)] = 'localStudentRole'
-                    (ngModelChange)="studentRoleChanged()"
+                    (ngModelChange) = "studentRoleChanged()"
                     placeholder = "Enter your contribution"
-                    minlength="3"
-                    maxlength="200"
+                    minlength = "3"
+                    maxlength = "200"
+                    required
                 >
             </li>
         </ul>
         <select-or-add-contributor
-            (onContributorAdded)="addContributorToList($event)"
+            (onContributorAdded) = "addContributorToList($event)"
         ></select-or-add-contributor>
     </fieldset>
     
@@ -45,11 +46,21 @@
 
     <div>
         <validation-result
-        [validationResult] = 'validationResult'
+            [validationResult] = 'validationResult'
         ></validation-result>
-        <button (click)="cancel()">Cancel</button>
-        <button (click)="save()">Save</button>
+
+        <button
+            (click) = "cancel()"
+        >
+            Cancel
+        </button>
+        <button
+            (click) = "save()"
+        >
+            Next
+        </button>
     </div>
+
     <confirm-discard
         *ngIf="confirmDicardIsVisible"
         (onConfirm) = 'close()'

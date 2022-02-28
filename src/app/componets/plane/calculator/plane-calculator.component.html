@@ -1,7 +1,10 @@
-<label class="switch"
-for="chckIsAnnual"
+<label
+    class = "switch"
+    for = "chckIsAnnual"
 >
-<p>Monthly</p>
+    <p>
+        Monthly
+    </p>
     
     <input
         id = 'chckIsAnnual'
@@ -10,14 +13,26 @@ for="chckIsAnnual"
         [(ngModel)]="isAnnual"
         (ngModelChange)="planeChanged()"
     >
+
     <span class="slider round"></span>
-    <p>Yearly</p>
+
+    <p>
+        Yearly
+        <u>
+            Save 17%
+        </u>
+    </p>
+
+    
+
 </label>
 
 <b>
     ${{calculatePrice()}}    
 </b>
 
-<span class="get-duration-title">
+<span
+    class = "get-duration-title"
+>
     /{{getDurationTitle()}}
 </span>
