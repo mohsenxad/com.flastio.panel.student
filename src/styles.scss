@@ -61,14 +61,18 @@ form {
   box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
   border: solid 1px #d8e0f0;
   background-color: #fff;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   &::before {
-    content: url(/assets/images/icn-general-add-blue.svg);
-    margin-right: 12px;
+    content: "";
+    background: url(/assets/images/icn-general-add-blue.svg);
+    margin-right: 8px;
     -webkit-writing-mode: vertical-rl;
+    width: 20px;
+    display: inline-block;
+    height: 16px;
   }
   transition: 0.5s;
   cursor: pointer;

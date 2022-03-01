@@ -307,7 +307,10 @@ input:checked + .slider:before {
   margin-top: 20px;
 
   &::after {
-    content: url(/assets/images/icn-general-arrow-left-white.svg);
+    content: "";
+    background: url(/assets/images/icn-general-arrow-left-white.svg);
+    width: 30px;
+    height: 30px;
     transform: rotate(180deg);
     margin-left: 12px;
     -webkit-writing-mode: vertical-rl;
@@ -329,7 +332,8 @@ input:checked + .slider:before {
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #3f8cff;
+  color: #3f8cff;  
+  background-color: transparent;
 }
 
 @media screen and (max-width: 992px) {

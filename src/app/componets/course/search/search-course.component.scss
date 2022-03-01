@@ -125,9 +125,11 @@ button:first-of-type {
       overflow: hidden;
       font: status-bar;
       display: inline-flex;
-      margin-left: 0;
+      margin-left: 11px;
       padding: 0;
       transform: rotate(45deg);
+      width: 20px;
+      height: 20px;
     }
   }
 }

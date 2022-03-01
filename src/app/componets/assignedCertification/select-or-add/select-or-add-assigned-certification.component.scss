@@ -20,6 +20,7 @@
     text-align: center;
     color: #0a1629;
     margin: 27px auto 39px auto;
+    display: block;
   }
   p {
     font-size: 16px;
@@ -98,19 +99,17 @@
   margin-top: 0;
   width: 40px;
 }
-.assignedCertification-list{
+.assignedCertification-list {
   position: relative;
 }
 
-
-
-
-
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
-    legend {
-      display: block !important;
-      margin: 27px auto 39px auto !important;
+    .modal-body {
+      legend {
+        display: block !important;
+        margin: 27px auto 39px auto !important;
+      }
     }
   }
 }

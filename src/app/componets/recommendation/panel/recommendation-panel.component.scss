@@ -28,7 +28,8 @@ button {
   border: solid 1px #d8e0f0;
   background-color: #fff;
   transition: 0.5s;
-  display: block;
+  display: inline-flex;
+  align-items: center;
   &::before {
     content: "";
     background: url(/assets/images/icn-general-add-blue.svg);
