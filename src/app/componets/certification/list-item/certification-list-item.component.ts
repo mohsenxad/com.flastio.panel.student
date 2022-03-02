@@ -33,7 +33,6 @@ export class CertificationListItemComponent implements OnInit {
   }
 
   view(){
-    console.log('viwing ...');
     window.open(this.assignedCertification.fileUrl.toString());
   }
 
