@@ -19,12 +19,17 @@ export class StudentHomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getStudentInfo();
+    //this.getStudentInfo();
   }
 
   async getStudentInfo(){
     this.isLoading = true;
-    this.student  = await this.studentService.getStudentInfo();
+    const remoteStudent = await this.studentService.getStudentInfo();
+    if(remoteStudent){
+      this.student  = remoteStudent;
+    }else{
+      this.student = {};
+    }
     this.localStorageService.setStudent(this.student);
     this.isLoading = false;
   }

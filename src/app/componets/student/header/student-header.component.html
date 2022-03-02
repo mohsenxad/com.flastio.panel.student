@@ -1,4 +1,7 @@
 <flastio-logo></flastio-logo>
+<loading
+    *ngIf = "isLoading"
+></loading>
 <ul>
     <li>
         Notifications
@@ -10,17 +13,18 @@
         >
             <summary>
                 <img 
-                    *ngIf="!student.pictureFileUrl"
-                    src="/assets/images/profile-icon.svg"
-                    alt="image"
+                    *ngIf = "!student || !student.pictureFileUrl"
+                    src = "/assets/images/profile-icon.svg"
+                    alt = "image"
                 >
                 <img 
-                    *ngIf="student.pictureFileUrl"
-                    [src]="student.pictureFileUrl"
-                    alt="image"
+                    *ngIf = "student && student.pictureFileUrl"
+                    [src] = "student.pictureFileUrl"
+                    alt = "image"
                 >
             </summary>
             <student-modal-banner
+                *ngIf = "student"
                 [student] = 'student'
                 (onClose) = "close()"
             ></student-modal-banner>
