@@ -1,4 +1,15 @@
+<loading
+    *ngIf = 'isLoading'
+></loading>
+
+<b
+    *ngIf = "!isLoading && (!assignedCertificationList || assignedCertificationList.length == 0)"
+>
+    No Certification Yet. Add New Certification fist!
+</b>
+
 <select
+    *ngIf="!isLoading && assignedCertificationList && assignedCertificationList.length > 0"
     name = "slctAssignedCertification"
     id = "slctAssignedCertification"
     [(ngModel)] = "selectedAssignedCertificationId"
