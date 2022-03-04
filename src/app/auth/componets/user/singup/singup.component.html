@@ -34,24 +34,25 @@
       </li>
       <li>
         <label
-          for="cmpReEnterPassword"
+          for = "cmpReEnterPassword"
         >
           Reenter Password:
         </label>
         <password-input
             id = "cmpReEnterPassword"
             name = "cmpReEnterPassword"
-            (onSetPassword)="setReEnterPassword($event)"
+            (onSetPassword) = "setReEnterPassword($event)"
           ></password-input>
       </li>
     </ul>
     <validation-result
-      *ngIf="validationResult"
-      [validationResult]="validationResult"
+      *ngIf = "validationResult"
+      [validationResult] = "validationResult"
     ></validation-result>
     <button
       class="student-signup-submit"
       (click)="signup()"
+      type = "button"
     >
         Signup
     </button>

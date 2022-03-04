@@ -78,13 +78,13 @@ export class LoginComponent implements OnInit {
       try {
         await this.userService.login(this.email, this.password); 
         let student: Student = await this.studentService.getStudentInfo();
+        this.isLoading = false;
         
         if(student){
           this.router.navigateByUrl('/student/panel');
         }else{
           this.router.navigateByUrl('/student/signup');
         }
-        this.isLoading = false;
       } catch (error) {
         this.isLoading = false;
         if(
