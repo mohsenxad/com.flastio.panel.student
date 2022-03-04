@@ -74,7 +74,7 @@
             *ngIf = "assignedCertification"
             class = "assignedCertification-list"
         >
-            <section>
+            <section class="certification-list-item-section">
                 <certification-list-item
                     [assignedCertification] = 'assignedCertification'
                     [isActionable] = 'false'
@@ -84,7 +84,7 @@
                     (click)="remove()"
                     class="remove-btn"
                 >
-                    Remove
+                    
                 </button>
             </section>
             
