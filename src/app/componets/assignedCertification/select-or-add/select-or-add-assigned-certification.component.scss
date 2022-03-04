@@ -103,6 +103,41 @@
   position: relative;
 }
 
+.remove-btn{
+  content: "";
+  border-left: solid 1px #e6ebf5;
+  transition: 0.5s;
+  background: url(/assets/images/delete.svg);
+  width: 42px;
+  height: 28px;
+  transition: 0.5s;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+}
+.submit-btn{
+  content: "";
+  background: url(/assets/images/edit.svg);
+  width: 42px;
+  height: 28px;
+  transition: 0.5s;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+}
+
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
     .modal-body {

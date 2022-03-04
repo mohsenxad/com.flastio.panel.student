@@ -1,0 +1,85 @@
+form {
+  background-color: #f4f9fd;
+  margin: 0 -22px;
+  padding: 24px 30px 43px 30px;
+  legend {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0a1629;
+    margin-bottom: 24px;
+  }
+  .fieldset {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .contribution-section {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+label {
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #0a1629;
+  display: block;
+  margin-left: 12px;
+  margin-bottom: 10px;
+}
+.add-btn {
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #91929e;
+  margin-top: 27px;
+  padding: 10px 0;
+  &::before {
+    content: "";
+    background: url(/assets/images/icn-general-add-blue.svg);
+    margin-right: 8px;
+    -webkit-writing-mode: vertical-rl;
+    width: 20px;
+    display: inline-block;
+    height: 16px;
+  }
+}
+
+input {
+  border-radius: 14px;
+  box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
+  border: solid 1px #d8e0f0;
+  background-color: #fff;
+  padding: 13px 0 14px 0;
+  display: block;
+  width: 100%;
+  margin: 0;
+  &::placeholder {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #7d8592;
+  }
+}
+.contribution-fieldset {
+  margin: 0 !important;
+  padding: 0 !important;
+}

@@ -1,0 +1,25 @@
+label {
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #0a1629;
+  display: block;
+  margin-left: 12px;
+  margin-bottom: 7px;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+  fieldset {
+    margin: 0 !important;
+    padding: 0 !important;
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

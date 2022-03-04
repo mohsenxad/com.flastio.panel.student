@@ -4,7 +4,7 @@ section {
   background-color: #fff;
   padding: 32px;
   width: 60%;
-  margin:0 auto 30px auto;
+  margin: 0 auto 30px auto;
 
   flastio-logo {
     margin: auto;
@@ -63,7 +63,6 @@ section {
   }
 }
 form {
-
   width: 100%;
 
   fieldset {
@@ -116,7 +115,7 @@ form {
         display: flex;
         align-items: center;
       }
-      .remove-picture{
+      .remove-picture {
         font-size: 14px;
         font-weight: normal;
         font-stretch: normal;
@@ -124,13 +123,16 @@ form {
         line-height: 1.5;
         letter-spacing: normal;
         color: #f65160;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         background: none;
         border: none;
 
-        &::before{
-          content: url(/assets/images/icn-general-delete-red.svg);
+        &::before {
+          content: "";
+          background: url(/assets/images/icn-general-delete-red.svg);
+          width: 16px;
+          height: 16px;
           margin-right: 8px;
           -webkit-writing-mode: vertical-rl;
         }
@@ -187,7 +189,6 @@ form {
       &::before {
         content: url(/assets/images/icn-general-add-dark-blue.svg);
         margin-right: 4px;
-        
       }
     }
     input {
@@ -332,7 +333,7 @@ input:checked + .slider:before {
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #3f8cff;  
+  color: #3f8cff;
   background-color: transparent;
 }
 
@@ -363,4 +364,5 @@ input:checked + .slider:before {
   width: 64px;
   height: 64px;
   border-radius: 50%;
+  margin-right: 16px;
 }

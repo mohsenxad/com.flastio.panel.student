@@ -3,7 +3,7 @@
         You can add as many contributors as you need to. The contributors will be notified upon submitting your project. It will enable them to consider uploading the project to their portfolio as well.
     </legend>
   
-    <fieldset>
+    <fieldset class="contribution-fieldset">
         <ul
             class = "contribution-section"
         >
@@ -43,6 +43,7 @@
                 *ngIf = "contributor.student"
                 type = "button"
                 (click) = "add()"
+                class="add-btn"
             >
                 Confirm Contributor
             </button>
