@@ -150,6 +150,18 @@ year-select2 {
   margin-top: 7px;
 }
 
+p {
+  opacity: 0.7;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #0a1629;
+  margin: 37px 10px 16px 0;
+}
+
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
     form {
