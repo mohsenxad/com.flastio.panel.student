@@ -48,16 +48,28 @@ export class ProjectService {
   async add(project: Project): Promise<Project>{
     const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
     const user: Realm.User = app.currentUser;
-    let result: Project  = await user.functions.addProject(
-      this.studentId,
-      project.baseInfo,
-      project.isPublished,
-      project.linkUrlList,
-      project.supportingFileList,
-      project.contributorList,
-      project.assignedCertification,
-      project.role
-    );
+    // let result: Project  = await user.functions.addProject(
+    //   this.studentId,
+    //   project.baseInfo,
+    //   project.isPublished,
+    //   project.linkUrlList,
+    //   project.supportingFileList,
+    //   project.contributorList,
+    //   project.assignedCertification,
+    //   project.role
+    // );
+
+    let functionArgs:any[]=
+    [this.studentId,
+    project.baseInfo,
+    project.isPublished,
+    project.linkUrlList,
+    project.supportingFileList,
+    project.contributorList,
+    project.assignedCertification,
+    project.role];
+
+    let result: Project  = await user.functions.callFunction("addProject",functionArgs);
     return result;
   }
 

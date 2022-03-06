@@ -36,7 +36,9 @@ export class StudentService {
   async getStudentInfo(): Promise<Student>{
     const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
     const user: Realm.User = app.currentUser;
-    const student: Student = await user.functions.getStudent();
+    //const student: Student = await user.functions.getStudent();
+    const student: Student = await user.functions.callFunction("getStudent");
+
     return student;
   }
 
