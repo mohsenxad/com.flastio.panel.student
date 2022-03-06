@@ -55,18 +55,12 @@
       (onClose) = 'goToGeneralView($event)'
     ></assign-supporting-file-project>
 
-    <assign-certifiction
-      *ngIf="pageTitle == 'Certification' && !project.assignedCertification"
+    <select-or-add-assigned-certification
+      *ngIf = "pageTitle == 'Certification'"
+      [assignedCertification] = 'project.assignedCertification'
       (onAssignedCertificationAdded) = 'updateCertification($event)'
       (onClose) = 'goToGeneralView($event)'
-    ></assign-certifiction>
-    <div
-      *ngIf="pageTitle == 'Certification' && project.assignedCertification"
-    >
-      <certification-list-item
-        [assignedCertification] = 'project.assignedCertification'
-      ></certification-list-item>
-    </div>
+    ></select-or-add-assigned-certification>
     
     <assign-contributor
       *ngIf = "pageTitle == 'Team'"

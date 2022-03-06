@@ -60,18 +60,33 @@
       <validation-result
         [validationResult] = 'validationResult'
       ></validation-result>
-      <div class="btn-section">
-        <button class="submit-btn"
-          (click)="save()"
+
+      <div
+        class="btn-section"
+      >
+        <button
+          type = "button"
+          class = "submit-btn"
+          (click) = "save()"
         >
-        Add
+          Add
         </button>
-        <button class="cancel-btn"
-          (click)="cancel()"
+
+        <button
+          type = "button"
+          class = "cancel-btn"
+          (click) = "cancel()"
         >
           Cancel
         </button>
+
       </div>
       
     </fieldset>
   </form>
+
+  <confirm-discard
+    *ngIf = "confirmDicardIsVisible"
+    (onConfirm) = 'close()'
+    (onCancel) = 'hideConfirmDiscardModal()'
+  ></confirm-discard>

@@ -21,6 +21,7 @@ export class AddProjectComponent implements OnInit {
   @Output() onClose = new EventEmitter();
   @Output() onProjectAdded = new EventEmitter<Project>();
 
+  confirmDicardIsVisible: Boolean = false;
   project :Project = {
     baseInfo:{
       projectType : 'Course Project',
@@ -175,8 +176,6 @@ export class AddProjectComponent implements OnInit {
   }
 
   updateCertification(assignedCertification: AssignedCertification){
-    console.log('hew hweh ew on updateCertification');
-    
     this.project.assignedCertification = assignedCertification
   }
 
@@ -218,6 +217,55 @@ export class AddProjectComponent implements OnInit {
     this.project.baseInfo = baseInfo;
   }
 
+  hideConfirmDiscardModal(){
+    this.confirmDicardIsVisible = false;
+  }
+
+  isChanged():Boolean{
+    let result: Boolean = false;
+
+    if(this.project.baseInfo.name){
+      result = true;
+    }
+
+    if(this.project.baseInfo.summaryFile){
+      result = true;
+    }
+
+    if(this.project.baseInfo.course){
+      result = true;
+    }
+
+    if(this.project.baseInfo.description){
+      result = true;
+    }
+
+    if(this.project.baseInfo.skillList.length > 0){
+      result = true;
+    }
+
+    if(this.project.linkUrlList.length > 0){
+      result = true;
+    }
+
+    if(this.project.supportingFileList.length > 0){
+      result = true;
+    }
+
+    if(this.project.contributorList.length > 0){
+      result = true;
+    }
+    
+    return result;
+  }
+
+  cancel(){
+    if(this.isChanged()){
+      this.confirmDicardIsVisible = true;
+    }else{
+     this.close();
+    }
+  }
 
 
   close(){

@@ -18,7 +18,8 @@ export class AddAssingedCertificationComponent implements OnInit {
     issuedDateMonth: 0
   };
 
-  certificationFile: File ;
+  //certificationFile: File ;
+  confirmDicardIsVisible: Boolean = false;
   isLoading:Boolean = false;
   validationResult: ValidationResult = {
     hasError:false,
@@ -27,11 +28,9 @@ export class AddAssingedCertificationComponent implements OnInit {
 
   constructor(
     private certificationService:CertificationService
-  ) { 
-  }
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onCertificationSet(certification: Certification):void{
     this.assignedCertification.certification = certification;
@@ -43,12 +42,10 @@ export class AddAssingedCertificationComponent implements OnInit {
 
   selectedIssuedDateMonth(issuedDateMonth: Number){
     this.assignedCertification.issuedDateMonth = issuedDateMonth;
-
   }
 
   selectedIssuedDateYear(issuedDateYear: Number){
     this.assignedCertification.issuedDateYear = issuedDateYear;
-
   }
 
   validate(assignedCertification: AssignedCertification): ValidationResult{
@@ -92,10 +89,43 @@ export class AddAssingedCertificationComponent implements OnInit {
     this.assignedCertification.fileName = uploadResponse.fileName;
     this.assignedCertification.fileUrl = uploadResponse.fileUrl;
   }
+
+  isChanged():Boolean{
+    let result: Boolean = false;
+
+    if(this.assignedCertification.certification){
+      result = true;
+    }
+
+    if(this.assignedCertification.issuedDateMonth != 0){
+      result = true;
+    }
+
+    if(this.assignedCertification.issuedDateYear){
+      result = true;
+    }
+
+    if(this.assignedCertification.organization){
+      result = true;
+    }
+
+    if(this.assignedCertification.fileUrl){
+      result = true;
+    }
+ 
+    return result;
+  }
+
+  hideConfirmDiscardModal(){
+    this.confirmDicardIsVisible = false;
+  }
   
   cancel(){
-    // remove certification files from s3
-    this.onClose.emit();
+    if(this.isChanged()){
+      this.confirmDicardIsVisible = true;
+    }else{
+     this.close();
+    }
   }
 
   close(){

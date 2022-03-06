@@ -1,14 +1,19 @@
-<div class="main-modal">
+<div 
+  class = "main-modal"
+>
   
   <form
-    class="popup"
+    class = "popup"
     *ngIf = "pageTitle == 'General'"
   >
     <loading
-      *ngIf="isLoading"
+      *ngIf = "isLoading"
     ></loading>
-    <button class="close-btn"
-      (click) = 'close()'
+
+    <button
+      type = "button"
+      class = "close-btn"
+      (click) = 'cancel()'
     >
       Close
     </button>
@@ -78,5 +83,9 @@
     (onContributorListUpdated) = "updateContributorList($event)"
     (onClose) = 'goToGeneralView($event)'
   ></assign-contributor>
-
+  <confirm-discard
+    *ngIf = "confirmDicardIsVisible"
+    (onConfirm) = 'close()'
+    (onCancel) = 'hideConfirmDiscardModal()'
+  ></confirm-discard>
 </div>

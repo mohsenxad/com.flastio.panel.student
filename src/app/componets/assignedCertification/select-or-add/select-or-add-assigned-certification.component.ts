@@ -37,6 +37,10 @@ export class SelectOrAddAssignedCertificationComponent implements OnInit {
     this.onClose.emit();
   }
 
+  cancel(){
+    this.onClose.emit();
+  }
+
   close(){
     this.onClose.emit();
   }

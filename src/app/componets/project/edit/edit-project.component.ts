@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AssignedCertification } from 'src/app/model/assignedCertification';
 import { Contributor } from 'src/app/model/contributor';
 import { LinkUrl } from 'src/app/model/linkUrl';
 import { Major } from 'src/app/model/major';
@@ -158,6 +159,10 @@ export class EditProjectComponent implements OnInit {
 
   updateSupportingFileList(supportingFileList: SupportingFile[]){
     this.project.supportingFileList = supportingFileList
+  }
+
+  updateCertification(assignedCertification: AssignedCertification){
+    this.project.assignedCertification = assignedCertification
   }
 
   ngOnInit(): void {}
