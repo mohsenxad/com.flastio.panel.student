@@ -73,7 +73,8 @@ export class ProjectService {
     return result;
   }
 
-    
+  
+  
   async edit(project: Project): Promise<Project>{
     const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
     const user: Realm.User = app.currentUser;
