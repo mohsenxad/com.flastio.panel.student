@@ -43,7 +43,6 @@ export class TranscriptPanelComponent implements OnInit {
     await this.transcriptService
       .upload(uploadPresignUrl,transcriptFile, this.trasncript.fileExtention)
       .then(async data=>{
-        console.log('uploaded');
         this.trasncript.fileUrl = uploadPresignUrl.split('?')[0];
         await this.transcriptService.setTranscript(this.trasncript);
         this.isLoading = false;

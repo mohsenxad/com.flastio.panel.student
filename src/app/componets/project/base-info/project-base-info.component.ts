@@ -34,8 +34,6 @@ export class ProjectBaseInfoComponent implements OnInit {
   }
 
   setCoursse(course:Course){
-    console.log('setCoruse in base info');
-    
     this.localProjectBaseInfo.course = course;
     this.updateProjectBaseInfo();
   }

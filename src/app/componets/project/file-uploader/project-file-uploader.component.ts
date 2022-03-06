@@ -36,8 +36,6 @@ export class ProjectFileUploaderComponent implements OnInit {
   
 
   setDropable(){
-    console.log('init dropable in project');
-    
     let dropContainer = document.getElementById("divProjectSummaryFileSelector");
 
     dropContainer.ondragover = dropContainer.ondragenter = (evt) => {
@@ -75,7 +73,6 @@ export class ProjectFileUploaderComponent implements OnInit {
     this.isLoading = true;
     await this.projectService.upload(uploadPresignUrl,localSummaryFile, this.summaryFile.fileExtention)
     .then(data => {
-      console.log('uploaded');
       this.summaryFile.fileUrl = uploadPresignUrl.split('?')[0];
       this.isLoading = false;
       this.isFileUploaded = true;

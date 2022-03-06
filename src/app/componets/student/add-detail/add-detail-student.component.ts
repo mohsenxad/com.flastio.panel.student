@@ -47,8 +47,6 @@ export class AddDetailStudentComponent implements OnInit {
 
   setCountryRegion(countryRegion:String){
     this.student.countryRegion = countryRegion;
-    console.log(this.student.countryRegion);
-    
   }
 
   setCollegeStatus(collegeStatus: String){
@@ -169,11 +167,8 @@ export class AddDetailStudentComponent implements OnInit {
   }
 
   isChanged():Boolean{
-    console.log('herer to change');
     let result: Boolean = false;
-    
     let localStorageStudent = this.localStorageService.getStudent();
-
     if(
       this.student.pictureFileUrl != localStorageStudent.pictureFileUrl ||
       this.student.countryRegion != localStorageStudent.countryRegion ||

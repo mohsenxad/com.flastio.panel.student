@@ -71,8 +71,6 @@ export class ShareProfileByEmailComponent implements OnInit {
   }
 
   remove(email:String):void{
-    console.log('ere to remove');
-    
     this.emailList = this.emailList.filter((currentEmail) => {
       if(currentEmail != email){
         return currentEmail

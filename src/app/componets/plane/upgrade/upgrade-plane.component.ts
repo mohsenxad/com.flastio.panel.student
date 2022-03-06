@@ -31,8 +31,6 @@ export class UpgradePlaneComponent implements OnInit {
   isAnnual:Boolean = true;
 
   goToPayment():void{
-    console.log(this.isAnnual);
-    
     let paymentLink = 'https://buy.stripe.com/cN215J8Li5NX1H26oq';
     if(this.isAnnual){
       paymentLink = 'https://buy.stripe.com/bIYg0D4v22BL71m7sv';

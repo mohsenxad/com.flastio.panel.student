@@ -26,11 +26,7 @@ export class ProjectPanelComponent implements OnInit,OnChanges {
     private projectService: ProjectService
   ) { }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('this is in project panel changes');
-    
-    console.log(changes);
-  }
+  ngOnChanges(changes: SimpleChanges): void {}
 
   ngOnInit(): void {}
   

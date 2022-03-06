@@ -18,7 +18,6 @@ export class MobileNumberInputComponent implements OnInit {
   }
 
   onKeyup($event){
-    console.log($event);
     this.mobileNumber = this.getFormatedMobileNumber(this.mobileNumber);
     let mobileNumberValue = this.getMobileNumber(this.mobileNumber);
     if(mobileNumberValue.length == 12){

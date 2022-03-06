@@ -54,7 +54,6 @@ export class SearchCertificationComponent implements OnInit {
   }
 
   onKeyup(event) {
-    console.log(event);
     if(
       event.code == "Enter" &&
       this.isAddable()
@@ -64,8 +63,6 @@ export class SearchCertificationComponent implements OnInit {
   }
 
   changed(value){
-    console.log(value);
-    
     if(
       this.certificationKeyWord.length >= this.keywordMinCharLengthToSearch
     ){
@@ -99,8 +96,6 @@ export class SearchCertificationComponent implements OnInit {
   }
 
   remove(){
-    console.log('here to remove');
-    
     this.selectedCertification = undefined;
     this.onCertificationSelected.emit(this.selectedCertification);
   }

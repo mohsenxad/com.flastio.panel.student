@@ -31,8 +31,6 @@ export class PublicEmailInputComponent implements OnInit {
   }
 
   focuseout(){
-    console.log('focouse out');
-    
     this.validationResult = this.validate(this.email);
     if(!this.validationResult.hasError){
       this.onSetEmail.emit(this.email);

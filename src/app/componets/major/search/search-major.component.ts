@@ -55,7 +55,6 @@ export class SearchMajorComponent implements OnInit {
   }
 
   onKeyup(event) {
-    console.log(event);
     if(
       this.majorKeyWord &&
       this.majorKeyWord.length >= this.keywordMinCharLengthToSearch

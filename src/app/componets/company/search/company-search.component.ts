@@ -56,7 +56,6 @@ export class CompanySearchComponent implements OnInit {
   }
 
   onKeyup(event) {
-    console.log(event);
     if(
       this.companyKeyWord &&
       this.companyKeyWord.length >= this.keywordMinCharLengthToSearch

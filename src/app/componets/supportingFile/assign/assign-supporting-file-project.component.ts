@@ -30,8 +30,6 @@ export class AssignSupportingFileProjectComponent implements OnInit {
   }
 
   setDropable(){
-    console.log('statr dropable');
-    
     let dropContainer = document.getElementById("divSupportingFileSelector");
 
     dropContainer.ondragover = dropContainer.ondragenter = (evt) => {

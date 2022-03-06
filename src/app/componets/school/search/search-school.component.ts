@@ -27,7 +27,6 @@ export class SearchSchoolComponent implements OnInit {
   }
 
   onKeyup(event) {
-    console.log(event);
     if(this.schoolKeyWord.length >= this.keywordMinCharLengthToSearch ){
       this.search(this.schoolKeyWord);
     }else{

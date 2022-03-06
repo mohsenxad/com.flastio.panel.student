@@ -17,14 +17,10 @@ export class ProjectActionPanelComponent implements OnInit {
   }
 
   edit(){
-    console.log('edit');
-    
     this.onEdit.emit();
   }
 
   delete(){
-    console.log('delete');
-    
     this.onDelete.emit();
   }
 

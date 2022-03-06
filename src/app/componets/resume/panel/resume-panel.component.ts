@@ -49,7 +49,6 @@ export class ResumePanelComponent implements OnInit {
     await this.resumeService
       .upload(uploadPresignUrl, resumeFile, this.resume.fileExtention)
       .then(async data=>{
-        console.log('uploaded');
         this.resume.fileUrl = uploadPresignUrl.split('?')[0];
         await this.resumeService.setTranscript(this.resume);
         this.isLoading = false;

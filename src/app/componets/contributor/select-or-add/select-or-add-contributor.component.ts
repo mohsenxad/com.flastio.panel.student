@@ -56,8 +56,6 @@ export class SelectOrAddContributorComponent implements OnInit {
 
   add(){
     this.contributorValidationResult = this.validateContributor(this.contributor);
-    console.log(this.contributorValidationResult);
-    
     if(!this.contributorValidationResult.hasError){
       this.onContributorAdded.emit(this.contributor);
       this.contributor = {};

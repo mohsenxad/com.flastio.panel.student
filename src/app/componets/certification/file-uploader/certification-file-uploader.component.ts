@@ -37,7 +37,6 @@ export class CertificationFileUploaderComponent implements OnInit {
   }
 
   setDropable(){
-    console.log('statr dropable');
     let dropContainer = document.getElementById("divCertificationFileSelector");
 
     dropContainer.ondragover = dropContainer.ondragenter = (evt) => {
@@ -69,7 +68,6 @@ export class CertificationFileUploaderComponent implements OnInit {
     await this.certificationService
       .upload(uploadPresignUrl,this.file, contentType)
       .then(data => {
-        console.log('uploaded');
         this.isLoading = false;
         this.isFileUploaded = true;
         this.onFileUploaded.emit({fileName:this.fileName,fileUrl:this.fileUrl})

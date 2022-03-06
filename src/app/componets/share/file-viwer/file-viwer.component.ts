@@ -20,15 +20,12 @@ export class FileViwerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.fileExtention);
-    
     if(this.fileExtention == 'image/png'){
       this.isImage = true;
     }else if(this.fileExtention == 'application/pdf'){
       this.isPdf = true;
     }else{
       console.log('open with others');
-      
     }
 
   }

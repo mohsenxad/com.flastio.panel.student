@@ -56,7 +56,6 @@ export class SearchStudentComponent implements OnInit {
   }
 
   onKeyup(event) {
-    console.log(event);
     if(
       event.code == "Enter" &&
       this.isAddable()
@@ -66,8 +65,6 @@ export class SearchStudentComponent implements OnInit {
   }
 
   changed(value){
-    console.log(value);
-    
     if(
       value && 
       value.length >= this.keywordMinCharLengthToSearch

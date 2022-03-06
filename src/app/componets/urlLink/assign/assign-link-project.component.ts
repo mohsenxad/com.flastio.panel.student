@@ -35,7 +35,6 @@ export class AssignLinkProjectComponent implements OnInit {
 
   getLinkInfo(url: String){
     let orginalUrlLink: URL = new URL(url.toString())
-    console.log(orginalUrlLink);
     
     let newLinkUrl : LinkUrl = {
       title:'New Link From Url',

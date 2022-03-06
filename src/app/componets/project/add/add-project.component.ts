@@ -150,9 +150,6 @@ export class AddProjectComponent implements OnInit {
 
   changePage(pageTitle:String): void{
     this.pageTitle = pageTitle;
-    console.log(this.pageTitle);
-    console.log(this.project);
-    
   }
 
   goToGeneralView(){
@@ -181,10 +178,7 @@ export class AddProjectComponent implements OnInit {
 
  
 
-  ngOnInit(): void {
-    console.log(this.project);
-    
-  }
+  ngOnInit(): void {}
 
   draft(){
     this.project.isPublished = false;

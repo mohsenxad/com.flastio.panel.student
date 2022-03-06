@@ -1,7 +1,7 @@
 <section>
   <div>
     <student-info
-      *ngIf="student"
+      *ngIf = "student"
       [student] = "student"
     ></student-info>
     <nav>
@@ -9,8 +9,9 @@
         <li>
           <button
             (click) = 'showShareProfileModal()'  
-            title="Share"
-            aria-label="Share"
+            title = "Share"
+            aria-label = "Share"
+            type = "button"
           >
             Share
           </button>
@@ -20,13 +21,17 @@
             (click) = 'openPublicView()' 
             title = "Public View" 
             aria-label = "Public View"
+            type = "button"
           >
             Public View
           </button>
         </li>
         <li>
           <button
+            type = "button"
             (click) = 'addProject()'
+            title = "Add Project" 
+            aria-label = "Add Project"
           >
             Add Project
           </button>
@@ -40,9 +45,11 @@
     (onClose) = 'hideShareProfileModal()'
   ></share-profile-panel>
   <portfolio-strength
+    *ngIf = "student"
     [student] = "student"
   ></portfolio-strength>
   <analytics-summary
+    *ngIf = "student"
     [student] = "student"
   ></analytics-summary>
 </section>

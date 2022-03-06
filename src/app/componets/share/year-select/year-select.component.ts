@@ -12,12 +12,9 @@ export class YearSelectComponent implements OnInit {
 
   yearList:number[] = [2017,2018,2019,2020,2021,2022];
 
-
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.selectedYear);
-  }
+  ngOnInit(): void {}
 
   changed(year:number){
     this.selectedYear = year;

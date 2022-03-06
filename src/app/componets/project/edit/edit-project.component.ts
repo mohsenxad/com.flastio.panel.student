@@ -147,9 +147,6 @@ export class EditProjectComponent implements OnInit {
   }
 
   updateStudentRole(studentRole: String):void{
-    console.log('studentRole');
-    console.log(studentRole);
-    
     this.project.role = studentRole
   }
   
@@ -196,7 +193,6 @@ export class EditProjectComponent implements OnInit {
   }
 
   setBaseInfo(baseInfo:ProjectBaseInfo){
-    console.log('settin baseInfo');
     this.project.baseInfo = baseInfo;
   }
 
