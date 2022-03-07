@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AssignedCertificationService } from 'src/app/services/assignedCertification/assigned-certification.service';
 import { CertificationService } from 'src/app/services/certification/certification.service';
 import { AssignedCertification } from '../../../model/assignedCertification';
 
@@ -21,7 +22,8 @@ export class CertificationPanelComponent implements OnInit {
   markAsEditAssignedCertification :AssignedCertification;
 
   constructor(
-    private certificationService: CertificationService
+    private certificationService: CertificationService,
+    private assignedCertificationService: AssignedCertificationService
   ) { }
 
   ngOnInit(): void {
@@ -83,7 +85,7 @@ export class CertificationPanelComponent implements OnInit {
   }
 
   async confirmedDelete(){
-    await this.certificationService.remove(this.markAsDeleteSssignedCertification);
+    await this.assignedCertificationService.remove(this.markAsDeleteSssignedCertification);
     this.assignedCertificationList = this.assignedCertificationList.filter((currentAssignedCertification: AssignedCertification)=>{
       if(currentAssignedCertification._id.toString()!= this.markAsDeleteSssignedCertification._id.toString()){
         return currentAssignedCertification;

@@ -1,8 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as Realm from "realm-web";
 import { Resume } from 'src/app/model/resume';
-import { LocalStorageService } from '../localStorage/local-storage.service';
+import { AwsService } from '../aws/aws.service';
+import { RealmService } from '../realm/realm.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,34 +9,31 @@ import { LocalStorageService } from '../localStorage/local-storage.service';
 export class ResumeService {
 
   constructor(
-    private http: HttpClient
+    private realmService: RealmService,
+    private awsService: AwsService,
   ) {}
 
    async upload( url: String, file:any, contentType: String): Promise<any>{
-    let body: any =file;
-    var headers: HttpHeaders = new HttpHeaders(
-      {
-        "conte": "application/x-www-form-urlencoded",
-        "ContentType": contentType.toString()
-      });
-    return this.http
-      .put(url.toString(),body, {headers})
-      .toPromise();
+    return this.awsService.upload(url, file, contentType);
   }
 
-  async getUploadUrl(){
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let result: any  = await user.functions
-      .getResumeUploadUrl({Bucket:"flastio"})
+  async getUploadUrl():Promise<any>{
+    const bucket = {
+      Bucket:"flastio"
+    };
+    const result: any  = await this.realmService.callFunction(
+      "getResumeUploadUrl",
+      bucket
+    )
     return result;
   }
 
   async setTranscript(resume:Resume){
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let result: any  = await user.functions
-      .setResumeFileName(resume);
+    const result: any  = await this.realmService.callFunction(
+      "setResumeFileName",
+      resume
+    );
+    return result;
   }
 
 

@@ -1,25 +1,29 @@
 import { Injectable } from '@angular/core';
-import * as Realm from "realm-web";
 import { Major } from 'src/app/model/major';
+import { RealmService } from '../realm/realm.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MajorService {
 
-  constructor() { }
+  constructor(
+    private realmService: RealmService,
+  ) { }
 
-  async search(keyword):Promise<Major[]>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let majorList: Major[]  = await user.functions.searchMajor(keyword);
+  async search(keyword:String):Promise<Major[]>{
+    let majorList: Major[]  = await this.realmService.callFunction(
+      "searchMajor",
+      keyword
+    );
     return majorList;
   }
 
-  async add(name){
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let newMajor: Major = await user.functions.addMajor(name);
+  async add(name:String):Promise<Major>{
+    let newMajor: Major = await this.realmService.callFunction(
+      "addMajor",
+      name
+    );
     return newMajor
   }
 

@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AssignedCertification } from 'src/app/model/assignedCertification';
 import { Certification } from 'src/app/model/certification';
 import { ValidationResult } from 'src/app/model/validationResult';
+import { AssignedCertificationService } from 'src/app/services/assignedCertification/assigned-certification.service';
 import { CertificationService } from 'src/app/services/certification/certification.service';
 
 @Component({
@@ -27,7 +28,8 @@ export class AddAssingedCertificationComponent implements OnInit {
   }
 
   constructor(
-    private certificationService:CertificationService
+    private certificationService: CertificationService,
+    private assignedCertificationService: AssignedCertificationService,
   ) {}
 
   ngOnInit(): void {}
@@ -78,7 +80,7 @@ export class AddAssingedCertificationComponent implements OnInit {
     
     if(!this.validationResult.hasError){
       this.isLoading = true;
-      this.assignedCertification = await this.certificationService.save(this.assignedCertification);
+      this.assignedCertification = await this.assignedCertificationService.save(this.assignedCertification);
       this.isLoading = false;
       this.onAssignedCertificationAdded.emit(this.assignedCertification);
     }

@@ -3,6 +3,7 @@ import { Certification } from '../../../model/certification';
 import { AssignedCertification } from '../../../model/assignedCertification';
 import { CertificationService } from 'src/app/services/certification/certification.service';
 import { ValidationResult } from 'src/app/model/validationResult';
+import { AssignedCertificationService } from 'src/app/services/assignedCertification/assigned-certification.service';
 
 @Component({
   selector: 'assign-certifiction',
@@ -26,7 +27,8 @@ export class AssignCertifictionComponent implements OnInit {
   }
 
   constructor(
-    private certificationService:CertificationService
+    private certificationService:CertificationService,
+    private assignedCertificationService:AssignedCertificationService
   ) { 
   }
 
@@ -81,7 +83,7 @@ export class AssignCertifictionComponent implements OnInit {
     
     if(!validationResult.hasError){
       this.isLoading = true;
-      this.assignedCertification = await this.certificationService.save(this.assignedCertification);
+      this.assignedCertification = await this.assignedCertificationService.save(this.assignedCertification);
       this.isLoading = false;
       this.onAssignedCertificationAdded.emit(this.assignedCertification);
       this.onClose.emit();

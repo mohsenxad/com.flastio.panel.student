@@ -1,25 +1,29 @@
 import { Injectable } from '@angular/core';
-import * as Realm from "realm-web";
 import { Skill } from 'src/app/model/skill';
+import { RealmService } from '../realm/realm.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillService {
 
-  constructor() { }
+  constructor(
+    private realmService: RealmService,
+  ) {}
 
-  async search(keyword):Promise<Skill[]>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let skillList: Skill[]  = await user.functions.searchSkill(keyword);
+  async search(keyword: String):Promise<Skill[]>{
+    const skillList: Skill[]  = await this.realmService.callFunction(
+      "searchSkill",
+      keyword
+    );
     return skillList;
   }
 
-  async add(name):Promise<Skill>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let newSkill: Skill = await user.functions.addSkill(name);
+  async add(name: String):Promise<Skill>{
+    const newSkill: Skill = await this.realmService.callFunction(
+      "addSkill",
+      name
+    );
     return newSkill
   }
 }

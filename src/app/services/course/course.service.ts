@@ -1,25 +1,31 @@
 import { Injectable } from '@angular/core';
-import * as Realm from "realm-web";
 import { Course } from 'src/app/model/course';
+import { RealmService } from '../realm/realm.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
-  constructor() { }
+  constructor(
+    private realmService: RealmService,
+  ) { }
 
   async addCrurse(majorId: String,name: String): Promise<Course>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let newCurse:Course  = await user.functions.addCourse(majorId.toString(), name);
+    const newCurse:Course  = await this.realmService.callFunction(
+      "addCourse",
+      majorId.toString(),
+      name
+    );
     return newCurse;
   }
 
   async search(majorId: String,keyword: String):Promise<Course[]>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let response: any  = await user.functions.searchCourse(majorId.toString(),keyword);
+    const response: any  = await this.realmService.callFunction(
+      "searchCourse",
+      majorId.toString(),
+      keyword
+    );
     let result:Course[] = [];
     if(
       response &&

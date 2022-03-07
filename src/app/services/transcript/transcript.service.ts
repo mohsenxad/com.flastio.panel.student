@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import * as Realm from "realm-web";
 import { Transcript } from 'src/app/model/transcript';
+import { RealmService } from '../realm/realm.service';
+import { AwsService } from '../aws/aws.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,33 +9,32 @@ import { Transcript } from 'src/app/model/transcript';
 export class TranscriptService {
 
   constructor(
-    private http: HttpClient
+    private awsService: AwsService,
+    private realmService: RealmService,
   ) {}
 
   async upload( url: String, file:any, contentType: String): Promise<any>{
-    let body: any =file;
-    var headers: HttpHeaders = new HttpHeaders(
-      {
-        "conte": "application/x-www-form-urlencoded",
-        "ContentType": contentType.toString()
-      });
-    return this.http
-      .put(url.toString(),body, {headers}).toPromise();
+    return this.awsService.upload(url, file, contentType);
   }
 
-  async getUploadUrl(){
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let result: any  = await user.functions
-      .getTranscriptUploadUrl({Bucket:"flastio"})
+  async getUploadUrl():Promise<any>{
+    const bucket = {
+      Bucket:"flastio"
+    };
+    const result: any  = await this.realmService.callFunction(
+      "getTranscriptUploadUrl",
+      bucket
+    )
     return result;
   }
 
   async setTranscript(transcript:Transcript){
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    let result: any  = await user.functions
-      .setTranscriptFileName(transcript);
+    const result: any  = await this.realmService.callFunction(
+      "setTranscriptFileName",
+      transcript
+    );
+    return result
+      
   }
 
 }

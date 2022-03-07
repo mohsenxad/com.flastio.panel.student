@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as Realm from "realm-web";
 import { Student } from 'src/app/model/student';
+import { AwsService } from '../aws/aws.service';
+import { RealmService } from '../realm/realm.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,96 +10,81 @@ export class StudentService {
 
 
   constructor(
-    private http: HttpClient
+    private awsService: AwsService,
+    private realmService: RealmService,
   ) { }
 
   async upload( url: string, file:any, contentType: String): Promise<any>{
-    const body: any = file;
-    const headers: HttpHeaders = new HttpHeaders(
-      {
-        "conte": "application/x-www-form-urlencoded",
-        "ContentType": contentType.toString()
-      });
-    return this.http
-      .put(url,body, {headers})
-      .toPromise();
+    return this.awsService.upload(url, file, contentType);
   }
 
   async getUploadUrl():Promise<any>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    const result: any  = await user.functions
-      .getPictureUploadUrl({Bucket:"flastio"})
+    const bucket = {
+      Bucket:"flastio"
+    };
+    const result: any  = await this.realmService.callFunction(
+      "getPictureUploadUrl",
+      bucket
+    )
     return result;
   }
 
   async getStudentInfo(): Promise<Student>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    //const student: Student = await user.functions.getStudent();
-    const student: Student = await user.functions.callFunction("getStudent");
-
+    const student: Student = await this.realmService.callFunction(
+      "getStudent"
+    );
     return student;
   }
 
-  async create(student:Student){
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    const newStudent: Student  = await user.functions
-      .addStudent(
-        student.firstName,
-        student.lastName,
-        student.countryMobileNumberCode,
-        student.mobileNumber,
-        student.school,
-        student.major,
-        student.graduationYear,
-        student.graduationMonth
-      )
+  async create(student:Student):Promise<any>{
+    const newStudent: Student  = await this.realmService.callFunction(
+      "addStudent",
+      student.firstName,
+      student.lastName,
+      student.countryMobileNumberCode,
+      student.mobileNumber,
+      student.school,
+      student.major,
+      student.graduationYear,
+      student.graduationMonth
+    );
     return newStudent;
   }
 
   
   async invite(email:String, title: String): Promise<Student>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    const newStudent: Student  = await user.functions
-      .inviteStudent(
-        title,
-        email
-      )
+    const newStudent: Student  = await this.realmService.callFunction(
+      "inviteStudent",
+      title,
+      email
+    );
     return newStudent;
   }
 
   async updateDetail(student: Student):Promise<Student>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    const result: Student  = await user.functions
-      .updateStudentDetail(
-        student._id.toString(),
-        student.countryRegion || undefined,
-        student.postalCode || undefined,
-        student.gender || undefined,
-        student.isGenderSharable || undefined,
-        student.ethnicity || undefined,
-        student.isEthnicitySharable || undefined,
-        student.collegeStatus || undefined,
-        student.pictureFileName || undefined,
-        student.pictureFileUrl || undefined,
-        student.graduationMonth || undefined,
-        student.graduationYear || undefined,
-      )
+    const result: Student  = await this.realmService.callFunction(
+      "updateStudentDetail",
+      student.countryRegion || undefined,
+      student.postalCode || undefined,
+      student.gender || undefined,
+      student.isGenderSharable || undefined,
+      student.ethnicity || undefined,
+      student.isEthnicitySharable || undefined,
+      student.collegeStatus || undefined,
+      student.pictureFileName || undefined,
+      student.pictureFileUrl || undefined,
+      student.graduationMonth || undefined,
+      student.graduationYear || undefined,
+    );
     return result;
   }  
 
   async share(targetEmail: String, message: String):Promise<Student>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    const result: Student  = await user.functions
-      .share(
-        targetEmail,
-        message
-      )
+    const result: Student  = await this.realmService.callFunction(
+      "share",
+      targetEmail,
+      message
+    );
     return result;
   } 
 
@@ -109,18 +94,14 @@ export class StudentService {
   }
 
   async search(studentKeyWord: String):Promise<Student[]>{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    const studentList: Student[]  = await user.functions.searchStudent(studentKeyWord);
+    const studentList: Student[]  = await this.realmService.callFunction(
+      "searchStudent",
+      studentKeyWord
+    );
     return studentList;
   }
 
   logout():void{
-    const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
-    const user: Realm.User = app.currentUser;
-    user.logOut();
+    this.realmService.logout();
   }
-    
-    
-  
 }

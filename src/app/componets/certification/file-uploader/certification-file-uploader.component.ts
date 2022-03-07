@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ValidationResult } from 'src/app/model/validationResult';
+import { AssignedCertificationService } from 'src/app/services/assignedCertification/assigned-certification.service';
 import { CertificationService } from 'src/app/services/certification/certification.service';
 
 @Component({
@@ -26,9 +27,9 @@ export class CertificationFileUploaderComponent implements OnInit {
   
 
   constructor(
-    private certificationService:CertificationService
-  ) { 
-  }
+    private certificationService:CertificationService,
+    private assignedCertificationService:AssignedCertificationService
+  ) {}
 
   ngOnInit(): void {
     if(this.fileUrl){
@@ -52,7 +53,7 @@ export class CertificationFileUploaderComponent implements OnInit {
   async handleFileInput(files: FileList) {
     this.isLoading = true;
     this.file = files.item(0);
-    let response:any = await this.certificationService.getUploadUrl()
+    let response:any = await this.assignedCertificationService.getUploadUrl()
     let signedUploadUr:String = response.presignedUrl;
 
     this.fileName = response.fileName.toString();
@@ -65,7 +66,7 @@ export class CertificationFileUploaderComponent implements OnInit {
   async uploadFile(uploadPresignUrl: String){
     this.isLoading = true;
     const contentType = this.file.type;
-    await this.certificationService
+    await this.assignedCertificationService
       .upload(uploadPresignUrl,this.file, contentType)
       .then(data => {
         this.isLoading = false;
