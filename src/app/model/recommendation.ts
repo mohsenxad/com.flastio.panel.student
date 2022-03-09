@@ -5,4 +5,6 @@ export interface Recommendation {
     recommenderEmail?: String,
     message?: String,
     recommenderScript?: String,
+    htmlRecommendationMessage? : String,
+    status?: String,
 }

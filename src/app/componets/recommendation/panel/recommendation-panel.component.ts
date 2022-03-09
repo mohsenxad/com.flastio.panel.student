@@ -31,4 +31,22 @@ export class RecommendationPanelComponent implements OnInit {
     this.recommendationList.push(recommendation);
   }
 
+  approve(recommendation:Recommendation):void{
+    console.log('approve');
+    
+  }
+
+  reject(recommendation:Recommendation):void{
+    console.log('reject');
+  }
+
+  delete(recommendation:Recommendation):void{
+    console.log('delete');
+  }
+
+  changeIndex(recommendation:Recommendation):void{
+    console.log('changeIndex');
+  }
+  
+
 }

@@ -4,6 +4,14 @@
     {{ recommendation.recommenderName }}
   </dd>
 
+  <dt>
+    Status
+  </dt>
+  <dd>
+    <!-- {{ recommendation.status }} pendingConfirmation -->
+    Pending Your Approval
+  </dd>
+
   <dt>Position</dt>
   <dd>
     {{ recommendation.recommenderPosition }}
@@ -11,8 +19,25 @@
 
   <dt>Script</dt>
   <dd>
-    John has been one of my greatest students, with deep expertise in FEA. Lorem
-    ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis suscipit
-    leo, id pretium lacus blandit at.
+    <div
+      [innerHtml] = 'recommendation.htmlRecommendationMessage'
+    ></div>
+
+    <div
+      id="penddingActionPanel"
+    >
+
+    </div>
   </dd>
 </dl>
+<div>
+  <recommendation-action-panel
+    (onDelete) = "delete()"
+    (onChangeIndex) = "changeIndex($event)"
+  ></recommendation-action-panel>
+  <recommendation-approval-action-panel
+    (onApprove) = "approve()"
+    (onReject) = "reject()"
+  ></recommendation-approval-action-panel>
+</div>
+
