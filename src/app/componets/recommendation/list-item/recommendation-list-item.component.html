@@ -1,25 +1,25 @@
 <dl>
   <dt>Name</dt>
-  <dd>
+  <dd class="recommendation-name">
     {{ recommendation.recommenderName }}
   </dd>
 
   <dt>
     Status
   </dt>
-  <dd>
+  <dd class="approval">
     <!-- {{ recommendation.status }} pendingConfirmation -->
     Pending Your Approval
   </dd>
 
   <dt>Position</dt>
-  <dd>
+  <dd class="position">
     {{ recommendation.recommenderPosition }}
   </dd>
 
   <dt>Script</dt>
   <dd>
-    <div
+    <div class="description"
       [innerHtml] = 'recommendation.htmlRecommendationMessage'
     ></div>
 
@@ -30,7 +30,7 @@
     </div>
   </dd>
 </dl>
-<div>
+<div class="recommendation-action-section">
   <recommendation-action-panel
     (onDelete) = "delete()"
     (onChangeIndex) = "changeIndex($event)"
