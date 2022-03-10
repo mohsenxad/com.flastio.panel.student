@@ -5,8 +5,9 @@ ul {
     border-bottom: 1px solid #e6ebf5;
     margin: 0 0 32px 0;
     padding: 0 0 32px 0;
-    &:last-child{
-        border: none;
+    position: relative;
+    &:last-child {
+      border: none;
     }
   }
 }
