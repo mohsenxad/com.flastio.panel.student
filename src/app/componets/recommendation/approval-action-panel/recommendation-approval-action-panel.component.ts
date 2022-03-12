@@ -17,10 +17,12 @@ export class RecommendationApprovalActionPanelComponent implements OnInit {
 
   approve(){
     this.onApprove.emit();
+    this.close();
   }
 
   reject(){
     this.onReject.emit();
+    this.close();
   }
 
   close(){

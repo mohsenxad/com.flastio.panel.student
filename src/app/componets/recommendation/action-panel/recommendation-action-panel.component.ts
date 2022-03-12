@@ -17,10 +17,12 @@ export class RecommendationActionPanelComponent implements OnInit {
 
   delete(){
     this.onDelete.emit();
+    this.close();
   }
 
   changeDisplayIndex(index:Number){
     this.onChangeIndex.emit(index);
+    this.close();
   }
 
   moveUp(){
