@@ -4,7 +4,10 @@
     </h2>
     <recommendation-list
         *ngIf = "recommendationList && recommendationList.length > 0"
-        [recommendationList] = 'recommendationList'
+        [recommendationList] = 'filteredRecommendationList'
+        (onApprove) = "approve($event)"
+        (onDelete) = "delete($event)"
+        (onChangeIndex) = "changeIndex($event)"
     ></recommendation-list>
     
     <button

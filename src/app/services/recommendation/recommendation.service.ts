@@ -22,4 +22,22 @@ export class RecommendationService {
     );
     return newRecommendation;
   }
+
+  async approve(recommendation: Recommendation): Promise<Recommendation>{
+    const newRecommendation:Recommendation  = await this.realmService.callFunction(
+      "approveRecommendation",
+      recommendation._id.toString(),
+    );
+    return newRecommendation;
+  }
+
+  async delete(recommendation: Recommendation): Promise<Recommendation>{
+    const newRecommendation:Recommendation  = await this.realmService.callFunction(
+      "deleteRecommendation",
+      recommendation._id.toString(),
+    );
+    return newRecommendation;
+  }
+
+  
 }

@@ -10,7 +10,6 @@ export class RecommendationListComponent implements OnInit {
 
   @Input() recommendationList: Recommendation[];
   @Output() onApprove = new EventEmitter<Recommendation>();
-  @Output() onReject = new EventEmitter<Recommendation>();
   @Output() onDelete = new EventEmitter<Recommendation>();
   @Output() onChangeIndex = new EventEmitter<Number>();
   
@@ -21,10 +20,6 @@ export class RecommendationListComponent implements OnInit {
 
   approve(recommendation: Recommendation): void{
     this.onApprove.emit(recommendation);
-  }
-
-  reject(recommendation: Recommendation): void{
-    this.onReject.emit(recommendation);
   }
 
   delete(recommendation: Recommendation): void{

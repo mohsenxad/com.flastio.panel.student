@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RecommendationService } from 'src/app/services/recommendation/recommendation.service';
 import { Recommendation } from '../../../model/recommendation';
 
 @Component({
@@ -11,9 +12,19 @@ export class RecommendationPanelComponent implements OnInit {
   isRequestRecommendatinModalVisible: Boolean = false;
   
   @Input() recommendationList: Recommendation[];
-  constructor() { }
+
+  filteredRecommendationList: Recommendation[];
+
+  constructor(
+    private recommendationService: RecommendationService
+  ) { }
 
   ngOnInit(): void {
+    this.filteredRecommendationList = this.recommendationList.filter((currentRecommendation:Recommendation) => {
+      if(currentRecommendation.status!= "new"){
+        return currentRecommendation;
+      }
+    })
   }
 
   showRequestRecommendationModal(){
@@ -31,17 +42,12 @@ export class RecommendationPanelComponent implements OnInit {
     this.recommendationList.push(recommendation);
   }
 
-  approve(recommendation:Recommendation):void{
-    console.log('approve');
-    
+  async approve(recommendation:Recommendation):Promise<void>{
+    await this.recommendationService.approve(recommendation);
   }
 
-  reject(recommendation:Recommendation):void{
-    console.log('reject');
-  }
-
-  delete(recommendation:Recommendation):void{
-    console.log('delete');
+  async delete(recommendation:Recommendation):Promise<void>{
+    await this.recommendationService.delete(recommendation);
   }
 
   changeIndex(recommendation:Recommendation):void{
