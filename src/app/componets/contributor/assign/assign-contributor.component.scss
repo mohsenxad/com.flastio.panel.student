@@ -52,6 +52,16 @@ ul {
     color: #0a1629;
     display: block;
     margin-left: 12px;
+    span {
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #f65160;
+      margin-left: 6px;
+    }
   }
   input {
     border-radius: 14px;
