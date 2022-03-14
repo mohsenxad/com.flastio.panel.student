@@ -1,10 +1,9 @@
 section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &::after {
     content: url(/assets/images/clip-doing-math-homework.webp);
- 
   }
   h3 {
     font-size: 18px;
@@ -28,7 +27,7 @@ section {
   button {
     font-size: 14px;
     font-weight: bold;
-    padding:8px 10px;
+    padding: 8px 10px;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -38,14 +37,18 @@ section {
     box-shadow: 0 1px 2px 0 rgba(184, 200, 224, 0.22);
     border: solid 1px #d8e0f0;
     background-color: #fff;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    &::before{
-        content: url(/assets/images/icn-general-add-blue.svg);
-        margin-right: 12px;
-        -webkit-writing-mode: vertical-rl;
+    &::before {
+      content: "";
+      background: url(/assets/images/icn-general-add-blue.svg);
+      margin-right: 8px;
+      -webkit-writing-mode: vertical-rl;
+      width: 20px;
+      display: inline-block;
+      height: 16px;
     }
   }
 }
