@@ -11,7 +11,9 @@
         Ask for a recommendation
     </legend>
     <p>It is always the best practice to contact the person you are asking for a recommendation for ahead of time and make sure they are willing and able to provide you with a recommendation.</p>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
                 <label for="txtRecommenderName">
@@ -66,11 +68,15 @@
         <validation-result
           [validationResult] = 'validationResult'
         ></validation-result>
-        <button class="submit-btn"
-        (click)="send()"
-    >
-        Send
-    </button>
+        <loading
+            *ngIf = "isLoading"
+        ></loading>
+        <button
+            class = "submit-btn"
+            (click) = "send()"
+        >
+            Send
+        </button>
 
         <button class="cancel-btn"
             (click)="close()"

@@ -4,6 +4,9 @@
     >
         <recommendation-list-item
             [recommendation] = 'recommendation'
+            (onApprove) = "approve($event)"
+            (onDelete) = "delete($event)"
+            (onChangeIndex) = "changeIndex($event)"
         ></recommendation-list-item>
     </li>
 </ul>

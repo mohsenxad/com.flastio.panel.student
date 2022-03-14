@@ -1,18 +1,47 @@
 <dl>
   <dt>Name</dt>
-  <dd>
+  <dd class="recommendation-name">
     {{ recommendation.recommenderName }}
   </dd>
 
+  <dt>
+    Status
+  </dt>
+  <dd
+    class="approval"
+    *ngIf  = 'recommendation.status == "pendingConfirmation"'
+  >
+    Pending Your Approval
+  </dd>
+
   <dt>Position</dt>
-  <dd>
+  <dd class="position">
     {{ recommendation.recommenderPosition }}
   </dd>
 
   <dt>Script</dt>
   <dd>
-    John has been one of my greatest students, with deep expertise in FEA. Lorem
-    ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis suscipit
-    leo, id pretium lacus blandit at.
+    <div class="description"
+      [innerHtml] = 'recommendation.htmlRecommendationMessage'
+    ></div>
+
+    <div
+      id="penddingActionPanel"
+    >
+
+    </div>
   </dd>
 </dl>
+<div class="recommendation-action-section">
+  <recommendation-action-panel
+    *ngIf  = 'recommendation.status == "approved"'
+    (onDelete) = "delete()"
+    (onChangeIndex) = "changeIndex($event)"
+  ></recommendation-action-panel>
+  <recommendation-approval-action-panel
+    *ngIf  = 'recommendation.status == "pendingConfirmation"'
+    (onApprove) = "approve()"
+    (onReject) = "delete()"
+  ></recommendation-approval-action-panel>
+</div>
+

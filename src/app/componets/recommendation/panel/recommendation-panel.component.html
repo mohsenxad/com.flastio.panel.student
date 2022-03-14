@@ -2,20 +2,26 @@
     <h2>
         Recommendations
     </h2>
+    <loading
+        *ngIf = 'isLoading'
+    ></loading>
     <recommendation-list
-        *ngIf = "recommendationList && recommendationList.length > 0"
-        [recommendationList] = 'recommendationList'
+        *ngIf = "filteredRecommendationList && filteredRecommendationList.length > 0"
+        [recommendationList] = 'filteredRecommendationList'
+        (onApprove) = "approve($event)"
+        (onDelete) = "delete($event)"
+        (onChangeIndex) = "changeIndex($event)"
     ></recommendation-list>
     
     <button
-        *ngIf = "recommendationList && recommendationList.length > 0"
+        *ngIf = "filteredRecommendationList && filteredRecommendationList.length > 0"
         (click) = "showRequestRecommendationModal()"
     >
         Ask for a recommendation
     </button>
 
     <empty-recommendation
-        *ngIf="!recommendationList || recommendationList.length == 0"
+        *ngIf="!filteredRecommendationList || filteredRecommendationList.length == 0"
         (onRequestRecommendationClicked) = 'showRequestRecommendationModal()'
     ></empty-recommendation>
 
@@ -24,5 +30,11 @@
         (onClose) = 'hideRequestRecommendationModal()'
         (onRecommendationAdded) = 'addNewRecommendation($event)'
     ></request-recommendation>
+
+    <confirm-discard
+        *ngIf = "confirmDicardIsVisible"
+        (onConfirm) = 'confiremdDelete()'
+        (onCancel) = 'hideConfirmDiscardModal()'
+    ></confirm-discard>
     
 </section>

@@ -62,6 +62,7 @@
         <recommendation-panel
             *ngIf = "student"
             [recommendationList] = 'student.recommendationList'
+            (onUpdated) = 'onRecommendationListUpdated()'
         ></recommendation-panel>
     </section>
 

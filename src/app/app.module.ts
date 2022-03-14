@@ -112,6 +112,8 @@ import { StudentHomeComponent } from './componets/student/home/student-home.comp
 import { AddAssingedCertificationComponent } from './componets/assignedCertification/add/add-assinged-certification.component';
 import { SelectOrAddContributorComponent } from './componets/contributor/select-or-add/select-or-add-contributor.component';
 import { SelectOrAddStudentComponent } from './componets/student/select-or-add/select-or-add-student.component';
+import { RecommendationActionPanelComponent } from './componets/recommendation/action-panel/recommendation-action-panel.component';
+import { RecommendationApprovalActionPanelComponent } from './componets/recommendation/approval-action-panel/recommendation-approval-action-panel.component';
 
 
 
@@ -220,7 +222,9 @@ import { SelectOrAddStudentComponent } from './componets/student/select-or-add/s
     StudentHomeComponent,
     AddAssingedCertificationComponent,
     SelectOrAddContributorComponent,
-    SelectOrAddStudentComponent
+    SelectOrAddStudentComponent,
+    RecommendationActionPanelComponent,
+    RecommendationApprovalActionPanelComponent
   ],
   imports: [
     BrowserModule,

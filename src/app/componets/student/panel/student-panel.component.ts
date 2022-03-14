@@ -98,7 +98,7 @@ export class StudentPanelComponent implements OnInit {
   }
 
   onRecommendationListUpdated(){
-
+    this.getStudentInfo();
   }
 
   onWorkStyleListUpdated(){
