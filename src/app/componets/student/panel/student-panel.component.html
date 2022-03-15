@@ -3,6 +3,7 @@
 ></loading>
 
     <section
+        *ngIf = "!isLoading && student"
         id='secStudentInfo'
     >
         <student-banner
@@ -11,7 +12,9 @@
         ></student-banner>
     </section>
 
-    <section>
+    <section
+        *ngIf = "!isLoading && student"
+    >
         <skillset-panel
             *ngIf = "student && skillSetList"
             [skillSetList]="skillSetList"
@@ -20,24 +23,21 @@
     </section>
     <section
         id='secResumeAndTranscript'
-        *ngIf = "student"
+        *ngIf = "!isLoading && student"
     >
         <h2 class="resume-header">
-            Resume & Transcript
+            Resume
         </h2>
         <resume-panel
             *ngIf = "student"
             [resume] = "student.resume"
             (onUpdated) = 'onReumeUpdated()'
         ></resume-panel>
-        <transcript-panel
-            *ngIf = "student"
-            [transcript] = "student.transcript"
-            (onUpdated) = 'onTranscriptUpdated()'
-        ></transcript-panel>
     </section>
 
-    <section>
+    <section
+        *ngIf = "!isLoading && student"
+    >
         <project-panel
             #projectpanel
             *ngIf = "student"
@@ -48,7 +48,9 @@
         ></project-panel>
     </section>
 
-    <section>
+    <section
+        *ngIf = "!isLoading && student"
+    >
         <certification-panel
             *ngIf = "student"
             [assignedCertificationList] = 'student.assignedCertificationList'
@@ -58,7 +60,9 @@
     </section>
 
 
-    <section>
+    <section
+        *ngIf = "!isLoading && student"
+    >
         <recommendation-panel
             *ngIf = "student"
             [recommendationList] = 'student.recommendationList'

@@ -3,7 +3,7 @@
         [ngClass]="{'isUploaded':resume}"
     >
         <h3>
-            Resume
+            Your Resume
         </h3>
         <loading
             *ngIf="isLoading"
@@ -33,6 +33,9 @@
         class="delete-section"
         *ngIf="resume"
     >
+        <i>
+            Uploaded:{{resume.uploadTimeStamp | date:'yy:MM:dd'}}
+        </i>
         <a
             (click)="view()"
         >
