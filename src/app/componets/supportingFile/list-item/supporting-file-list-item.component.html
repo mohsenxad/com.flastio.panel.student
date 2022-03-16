@@ -23,12 +23,14 @@
 </dl>
 <div>
   <button
-    (click)="view()"
+    type = "button"
+    (click) = "view()"
   >
     View
   </button>
   <button
-    *ngIf="isRemovable"
+    type = "button"
+    *ngIf = "isRemovable"
   >
     Delete
   </button>
