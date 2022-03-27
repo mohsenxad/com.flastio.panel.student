@@ -12,10 +12,29 @@ export class UniversityEmailInputComponent implements OnInit {
   @Output() onSetEmail = new EventEmitter();
   @Input() email: String;
 
+  
+
   validationResult: ValidationResult = {
     hasError: false,
     messageList: []
   };
+
+  whiteListEmail: String[] = [
+    'max@flekswork.com',
+    'hello@flekswork.com',
+    'support@flekswork.com',
+    'max@flastio.com',
+    'hello@flastio.com',
+    'support@flastio.com',
+    'mehdizmm@gmail.com',
+    'mxzadeh@gmail.com',
+    'mhzm1981@yahoo.com',
+    'maryam.sarab@gmail.com',
+    'nateglazer@yahoo.com',
+    'sirena@flastio.com',
+    'mohsenxad@gmail.com',
+    'xad@flekswork.com',
+  ]
 
   constructor() { }
 
@@ -40,6 +59,7 @@ export class UniversityEmailInputComponent implements OnInit {
       validationResult.hasError = true;
       validationResult.messageList.push("Enter Email Address");
     }else{
+
       if(
         email.length <= 5 ||
         !email.includes('@')
@@ -49,10 +69,14 @@ export class UniversityEmailInputComponent implements OnInit {
         validationResult.messageList.push("Enter Valid Email Address");
       }
 
-      // if(!email.endsWith(".edu")){
-      //   validationResult.hasError = true;
-      //   validationResult.messageList.push("Enter Valid University Email Address");
-      // }
+
+      if(
+        !this.whiteListEmail.includes(email) &&
+        !email.endsWith(".edu")
+      ){
+        validationResult.hasError = true;
+        validationResult.messageList.push("Enter Valid University Email Address");
+      }
     }
     return validationResult;
   }
