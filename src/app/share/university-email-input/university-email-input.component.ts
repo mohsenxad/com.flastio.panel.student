@@ -34,6 +34,8 @@ export class UniversityEmailInputComponent implements OnInit {
     'sirena@flastio.com',
     'mohsenxad@gmail.com',
     'xad@flekswork.com',
+    'mohamadshamsi76@gmail.com',
+    's.farajnezam@gmail.com'
   ]
 
   constructor() { }
