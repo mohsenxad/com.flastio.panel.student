@@ -34,11 +34,12 @@ export class RecommendationPanelComponent implements OnInit,OnChanges {
   }
 
   filterRecommandationList(){
-    this.filteredRecommendationList = this.recommendationList.filter((currentRecommendation:Recommendation) => {
-      if(currentRecommendation.status!= "new"){
-        return currentRecommendation;
-      }
-    })
+    this.filteredRecommendationList = this.recommendationList;
+    // .filter((currentRecommendation:Recommendation) => {
+    //   if(currentRecommendation.status!= "new"){
+    //     return currentRecommendation;
+    //   }
+    // })
   }
 
   showRequestRecommendationModal(){

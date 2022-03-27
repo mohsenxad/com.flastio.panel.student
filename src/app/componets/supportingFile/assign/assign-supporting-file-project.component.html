@@ -95,11 +95,12 @@
     class = "assign-supporting-file-submit-section"
   >
     <button
-    (click) = "cancel()"
+      (click) = "cancel()"
     >
       Cancel
     </button>
     <button
+      [disabled] = "isLoading"
       (click) = "save()"
     >
       Save

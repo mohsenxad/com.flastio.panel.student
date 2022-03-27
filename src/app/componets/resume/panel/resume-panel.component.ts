@@ -50,6 +50,7 @@ export class ResumePanelComponent implements OnInit {
       .upload(uploadPresignUrl, resumeFile, this.resume.fileExtention)
       .then(async data=>{
         this.resume.fileUrl = uploadPresignUrl.split('?')[0];
+        this.resume.uploadTimeStamp = new Date();
         await this.resumeService.setTranscript(this.resume);
         this.isLoading = false;
       })

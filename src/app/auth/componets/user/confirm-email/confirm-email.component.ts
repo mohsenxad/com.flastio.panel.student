@@ -31,7 +31,6 @@ export class ConfirmEmailComponent implements OnInit {
     })
     if(this.tokenId && this.token){
       this.confirmUser();
-      this.router.navigateByUrl('/auth/login');
     }
   }
 
