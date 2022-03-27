@@ -72,6 +72,7 @@ export class SearchStudentComponent implements OnInit {
       this.studentKeyWord = value;
       this.search();
     }else{
+      this.studentKeyWord = undefined;
       this.studentList = [];
     }
   }

@@ -14,16 +14,32 @@
     >
       <ul>
         <li
-          *ngIf="!student.pictureFileUrl"
+          *ngIf = 'isLoadingUploadImage'
         >
-        <img src="/assets/images/profile-icon.svg" alt="images">
-          <label for="pictureFile" class="file-label"> Add Profile Picture </label>
+          <loading
+            *ngIf = 'isLoadingUploadImage'
+          ></loading>
+        </li>
+        <li
+          *ngIf = "!isLoadingUploadImage && !student.pictureFileUrl"
+        >
+          <img
+            src = "/assets/images/profile-icon.svg"
+            alt="images"
+          >
+          <label
+            for = "pictureFile"
+            class = "file-label"
+          >
+            Add Profile Picture
+          </label>
           <input
-                type="file"
-                id='pictureFile'
-                name='pictureFile'
-                (change)="handleFileInput($event.target.files)"
-            >
+                type = "file"
+                id = 'pictureFile'
+                name = 'pictureFile'
+                (change) = "handleFileInput($event.target.files)"
+                [disabled] = "isLoadingUploadImage"
+          >
         </li>
         <li
           *ngIf="student.pictureFileUrl"
@@ -155,7 +171,9 @@
       ></validation-result>
 
       <div class="add-detail-student-btn-section">
-         
+         <loading
+          *ngIf = 'isLoading'
+         ></loading>
           <button class="add-detail-student-start"
             (click)="save()"
           >

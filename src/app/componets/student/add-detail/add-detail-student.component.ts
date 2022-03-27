@@ -15,6 +15,7 @@ export class AddDetailStudentComponent implements OnInit {
   profilePicture: File;
   student: Student;
   isLoading: Boolean = false;
+  isLoadingUploadImage: Boolean = false;
   confirmDicardIsVisible : Boolean = false;
   validationResult: ValidationResult = {
     hasError : false,
@@ -54,10 +55,10 @@ export class AddDetailStudentComponent implements OnInit {
   }
 
   async changeImage(){
-    this.isLoading = true;
+    this.isLoadingUploadImage = true;
     this.student = await this.studentService.updateDetail(this.student);
     this.localStorageService.setStudent(this.student);
-    this.isLoading = false;
+    this.isLoadingUploadImage = false;
   }
 
   validate(student: Student): ValidationResult{
@@ -127,14 +128,14 @@ export class AddDetailStudentComponent implements OnInit {
   }
 
   async handleFileInput(files: FileList) {
-    this.isLoading =true;
+    this.isLoadingUploadImage =true;
     this.profilePicture = files.item(0);
     let response:any = await this.studentService.getUploadUrl()
     let signedUploadUrl = response.presignedUrl;
     await this.uploadFile(signedUploadUrl)
     this.student.pictureFileName = response.fileName.toString();
     this.student.pictureFileUrl = signedUploadUrl.split('?')[0];
-    this.isLoading =false;
+    this.isLoadingUploadImage =false;
   }
 
 
