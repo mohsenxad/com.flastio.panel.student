@@ -23,22 +23,22 @@ export class PortfolioStrengthComponent implements OnInit, OnChanges {
     {
       title: 'Project',
       isCompeleted:false,
-      url: '#'
+      url: '/student/panel#secProject'
     },
     {
       title: 'Resume',
       isCompeleted:false,
-      url: '#'
+      url: '/student/panel#secResumeAndTranscript'
     },
-    {
-      title: 'Transcript',
-      isCompeleted:false,
-      url: '#'
-    },
+    // {
+    //   title: 'Transcript',
+    //   isCompeleted:false,
+    //   url: '#'
+    // },
     {
       title: 'Certifications',
       isCompeleted:false,
-      url: '#'
+      url: 'secCertification'
     },
     {
       title: 'Recommendations',
@@ -102,27 +102,27 @@ export class PortfolioStrengthComponent implements OnInit, OnChanges {
       {
         title: 'Project',
         isCompeleted:(this.student.projectList && this.student.projectList.length > 0),
-        url: '#'
+        url: '/student/panel#secProject'
       },
       {
         title: 'Resume',
         isCompeleted: (this.student.resume),
-        url: '#'
+        url: '/student/panel#secResumeAndTranscript'
       },
-      {
-        title: 'Transcript',
-        isCompeleted:(this.student.transcript),
-        url: '#'
-      },
+      // {
+      //   title: 'Transcript',
+      //   isCompeleted:(this.student.transcript),
+      //   url: '#'
+      // },
       {
         title: 'Certifications',
         isCompeleted:(this.student.assignedCertificationList && this.student.assignedCertificationList.length > 0),
-        url: '#'
+        url: '/student/panel#secCertification'
       },
       {
         title: 'Recommendations',
         isCompeleted:(this.student.recommendationList && this.student.recommendationList.length > 0),
-        url: '#'
+        url: '/student/panel#secRecommendation'
       },
       // {
       //   title: 'Work Style',
