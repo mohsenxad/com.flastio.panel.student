@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Recommendation } from '../../../model/recommendation';
 
 @Component({
@@ -13,9 +14,16 @@ export class RecommendationListItemComponent implements OnInit {
   @Output() onDelete = new EventEmitter<Recommendation>();
   @Output() onChangeIndex = new EventEmitter<Number>();
 
-  constructor() { }
+  sanetizedHtmlRecommendationMessage:SafeHtml;
+
+  constructor(
+    private sanitizer:DomSanitizer
+  ) { }
 
   ngOnInit(): void {
+    if(this.recommendation.htmlRecommendationMessage){
+      this.sanetizedHtmlRecommendationMessage = this.sanitizer.bypassSecurityTrustHtml(this.recommendation.htmlRecommendationMessage.toString());
+    }
   }
 
   approve(){
@@ -30,5 +38,7 @@ export class RecommendationListItemComponent implements OnInit {
     console.log('4');
     console.log('change  project index to ' + index.toString());
   }
+
+
 
 }

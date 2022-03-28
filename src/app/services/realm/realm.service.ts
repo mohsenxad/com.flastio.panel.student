@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Bugfender } from '@bugfender/sdk';
 import * as Realm from "realm-web";
 
 @Injectable({
@@ -15,13 +16,22 @@ export class RealmService {
 
     const app: Realm.App = new Realm.App({ id: "flastioservices-lfztf" });
     const user: Realm.User = app.currentUser;
+    try {
+      let result:any  = await user.functions.callFunction(
+        functionName,
+        ...args
+      );
+  
+      Bugfender.info(functionName);
 
-    let result:any  = await user.functions.callFunction(
-      functionName,
-      ...args
-    );
+      return result;
+    } catch (error) {
+      Bugfender.fatal(functionName, error)
+    }
 
-    return result;
+    
+
+    
   }
 
 

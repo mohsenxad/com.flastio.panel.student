@@ -114,7 +114,11 @@ import { SelectOrAddContributorComponent } from './componets/contributor/select-
 import { SelectOrAddStudentComponent } from './componets/student/select-or-add/select-or-add-student.component';
 import { RecommendationActionPanelComponent } from './componets/recommendation/action-panel/recommendation-action-panel.component';
 import { RecommendationApprovalActionPanelComponent } from './componets/recommendation/approval-action-panel/recommendation-approval-action-panel.component';
+import { Bugfender } from '@bugfender/sdk';
 
+Bugfender.init({
+  appKey: 'X9Syu7gp1mVnE3lywGTk76FcTnkWe7jY',
+});
 
 
 
