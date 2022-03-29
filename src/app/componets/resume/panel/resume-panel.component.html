@@ -34,7 +34,7 @@
         *ngIf="resume"
     >
         <i>
-            Uploaded:{{resume.uploadTimeStamp | date:'yy:MM:dd'}}
+            Uploaded: {{resume.uploadTimeStamp | date:'MM/dd/yyyy'}}
         </i>
         <a
             (click)="view()"
