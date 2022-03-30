@@ -81,7 +81,6 @@ export class ResumePanelComponent implements OnInit {
     this.isLoading = true;
     this.resume.isRequestedFeedback = true
     await this.resumeService.setTranscript(this.resume);
-    //await this.resumeService.requestFeedback();
     this.isSent = true;
     setTimeout(()=>{
       this.isSent = false;
