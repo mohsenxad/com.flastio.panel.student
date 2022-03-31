@@ -38,7 +38,7 @@ form {
         color: #3f8cff;
       }
       button {
-        background: none;
+        background-color: none;
         border: none;
         content: "";
         background-image: url(/assets/images/icn-general-add-dark-blue.svg);
@@ -217,9 +217,9 @@ form {
     overflow: hidden;
     font: status-bar;
     display: flex;
-    top: 45px;
+    top: 48px;
     right: 3px;
     border: none;
-    background: none;
+    background-color: transparent;
   }
 }
