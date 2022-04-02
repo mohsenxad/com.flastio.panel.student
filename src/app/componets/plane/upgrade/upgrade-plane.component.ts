@@ -12,6 +12,8 @@ export class UpgradePlaneComponent implements OnInit {
 
   student : Student;
   isLoading: Boolean = false;
+  confirmPaymentIsVisible: Boolean = false;
+  
   constructor(
     private localStorageService: LocalStorageService,
     private studentService: StudentService
@@ -36,6 +38,14 @@ export class UpgradePlaneComponent implements OnInit {
       paymentLink = 'https://buy.stripe.com/bIYg0D4v22BL71m7sv';
     }
     window.open(paymentLink);
+  }
+
+  showConfirmPaymentModal():void{
+    this.confirmPaymentIsVisible = true;
+  }
+
+  hideConfrimPayemntModal():void{
+    this.confirmPaymentIsVisible = false;
   }
 
   setPlane(isAnnual: Boolean):void{

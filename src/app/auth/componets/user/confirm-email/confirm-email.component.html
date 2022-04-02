@@ -1,15 +1,27 @@
 <div>
-    <loading></loading>
-    <h1>
-        Your email has been verified  
-    </h1>
-    <p>
-        <span>allen.perkins@seattleu.edu</span> has been verified.
-        Now you can sign in to Flastio and land your dream job
-    </p>
-    <a
-        routerLink = '/auth/login'
+    <loading
+        *ngIf = "isLoading"
+    ></loading>
+
+    <div
+        *ngIf = "!isLoading && !validationResult.hasError"
+    >
+        <h1>
+            Your email has been verified  
+        </h1>
+        <p>
+            <!-- <span>allen.perkins@seattleu.edu</span> -->
+            Your account has been verified.
+            Now you can sign in to Flastio and land your dream job
+        </p>
+        <a
+            routerLink = '/auth/login'
         >
-        Sign in
-    </a>
+            Sign in
+        </a>
+    </div>
+    <validation-result
+        *ngIf = "validationResult && validationResult.hasError"
+        [validationResult] = "validationResult"
+    ></validation-result>
 </div>
