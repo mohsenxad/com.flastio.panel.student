@@ -8,9 +8,9 @@ ul {
   li {
     margin: 0;
     padding: 0;
-    &:nth-child(1) {
-      content: url(/assets/images/notification-bell.svg);
-    }
+    // &:nth-child(1) {
+    //   content: url(/assets/images/notification-bell.svg);
+    // }
   }
   details {
     margin: 0;
