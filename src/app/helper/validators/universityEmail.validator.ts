@@ -22,7 +22,8 @@ export class UniversityEmailValidator {
         'mohsenxad@gmail.com',
         'xad@flekswork.com',
         'mohamadshamsi76@gmail.com',
-        's.farajnezam@gmail.com'
+        's.farajnezam@gmail.com',
+        'gmilashghali@gmail.com'
     ];
 
     validate(email: String):ValidationResult{
