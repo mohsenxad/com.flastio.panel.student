@@ -4,7 +4,7 @@
     ></loading>
 
     <div
-        *ngIf = "!isLoading && !validationResult.hasError"
+        *ngIf = "!isLoading"
     >
         <h1>
             Your email has been verified  
@@ -12,7 +12,7 @@
         <p>
             <!-- <span>allen.perkins@seattleu.edu</span> -->
             Your account has been verified.
-            Now you can sign in to Flastio and land your dream job
+            Now you can sign in to Flastio
         </p>
         <a
             routerLink = '/auth/login'
@@ -20,8 +20,4 @@
             Sign in
         </a>
     </div>
-    <validation-result
-        *ngIf = "validationResult && validationResult.hasError"
-        [validationResult] = "validationResult"
-    ></validation-result>
 </div>

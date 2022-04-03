@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { StudentService } from 'src/app/services/student/student.service';
@@ -9,6 +9,11 @@ import { StudentService } from 'src/app/services/student/student.service';
   styleUrls: ['./student-action-panel.component.scss']
 })
 export class StudentActionPanelComponent implements OnInit {
+
+  @Input() isPremium: Boolean;
+
+  isAnalyticsWorkingModalVisible: Boolean = false;
+  isUpgradeRequireModalVisible: Boolean = false;
 
   constructor(
     private router: Router,
@@ -24,6 +29,30 @@ export class StudentActionPanelComponent implements OnInit {
     await this.studentService.logout();
     this.localStorageService.logout();
     this.router.navigateByUrl('auth/login');
+  }
+
+  showAnalytics(){
+    if(this.isPremium){
+      this.showAnalyticsWorkingModal()
+    }else{
+      this.showUpgradeRequireModal();
+    }
+  }
+
+  showAnalyticsWorkingModal(){
+    this.isAnalyticsWorkingModalVisible = true;
+  }
+
+  hideAnalyticsWorkingModal(){
+    this.isAnalyticsWorkingModalVisible = false;
+  }
+
+  showUpgradeRequireModal(){
+    this.isUpgradeRequireModalVisible = true;
+  }
+
+  hideUpgradeRequireModal(){
+    this.isUpgradeRequireModalVisible = false;
   }
 
   close(){

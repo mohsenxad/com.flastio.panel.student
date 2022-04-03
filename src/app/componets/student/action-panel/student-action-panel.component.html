@@ -1,6 +1,8 @@
 <ul>
     <li>
-        <button>
+        <button
+            (click)="showAnalytics()"
+        >
             Analytics
         </button>
     </li>
@@ -32,3 +34,12 @@
         
     </li>
 </ul>
+<analytics-working-modal
+    *ngIf = 'isAnalyticsWorkingModalVisible'
+    (onCancel) = "hideAnalyticsWorkingModal()"
+></analytics-working-modal>
+
+<analytics-upgrade-require
+    *ngIf = "isUpgradeRequireModalVisible"
+    (onCancel) = 'hideUpgradeRequireModal()'
+></analytics-upgrade-require>
