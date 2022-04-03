@@ -28,7 +28,7 @@ export class UpgradePlaneComponent implements OnInit {
     this.isLoading = false;
   }
 
-  isAnnual:Boolean = true;
+  isAnnual:Boolean = false;
 
   goToPayment():void{
     let paymentLink = 'https://buy.stripe.com/cN215J8Li5NX1H26oq';
