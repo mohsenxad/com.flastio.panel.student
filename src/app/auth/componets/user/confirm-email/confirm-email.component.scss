@@ -1,3 +1,11 @@
+div {
+  width: 70%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 h1 {
   font-size: 24px;
   font-weight: bold;
@@ -6,8 +14,22 @@ h1 {
   line-height: normal;
   letter-spacing: normal;
   color: #0a1629;
+  margin: 0;
 }
-
+p {
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #0a1629;
+  margin: 24px 0;
+  opacity: 0.7;
+}
+span {
+  font-weight: bold;
+}
 a {
   font-size: 16px;
   font-weight: bold;
@@ -17,8 +39,17 @@ a {
   letter-spacing: normal;
   text-align: center;
   color: #fff;
-  padding: 13px 27px;
+  padding: 10px 60px;
   border-radius: 14px;
   box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
   background-color: #3f8cff;
+  transition: 0.5s;
+  margin: 0;
+  display: inline-flex;
+  width: max-content;
+
+  &:hover {
+    background-color: #3a81eb;
+    transition: 0.5s;
+  }
 }

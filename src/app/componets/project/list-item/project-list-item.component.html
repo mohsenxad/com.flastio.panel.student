@@ -62,13 +62,6 @@
   </dd>
 
   <dt>
-    project Type
-  </dt>
-  <dd class="project-type">
-    {{project.baseInfo.projectType}}
-  </dd>
-
-  <dt>
     isPublished
   </dt>
   <dd
@@ -76,6 +69,13 @@
     *ngIf="!project.isPublished"
   >
     Draft
+  </dd>
+
+  <dt>
+    project Type
+  </dt>
+  <dd class="project-type">
+    {{project.baseInfo.projectType}}
   </dd>
 
   <dt>

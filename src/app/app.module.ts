@@ -114,7 +114,17 @@ import { SelectOrAddContributorComponent } from './componets/contributor/select-
 import { SelectOrAddStudentComponent } from './componets/student/select-or-add/select-or-add-student.component';
 import { RecommendationActionPanelComponent } from './componets/recommendation/action-panel/recommendation-action-panel.component';
 import { RecommendationApprovalActionPanelComponent } from './componets/recommendation/approval-action-panel/recommendation-approval-action-panel.component';
+import { Bugfender } from '@bugfender/sdk';
+import { ConfirmPaymentComponent } from './componets/share/confirm-payment/confirm-payment.component';
+import { AnalyticsWorkingModalComponent } from './componets/analytics/working-modal/analytics-working-modal.component';
+import { ShareProfileUpgradeRequireComponent } from './componets/shareProfile/upgrade-require/share-profile-upgrade-require.component';
+import { AnalyticsUpgradeRequireComponent } from './componets/analytics/upgrade-require/analytics-upgrade-require.component';
 
+
+
+Bugfender.init({
+  appKey: 'X9Syu7gp1mVnE3lywGTk76FcTnkWe7jY',
+});
 
 
 
@@ -224,7 +234,11 @@ import { RecommendationApprovalActionPanelComponent } from './componets/recommen
     SelectOrAddContributorComponent,
     SelectOrAddStudentComponent,
     RecommendationActionPanelComponent,
-    RecommendationApprovalActionPanelComponent
+    RecommendationApprovalActionPanelComponent,
+    ConfirmPaymentComponent,
+    AnalyticsWorkingModalComponent,
+    ShareProfileUpgradeRequireComponent,
+    AnalyticsUpgradeRequireComponent
   ],
   imports: [
     BrowserModule,

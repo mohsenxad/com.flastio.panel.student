@@ -3,7 +3,7 @@
 ></loading>
 
     <section
-        *ngIf = "!isLoading && student"
+        *ngIf = "student"
         id='secStudentInfo'
     >
         <student-banner
@@ -13,7 +13,7 @@
     </section>
 
     <section
-        *ngIf = "!isLoading && student"
+        *ngIf = "student"
     >
         <skillset-panel
             *ngIf = "student && skillSetList"
@@ -23,7 +23,7 @@
     </section>
     <section
         id='secResumeAndTranscript'
-        *ngIf = "!isLoading && student"
+        *ngIf = "student"
     >
         <h2 class="resume-header">
             Resume
@@ -36,7 +36,8 @@
     </section>
 
     <section
-        *ngIf = "!isLoading && student"
+        id = 'secProject'
+        *ngIf = "student"
     >
         <project-panel
             #projectpanel
@@ -49,7 +50,8 @@
     </section>
 
     <section
-        *ngIf = "!isLoading && student"
+        id = 'secCertification'
+        *ngIf = "student"
     >
         <certification-panel
             *ngIf = "student"
@@ -61,7 +63,8 @@
 
 
     <section
-        *ngIf = "!isLoading && student"
+        id = 'secRecommendation'
+        *ngIf = "student"
     >
         <recommendation-panel
             *ngIf = "student"

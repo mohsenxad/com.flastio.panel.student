@@ -38,7 +38,7 @@ form {
         color: #3f8cff;
       }
       button {
-        background: none;
+        background-color: transparent;
         border: none;
         content: "";
         background-image: url(/assets/images/icn-general-add-dark-blue.svg);
@@ -50,6 +50,8 @@ form {
         font: status-bar;
         display: flex;
         transform: rotate(45deg);
+        width: 20px;
+        margin-left: 8px;
       }
     }
   }
@@ -217,9 +219,9 @@ form {
     overflow: hidden;
     font: status-bar;
     display: flex;
-    top: 45px;
+    top: 48px;
     right: 3px;
     border: none;
-    background: none;
+    background-color: transparent;
   }
 }

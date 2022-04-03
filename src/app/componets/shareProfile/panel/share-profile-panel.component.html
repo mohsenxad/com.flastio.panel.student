@@ -11,24 +11,33 @@
             Share Profile
         </h3>
 
-        <share-profile-select
-            (onShareTypeSelected) = 'changeView($event)'
-        ></share-profile-select>
+        <div
+            *ngIf = 'student.isPremium'
+        >
+            <share-profile-select
+                (onShareTypeSelected) = 'changeView($event)'
+            ></share-profile-select>
 
-        <share-profile-by-link
-            *ngIf = 'currentView == "Share Link"'
-            [publicLinkUrl]  ='publicLinkUrl'
-        ></share-profile-by-link>
+            <share-profile-by-link
+                *ngIf = 'currentView == "Share Link"'
+                [publicLinkUrl]  ='publicLinkUrl'
+            ></share-profile-by-link>
+            
+            <share-profile-by-qrcode
+                *ngIf = 'currentView == "QR Code"'
+                [publicLinkUrl]  ='publicLinkUrl'
+            ></share-profile-by-qrcode>
         
-        <share-profile-by-qrcode
-            *ngIf = 'currentView == "QR Code"'
-            [publicLinkUrl]  ='publicLinkUrl'
-        ></share-profile-by-qrcode>
-    
-        <share-profile-by-email
-            *ngIf = 'currentView == "Send Email"'
-            [student]  ='student'
-        ></share-profile-by-email>
+            <share-profile-by-email
+                *ngIf = 'currentView == "Send Email"'
+                [student]  ='student'
+            ></share-profile-by-email>
+        </div>
+
+        <share-profile-upgrade-require
+            *ngIf = '!student.isPremium'
+        ></share-profile-upgrade-require>
+        
     
     </div>
 </div>

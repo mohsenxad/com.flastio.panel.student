@@ -31,7 +31,8 @@ export class StudentPanelComponent implements OnInit {
 
   async getStudentInfo(){
     this.isLoading = true;
-    this.student  = await this.studentService.getStudentInfo();
+    const fetchedStudent: Student  = await this.studentService.getStudentInfo();
+    this.student = fetchedStudent;
     this.localStorageService.setStudent(this.student);
     this.isLoading = false;
 

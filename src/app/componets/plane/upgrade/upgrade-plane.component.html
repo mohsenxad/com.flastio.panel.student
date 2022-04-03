@@ -101,12 +101,17 @@
         <button
             *ngIf="!isLoading && !student.isPremium"
             type="button"
-            (click)="goToPayment()"
+            (click)="showConfirmPaymentModal()"
             class="upgrade-plane-btn"
         >
             Upgrade
         </button>
     </section>
+    <confirm-payment
+        *ngIf = 'confirmPaymentIsVisible'
+        (onCancel) = 'hideConfrimPayemntModal()'
+        (onConfirm) = 'goToPayment()'
+    ></confirm-payment>
 </main>
 
 <p class="footer">

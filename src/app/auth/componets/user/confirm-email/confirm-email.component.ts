@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/auth/services/user/user.service';
+import { ValidationResult } from 'src/app/model/validationResult';
 
 @Component({
   selector: 'app-confirm-email',
@@ -13,9 +14,14 @@ export class ConfirmEmailComponent implements OnInit {
   token: string;
   tokenId:string;
   isLoading:Boolean = false;
+  validationResult: ValidationResult = {
+    hasError : false,
+    messageList: []
+  };
+
+  
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private userService: UserService,
   ) { }
 
@@ -36,8 +42,18 @@ export class ConfirmEmailComponent implements OnInit {
 
   async confirmUser(){
     this.isLoading = true;
-    await this.userService.confirmUser(this.token,this.tokenId);
-    this.isLoading = false;
+    try {
+      await this.userService.confirmUser(this.token,this.tokenId);
+      this.isLoading = false;
+    } catch (error) {
+      console.log(error);
+      this.isLoading = false;
+      this.validationResult = {
+        hasError : true,
+        messageList: [error.error]
+      };
+    }
+    
   }
 
 }

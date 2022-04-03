@@ -1,12 +1,23 @@
-<loading></loading>
-<h1>
-    Your email has been verified  
-</h1>
-<p>
-    Now you can sign in to Flastio and land your dream job
-</p>
-<a
-    routerLink = '/auth/login'
+<div>
+    <loading
+        *ngIf = "isLoading"
+    ></loading>
+
+    <div
+        *ngIf = "!isLoading"
     >
-    Sign in
-</a>
+        <h1>
+            Your email has been verified  
+        </h1>
+        <p>
+            <!-- <span>allen.perkins@seattleu.edu</span> -->
+            Your account has been verified.
+            Now you can sign in to Flastio
+        </p>
+        <a
+            routerLink = '/auth/login'
+        >
+            Sign in
+        </a>
+    </div>
+</div>

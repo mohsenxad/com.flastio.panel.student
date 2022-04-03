@@ -1,9 +1,7 @@
 <form>
-    <loading
-        *ngIf="isLoading"
-    ></loading>
+
     <fieldset
-        [disabled]="isLoading"
+        [disabled] = "isLoading"
     >
         <legend>
             Invite {{email}} to Join as Your Project Contributor and Flastio!
@@ -26,20 +24,29 @@
             />
             </li>
       </ul>
-         <button
-            type="button"
-            (click)="invite()"
-            class="invite-btn"
-        >
-            Invite
-        </button>
-        <button
-            type="button"
-            (click)="close()"
-            class="cancel-btn"
-        >
-            Cancel
-        </button>
+        <div>
+            <validation-result
+                *ngIf = 'validationResult.hasError'
+                [validationResult] = 'validationResult'
+            ></validation-result>
+            <loading
+                *ngIf = "isLoading"
+            ></loading>
+            <button
+                type="button"
+                (click)="invite()"
+                class="invite-btn"
+            >
+                Invite
+            </button>
+            <button
+                type="button"
+                (click)="close()"
+                class="cancel-btn"
+            >
+                Cancel
+            </button>
+        </div>
      
     </fieldset>
   </form>

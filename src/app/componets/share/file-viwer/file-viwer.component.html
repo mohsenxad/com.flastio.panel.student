@@ -17,13 +17,18 @@
     >
         download
     </a>
+    <loading
+        *ngIf="isLoading"
+    ></loading>
     <img
         *ngIf="isImage"
         [src] = 'fileUrl'
+        (load) = 'hideLoading()'
     />
     <iframe
         *ngIf="isPdf"
-        [src] = 'getSummeryFileIFrameUrl()'
+        [src] = 'summeryFileIFrameUrl'
+        (load) = 'hideLoading()'
     ></iframe>
     </section>
     

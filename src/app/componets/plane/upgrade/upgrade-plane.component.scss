@@ -130,7 +130,7 @@ main {
         &::before {
           content: "";
           background: url(/assets/images/project-strength-iscompleted.svg);
-          width: 24px;
+          min-width: 24px;
           height: 24px;
           background-position: center;
           background-repeat: no-repeat;
@@ -138,7 +138,7 @@ main {
         }
       }
     }
-    &:nth-child(1) {
+    &:nth-child(2) {
       display: grid;
       grid-template-columns: 0fr 01fr 01fr;
       height: fit-content;
@@ -154,7 +154,7 @@ main {
         margin: -16px 0 0 auto;
       }
     }
-    &:nth-child(2) {
+    &:nth-child(3) {
       display: grid;
       grid-template-columns: 0fr 01fr 01fr;
       height: fit-content;

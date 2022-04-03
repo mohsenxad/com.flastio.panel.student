@@ -12,22 +12,32 @@ export class FileViwerComponent implements OnInit {
   @Input() fileExtention : String;
   @Output() onClose = new EventEmitter();
 
+  isLoading:Boolean = true;
   isImage:Boolean = false;
   isPdf:Boolean = false;
+  summeryFileIFrameUrl: SafeResourceUrl;
 
   constructor(
     private sanitizer: DomSanitizer,
   ) { }
 
   ngOnInit(): void {
+    
     if(this.fileExtention == 'image/png'){
       this.isImage = true;
     }else if(this.fileExtention == 'application/pdf'){
+      this.summeryFileIFrameUrl = this.getSummeryFileIFrameUrl()
       this.isPdf = true;
     }else{
       console.log('open with others');
     }
 
+  }
+
+  hideLoading(){
+    console.log('loading done');
+    
+    this.isLoading = false;
   }
 
   close(){
@@ -36,7 +46,7 @@ export class FileViwerComponent implements OnInit {
 
   getSummeryFileIFrameUrl():SafeResourceUrl {
     let result: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.fileUrl.toString());
-     return result;
+    return result;
   }
 
 }
