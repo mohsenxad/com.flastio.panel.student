@@ -76,7 +76,7 @@ export class UpgradePlaneComponent implements OnInit {
     this.isLoading = true;
     try {
       await this.studentService.downgradePlane();
-      this.router.navigateByUrl('student');    
+      window.location.replace('/student');
     } catch (error) {
       console.log(error);
     }
