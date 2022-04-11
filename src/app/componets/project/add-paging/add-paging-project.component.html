@@ -9,11 +9,16 @@
         type="radio"
         name="pageTitle"
         [attr.id]="pageTitle"
+        [attr.title]="pageTitle"
         value="{{ pageTitle }}"
         [(ngModel)]="selectedPageTitle"
         (change)="changePageTitle(pageTitle)"
+        
       />
-      <label [attr.for]="pageTitle">
+      <label
+        [attr.for] = "pageTitle"
+        [attr.title] = "pageTitle"
+      >
         {{ pageTitle }}
       </label>
     </li>
