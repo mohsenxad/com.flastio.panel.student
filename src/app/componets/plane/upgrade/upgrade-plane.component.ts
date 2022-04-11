@@ -33,7 +33,7 @@ export class UpgradePlaneComponent implements OnInit {
     this.isLoading = false;
   }
 
-  isAnnual:Boolean = true;
+  isAnnual:Boolean = false;
 
   async goToPayment():Promise<void>{
     this.isLoading = true;
