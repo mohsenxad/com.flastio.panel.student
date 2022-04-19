@@ -55,13 +55,13 @@
   </form>
   
   <assign-link-project
-    *ngIf = "pageTitle == 'Links'"
+    *ngIf = "pageTitle == 'Supporting files'"
     [linkUrlList]="project.linkUrlList"
     (onLinkUrlListUpdated) = "updateLinkUrlList($event)"
     (onClose) = 'goToGeneralView($event)'
   ></assign-link-project>
   <assign-supporting-file-project
-    *ngIf = "pageTitle == 'Attachment'"
+    *ngIf = "pageTitle == 'Links'"
     [supportingFileList] = "project.supportingFileList"
     (onSupportingFileListUpdated) = "updateSupportingFileList($event)"
     (onClose) = 'goToGeneralView($event)'
@@ -76,7 +76,7 @@
   ></select-or-add-assigned-certification>
   
   <assign-contributor
-    *ngIf = "pageTitle == 'Team'"
+    *ngIf = "pageTitle == 'Add contributors'"
     [studentRole] = 'project.role'
     [contributorList] = "project.contributorList"
     (onStudentRoleUpdated) = 'updateStudentRole($event)'

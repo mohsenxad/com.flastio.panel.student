@@ -15,10 +15,10 @@ export class AddPagingProjectComponent implements OnInit {
 
 
   pageTitleList:String[] = [
-    'Attachment',
+    'Supporting files',
     'Links',
     'Certification',
-    'Team',
+    'Add contributors',
   ];
 
   constructor() { }
