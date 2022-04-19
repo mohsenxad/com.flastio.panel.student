@@ -11,12 +11,6 @@
   <fieldset>
     <ul>
       <li>
-        <project-file-uploader
-          [summaryFile] = 'localProjectBaseInfo.summaryFile'
-          (onFileUploaded) = 'setSummaryFile($event)'
-        ></project-file-uploader>
-      </li>
-      <li>
         <!-- <label for="slctProjectType"> Project Type </label> -->
         <select-type-project
           id="slctProjectType"
@@ -77,6 +71,12 @@
           placeholder="Brief description is recommended for projects"
           (ngModelChange)="updateProjectBaseInfo()"
         ></textarea>
+      </li>
+      <li>
+        <project-file-uploader
+          [summaryFile] = 'localProjectBaseInfo.summaryFile'
+          (onFileUploaded) = 'setSummaryFile($event)'
+        ></project-file-uploader>
       </li>
       <li>
         <label for="divSkill"> Add Project topics </label>

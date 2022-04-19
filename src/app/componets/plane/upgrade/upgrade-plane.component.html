@@ -55,6 +55,15 @@
                 Basic analytics of your portfolio performance
             </li>
         </ul>
+
+        <button
+            *ngIf="!isLoading && student.isPremium"
+            type="button"
+            (click)="showConfirmDowngradeModal()"
+            class="upgrade-plane-btn"
+        >
+            Downgrade to the Free
+        </button>
     </section>
     
     <section>
@@ -112,6 +121,12 @@
         (onCancel) = 'hideConfrimPayemntModal()'
         (onConfirm) = 'goToPayment()'
     ></confirm-payment>
+
+    <confirm-downgrade-modal
+        *ngIf = 'confirmDowngradeIsVisible'
+        (onCancel) = 'hideConfirmDowngradeModal()'
+        (onConfirm) = 'downgradePlane()'
+    ></confirm-downgrade-modal>
 </main>
 
 <p class="footer">

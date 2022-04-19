@@ -101,6 +101,22 @@ export class StudentService {
     return studentList;
   }
 
+  async upgradePlane(isAnnual:Boolean):Promise<void>{
+    const result: any  = await this.realmService.callFunction(
+      "upgradePlane",
+      isAnnual
+    );
+  }
+
+  
+  async downgradePlane():Promise<void>{
+    const result: any  = await this.realmService.callFunction(
+      "downgradePlane"
+    );
+  }
+
+  
+
   logout():void{
     this.realmService.logout();
   }

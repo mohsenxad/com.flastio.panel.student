@@ -115,10 +115,11 @@ import { SelectOrAddStudentComponent } from './componets/student/select-or-add/s
 import { RecommendationActionPanelComponent } from './componets/recommendation/action-panel/recommendation-action-panel.component';
 import { RecommendationApprovalActionPanelComponent } from './componets/recommendation/approval-action-panel/recommendation-approval-action-panel.component';
 import { Bugfender } from '@bugfender/sdk';
-import { ConfirmPaymentComponent } from './componets/share/confirm-payment/confirm-payment.component';
+import { ConfirmPaymentComponent } from './componets/plane/confirm-payment/confirm-payment.component';
 import { AnalyticsWorkingModalComponent } from './componets/analytics/working-modal/analytics-working-modal.component';
 import { ShareProfileUpgradeRequireComponent } from './componets/shareProfile/upgrade-require/share-profile-upgrade-require.component';
 import { AnalyticsUpgradeRequireComponent } from './componets/analytics/upgrade-require/analytics-upgrade-require.component';
+import { ConfirmDowngradeModalComponent } from './componets/plane/confirm-downgrade-modal/confirm-downgrade-modal.component';
 
 
 
@@ -238,7 +239,8 @@ Bugfender.init({
     ConfirmPaymentComponent,
     AnalyticsWorkingModalComponent,
     ShareProfileUpgradeRequireComponent,
-    AnalyticsUpgradeRequireComponent
+    AnalyticsUpgradeRequireComponent,
+    ConfirmDowngradeModalComponent
   ],
   imports: [
     BrowserModule,

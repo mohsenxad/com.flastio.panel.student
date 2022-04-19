@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Student } from 'src/app/model/student';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { StudentService } from 'src/app/services/student/student.service';
@@ -13,10 +14,12 @@ export class UpgradePlaneComponent implements OnInit {
   student : Student;
   isLoading: Boolean = false;
   confirmPaymentIsVisible: Boolean = false;
+  confirmDowngradeIsVisible: Boolean = false;
   
   constructor(
     private localStorageService: LocalStorageService,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,12 +35,21 @@ export class UpgradePlaneComponent implements OnInit {
 
   isAnnual:Boolean = false;
 
-  goToPayment():void{
-    let paymentLink = 'https://buy.stripe.com/cN215J8Li5NX1H26oq';
-    if(this.isAnnual){
-      paymentLink = 'https://buy.stripe.com/bIYg0D4v22BL71m7sv';
+  async goToPayment():Promise<void>{
+    this.isLoading = true;
+    try {
+      await this.studentService.upgradePlane(this.isAnnual);
+      let paymentLink = 'https://buy.stripe.com/cN215J8Li5NX1H26oq';
+      if(this.isAnnual){
+        paymentLink = 'https://buy.stripe.com/bIYg0D4v22BL71m7sv';
+      }
+      window.open(paymentLink);  
+    } catch (error) {
+      console.log(error);
     }
-    window.open(paymentLink);
+    
+    this.hideConfrimPayemntModal();
+    this.isLoading = false;
   }
 
   showConfirmPaymentModal():void{
@@ -48,8 +60,29 @@ export class UpgradePlaneComponent implements OnInit {
     this.confirmPaymentIsVisible = false;
   }
 
+  showConfirmDowngradeModal():void{
+    this.confirmDowngradeIsVisible = true;
+  }
+
+  hideConfirmDowngradeModal():void{
+    this.confirmDowngradeIsVisible = false;
+  }
+
   setPlane(isAnnual: Boolean):void{
     this.isAnnual = isAnnual;
+  }
+
+  async downgradePlane(){
+    this.isLoading = true;
+    try {
+      await this.studentService.downgradePlane();
+      window.location.replace('/student');
+    } catch (error) {
+      console.log(error);
+    }
+    this.hideConfirmDowngradeModal();
+    this.isLoading = false;
+    
   }
 
 }
