@@ -1,105 +1,114 @@
 
-  <form 
-    #form="ngForm"
-  >
-    <legend>
-      Your Information
-    </legend>
-    <fieldset>
-      <ul>
-        <li>
-          <label
-            for="txtFirstName"
-          >
-            First Name
-          </label>
-          <input
-            type="text"
-            name="txtFirstName"
-            id="txtFirstName"
-            [(ngModel)]="student.firstName"
-            placeholder="First Name"
-            minlength="1"
-            maxlength="200"
-            required
-          />
-        </li>
-        <li>
-          <label for="txtLastName"> Last Name </label>
-          <input
-            type="text"
-            name="txtLastName"
-            id="txtLastName"
-            [(ngModel)]="student.lastName"
-            placeholder="Last Name"
-            minlength="1"
-            maxlength="200"
-            required
-          />
-        </li>
-        <li class="student-signup-mobile">
-          <label
-            for="txtMobileNumber"
-          >
-            Mobile Number
-          </label>
-          <mobile-number-input
-            (onSetMobileNumber) = 'onSetMobileNumber($event)'
-          ></mobile-number-input>
-        </li>
-        <li class="student-signup-school">
-          <label for="txtSchoolKeyWord">
-            Your School
-        </label>
-          <div name="divSchool" id="divSchool">
-            <search-school
-              [selectedSchool] = 'student.school'
-              (onSchoolSelected)="onSchoolSet($event)"
-            ></search-school>
-          </div>
-        </li>
+  <form>
+	<legend>
+	  Your Information
+	</legend>
+	<fieldset>
+	  <ul>
+		<li>
+		  <label
+			for="txtFirstName"
+		  >
+			First Name
+		  </label>
+		  <input
+			type="text"
+			name="txtFirstName"
+			id="txtFirstName"
+			[(ngModel)]="student.firstName"
+			placeholder="First Name"
+			minlength="1"
+			maxlength="200"
+			required
+		  />
+		</li>
+		<li>
+		  <label for="txtLastName"> Last Name </label>
+		  <input
+			type="text"
+			name="txtLastName"
+			id="txtLastName"
+			[(ngModel)]="student.lastName"
+			placeholder="Last Name"
+			minlength="1"
+			maxlength="200"
+			required
+		  />
+		</li>
+		<li class="student-signup-mobile">
+		  <label
+			for="txtMobileNumber"
+		  >
+			Mobile Number
+		  </label>
+		  <mobile-number-input
+			(onSetMobileNumber) = 'onSetMobileNumber($event)'
+		  ></mobile-number-input>
+		</li>
+		<li class="student-signup-school">
+		  <label for="txtSchoolKeyWord">
+			Your School
+		</label>
+		  <div name="divSchool" id="divSchool">
+			<search-school
+			  [selectedSchool] = 'student.school'
+			  (onSchoolSelected)="onSchoolSet($event)"
+			></search-school>
+		  </div>
+		</li>
 
-        <li class="student-signup-major">
-          <label for="txtMajorKeyWord">
-            Major
-          </label>
+		<li class="student-signup-major">
+		  <label for="txtMajorKeyWord">
+			Major
+		  </label>
 
-          <div name="divMajor" id="divMajor">
-            <search-major
-              [selectedMajor] = "student.major"
-              (onMajorSelected)="onMajorSet($event)"></search-major>
-          </div>
-        </li>
-        <li class="student-signup-date-selector">
-          <label
-            for="divGraduationDate"
-          >
-            Anticipated graduation date
-          </label>
-          <div 
-            id = 'divGraduationDate'
-            name = 'divGraduationDate'
-          >
-            <month-select
-              [selectedMonth] = 'student.graduationMonth'
-              (onMonthSelected) = 'selectedGraduationMonth($event)'
-            ></month-select>
+		  <div name="divMajor" id="divMajor">
+			<search-major
+			  [selectedMajor] = "student.major"
+			  (onMajorSelected)="onMajorSet($event)"></search-major>
+		  </div>
+		</li>
+		<li class="student-signup-date-selector">
+		  <label
+			for="divGraduationDate"
+		  >
+			Anticipated graduation date
+		  </label>
+		  <div 
+			id = 'divGraduationDate'
+			name = 'divGraduationDate'
+		  >
+			<month-select
+			  [selectedMonth] = 'student.graduationMonth'
+			  (onMonthSelected) = 'selectedGraduationMonth($event)'
+			></month-select>
   
-            <year-select2
-              [fromYear]="2020"
-              [toYear]="2030"
-              [selectedYear] = 'student.graduationYear'
-              (onYearSelected) = 'selectedGraduationYear($event)'
-            ></year-select2>
-          </div>
-          
-        </li>
-      </ul>
-      <button
-        class="student-signup-submit"
-        (click)="save()"
-      >
-        Continue
-      </button>
-    </fieldset>
+			<year-select2
+			  [fromYear]="2020"
+			  [toYear]="2030"
+			  [selectedYear] = 'student.graduationYear'
+			  (onYearSelected) = 'selectedGraduationYear($event)'
+			></year-select2>
+		  </div>
+		  
+		</li>
+
+		<validation-result
+			[validationResult] = 'validationResult'
+		></validation-result>
+	  </ul>
+	  <div>
+		<loading
+			*ngIf = 'isLoading'
+		></loading>
+		<button
+			type="button"
+			class="student-signup-submit"
+			(click)="save()"
+		>
+			Continue
+		</button>
+	  </div>
+	  
+	</fieldset>
   </form>

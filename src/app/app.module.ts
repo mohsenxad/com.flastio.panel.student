@@ -123,9 +123,9 @@ import { ConfirmDowngradeModalComponent } from './componets/plane/confirm-downgr
 
 
 
-Bugfender.init({
-  appKey: 'X9Syu7gp1mVnE3lywGTk76FcTnkWe7jY',
-});
+// Bugfender.init({
+//   appKey: 'X9Syu7gp1mVnE3lywGTk76FcTnkWe7jY',
+// });
 
 
 

@@ -28,7 +28,12 @@ export class MobileNumberInputComponent implements OnInit {
   }
 
   getMobileNumber(stringValue: String): String{
-    return stringValue.replace("(","").replace(")","")
+    if(stringValue){
+      return stringValue.replace("(","").replace(")","")
+    }else{
+      return "";
+    }
+    
   }
 
   getFormatedMobileNumber(stringValue: String):String{

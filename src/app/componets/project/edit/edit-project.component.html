@@ -43,13 +43,14 @@
     </form>
     
     <assign-link-project
-      *ngIf="pageTitle == 'Supporting files'"
+      *ngIf="pageTitle == 'Links'"
       [linkUrlList]="project.linkUrlList"
       (onLinkUrlListUpdated) = "updateLinkUrlList($event)"
       (onClose) = 'goToGeneralView($event)'
     ></assign-link-project>
+    
     <assign-supporting-file-project
-      *ngIf="pageTitle == 'Links'"
+      *ngIf="pageTitle == 'Supporting files'"      
       [supportingFileList] = "project.supportingFileList"
       (onSupportingFileListUpdated) = "updateSupportingFileList($event)"
       (onClose) = 'goToGeneralView($event)'

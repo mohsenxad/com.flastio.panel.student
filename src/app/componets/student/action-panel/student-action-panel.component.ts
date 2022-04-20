@@ -32,6 +32,7 @@ export class StudentActionPanelComponent implements OnInit {
   }
 
   showAnalytics(){
+    console.log("here")
     if(this.isPremium){
       this.showAnalyticsWorkingModal()
     }else{

@@ -54,18 +54,21 @@
     ></add-paging-project>
   </form>
   
-  <assign-link-project
-    *ngIf = "pageTitle == 'Supporting files'"
-    [linkUrlList]="project.linkUrlList"
-    (onLinkUrlListUpdated) = "updateLinkUrlList($event)"
-    (onClose) = 'goToGeneralView($event)'
-  ></assign-link-project>
   <assign-supporting-file-project
-    *ngIf = "pageTitle == 'Links'"
+    *ngIf = "pageTitle == 'Supporting files'"
     [supportingFileList] = "project.supportingFileList"
     (onSupportingFileListUpdated) = "updateSupportingFileList($event)"
     (onClose) = 'goToGeneralView($event)'
   ></assign-supporting-file-project>
+  
+  <assign-link-project
+    *ngIf = "pageTitle == 'Links'"
+    [linkUrlList]="project.linkUrlList"
+    (onLinkUrlListUpdated) = "updateLinkUrlList($event)"
+    (onClose) = 'goToGeneralView($event)'
+  ></assign-link-project>
+
+  
 
  
   <select-or-add-assigned-certification
