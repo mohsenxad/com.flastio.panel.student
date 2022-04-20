@@ -19,6 +19,7 @@ Student Panel serves on Cloudflare Pages
 1. change app version in package.json
 2. uncomment Bugfender in src/app/app.module.ts
 3. commit to  main branch of github repository
+4. clear cloudflare cache & make it on development
 4. test all functionality
 
 ## Code scaffolding
