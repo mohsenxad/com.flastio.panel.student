@@ -29,7 +29,7 @@ export class AddPagingProjectComponent implements OnInit {
 
   hadItem(pageTitle:String):Boolean{
     if(
-      pageTitle == 'Attachment' &&
+      pageTitle == 'Supporting files' &&
       this.hadAttachment
     ){
       return true;
@@ -44,7 +44,7 @@ export class AddPagingProjectComponent implements OnInit {
     ){
       return true;
     }else if(
-      pageTitle == 'Team' &&
+      pageTitle == 'Add contributors' &&
       this.hadTeam
     ){
       return true;
