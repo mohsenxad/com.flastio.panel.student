@@ -1,21 +1,29 @@
+.file-uploaded {
+  background-color: #f4f9fd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 13px;
+  border-radius: 14px;
+  padding-right: 13px;
+}
 u {
   font-size: 14px;
   font-stretch: normal;
+  color: #3f8cff;
   font-style: normal;
   line-height: 1.57;
   letter-spacing: normal;
-  color: #3f8cff;
   text-decoration: none;
   border-radius: 14px;
-  background-color: #f4f9fd;
   padding: 13px 13px 8px 13px;
   display: flex;
-  &::before{
+  &::before {
     content: url(/assets/images/icn-general-hint-blue.svg);
     margin-right: 12px;
   }
 }
-.remove-picture{
+.remove-picture {
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
@@ -28,7 +36,7 @@ u {
   background: none;
   border: none;
 
-  &::before{
+  &::before {
     content: url(/assets/images/icn-general-delete-red.svg);
     margin-right: 8px;
     -webkit-writing-mode: vertical-rl;

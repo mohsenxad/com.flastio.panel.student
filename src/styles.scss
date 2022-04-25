@@ -203,3 +203,14 @@ ul {
 select {
   font-size: 14px;
 }
+
+.required {
+  &::after {
+    content: " *";
+    display: inline;
+    color: #f65160;
+    font-size: 16px;
+    opacity: 0.7;
+
+  }
+}
