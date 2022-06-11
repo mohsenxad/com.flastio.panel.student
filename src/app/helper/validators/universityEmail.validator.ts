@@ -48,7 +48,10 @@ export class UniversityEmailValidator {
     
           if(
             !this.whiteListEmail.includes(email) &&
-            !email.endsWith(".edu")
+            !(
+              email.endsWith(".edu") ||
+              email.endsWith(".org")
+            )
           ){
             validationResult.hasError = true;
             validationResult.messageList.push("Enter Valid University Email Address");

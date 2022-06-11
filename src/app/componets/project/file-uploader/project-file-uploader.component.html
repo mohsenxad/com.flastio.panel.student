@@ -11,22 +11,22 @@
   onload="setDropable()"
 >
   <p>
-    Project Summary file
+	Project Summary file
   </p>
   <span>
-    Drag your files here to upload
+	Drag your files here to upload
   </span>
   <label
-    for="certificationFile"
+	for="certificationFile"
   >
-    or click to browse
+	or click to browse
   </label>
   <input
-    type="file"
-    id='certificationFile'
-    name='certificationFile'
-    (change)="handleFileInput($event.target.files)"
-    [disabled]="isLoading"
+	type="file"
+	id='certificationFile'
+	name='certificationFile'
+	(change)="handleFileInput($event.target.files)"
+	[disabled]="isLoading"
   >
 </div>
 
@@ -34,17 +34,18 @@
   *ngIf="isFileUploaded"
   class="uploader-summary"
 >
-  <p>Final_Project_SOM_Fall21.PDF
-    <span>PDF</span>
+  <p>
+	File Uploaded
+	<span>
+	  {{summaryFile.fileExtention}}
+	</span>
   </p>
-  <!-- <button
-    class = "remove-picture"
-    (click) = "remove()"
-  >
-    Remove
-  </button> -->
   <div>
-    <button>View</button>
-  <button>delete</button>
+	<!-- <button>View</button> -->
+	<button
+	  (click) = "remove()"
+	>
+		delete
+	</button>
   </div>
 </div>
