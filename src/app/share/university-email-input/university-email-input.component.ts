@@ -78,7 +78,8 @@ export class UniversityEmailInputComponent implements OnInit {
         !this.whiteListEmail.includes(email) &&
         !(
           email.endsWith(".edu")||
-          email.endsWith(".org")
+          email.endsWith(".org") ||
+          email.includes(".edu.")
         )
       ){
         validationResult.hasError = true;
