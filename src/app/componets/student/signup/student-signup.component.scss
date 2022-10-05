@@ -208,6 +208,10 @@ form {
   }
 
   form {
+    width: 92%;
+    margin: 0 16px;
+    padding: 16px;
+    box-sizing: border-box;
     legend {
       font-size: 24px;
       font-weight: bold;
