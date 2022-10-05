@@ -338,11 +338,20 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 992px) {
+  section {
+    width: 92%;
+    margin: 0 16px;
+    box-sizing: border-box;
+  }
   form {
     width: 100%;
     box-sizing: border-box;
     margin: 0;
     padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .add-detail-student-start {
     width: 100%;
