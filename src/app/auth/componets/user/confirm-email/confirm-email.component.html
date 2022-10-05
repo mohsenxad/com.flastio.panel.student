@@ -4,7 +4,7 @@
     ></loading>
 
     <div
-        *ngIf = "!isLoading"
+        *ngIf = "!isLoading && !isTokenExpired"
     >
         <h1>
             Your email has been verified  
@@ -19,5 +19,56 @@
         >
             Sign in
         </a>
+    </div>
+    <div
+        *ngIf = "!isLoading && isTokenExpired && !isConfrimEmailResend"
+    >
+        <form
+            #form = "ngForm"
+        >
+            <legend>
+                Your Email Confirmation Link has been Expired! We Will send You another Email.
+            </legend>
+            <fieldset
+                [disabled] = "isLoading"
+            >
+                <ul>
+                    <li>
+                        <label
+                            for = "cmpEmail"
+                        >
+                            Email Address
+                        </label>
+                        <university-email-input
+                            id = "cmpEmail"
+                            name = "cmpEmail"
+                            (onSetEmail) = 'setEmail($event)'
+                        ></university-email-input>
+                    </li>
+                </ul>
+                <button
+                    [disabled]="!resendEmailAddress"
+                    class = "student-signup-submit"
+                    (click) = "resendConfirmationEmail()"
+                >
+                    Send
+                </button>
+                <loading
+                    *ngIf = 'isLoading'
+                ></loading>
+            </fieldset>
+        </form>
+
+    </div>
+
+    <div
+        *ngIf="isConfrimEmailResend"
+    >
+        <h1>
+            New Confirmation Email, Sent to Your Email.
+        </h1>
+        <p>
+            Check Your Inbox! befor It Expire again.
+        </p>
     </div>
 </div>
