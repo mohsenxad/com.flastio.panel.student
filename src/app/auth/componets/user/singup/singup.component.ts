@@ -9,14 +9,14 @@ import { UserService } from 'src/app/auth/services/user/user.service';
 })
 export class SingupComponent implements OnInit {
 
-	email: String;
-	password: String;
+	email: string;
+	password: string;
 	reEnterPassword: String;
 
 	isLoading : Boolean = false;
 	validationResult: ValidationResult = {
-	hasError : false,
-	messageList: []
+		hasError : false,
+		messageList: []
 	};
 
 	isCheckMailVisible: Boolean = false;
@@ -92,10 +92,22 @@ export class SingupComponent implements OnInit {
 						}
 					catch (error)
 						{
-							this.validationResult = {
-								hasError : true,
-								messageList: [error.error]
+							if(
+								error.statusCode == 409 &&
+								error.error == "name already in use"
+							){
+								const emailAlreadyInUserMessage= 'There is an account with this email address.Please Use Login!'
+								this.validationResult = {
+								  hasError : true,
+								  messageList: [emailAlreadyInUserMessage]
+								};
+							}else{
+								this.validationResult = {
+									hasError : true,
+									messageList: [error.error]
+								}
 							}
+							
 						}
 					this.isLoading = false;
 			}

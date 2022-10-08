@@ -122,7 +122,6 @@ import { AnalyticsUpgradeRequireComponent } from './componets/analytics/upgrade-
 import { ConfirmDowngradeModalComponent } from './componets/plane/confirm-downgrade-modal/confirm-downgrade-modal.component';
 
 
-
 // Bugfender.init({
 //   appKey: 'X9Syu7gp1mVnE3lywGTk76FcTnkWe7jY',
 // });
@@ -241,6 +240,7 @@ import { ConfirmDowngradeModalComponent } from './componets/plane/confirm-downgr
     ShareProfileUpgradeRequireComponent,
     AnalyticsUpgradeRequireComponent,
     ConfirmDowngradeModalComponent
+    
   ],
   imports: [
     BrowserModule,

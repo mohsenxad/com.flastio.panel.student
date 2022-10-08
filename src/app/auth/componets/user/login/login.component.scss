@@ -57,6 +57,14 @@
 //     }
 //   }
 // }
+div {
+  width: 70%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 form {
   margin: 0;
   padding: 0;
@@ -145,6 +153,32 @@ form {
   box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
   background-color: #3f8cff;
   font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #fff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 28px 6px 28px;
+  cursor: pointer;
+  margin-top: 60px;
+  margin-bottom: 70px;
+  &::after {
+    content: url(/assets/images/icn-general-arrow-left-white.svg);
+    transform: rotate(180deg);
+    margin-left: 15px;
+  }
+}
+
+.student-resend-submit {
+  border-radius: 14px;
+  box-shadow: 0 6px 12px 0 rgba(63, 140, 255, 0.26);
+  background-color: #24a36c;
+  font-size: 14px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;

@@ -12,6 +12,7 @@ import { WorkStyleTestComponent } from './componets/workStyle/test/work-style-te
 import { AuthHomeComponent } from './auth/auth-home/auth-home.component';
 import { UpgradePlaneComponent } from './componets/plane/upgrade/upgrade-plane.component';
 import { StudentHomeComponent } from './componets/student/home/student-home.component';
+import { ResetPasswordComponent } from './auth/componets/user/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'confirmEmail', 
         component: ConfirmEmailComponent,
+      },
+      {
+        path: 'resetPassword', 
+        component: ResetPasswordComponent,
       },
       {
         path: '',

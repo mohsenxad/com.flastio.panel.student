@@ -9,100 +9,147 @@ import { Student } from '../../../../model/student';
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
 
-  email: string;
-  password: string;
-  isLoading : Boolean = false;
-  validationResult: ValidationResult = {
-    hasError : false,
-    messageList: []
-  };
+	email: string;
+	password: string;
+	isLoading : Boolean = false;
+	conftirmEmailRequired: Boolean = false;
+	validationResult: ValidationResult = {
+		hasError : false,
+		messageList: []
+	};
+	isConfrimEmailResend: boolean = false;
+	isInvalidUserPass: boolean = false;
 
-  constructor(
-    private router: Router,
-    private localStorageService: LocalStorageService,
-    private userService:UserService,
-    private studentService: StudentService
+	constructor(
+		private router: Router,
+		private localStorageService: LocalStorageService,
+		private userService:UserService,
+		private studentService: StudentService
+	) { }
 
-  ) { }
+	ngOnInit(): void {
+		this.isLogedIn()
+	}
 
-  ngOnInit(): void {
-    this.isLogedIn()
-  }
+	setEmail(email:string):void{
+		this.email = email;
+	}
 
-  setEmail(email:string):void{
-    this.email = email;
-  }
+	setPassword(password:string):void{
+		this.password = password;
+	}
 
-  setPassword(password:string):void{
-    this.password = password;
-  }
-
-  isLogedIn(){
-    let student: Student = this.localStorageService.getStudent();
-    if(student){
-      this.router.navigateByUrl('/student/panel');
-    }
-  }
+	isLogedIn(){
+		let student: Student = this.localStorageService.getStudent();
+		if(student){
+			this.router.navigateByUrl('/student/panel');
+		}
+	}
 
 
-  validate():ValidationResult{
-    let result: ValidationResult = {
-      hasError : false,
-      messageList: []
-    };
+	validate():ValidationResult
+		{
+			let result: ValidationResult = {
+				hasError : false,
+				messageList: []
+			};
 
-    if(!this.email){
-      result.hasError = true;
-      result.messageList.push("Enter Email Address");
-    }
+			if(!this.email){
+				result.hasError = true;
+				result.messageList.push("Enter Email Address");
+			}
 
-    if(!this.password){
-      result.hasError = true;
-      result.messageList.push("Enter Password");
-    }
+			if(!this.password){
+				result.hasError = true;
+				result.messageList.push("Enter Password");
+			}
 
-    return result;
-  }
+			return result;
+		}
 
-  async login():Promise<void> {
-    this.validationResult = this.validate();
-    if(!this.validationResult.hasError){
-      this.isLoading = true;
-      try {
-        await this.userService.login(this.email, this.password); 
-        let student: Student = await this.studentService.getStudentInfo();
-        this.isLoading = false;
-        
-        if(student){
-          this.router.navigateByUrl('/student/panel');
-        }else{
-          this.router.navigateByUrl('/student/signup');
-        }
-      } catch (error) {
-        this.isLoading = false;
-        if(
-          error.statusCode == 401 &&
-          error.error == "invalid username/password"
-        ){
-          this.validationResult = {
-            hasError : true,
-            messageList: [error.error]
-          };
-        }
-        console.log(error);
-        
-      }
-    }
-    
-    
-    
-  }
+	async login():Promise<void>
+		{
+			this.validationResult = this.validate();
 
+			if(!this.validationResult.hasError)
+				{
+					this.isLoading = true;
+					try 
+						{
+							await this.userService.login(this.email, this.password); 
+							let student: Student = await this.studentService.getStudentInfo();
+							this.isLoading = false;
+							
+							if(student){
+								this.router.navigateByUrl('/student/panel');
+							}else{
+								this.router.navigateByUrl('/student/signup');
+							}
+						}
+					catch(error)
+						{
+							this.isLoading = false;
+							if(
+								error.statusCode == 401 &&
+								error.error == "invalid username/password"
+							)
+								{
+									const invalidUserNameOrPasswordMessage = 'Invalid Email or Password.Try Again!'
+									//this.isInvalidUserPass = true;
+									this.validationResult = {
+										hasError : true,
+										messageList: [invalidUserNameOrPasswordMessage]
+									};
+								}
+							else if(
+								error.statusCode == 401 &&
+								error.error == "confirmation required"
+							)
+								{
+									this.conftirmEmailRequired = true;
+									const confrimEmailRequiredMessage= 'You have to Confirm Your email address from your Inbox!'
+									this.validationResult = {
+										hasError : true,
+										messageList: [confrimEmailRequiredMessage]
+									};
+								}
+							else
+								{
+									this.validationResult = {
+									hasError : true,
+									messageList: [error.error]
+									};
+								}
+							console.log(error);
+						}
+				}
+		}
+
+	async resendConfirmationEmail()
+		{
+			if(!this.email) return;
+			this.isLoading = true;
+			try 
+				{					
+					await this.userService.resendConfirmationEmail(this.email);
+					this.isLoading = false;
+					this.isConfrimEmailResend = true;
+				}
+			catch (error) 
+				{
+					console.log(error);
+					this.isLoading = false;
+					this.validationResult = {
+						hasError : true,
+						messageList: [error.error]
+					}
+				}
+		}
 }

@@ -1,76 +1,110 @@
-  <form
-    #form = "ngForm"
-  >
-    <legend>
-      Login
-    </legend>
-    <fieldset
-      [disabled] = "isLoading"
-    >
-      <ul>
-        <li>
-          <label
-            for = "cmpEmail"
-          >
-            Email Address
-          </label>
-          <university-email-input
-            id = "cmpEmail"
-            name = "cmpEmail"
-            (onSetEmail) = 'setEmail($event)'
-          ></university-email-input>
-        </li>
-        <li>
-          <label
-            for = "cmpPassword"
-          >
-            Password
-          </label>
-          <password-input
-            id = "cmpPassword"
-            name = "cmpPassword"
-            (onSetPassword)="setPassword($event)"
-          ></password-input>
+	<form
+		#form = "ngForm"
+		*ngIf = "!isConfrimEmailResend"
+	>
+		<legend>
+		Login
+		</legend>
+		<fieldset
+		[disabled] = "isLoading"
+		>
+		<ul>
+			<li>
+			<label
+				for = "cmpEmail"
+			>
+				Email Address
+			</label>
+			<university-email-input
+				id = "cmpEmail"
+				name = "cmpEmail"
+				(onSetEmail) = 'setEmail($event)'
+			></university-email-input>
+			</li>
+			<li>
+			<label
+				for = "cmpPassword"
+			>
+				Password
+			</label>
+			<password-input
+				id = "cmpPassword"
+				name = "cmpPassword"
+				(onSetPassword)="setPassword($event)"
+			></password-input>
 
-        </li>
-      </ul>
-      <validation-result
-        *ngIf = "validationResult"
-        [validationResult] = "validationResult"
-      ></validation-result>
-      <button
-        class = "student-signup-submit"
-        (click) = "login()"
-      >
-        Login
-      </button>
-      <loading
-        *ngIf = 'isLoading'
-      ></loading>
-      <p>
-        Go to 
-        <a
-          routerLink = '/auth/signup'
-        >
-          Signup
-        </a>
-      </p>
-      <p>
-        By signing up, I agree to the Flastio
-      <a
-        href = "https://www.flastio.com/privacy"
-        target = "_blank"
-      >
-        Privacy Policy
-      </a>
-      and
-      <a
-        href = "https://www.flastio.com/terms"
-        target = "_blank"
-      >
-        Terms of Service
-      </a>
-      .
-      </p>
-    </fieldset>
-  </form>
+			</li>
+		</ul>
+		<validation-result
+			*ngIf = "validationResult"
+			[validationResult] = "validationResult"
+		></validation-result>
+		
+		<button
+			class = "student-signup-submit"
+			(click) = "login()"
+		>
+			Login
+		</button>
+
+			<loading
+				*ngIf = 'isLoading'
+			></loading>
+
+			
+			<button
+				*ngIf = "conftirmEmailRequired"
+				class = "student-resend-submit"
+				(click) = "resendConfirmationEmail()"
+			>
+				Resend Confirmation Email
+			</button>
+			
+			<p>
+				Go to 
+				<a
+					routerLink = '/auth/signup'
+				>
+					Signup
+				</a>
+			</p>
+			<p
+				*ngIf = "isInvalidUserPass"
+			>
+				Go to 
+				<a
+					routerLink = '/auth/resetPassword'
+				>
+					Reset Password
+				</a>
+			</p>
+			
+		<p>
+			By signing up, I agree to the Flastio
+		<a
+			href = "https://www.flastio.com/privacy"
+			target = "_blank"
+		>
+			Privacy Policy
+		</a>
+		and
+		<a
+			href = "https://www.flastio.com/terms"
+			target = "_blank"
+		>
+			Terms of Service
+		</a>
+		.
+		</p>
+		</fieldset>
+	</form>
+<div
+	*ngIf = "isConfrimEmailResend"
+>
+	<h1>
+		New Confirmation Email, Sent to Your Email.
+	</h1>
+	<p>
+		Check Your Inbox! befor It Expire again.
+	</p>
+</div>
