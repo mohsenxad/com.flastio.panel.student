@@ -114,10 +114,11 @@ export class LoginComponent implements OnInit {
 							)
 								{
 									this.conftirmEmailRequired = true;
-									const confrimEmailRequiredMessage= 'You have to Confirm Your email address from your Inbox!'
+									const confrimEmailRequiredMessage= "You'll need to confirm your email address. Please check your inbox."
+									const useResendConfirmationCodeMessage = "If you have not received a verification email, use the resend button below."
 									this.validationResult = {
 										hasError : true,
-										messageList: [confrimEmailRequiredMessage]
+										messageList: [confrimEmailRequiredMessage,useResendConfirmationCodeMessage]
 									};
 								}
 							else

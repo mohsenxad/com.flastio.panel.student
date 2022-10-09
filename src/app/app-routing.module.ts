@@ -13,6 +13,7 @@ import { AuthHomeComponent } from './auth/auth-home/auth-home.component';
 import { UpgradePlaneComponent } from './componets/plane/upgrade/upgrade-plane.component';
 import { StudentHomeComponent } from './componets/student/home/student-home.component';
 import { ResetPasswordComponent } from './auth/componets/user/reset-password/reset-password.component';
+import { EmailConfirmedComponent } from './auth/componets/user/email-confirmed/email-confirmed.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'confirmEmail', 
         component: ConfirmEmailComponent,
+      },
+      {
+        path: 'emailConfirmed', 
+        component: EmailConfirmedComponent,
       },
       {
         path: 'resetPassword', 

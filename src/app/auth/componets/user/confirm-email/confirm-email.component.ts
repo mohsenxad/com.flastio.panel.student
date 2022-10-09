@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/auth/services/user/user.service';
 import { ValidationResult } from 'src/app/model/validationResult';
 
@@ -26,6 +26,7 @@ export class ConfirmEmailComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private userService: UserService,
+		private router: Router,
 	){}
 
 
@@ -75,44 +76,32 @@ export class ConfirmEmailComponent implements OnInit {
 			this.resendEmailAddress = email;
 		}
 
-	async confirmUser(){
-	this.isLoading = true;
-	console.log('we are here');
+	async confirmUser()
+		{
+			this.isLoading = true;
+			console.log('we are here');
 
-	try
-		{
-			await this.userService.confirmUser(this.token,this.tokenId);
-			this.isLoading = false;
-		}
-	catch (error)
-		{
-			if(error.error == "userpass token is expired or invalid"){
-				this.isTokenExpired = true;
-				try 
-					{					
-						//await this.userService.resendConfirmationEmail("xad@flekswork.com")		
-						this.isLoading = false;
-					}
-				catch (error) 
-					{
+			try
+				{
+					await this.userService.confirmUser(this.token,this.tokenId);
+					this.isLoading = false;
+					this.router.navigateByUrl('/auth/emailConfirmed');
+				}
+			catch (error)
+				{
+					if(error.error == "userpass token is expired or invalid"){
+						this.isTokenExpired = true;
+					}else{
 						console.log(error);
 						this.isLoading = false;
 						this.validationResult = {
 							hasError : true,
 							messageList: [error.error]
 						}
-					}
-			}else{
-				console.log(error);
-				this.isLoading = false;
-				this.validationResult = {
-					hasError : true,
-					messageList: [error.error]
+					
+					};
 				}
-			
-			};
-		}
 
-	}
+		}
 
 }

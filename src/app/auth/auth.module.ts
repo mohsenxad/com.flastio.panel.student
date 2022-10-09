@@ -7,6 +7,7 @@ import { ShareModule } from '../share/share.module';
 import { RouterModule } from '@angular/router';
 import { PasswordInputComponent } from './componets/share/password-input/password-input.component';
 import { ResetPasswordComponent } from './componets/user/reset-password/reset-password.component';
+import { EmailConfirmedComponent } from './componets/user/email-confirmed/email-confirmed.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ResetPasswordComponent } from './componets/user/reset-password/reset-pa
     ConfirmEmailComponent,
     AuthHomeComponent,
     PasswordInputComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    EmailConfirmedComponent
   ],
   imports: [
     ShareModule,
