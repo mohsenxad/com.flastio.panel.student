@@ -90,6 +90,7 @@ export class ConfirmEmailComponent implements OnInit {
 			catch (error)
 				{
 					if(error.error == "userpass token is expired or invalid"){
+						this.isLoading = false;
 						this.isTokenExpired = true;
 					}else{
 						console.log(error);
