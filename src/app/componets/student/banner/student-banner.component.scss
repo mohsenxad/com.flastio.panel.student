@@ -57,6 +57,7 @@ ul {
     }
     &:nth-child(2) {
       margin: 0 16px;
+      visibility: hidden;
       button {
         content: "";
         background-image: url(/assets/images/eye.svg);
