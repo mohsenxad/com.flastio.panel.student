@@ -1,4 +1,59 @@
-section{
-    width: 200px;
-    
+.student-modal-banner {
+  border-radius: 7px;
+  box-shadow: 0 6px 58px 0 rgb(121 145 173 / 20%);
+  background-color: #fff;
+  width: 350px;
+  text-align: center;
+  padding: 30px;
+  z-index: 7;
+  position: absolute;
+  //   left: 50%;
+  //   transform: translate(-50%, 50%);
+  left: 40%;
+  top: 20%;
+}
+menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  li {
+    &:nth-child(1) {
+      button {
+        font-size: 14px;
+        font-weight: bold;
+        padding: 9px 15px;
+        box-shadow: 0 6px 12px 0 rgb(63 140 255 / 26%);
+        background-color: #3f8cff;
+        font-weight: bold;
+        color: #fff;
+        transition: 0.5s;
+        border: none;
+        border-radius: 8px;
+        &:hover {
+          background-color: #3a81eb;
+          transition: 0.5s;
+        }
+      }
+    }
+    &:nth-child(2) {
+      button {
+        font-size: 14px;
+        font-weight: bold;
+        padding: 8px 10px;
+        color: #91929e;
+        border-radius: 8px;
+        box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
+        border: solid 1px #d8e0f0;
+        background-color: #fff;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+          border: solid 1px #91929e;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
 }
