@@ -120,7 +120,8 @@ import { AnalyticsWorkingModalComponent } from './componets/analytics/working-mo
 import { ShareProfileUpgradeRequireComponent } from './componets/shareProfile/upgrade-require/share-profile-upgrade-require.component';
 import { AnalyticsUpgradeRequireComponent } from './componets/analytics/upgrade-require/analytics-upgrade-require.component';
 import { ConfirmDowngradeModalComponent } from './componets/plane/confirm-downgrade-modal/confirm-downgrade-modal.component';
-
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { ProfileImageCropperComponent } from './componets/student/profile-image-cropper/profile-image-cropper.component';
 
 // Bugfender.init({
 //   appKey: 'X9Syu7gp1mVnE3lywGTk76FcTnkWe7jY',
@@ -239,7 +240,8 @@ import { ConfirmDowngradeModalComponent } from './componets/plane/confirm-downgr
     AnalyticsWorkingModalComponent,
     ShareProfileUpgradeRequireComponent,
     AnalyticsUpgradeRequireComponent,
-    ConfirmDowngradeModalComponent
+    ConfirmDowngradeModalComponent,
+    ProfileImageCropperComponent
     
   ],
   imports: [
@@ -249,6 +251,7 @@ import { ConfirmDowngradeModalComponent } from './componets/plane/confirm-downgr
     NgxQRCodeModule,
     ShareModule,
     AuthModule,
+    ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent],

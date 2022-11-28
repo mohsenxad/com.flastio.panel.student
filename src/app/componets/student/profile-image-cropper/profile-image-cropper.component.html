@@ -1,0 +1,30 @@
+<section>
+    <image-cropper
+        [imageChangedEvent]="selectedProfileImage"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="3 / 3"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded($event)"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()"
+    ></image-cropper>
+
+    <menu>
+        <li>
+            <button
+                (click)="done()"
+            >
+                Done
+            </button>
+        </li>
+        <li>
+            <button
+                (click)="cancel()"
+            >
+                Cancel
+            </button>
+            
+        </li>
+    </menu>
+</section>
